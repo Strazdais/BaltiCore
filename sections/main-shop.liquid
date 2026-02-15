@@ -1,0 +1,211 @@
+{{ 'shop-page.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="shop-page section-{{ section.id }}-padding">
+  <div class="shop-page__container page-width">
+
+    {%- comment -%} Breadcrumb {%- endcomment -%}
+    <nav class="shop-breadcrumb" aria-label="Breadcrumb">
+      <ol class="shop-breadcrumb__list">
+        <li class="shop-breadcrumb__item">
+          <a href="/" class="shop-breadcrumb__link">Home</a>
+        </li>
+        <li class="shop-breadcrumb__item">
+          <span class="shop-breadcrumb__separator" aria-hidden="true">/</span>
+          <span class="shop-breadcrumb__current" id="shopBreadcrumbCurrent">Shop</span>
+        </li>
+      </ol>
+    </nav>
+
+    {%- comment -%} Page header {%- endcomment -%}
+    <div class="shop-header">
+      <h1 class="shop-header__title" id="shopPageTitle">Shop All Workwear</h1>
+      <p class="shop-header__count" id="shopProductCount"></p>
+    </div>
+
+    <div class="shop-layout">
+
+      {%- comment -%} ===== Filter sidebar (desktop) ===== {%- endcomment -%}
+      <aside class="shop-filters" id="shopFilters" aria-label="Product filters">
+        <div class="shop-filters__header">
+          <h2 class="shop-filters__title">Filters</h2>
+          <button class="shop-filters__clear-all" id="shopClearAllFilters" type="button" style="display:none;">
+            Clear all
+          </button>
+        </div>
+
+        {%- comment -%} Active filter pills (desktop) {%- endcomment -%}
+        <div class="shop-active-filters" id="shopActiveFilters"></div>
+
+        {%- comment -%} Filter groups are rendered by JS {%- endcomment -%}
+        <div class="shop-filters__groups" id="shopFilterGroups"></div>
+      </aside>
+
+      {%- comment -%} ===== Main content area ===== {%- endcomment -%}
+      <div class="shop-main">
+
+        {%- comment -%} Toolbar: mobile filter button + sort {%- endcomment -%}
+        <div class="shop-toolbar">
+          <button class="shop-toolbar__filter-btn" id="shopMobileFilterBtn" type="button" aria-controls="shopMobileDrawer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+            <span>Filter</span>
+            <span class="shop-toolbar__filter-count" id="shopMobileFilterCount"></span>
+          </button>
+
+          {%- comment -%} Active filter pills (mobile — inline) {%- endcomment -%}
+          <div class="shop-active-filters shop-active-filters--mobile" id="shopActiveFiltersMobile"></div>
+
+          <div class="shop-toolbar__sort">
+            <label for="shopSortSelect" class="shop-toolbar__sort-label">Sort by</label>
+            <div class="shop-toolbar__sort-wrapper">
+              <select id="shopSortSelect" class="shop-toolbar__sort-select">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="newest">Newest</option>
+                <option value="best-selling">Best Selling</option>
+              </select>
+              <svg class="shop-toolbar__sort-caret" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%} Product grid {%- endcomment -%}
+        <div class="shop-product-grid" id="shopProductGrid" role="list" aria-label="Products"></div>
+
+        {%- comment -%} Empty state {%- endcomment -%}
+        <div class="shop-empty" id="shopEmptyState" style="display:none;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          <h2 class="shop-empty__title">No products found</h2>
+          <p class="shop-empty__text">Try adjusting your filters to find what you're looking for.</p>
+          <button class="shop-empty__clear button" id="shopEmptyClearBtn" type="button">Clear all filters</button>
+        </div>
+
+        {%- comment -%} Pagination / Load More {%- endcomment -%}
+        <div class="shop-pagination" id="shopPagination" style="display:none;">
+          <button class="shop-pagination__btn button button--secondary" id="shopLoadMoreBtn" type="button">
+            Load more products
+          </button>
+          <p class="shop-pagination__info" id="shopPaginationInfo"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ===== Mobile filter drawer ===== {%- endcomment -%}
+  <div class="shop-mobile-drawer" id="shopMobileDrawer" aria-hidden="true">
+    <div class="shop-mobile-drawer__overlay" id="shopDrawerOverlay"></div>
+    <div class="shop-mobile-drawer__panel">
+      <div class="shop-mobile-drawer__header">
+        <h2 class="shop-mobile-drawer__title">Filter</h2>
+        <button class="shop-mobile-drawer__close" id="shopDrawerClose" type="button" aria-label="Close filters">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="shop-mobile-drawer__body" id="shopMobileFilterGroups"></div>
+      <div class="shop-mobile-drawer__footer">
+        <button class="shop-mobile-drawer__clear" id="shopDrawerClearAll" type="button">Clear all</button>
+        <button class="shop-mobile-drawer__apply button" id="shopDrawerApply" type="button">
+          Show results (<span id="shopDrawerResultCount">0</span>)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ===== Quick-view drawer ===== {%- endcomment -%}
+  <div class="shop-quickview" id="shopQuickview" aria-hidden="true">
+    <div class="shop-quickview__overlay" id="shopQuickviewOverlay"></div>
+    <div class="shop-quickview__panel" role="dialog" aria-modal="true" aria-label="Product quick view">
+      <button class="shop-quickview__close" id="shopQuickviewClose" type="button" aria-label="Close quick view">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="shop-quickview__content" id="shopQuickviewContent"></div>
+    </div>
+  </div>
+</div>
+
+{%- comment -%} ===== Product data from Shopify ===== {%- endcomment -%}
+{%- paginate collections.all.products by 250 -%}
+<script type="application/json" id="shopify-product-data">
+[
+  {%- for product in collections.all.products -%}
+    {
+      "id": {{ product.id | json }},
+      "handle": {{ product.handle | json }},
+      "name": {{ product.title | json }},
+      "vendor": {{ product.vendor | json }},
+      "url": {{ product.url | json }},
+      "price": {{ product.price | divided_by: 100.0 }},
+      "comparePrice": {% if product.compare_at_price and product.compare_at_price > product.price %}{{ product.compare_at_price | divided_by: 100.0 }}{% else %}null{% endif %},
+      "available": {{ product.available | json }},
+      "image": {% if product.featured_media %}{{ product.featured_media.preview_image | image_url: width: 600 | json }}{% else %}null{% endif %},
+      "imageAlt": {% if product.media[1] %}{{ product.media[1].preview_image | image_url: width: 600 | json }}{% else %}null{% endif %},
+      "tags": {{ product.tags | json }},
+      "type": {{ product.type | json }},
+      "createdAt": {{ product.created_at | json }},
+      "variants": [
+        {%- for variant in product.variants -%}
+          {
+            "id": {{ variant.id | json }},
+            "title": {{ variant.title | json }},
+            "price": {{ variant.price | divided_by: 100.0 }},
+            "available": {{ variant.available | json }}
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+]
+</script>
+{%- endpaginate -%}
+
+<script src="{{ 'shop-page.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Shop Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop Page"
+    }
+  ]
+}
+{% endschema %}
