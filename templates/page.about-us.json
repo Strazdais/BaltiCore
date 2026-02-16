@@ -1,71 +1,68 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
-    "image_with_text_kEMTiw": {
-      "type": "image-with-text",
+    "about_spars": {
+      "type": "about-spars",
       "blocks": {
-        "heading_n336ih": {
-          "type": "heading",
+        "pillar_1": {
+          "type": "pillar",
           "settings": {
-            "heading": "test",
-            "heading_size": "h1"
+            "text": "Reliable, high-quality workwear"
           }
         },
-        "text_jKkNni": {
-          "type": "text",
+        "pillar_2": {
+          "type": "pillar",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body"
+            "text": "Practical solutions for professionals"
           }
         },
-        "button_TweNn7": {
-          "type": "button",
+        "pillar_3": {
+          "type": "pillar",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
+            "text": "Honest communication and long-term partnerships"
+          }
+        },
+        "pillar_4": {
+          "type": "pillar",
+          "settings": {
+            "text": "Fast and dependable service"
           }
         }
       },
       "block_order": [
-        "heading_n336ih",
-        "text_jKkNni",
-        "button_TweNn7"
+        "pillar_1",
+        "pillar_2",
+        "pillar_3",
+        "pillar_4"
       ],
-      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "hero_title": "Industrial Excellence",
+        "badge_number": "06+",
+        "badge_label": "Years Logistics Exp.",
+        "section_label": "Our Story",
+        "heading_prefix": "Why",
+        "heading_highlight": "SPARS?",
+        "paragraph_1": "SPARS was founded by two Latvian entrepreneurs who understand what real hard work looks like. Before building this brand, we spent more than six years working in logistics — where precision, reliability, and responsibility are non-negotiable.",
+        "paragraph_2": "We know what it means to work long hours in demanding conditions. We know the importance of durable clothing that performs in real environments — not just in catalogs.",
+        "blockquote": "That experience shaped how we build SPARS.",
+        "closing_1": "We don't cut corners. We don't overpromise. We deliver what we commit to.",
+        "closing_2": "Our goal is simple: provide workwear and sportswear that professionals can trust every day — on construction sites, in factories, in workshops, and beyond.",
+        "closing_emphasis": "When you choose SPARS, you're working with people who understand hard work — because we've done it ourselves.",
+        "cta_primary_label": "Get In Touch",
+        "cta_primary_link": "/pages/contact-us",
+        "cta_secondary_label": "View Catalog",
+        "cta_secondary_link": "/pages/shop"
       }
     }
   },
   "order": [
     "main",
-    "image_with_text_kEMTiw"
+    "about_spars"
   ]
 }

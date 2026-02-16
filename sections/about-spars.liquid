@@ -1,0 +1,338 @@
+{{ 'about-spars.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Google Fonts: Oswald (display) + Roboto (body)
+{%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+{%- comment -%}
+  Hide the default main-page section (page title + content) that precedes this section.
+  In Shopify JSON templates, sections render as siblings, so we use JS to hide it.
+{%- endcomment -%}
+<style>
+  .about-spars-wrapper ~ .section,
+  .section:has(+ .about-spars-wrapper) {
+    display: none !important;
+  }
+</style>
+<script>
+  /* Hide the main-page section that sits above the about-spars section */
+  (function() {
+    var el = document.querySelector('.about-spars-wrapper');
+    if (el) {
+      var prev = el.previousElementSibling;
+      while (prev) {
+        if (prev.classList.contains('section') || prev.querySelector('.main-page-title')) {
+          prev.style.display = 'none';
+          break;
+        }
+        prev = prev.previousElementSibling;
+      }
+    }
+  })();
+</script>
+
+<div class="about-spars-page">
+
+  {%- comment -%}
+    ========== HERO BANNER ==========
+  {%- endcomment -%}
+  <div class="about-spars-hero">
+    {%- if section.settings.hero_image != blank -%}
+      <img
+        class="about-spars-hero__texture"
+        src="{{ section.settings.hero_image | image_url: width: 1920 }}"
+        alt="texture"
+        loading="eager"
+        width="1920"
+        height="800"
+      >
+    {%- endif -%}
+    <h1 class="about-spars-hero__title">{{ section.settings.hero_title }}</h1>
+  </div>
+
+  {%- comment -%}
+    ========== ABOUT / WHY SPARS SECTION ==========
+  {%- endcomment -%}
+  <section class="about-spars-section">
+    <div class="about-spars-section__inner">
+      <div class="about-spars-layout">
+
+        {%- comment -%} LEFT COLUMN: Image with overlays {%- endcomment -%}
+        <div class="about-spars-image-col">
+          <div class="about-spars-image-container">
+            {%- if section.settings.about_image != blank -%}
+              <img
+                src="{{ section.settings.about_image | image_url: width: 800 }}"
+                alt="Why SPARS - Our Workshop"
+                loading="lazy"
+                width="800"
+                height="1000"
+              >
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+
+            {%- comment -%} Inner border overlay {%- endcomment -%}
+            <div class="about-spars-image-border"></div>
+
+            {%- comment -%} Corner geometric accent {%- endcomment -%}
+            <div class="about-spars-corner-accent"></div>
+
+            {%- comment -%} Experience badge {%- endcomment -%}
+            <div class="about-spars-badge">
+              <div class="about-spars-badge__number">{{ section.settings.badge_number }}</div>
+              <div class="about-spars-badge__label">{{ section.settings.badge_label }}</div>
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%} RIGHT COLUMN: Text content {%- endcomment -%}
+        <div class="about-spars-content-col">
+
+          {%- comment -%} Section label {%- endcomment -%}
+          <div class="about-spars-label">
+            <div class="about-spars-label__line"></div>
+            {{ section.settings.section_label }}
+          </div>
+
+          {%- comment -%} Main heading {%- endcomment -%}
+          <h2 class="about-spars-heading">
+            {{ section.settings.heading_prefix }} <span class="about-spars-heading__highlight">{{ section.settings.heading_highlight }}</span>
+          </h2>
+
+          {%- comment -%} Narrative text {%- endcomment -%}
+          <div class="about-spars-narrative">
+            <p>
+              {{ section.settings.paragraph_1 }}
+            </p>
+
+            <p>
+              {{ section.settings.paragraph_2 }}
+            </p>
+
+            {%- comment -%} Blockquote {%- endcomment -%}
+            <p class="about-spars-blockquote">
+              &ldquo;{{ section.settings.blockquote }}&rdquo;
+            </p>
+
+            {%- comment -%} 4 Core Pillars {%- endcomment -%}
+            <div class="about-spars-pillars">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'pillar' -%}
+                  <div class="about-spars-pillar" {{ block.shopify_attributes }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                    <span>{{ block.settings.text }}</span>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            {%- comment -%} Closing paragraphs {%- endcomment -%}
+            <div class="about-spars-closing">
+              <p>{{ section.settings.closing_1 }}</p>
+              <p>{{ section.settings.closing_2 }}</p>
+              <p class="about-spars-closing__emphasis">{{ section.settings.closing_emphasis }}</p>
+            </div>
+          </div>
+
+          {%- comment -%} CTA Buttons {%- endcomment -%}
+          <div class="about-spars-cta">
+            {%- if section.settings.cta_primary_label != blank -%}
+              <a href="{{ section.settings.cta_primary_link }}" class="about-spars-cta__primary">
+                {{ section.settings.cta_primary_label }}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.cta_secondary_label != blank -%}
+              <a href="{{ section.settings.cta_secondary_link }}" class="about-spars-cta__secondary">
+                {{ section.settings.cta_secondary_label }}
+              </a>
+            {%- endif -%}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% schema %}
+{
+  "name": "About SPARS",
+  "tag": "section",
+  "class": "about-spars-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Banner"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Industrial Excellence"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Texture"
+    },
+    {
+      "type": "header",
+      "content": "About Section — Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "about_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "text",
+      "id": "badge_number",
+      "label": "Badge Number",
+      "default": "06+"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Badge Label",
+      "default": "Years Logistics Exp."
+    },
+    {
+      "type": "header",
+      "content": "About Section — Text"
+    },
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "Heading Prefix",
+      "default": "Why"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Heading Highlight (orange italic)",
+      "default": "SPARS?"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "First Paragraph",
+      "default": "SPARS was founded by two Latvian entrepreneurs who understand what real hard work looks like. Before building this brand, we spent more than six years working in logistics — where precision, reliability, and responsibility are non-negotiable."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Second Paragraph",
+      "default": "We know what it means to work long hours in demanding conditions. We know the importance of durable clothing that performs in real environments — not just in catalogs."
+    },
+    {
+      "type": "text",
+      "id": "blockquote",
+      "label": "Blockquote Text",
+      "default": "That experience shaped how we build SPARS."
+    },
+    {
+      "type": "textarea",
+      "id": "closing_1",
+      "label": "Closing Paragraph 1",
+      "default": "We don't cut corners. We don't overpromise. We deliver what we commit to."
+    },
+    {
+      "type": "textarea",
+      "id": "closing_2",
+      "label": "Closing Paragraph 2",
+      "default": "Our goal is simple: provide workwear and sportswear that professionals can trust every day — on construction sites, in factories, in workshops, and beyond."
+    },
+    {
+      "type": "textarea",
+      "id": "closing_emphasis",
+      "label": "Closing Emphasis (bold with border)",
+      "default": "When you choose SPARS, you're working with people who understand hard work — because we've done it ourselves."
+    },
+    {
+      "type": "header",
+      "content": "Call to Action Buttons"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_label",
+      "label": "Primary Button Label",
+      "default": "Get In Touch"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_label",
+      "label": "Secondary Button Label",
+      "default": "View Catalog"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_link",
+      "label": "Secondary Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Core Pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Pillar Text",
+          "default": "Reliable, high-quality workwear"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About SPARS",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "text": "Reliable, high-quality workwear"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "text": "Practical solutions for professionals"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "text": "Honest communication and long-term partnerships"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "text": "Fast and dependable service"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

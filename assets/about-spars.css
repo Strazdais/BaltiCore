@@ -1,0 +1,444 @@
+/* ============================================================
+   ABOUT SPARS — "Why SPARS?" Page Styles
+   Industrial-themed About Us page
+   ============================================================ */
+
+/* --- CSS Custom Properties (scoped) --- */
+.about-spars-page {
+  --spars-primary: #f96706;          /* Safety Orange */
+  --spars-primary-light: rgba(249, 103, 6, 0.1);
+  --spars-primary-border: rgba(249, 103, 6, 0.2);
+  --spars-secondary: #5b674c;        /* Olive / Army Green */
+  --spars-bg: #f9fafb;
+  --spars-fg: #21242c;
+  --spars-muted-fg: #697080;
+  --spars-muted-bg: #e1e5ea;
+  --spars-border: #d1d5db;
+  --spars-white: #fafafa;
+}
+
+/* --- Font imports --- */
+.about-spars-page {
+  font-family: 'Roboto', sans-serif;
+  color: var(--spars-fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.about-spars-page .spars-display {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* ============================================================
+   HERO BANNER
+   ============================================================ */
+.about-spars-hero {
+  height: 40vh;
+  min-height: 280px;
+  background-color: var(--spars-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-spars-hero__texture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  filter: grayscale(100%);
+}
+
+.about-spars-hero__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.75rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+@media (max-width: 749px) {
+  .about-spars-hero {
+    height: 30vh;
+    min-height: 200px;
+  }
+  .about-spars-hero__title {
+    font-size: 2.25rem;
+  }
+}
+
+/* ============================================================
+   ABOUT SECTION (main content)
+   ============================================================ */
+.about-spars-section {
+  padding: 6rem 0;
+  background-color: var(--spars-bg);
+  overflow: hidden;
+}
+
+.about-spars-section__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.about-spars-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-spars-layout {
+    flex-direction: row;
+  }
+}
+
+/* ============================================================
+   LEFT COLUMN — Image with Overlays
+   ============================================================ */
+.about-spars-image-col {
+  width: 100%;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .about-spars-image-col {
+    width: 50%;
+  }
+}
+
+.about-spars-image-container {
+  aspect-ratio: 4 / 5;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--spars-muted-bg);
+}
+
+.about-spars-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: all 0.7s ease;
+}
+
+.about-spars-image-container:hover img {
+  filter: grayscale(0);
+}
+
+/* Inner border overlay */
+.about-spars-image-border {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--spars-primary-border);
+  margin: 1rem;
+  pointer-events: none;
+}
+
+/* Corner geometric accent */
+.about-spars-corner-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6rem;
+  height: 6rem;
+  background-color: var(--spars-primary-light);
+  margin-right: -3rem;
+  margin-top: -3rem;
+  transform: rotate(45deg);
+}
+
+/* Experience badge */
+.about-spars-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  background-color: var(--spars-primary);
+  padding: 2rem;
+  color: var(--spars-white);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .about-spars-badge {
+    display: block;
+  }
+}
+
+.about-spars-badge__number {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.25rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.about-spars-badge__label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+}
+
+/* ============================================================
+   RIGHT COLUMN — Text Content
+   ============================================================ */
+.about-spars-content-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .about-spars-content-col {
+    width: 50%;
+  }
+}
+
+/* "OUR STORY" section label */
+.about-spars-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--spars-primary);
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.about-spars-label__line {
+  width: 3rem;
+  height: 2px;
+  background-color: var(--spars-primary);
+}
+
+/* "WHY SPARS?" heading */
+.about-spars-heading {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  color: var(--spars-fg);
+}
+
+@media (min-width: 768px) {
+  .about-spars-heading {
+    font-size: 3.75rem;
+  }
+}
+
+.about-spars-heading__highlight {
+  color: var(--spars-primary);
+  font-style: italic;
+}
+
+/* Narrative text */
+.about-spars-narrative {
+  color: var(--spars-muted-fg);
+  line-height: 1.75;
+  font-size: 1.125rem;
+}
+
+.about-spars-narrative > * + * {
+  margin-top: 1.5rem;
+}
+
+.about-spars-narrative strong {
+  color: var(--spars-fg);
+  font-weight: 600;
+}
+
+/* Blockquote */
+.about-spars-blockquote {
+  font-family: 'Oswald', sans-serif;
+  color: var(--spars-fg);
+  font-size: 1.5rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  font-style: italic;
+  border-left: 4px solid var(--spars-primary);
+  margin: 1.5rem 0;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   CORE PILLARS GRID
+   ============================================================ */
+.about-spars-pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .about-spars-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.about-spars-pillar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-spars-pillar svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--spars-primary);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.about-spars-pillar:hover svg {
+  transform: scale(1.1);
+}
+
+.about-spars-pillar span {
+  color: rgba(33, 36, 44, 0.9);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   CLOSING TEXT
+   ============================================================ */
+.about-spars-closing {
+  padding-top: 2rem;
+  margin-top: 1.5rem;
+}
+
+.about-spars-closing > * + * {
+  margin-top: 1rem;
+}
+
+.about-spars-closing p {
+  color: var(--spars-muted-fg);
+  line-height: 1.75;
+  font-size: 1.125rem;
+}
+
+.about-spars-closing__emphasis {
+  color: var(--spars-fg) !important;
+  font-weight: 600;
+  padding-top: 1rem;
+  border-top: 1px solid var(--spars-border);
+}
+
+/* ============================================================
+   CTA BUTTONS
+   ============================================================ */
+.about-spars-cta {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.about-spars-cta a {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.about-spars-cta__primary {
+  background-color: var(--spars-primary);
+  color: var(--spars-white);
+  border: 2px solid var(--spars-primary);
+}
+
+.about-spars-cta__primary:hover {
+  background-color: #e05d05;
+  transform: translateY(-4px);
+}
+
+.about-spars-cta__primary:active {
+  transform: translateY(0);
+}
+
+.about-spars-cta__secondary {
+  background-color: transparent;
+  color: var(--spars-fg);
+  border: 2px solid var(--spars-fg);
+}
+
+.about-spars-cta__secondary:hover {
+  background-color: var(--spars-fg);
+  color: var(--spars-bg);
+  transform: translateY(-4px);
+}
+
+.about-spars-cta__secondary:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   MOBILE REFINEMENTS
+   ============================================================ */
+@media (max-width: 749px) {
+  .about-spars-section {
+    padding: 3rem 0;
+  }
+
+  .about-spars-layout {
+    gap: 2.5rem;
+  }
+
+  .about-spars-heading {
+    font-size: 2.5rem;
+  }
+
+  .about-spars-narrative {
+    font-size: 1rem;
+  }
+
+  .about-spars-closing p {
+    font-size: 1rem;
+  }
+
+  .about-spars-cta {
+    flex-direction: column;
+  }
+
+  .about-spars-cta a {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   Hide default page title/content from main-page section
+   The about-spars section renders its own hero + content.
+   We hide the main-page section that sits above it.
+   ============================================================ */
+.about-spars-wrapper ~ .section .main-page-title,
+.about-spars-wrapper ~ .section .rte {
+  display: none;
+}
+
+/* Target the main-page section that precedes our section */
+.about-spars-hide-main .main-page-title,
+.about-spars-hide-main .rte,
+.about-spars-hide-main .page-width {
+  display: none !important;
+}
