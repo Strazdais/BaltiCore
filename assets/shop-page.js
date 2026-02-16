@@ -102,20 +102,36 @@
    * The key is what appears before the colon in tags.
    */
   var PREFERRED_ORDER = [
-    'Industry',
-    'Protection',
-    'Protection Type',
-    'Cert Level',
-    'Certification',
-    'Material',
     'Gender',
+    'Product Type',
+    'Protection',
+    'Industry',
+    'Material',
     'Season',
-    'Season & Feature',
-    'Feature'
+    'Certification'
   ];
 
   /** "Other" category is hidden from filters (tags without a colon) */
   var HIDDEN_CATEGORIES = ['Other'];
+
+  /**
+   * Pre-defined tag values for categories that should always appear in the
+   * filter sidebar, even before any products are tagged. Values discovered
+   * on actual products are merged in automatically so there is no duplication.
+   * Categories NOT listed here still appear dynamically when products carry
+   * those tags — this list only guarantees visibility for specific groups.
+   */
+  var PREDEFINED_VALUES = {
+    'Product Type': [
+      'Jackets', 'Softshell Jackets', 'Rain Jackets', 'Winter Jackets',
+      'Trousers', 'Shorts', 'Bib Overalls', 'Coveralls',
+      'T-Shirts', 'Base Layers', 'Hoodies', 'Sweatshirts',
+      'Vests', 'Rainwear', 'Fleece', 'Thermal Wear'
+    ],
+    'Season': [
+      'All Season', 'Winter', 'Summer'
+    ]
+  };
 
   function buildFilterGroups(products) {
     // Collect all category → unique values from all products
@@ -130,6 +146,14 @@
         });
       }
     });
+
+    // Merge pre-defined values (ensures categories always appear)
+    for (var cat in PREDEFINED_VALUES) {
+      if (!categoryMap[cat]) categoryMap[cat] = {};
+      PREDEFINED_VALUES[cat].forEach(function (val) {
+        if (!categoryMap[cat][val]) categoryMap[cat][val] = true;
+      });
+    }
 
     // Build ordered list
     var groups = [];
@@ -352,7 +376,7 @@
 
   function buildTagSummary(parsedTags) {
     var parts = [];
-    var show = ['Protection', 'Protection Type', 'Cert Level', 'Certification', 'Season', 'Season & Feature'];
+    var show = ['Product Type', 'Protection', 'Certification', 'Season'];
     show.forEach(function (cat) {
       if (parsedTags[cat]) {
         parsedTags[cat].forEach(function (v) { parts.push(v); });
