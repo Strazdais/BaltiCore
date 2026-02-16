@@ -22,8 +22,55 @@
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu.links -%}
+                {%- liquid
+                  assign is_industries_drawer = false
+                  assign link_title_down_drawer = link.title | downcase
+                  if link_title_down_drawer == 'industries'
+                    assign is_industries_drawer = true
+                  endif
+                -%}
                 <li>
-                  {%- if link.links != blank -%}
+                  {%- if is_industries_drawer -%}
+                    {%- comment -%} Industries dropdown for mobile drawer {%- endcomment -%}
+                    <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
+                      <summary
+                        id="HeaderDrawer-{{ link.handle }}"
+                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                      >
+                        {{ link.title | escape }}
+                        <span class="svg-wrapper">
+                          {{- 'icon-arrow.svg' | inline_asset_content -}}
+                        </span>
+                        <span class="svg-wrapper">
+                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                        </span>
+                      </summary>
+                      <div
+                        id="link-{{ link.handle | escape }}"
+                        class="menu-drawer__submenu has-submenu gradient motion-reduce"
+                        tabindex="-1"
+                      >
+                        <div class="menu-drawer__inner-submenu">
+                          <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                            <span class="svg-wrapper">
+                              {{- 'icon-arrow.svg' | inline_asset_content -}}
+                            </span>
+                            {{ link.title | escape }}
+                          </button>
+                          <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                            <li><a href="/pages/shop?collection=workwear" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Workwear</a></li>
+                            <li><a href="/pages/shop?collection=manufacturing" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Manufacturing</a></li>
+                            <li><a href="/pages/shop?collection=welding" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Welding</a></li>
+                            <li><a href="/pages/shop?collection=chemical" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Chemical</a></li>
+                            <li><a href="/pages/shop?collection=oil-gas" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Oil &amp; Gas</a></li>
+                            <li><a href="/pages/shop?collection=construction" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Construction</a></li>
+                            <li><a href="/pages/shop?collection=railway" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Railway</a></li>
+                            <li><a href="/pages/shop?collection=electricians" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Electricians</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </details>
+                  {%- elsif link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
                       <summary
                         id="HeaderDrawer-{{ link.handle }}"
