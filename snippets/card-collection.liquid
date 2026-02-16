@@ -13,6 +13,21 @@
   {% render 'card-collection' %}
 {% endcomment %}
 
+{%- comment -%}
+  Route collection tiles to the Shop page with pre-applied filter.
+  "all" and "all-products" go to the unfiltered shop page.
+  Every other collection handle is passed as ?collection=<handle>.
+{%- endcomment -%}
+{%- liquid
+  if card_collection != blank
+    if card_collection.handle == 'all' or card_collection.handle == 'all-products'
+      assign card_collection_url = '/pages/shop'
+    else
+      assign card_collection_url = '/pages/shop?collection=' | append: card_collection.handle
+    endif
+  endif
+-%}
+
 {%- liquid
   assign ratio = 1
   if card_collection.featured_image and media_aspect_ratio == 'portrait'
@@ -88,7 +103,7 @@
                 {% if card_collection == blank %}
                   role="link" aria-disabled="true"
                 {% else %}
-                  href="{{ card_collection.url }}"
+                  href="{{ card_collection_url }}"
                 {% endif %}
                 class="full-unstyled-link"
               >
@@ -124,7 +139,7 @@
               {% if card_collection == blank %}
                 role="link" aria-disabled="true"
               {% else %}
-                href="{{ card_collection.url }}"
+                href="{{ card_collection_url }}"
               {% endif %}
               class="full-unstyled-link"
             >

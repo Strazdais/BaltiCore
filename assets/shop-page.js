@@ -126,7 +126,7 @@
       'Jackets', 'Softshell Jackets', 'Rain Jackets', 'Winter Jackets',
       'Trousers', 'Shorts', 'Bib Overalls', 'Coveralls',
       'T-Shirts', 'Base Layers', 'Hoodies', 'Sweatshirts',
-      'Vests', 'Rainwear', 'Fleece', 'Thermal Wear'
+      'Vests', 'Hats', 'Rainwear', 'Fleece', 'Thermal Wear'
     ],
     'Season': [
       'All Season', 'Winter', 'Summer'
@@ -189,7 +189,11 @@
      ============================================================ */
 
   var COLLECTION_MAP = {
+    // Protection
     'hi-vis':          { key: 'Protection', value: 'Hi-Vis' },
+    'flame-resistant': { key: 'Protection', value: 'Flame Resistant' },
+    'arc-flash':       { key: 'Protection', value: 'Arc Flash' },
+    // Industry
     'welding':         { key: 'Industry',   value: 'Welding' },
     'chemical':        { key: 'Industry',   value: 'Chemical' },
     'oil-gas':         { key: 'Industry',   value: 'Oil & Gas' },
@@ -198,14 +202,24 @@
     'construction':    { key: 'Industry',   value: 'Construction' },
     'railway':         { key: 'Industry',   value: 'Railway' },
     'electricians':    { key: 'Industry',   value: 'Electricians' },
-    'flame-resistant': { key: 'Protection', value: 'Flame Resistant' },
-    'arc-flash':       { key: 'Protection', value: 'Arc Flash' },
+    // Product Type
+    'trousers':        { key: 'Product Type', value: 'Trousers' },
+    'pants':           { key: 'Product Type', value: 'Trousers' },
+    'jackets':         { key: 'Product Type', value: 'Jackets' },
+    'hoodies':         { key: 'Product Type', value: 'Hoodies' },
+    'coveralls':       { key: 'Product Type', value: 'Coveralls' },
+    'shorts':          { key: 'Product Type', value: 'Shorts' },
+    'vests':           { key: 'Product Type', value: 'Vests' },
+    'hats':            { key: 'Product Type', value: 'Hats' },
+    // Season
     'winter':          { key: 'Season',     value: 'Winter' },
     'summer':          { key: 'Season',     value: 'Summer' }
   };
 
   var COLLECTION_TITLES = {
     'hi-vis':          'Hi-Vis Collection',
+    'flame-resistant': 'Flame Resistant',
+    'arc-flash':       'Arc Flash Protection',
     'welding':         'Welding Gear',
     'chemical':        'Chemical Protection',
     'oil-gas':         'Oil & Gas Workwear',
@@ -214,8 +228,14 @@
     'construction':    'Construction Workwear',
     'railway':         'Railway Workwear',
     'electricians':    'Electricians Workwear',
-    'flame-resistant': 'Flame Resistant',
-    'arc-flash':       'Arc Flash Protection',
+    'trousers':        'Trousers',
+    'pants':           'Trousers',
+    'jackets':         'Jackets',
+    'hoodies':         'Hoodies',
+    'coveralls':       'Coveralls',
+    'shorts':          'Shorts',
+    'vests':           'Vests',
+    'hats':            'Hats',
     'winter':          'Winter Workwear',
     'summer':          'Summer Workwear'
   };
