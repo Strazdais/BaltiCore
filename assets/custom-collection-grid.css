@@ -1,0 +1,168 @@
+/* ============================================================
+   CUSTOM COLLECTION GRID — Premium category cards
+   ============================================================ */
+
+.ccg {
+  background: var(--ccg-bg, #f7f7f7);
+}
+
+.ccg__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section header */
+.ccg__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.ccg__title {
+  font-family: var(--font-heading-family, sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a2e;
+  margin: 0 0 12px;
+}
+
+.ccg__subtitle {
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 16px;
+  color: #6b7280;
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Grid layout */
+.ccg__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.ccg__card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ccg__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Card image */
+.ccg__card-image {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ccg__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ccg__card:hover .ccg__card-image img {
+  transform: scale(1.05);
+}
+
+/* Image hover overlay */
+.ccg__card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.ccg__card:hover .ccg__card-image::after {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Placeholder SVG */
+.ccg__placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.ccg__placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Card content */
+.ccg__card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+}
+
+.ccg__card-name {
+  font-family: var(--font-heading-family, sans-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.ccg__card-arrow {
+  color: #b77831;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ccg__card:hover .ccg__card-arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   TABLET (750px - 989px)
+   ============================================================ */
+@media screen and (max-width: 989px) {
+  .ccg__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ccg__title {
+    font-size: 30px;
+  }
+}
+
+/* ============================================================
+   MOBILE (<749px)
+   ============================================================ */
+@media screen and (max-width: 749px) {
+  .ccg__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ccg__header {
+    margin-bottom: 32px;
+  }
+
+  .ccg__title {
+    font-size: 28px;
+  }
+
+  .ccg__card-image {
+    height: 200px;
+  }
+}

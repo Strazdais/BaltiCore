@@ -1,0 +1,147 @@
+/* ============================================================
+   CUSTOM REVIEWS / TESTIMONIALS SECTION
+   Dark background, quote cards, consistent with Why SPARS
+   ============================================================ */
+
+.reviews-section {
+  background: #111213;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.reviews-section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.reviews-section__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.reviews-section__eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  margin: 0 0 12px;
+}
+
+.reviews-section__title {
+  font-family: var(--font-heading-family, sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Grid */
+.reviews-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.reviews-section__card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.reviews-section__card:hover {
+  border-color: rgba(183, 120, 49, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Stars */
+.reviews-section__stars {
+  display: flex;
+  gap: 2px;
+  color: #b77831;
+}
+
+.reviews-section__stars svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Quote text */
+.reviews-section__quote {
+  font-size: 15px;
+  line-height: 1.65;
+  opacity: 0.85;
+  flex: 1;
+}
+
+/* Author */
+.reviews-section__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.reviews-section__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(183, 120, 49, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #b77831;
+  flex-shrink: 0;
+}
+
+.reviews-section__author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews-section__author-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reviews-section__author-role {
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 989px) {
+  .reviews-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reviews-section__title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .reviews-section__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .reviews-section__title {
+    font-size: 28px;
+  }
+  .reviews-section__header {
+    margin-bottom: 32px;
+  }
+  .reviews-section__card {
+    padding: 24px 20px;
+  }
+}

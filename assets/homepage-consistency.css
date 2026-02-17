@@ -1,0 +1,140 @@
+/* ============================================================
+   HOMEPAGE CONSISTENCY OVERRIDES
+   Restyle stock Shopify sections to match custom design language
+   ============================================================ */
+
+/* --- Shared design tokens --- */
+:root {
+  --hp-gold: #b77831;
+  --hp-gold-hover: #a06a2a;
+  --hp-dark: #1a1a2e;
+  --hp-muted: #6b7280;
+  --hp-light-bg: #f7f7f7;
+  --hp-card-radius: 16px;
+  --hp-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --hp-card-shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================
+   BESTSELLERS — featured-collection overrides
+   Target via the .section class and product-grid presence
+   ============================================================ */
+
+/* Section title — center and size properly */
+.section .collection .title-wrapper {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section .collection .title-wrapper .title {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  color: var(--hp-dark);
+}
+
+/* Product cards — modern elevated style */
+.section .product-grid .card-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section .product-grid .card-wrapper:hover {
+  transform: translateY(-4px);
+}
+
+.section .product-grid .card {
+  border-radius: var(--hp-card-radius) !important;
+  overflow: hidden !important;
+  box-shadow: var(--hp-card-shadow) !important;
+  border: none !important;
+  border-width: 0 !important;
+}
+
+.section .product-grid .card:hover {
+  box-shadow: var(--hp-card-shadow-hover) !important;
+}
+
+.section .product-grid .card__inner {
+  border-radius: var(--hp-card-radius) var(--hp-card-radius) 0 0 !important;
+  border: none !important;
+  border-width: 0 !important;
+}
+
+.section .product-grid .card--card .card__content {
+  padding: 16px 20px;
+}
+
+.section .product-grid .card__heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--hp-dark);
+}
+
+.section .product-grid .card__heading a {
+  text-decoration: none;
+}
+
+.section .product-grid .card__heading a:hover {
+  color: var(--hp-gold);
+}
+
+/* Price styling */
+.section .product-grid .price {
+  font-weight: 600;
+}
+
+/* Badge — modern pill style */
+.section .product-grid .badge {
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* View all button — gold outline style */
+.section .collection__view-all .button,
+.section .collection__view-all a {
+  background: transparent !important;
+  color: var(--hp-gold) !important;
+  border: 2px solid var(--hp-gold) !important;
+  border-radius: 10px !important;
+  padding: 12px 28px !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.section .collection__view-all .button:hover,
+.section .collection__view-all a:hover {
+  background: var(--hp-gold) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* Remove all leftover ugly borders from stock card styles */
+.section .product-grid .card--card {
+  background-color: #fff !important;
+}
+
+.section .product-grid div {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   GLOBAL: Clean up theme demo feel
+   ============================================================ */
+
+/* Remove extra spacing between sections */
+.shopify-section + .shopify-section {
+  margin-top: 0;
+}
+
+/* Consistent button radius */
+.button--primary,
+.shopify-section .button:not(.button--secondary) {
+  border-radius: 10px;
+}
+
+.button--secondary {
+  border-radius: 10px;
+}

@@ -1,0 +1,343 @@
+/* ============================================================
+   WHY SPARS — Corporate B2B Supplier Section
+   Dark background, proof grid, structured layout
+   ============================================================ */
+
+.why-spars {
+  --ws-bg: #111213;
+  --ws-gold: #b77831;
+  --ws-gold-hover: #a06a2a;
+  --ws-text: #ffffff;
+  --ws-muted: rgba(255, 255, 255, 0.75);
+  --ws-border: rgba(255, 255, 255, 0.08);
+  --ws-icon-bg: rgba(255, 255, 255, 0.06);
+  --ws-icon-border: rgba(255, 255, 255, 0.08);
+
+  background: var(--ws-bg);
+  color: var(--ws-text);
+  border-top: 1px solid var(--ws-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top gradient fade from light collections above */
+.why-spars::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: linear-gradient(to bottom, #f7f7f7, transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Spacing */
+.why-spars__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 88px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 2-column grid */
+.why-spars__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ============================================================
+   TEXT COLUMN
+   ============================================================ */
+.why-spars__text {
+  order: 1;
+}
+
+/* A) Eyebrow */
+.why-spars__eyebrow {
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+  margin: 0 0 12px;
+}
+
+/* B) H2 Heading */
+.why-spars__heading {
+  font-family: var(--font-heading-family, sans-serif);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  color: var(--ws-text);
+}
+
+.why-spars__heading span {
+  color: var(--ws-gold);
+}
+
+/* C) Intro paragraph */
+.why-spars__intro {
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.90;
+  max-width: 560px;
+  margin: 0 0 28px;
+}
+
+/* ============================================================
+   D) PROOF GRID
+   ============================================================ */
+.why-spars__proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 22px;
+  margin-bottom: 32px;
+}
+
+/* Proof item */
+.why-spars__proof-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* Icon box */
+.why-spars__proof-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background: var(--ws-icon-bg);
+  border: 1px solid var(--ws-icon-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.why-spars__proof-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--ws-gold);
+}
+
+/* Proof text */
+.why-spars__proof-text {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2px;
+}
+
+.why-spars__proof-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.why-spars__proof-sub {
+  font-size: 13px;
+  opacity: 0.65;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   E) CTA ROW
+   ============================================================ */
+.why-spars__cta-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Shared button base */
+.why-spars__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 10px;
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Primary (filled gold) */
+.why-spars__btn--primary {
+  background: var(--ws-gold);
+  color: #fff;
+  border: 2px solid var(--ws-gold);
+}
+
+.why-spars__btn--primary:hover {
+  background: var(--ws-gold-hover);
+  border-color: var(--ws-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(183, 120, 49, 0.25);
+}
+
+/* Secondary (outline) */
+.why-spars__btn--secondary {
+  background: transparent;
+  color: var(--ws-gold);
+  border: 1.5px solid var(--ws-gold);
+}
+
+.why-spars__btn--secondary:hover {
+  background: rgba(183, 120, 49, 0.1);
+  transform: translateY(-2px);
+}
+
+/* B2B hint line */
+.why-spars__hint {
+  font-size: 13px;
+  opacity: 0.65;
+  margin-top: 14px;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   MEDIA COLUMN
+   ============================================================ */
+.why-spars__media {
+  order: 2;
+  position: relative;
+}
+
+.why-spars__media-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  aspect-ratio: 4 / 5;
+}
+
+.why-spars__media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient overlay for depth */
+.why-spars__media-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+/* Optional badge on image */
+.why-spars__badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Placeholder when no image */
+.why-spars__placeholder {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-spars__placeholder svg {
+  width: 64px;
+  height: 64px;
+  opacity: 0.2;
+}
+
+/* ============================================================
+   TABLET (750px - 989px)
+   ============================================================ */
+@media screen and (max-width: 989px) {
+  .why-spars__grid {
+    gap: 48px;
+  }
+
+  .why-spars__heading {
+    font-size: 34px;
+  }
+
+  .why-spars__media-frame {
+    aspect-ratio: 4 / 4;
+  }
+}
+
+/* ============================================================
+   MOBILE (<749px)
+   ============================================================ */
+@media screen and (max-width: 749px) {
+  .why-spars__inner {
+    padding: 56px 24px;
+  }
+
+  .why-spars__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Media first on mobile */
+  .why-spars__media {
+    order: 1;
+  }
+
+  .why-spars__text {
+    order: 2;
+  }
+
+  .why-spars__heading {
+    font-size: 30px;
+  }
+
+  .why-spars__intro {
+    font-size: 16px;
+  }
+
+  .why-spars__proof-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .why-spars__media-frame {
+    aspect-ratio: 16 / 10;
+    max-height: 320px;
+  }
+
+  /* Stack buttons full width */
+  .why-spars__cta-row {
+    flex-direction: column;
+  }
+
+  .why-spars__btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,227 @@
+/* ============================================================
+   CUSTOM CUSTOMIZATION SECTION
+   Light background, 2-col grid, service cards, CTA
+   ============================================================ */
+
+.cust-section {
+  background: #ffffff;
+}
+
+.cust-section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cust-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ---- Media column ---- */
+.cust-section__media {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.cust-section__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 4 / 5;
+}
+
+.cust-section__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.cust-section__placeholder {
+  aspect-ratio: 4 / 5;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Text column ---- */
+.cust-section__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.cust-section__eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #b77831;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.cust-section__heading {
+  font-family: var(--font-heading-family, sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1a1a2e;
+  margin: 0 0 16px;
+}
+
+.cust-section__intro {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0 0 32px;
+  max-width: 560px;
+}
+
+/* ---- Service cards grid ---- */
+.cust-section__services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.cust-section__service {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  transition: border-color 0.2s ease;
+}
+
+.cust-section__service:hover {
+  border-color: rgba(183, 120, 49, 0.25);
+}
+
+.cust-section__service-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: rgba(183, 120, 49, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cust-section__service-icon svg {
+  width: 20px;
+  height: 20px;
+  color: #b77831;
+}
+
+.cust-section__service-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 2px;
+}
+
+.cust-section__service-desc {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* ---- CTA ---- */
+.cust-section__cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cust-section__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 10px;
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cust-section__btn--primary {
+  background: #b77831;
+  color: #fff;
+  border: 2px solid #b77831;
+}
+
+.cust-section__btn--primary:hover {
+  background: #a06a2a;
+  border-color: #a06a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(183, 120, 49, 0.25);
+}
+
+.cust-section__btn--secondary {
+  background: transparent;
+  color: #b77831;
+  border: 2px solid #b77831;
+}
+
+.cust-section__btn--secondary:hover {
+  background: #b77831;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 989px) {
+  .cust-section__grid {
+    gap: 40px;
+  }
+  .cust-section__heading {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .cust-section__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .cust-section__media {
+    order: 1;
+  }
+
+  .cust-section__text {
+    order: 2;
+  }
+
+  .cust-section__heading {
+    font-size: 28px;
+  }
+
+  .cust-section__media img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .cust-section__cta {
+    flex-direction: column;
+  }
+
+  .cust-section__btn {
+    width: 100%;
+  }
+}

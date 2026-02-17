@@ -1,0 +1,185 @@
+{{ 'custom-collection-grid.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }} {
+    --ccg-bg: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="ccg section-{{ section.id }}">
+  <div class="ccg__inner">
+
+    {%- comment -%} Section header {%- endcomment -%}
+    {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+      <div class="ccg__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {%- if section.settings.title != blank -%}
+          <h2 class="ccg__title {{ section.settings.heading_size }}">
+            {{ section.settings.title | escape }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="ccg__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Collection grid {%- endcomment -%}
+    <div class="ccg__grid">
+      {%- for block in section.blocks -%}
+        {%- assign col = block.settings.collection -%}
+
+        {%- liquid
+          assign col_url = '#'
+          if col != blank
+            if col.handle == 'all' or col.handle == 'all-products'
+              assign col_url = '/pages/shop'
+            else
+              assign col_url = '/pages/shop?collection=' | append: col.handle
+            endif
+          endif
+        -%}
+
+        <a
+          href="{{ col_url }}"
+          class="ccg__card{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {{ block.shopify_attributes }}
+          {% if settings.animations_reveal_on_scroll %}
+            style="animation-delay: {{ forloop.index | times: 100 }}ms;"
+          {% endif %}
+        >
+          <div class="ccg__card-image">
+            {%- if col != blank and col.featured_image -%}
+              <img
+                src="{{ col.featured_image | image_url: width: 600 }}"
+                srcset="
+                  {{ col.featured_image | image_url: width: 300 }} 300w,
+                  {{ col.featured_image | image_url: width: 450 }} 450w,
+                  {{ col.featured_image | image_url: width: 600 }} 600w,
+                  {{ col.featured_image | image_url: width: 900 }} 900w
+                "
+                sizes="(min-width: 990px) 280px, (min-width: 750px) 45vw, 90vw"
+                alt="{{ col.featured_image.alt | default: col.title | escape }}"
+                loading="lazy"
+                width="{{ col.featured_image.width }}"
+                height="{{ col.featured_image.height }}"
+              >
+            {%- else -%}
+              {{ 'collection-apparel-1' | placeholder_svg_tag: 'ccg__placeholder' }}
+            {%- endif -%}
+          </div>
+          <div class="ccg__card-content">
+            <span class="ccg__card-name">
+              {%- if col != blank -%}
+                {{ col.title | escape }}
+              {%- else -%}
+                Collection
+              {%- endif -%}
+            </span>
+            <span class="ccg__card-arrow">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "tag": "section",
+  "class": "custom-collection-grid-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop by Category"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Browse our professional workwear collections"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f7f7f7"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Collection Grid",
+      "blocks": [
+        { "type": "collection_item" },
+        { "type": "collection_item" },
+        { "type": "collection_item" },
+        { "type": "collection_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

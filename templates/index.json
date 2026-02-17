@@ -11,6 +11,7 @@
   "sections": {
     "image_banner_YkthUA": {
       "type": "image-banner",
+      "disabled": true,
       "blocks": {
         "heading_4xzcaN": {
           "type": "heading",
@@ -47,6 +48,20 @@
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": true
+      }
+    },
+    "custom_hero_main": {
+      "type": "custom-hero",
+      "settings": {
+        "image": "shopify://shop_images/side-of-a-building-with-silver-doors.jpg",
+        "overlay_opacity": 45,
+        "heading": "Workwear and Sportswear",
+        "subtext": "Durable workwear and high-performance sportswear built for professionals who demand comfort, safety, and style on every job site and in every season.",
+        "button_primary_label": "Shop Now",
+        "button_primary_link": "/pages/shop",
+        "button_secondary_label": "Learn More",
+        "button_secondary_link": "/pages/about-us",
+        "trust_line": "Trusted by 500+ professionals across Europe"
       }
     },
     "slideshow": {
@@ -117,6 +132,7 @@
     },
     "collection_list_tPfFQD": {
       "type": "collection-list",
+      "disabled": true,
       "blocks": {
         "featured_collection_XhNtYx": {
           "type": "featured_collection",
@@ -168,8 +184,127 @@
         "padding_bottom": 36
       }
     },
+    "custom_collection_grid_main": {
+      "type": "custom-collection-grid",
+      "blocks": {
+        "col_hi_vis": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "hi-vis"
+          }
+        },
+        "col_hats": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "hats"
+          }
+        },
+        "col_pants": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pants"
+          }
+        },
+        "col_all": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "all-products"
+          }
+        }
+      },
+      "block_order": [
+        "col_hi_vis",
+        "col_hats",
+        "col_pants",
+        "col_all"
+      ],
+      "settings": {
+        "title": "Shop by Category",
+        "heading_size": "h1",
+        "subtitle": "Browse our professional workwear collections",
+        "bg_color": "#f7f7f7",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "why_spars_main": {
+      "type": "why-spars",
+      "blocks": {
+        "proof_1": {
+          "type": "proof_item",
+          "settings": {
+            "icon": "box",
+            "title": "B2B-ready supply",
+            "subtext": "Bulk orders fulfilled reliably"
+          }
+        },
+        "proof_2": {
+          "type": "proof_item",
+          "settings": {
+            "icon": "truck",
+            "title": "Logistics-first operations",
+            "subtext": "Built on 6+ years in supply chain"
+          }
+        },
+        "proof_3": {
+          "type": "proof_item",
+          "settings": {
+            "icon": "shield",
+            "title": "Quality & durability focus",
+            "subtext": "Tested in real work environments"
+          }
+        },
+        "proof_4": {
+          "type": "proof_item",
+          "settings": {
+            "icon": "pen",
+            "title": "Customization available",
+            "subtext": "Logos, labels, and branding"
+          }
+        },
+        "proof_5": {
+          "type": "proof_item",
+          "settings": {
+            "icon": "users",
+            "title": "Support for companies & crews",
+            "subtext": "Dedicated B2B service"
+          }
+        },
+        "proof_6": {
+          "type": "proof_item",
+          "settings": {
+            "icon": "globe",
+            "title": "EU-focused delivery",
+            "subtext": "Fast shipping across Europe"
+          }
+        }
+      },
+      "block_order": [
+        "proof_1",
+        "proof_2",
+        "proof_3",
+        "proof_4",
+        "proof_5",
+        "proof_6"
+      ],
+      "settings": {
+        "eyebrow": "About Us",
+        "heading_prefix": "Why",
+        "heading_highlight": "SPARS?",
+        "heading": "Why SPARS?",
+        "intro": "Founded by logistics professionals, SPARS delivers reliable workwear and sportswear built for real-world conditions — backed by structured supply, quality focus, and direct B2B partnerships.",
+        "cta_primary_label": "Shop Collection",
+        "cta_primary_link": "/pages/shop",
+        "cta_secondary_label": "Request Bulk Quote",
+        "cta_secondary_link": "/pages/contact-us",
+        "hint_line": "For companies: bulk pricing + custom branding available.",
+        "image": "shopify://shop_images/skilv-cup-team.jpg",
+        "badge_text": "B2B Supplier"
+      }
+    },
     "rich_text_79xkXY": {
       "type": "image-with-text",
+      "disabled": true,
       "blocks": {
         "heading_4EYyif": {
           "type": "heading",
@@ -209,15 +344,12 @@
     },
     "featured_collection_jG6UwG": {
       "type": "featured-collection",
-      "custom_css": [
-        "div {border-radius: 0px; border-width: 0px;}",
-        ".card--card {background-color: #f5f5f5;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "bestsellers",
         "products_to_show": 4,
-        "title": "Our bestsellers",
+        "title": "Our Bestsellers",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -236,12 +368,55 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "custom_customization_main": {
+      "type": "custom-customization",
+      "blocks": {
+        "svc_sewing": {
+          "type": "service",
+          "settings": {
+            "icon": "scissors",
+            "title": "Custom Sewing & Company Labels",
+            "description": "We sew your company tags directly into garments for a professional finish."
+          }
+        },
+        "svc_printing": {
+          "type": "service",
+          "settings": {
+            "icon": "printer",
+            "title": "Logo & Image Printing",
+            "description": "High-quality logo printing on jackets, trousers, hats, and more."
+          }
+        },
+        "svc_tags": {
+          "type": "service",
+          "settings": {
+            "icon": "tag",
+            "title": "Branded Tag Creation",
+            "description": "Full label design, production, and application."
+          }
+        }
+      },
+      "block_order": ["svc_sewing", "svc_printing", "svc_tags"],
+      "settings": {
+        "image": "shopify://shop_images/sewing-machine-needle-close-up.jpg",
+        "eyebrow": "Services",
+        "heading": "Custom Workwear, Made for Your Brand",
+        "intro": "Equip your team with professional, branded workwear tailored to your company. We offer complete customization services for businesses of all sizes.",
+        "cta_primary_label": "Request Customization",
+        "cta_primary_link": "/pages/contact-us",
+        "cta_secondary_label": "",
+        "cta_secondary_link": "",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "image_with_text_V3g6dQ": {
       "type": "image-with-text",
+      "disabled": true,
       "blocks": {
         "heading_DaBrbr": {
           "type": "heading",
@@ -293,8 +468,48 @@
         "padding_bottom": 36
       }
     },
+    "custom_reviews_main": {
+      "type": "custom-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "Excellent workwear quality. Our construction crew has been wearing SPARS for months and the durability is outstanding.",
+            "author_name": "Andris K.",
+            "author_role": "Construction Manager"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "Fast delivery and great communication. The custom branding on our jackets looks very professional.",
+            "author_name": "Maria S.",
+            "author_role": "Operations Director"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "We switched to SPARS for our warehouse team. Great fit, comfortable, and holds up to daily wear and tear.",
+            "author_name": "Janis L.",
+            "author_role": "Warehouse Supervisor"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3"],
+      "settings": {
+        "eyebrow": "Testimonials",
+        "title": "What Our Customers Say",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "multicolumn_FjPYRE": {
       "type": "multicolumn",
+      "disabled": true,
       "blocks": {
         "column_eaFYX8": {
           "type": "column",
@@ -349,13 +564,18 @@
     }
   },
   "order": [
+    "custom_hero_main",
     "image_banner_YkthUA",
     "slideshow",
     "featured-collection-0",
+    "custom_collection_grid_main",
     "collection_list_tPfFQD",
+    "why_spars_main",
     "rich_text_79xkXY",
     "featured_collection_jG6UwG",
+    "custom_customization_main",
     "image_with_text_V3g6dQ",
+    "custom_reviews_main",
     "multicolumn_FjPYRE"
   ]
 }
