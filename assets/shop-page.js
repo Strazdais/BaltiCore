@@ -20,36 +20,109 @@
      LOAD PRODUCT DATA FROM SHOPIFY (Liquid JSON)
      ============================================================ */
 
+  /**
+   * Convert raw product JSON objects into our internal format.
+   * @param {Array} raw  - Array of product objects from Liquid JSON
+   * @param {number} startIndex - Starting index for featured ordering
+   */
+  function mapProducts(raw, startIndex) {
+    return raw.map(function (p, i) {
+      return {
+        id: String(p.id),
+        handle: p.handle,
+        name: p.name,
+        vendor: p.vendor || '',
+        url: p.url || ('/products/' + p.handle),
+        price: p.price,
+        comparePrice: p.comparePrice,
+        available: p.available,
+        image: p.image || 'https://placehold.co/600x800/e8eaed/6b7280?text=No+Image',
+        imageAlt: p.imageAlt || p.image || null,
+        rawTags: p.tags || [],
+        parsedTags: parseTags(p.tags || []),
+        type: p.type || '',
+        createdAt: p.createdAt || '',
+        variants: p.variants || [],
+        featured: startIndex + i,
+        badge: getBadge(p)
+      };
+    });
+  }
+
   function loadShopifyProducts() {
-    const el = document.getElementById('shopify-product-data');
+    var el = document.getElementById('shopify-product-data');
     if (!el) return [];
 
     try {
-      const raw = JSON.parse(el.textContent);
-      return raw.map(function (p, index) {
-        return {
-          id: String(p.id),
-          handle: p.handle,
-          name: p.name,
-          vendor: p.vendor || '',
-          url: p.url || ('/products/' + p.handle),
-          price: p.price,
-          comparePrice: p.comparePrice,
-          available: p.available,
-          image: p.image || 'https://placehold.co/600x800/e8eaed/6b7280?text=No+Image',
-          imageAlt: p.imageAlt || p.image || null,
-          rawTags: p.tags || [],
-          parsedTags: parseTags(p.tags || []),
-          type: p.type || '',
-          createdAt: p.createdAt || '',
-          variants: p.variants || [],
-          featured: index,
-          badge: getBadge(p)
-        };
-      });
+      var raw = JSON.parse(el.textContent);
+      return mapProducts(raw, 0);
     } catch (e) {
       console.error('Shop page: failed to parse product data', e);
       return [];
+    }
+  }
+
+  /**
+   * Read pagination metadata embedded by Liquid.
+   * Returns { currentPage, totalPages, totalProducts } or null.
+   */
+  function loadPaginationInfo() {
+    var el = document.getElementById('shopify-product-pagination');
+    if (!el) return null;
+    try {
+      return JSON.parse(el.textContent);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /**
+   * Fetch remaining product pages (2, 3, …) asynchronously via the
+   * Shopify Section Rendering API. Each page returns a full HTML fragment
+   * from which we extract the JSON product data.
+   */
+  function fetchRemainingPages(totalPages, callback) {
+    var remaining = totalPages - 1;
+    if (remaining <= 0) return callback([]);
+
+    var allExtra = [];
+    var done = 0;
+
+    // Find the section ID for the Section Rendering API
+    var sectionEl = document.querySelector('.shopify-section[id*="main-shop"]');
+    var sId = sectionEl ? sectionEl.id.replace('shopify-section-', '') : 'main-shop';
+
+    for (var page = 2; page <= totalPages; page++) {
+      (function (pg) {
+        // Use Shopify Section Rendering API: returns only this section's HTML
+        var url = window.location.pathname + '?page=' + pg + '&sections=' + sId;
+
+        fetch(url)
+          .then(function (res) { return res.json(); })
+          .then(function (json) {
+            var products = [];
+            try {
+              var html = json[sId] || '';
+              var parser = new DOMParser();
+              var doc = parser.parseFromString(html, 'text/html');
+              var dataEl = doc.getElementById('shopify-product-data');
+              if (dataEl) {
+                var raw = JSON.parse(dataEl.textContent);
+                products = mapProducts(raw, (pg - 1) * 250);
+              }
+            } catch (e) {
+              console.warn('Shop page: failed to parse page ' + pg, e);
+            }
+            allExtra = allExtra.concat(products);
+            done++;
+            if (done >= remaining) callback(allExtra);
+          })
+          .catch(function (err) {
+            console.warn('Shop page: failed to fetch page ' + pg, err);
+            done++;
+            if (done >= remaining) callback(allExtra);
+          });
+      })(page);
     }
   }
 
@@ -111,8 +184,8 @@
     'Certification'
   ];
 
-  /** "Other" category is hidden from filters (tags without a colon) */
-  var HIDDEN_CATEGORIES = ['Other'];
+  /** Categories hidden from filters (duplicates, uncategorised tags, etc.) */
+  var HIDDEN_CATEGORIES = ['Other', 'Type'];
 
   /**
    * Pre-defined tag values for categories that should always appear in the
@@ -796,7 +869,7 @@
      ============================================================ */
 
   function init() {
-    // Load real products from Liquid JSON
+    // Load first page of products from Liquid JSON (max 250)
     PRODUCTS = loadShopifyProducts();
 
     // Build filter groups dynamically from product tags
@@ -804,6 +877,27 @@
 
     // Read URL params (depends on FILTER_GROUPS being set)
     readURLParams();
+
+    // Check if there are more pages of products to fetch
+    var pagination = loadPaginationInfo();
+    if (pagination && pagination.totalPages > 1) {
+      fetchRemainingPages(pagination.totalPages, function (extraProducts) {
+        if (extraProducts.length > 0) {
+          // De-duplicate by product ID (in case of overlap)
+          var existingIds = {};
+          PRODUCTS.forEach(function (p) { existingIds[p.id] = true; });
+          extraProducts.forEach(function (p) {
+            if (!existingIds[p.id]) {
+              PRODUCTS.push(p);
+              existingIds[p.id] = true;
+            }
+          });
+          // Rebuild filters with full product set and re-render
+          FILTER_GROUPS = buildFilterGroups(PRODUCTS);
+          update();
+        }
+      });
+    }
 
     // Sort dropdown
     var sortSelect = document.getElementById('shopSortSelect');

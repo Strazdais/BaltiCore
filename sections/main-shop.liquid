@@ -138,7 +138,13 @@
   </div>
 </div>
 
-{%- comment -%} ===== Product data from Shopify ===== {%- endcomment -%}
+{%- comment -%}
+  ===== Product data from Shopify =====
+  Shopify limits paginate to 250 items per page. We output the first page
+  inline and store the total page count so the JS can fetch remaining pages
+  asynchronously via the Shopify Section Rendering API.
+{%- endcomment -%}
+
 {%- paginate collections.all.products by 250 -%}
 <script type="application/json" id="shopify-product-data">
 [
@@ -170,6 +176,13 @@
     }{% unless forloop.last %},{% endunless %}
   {%- endfor -%}
 ]
+</script>
+<script type="application/json" id="shopify-product-pagination">
+{
+  "currentPage": {{ paginate.current_page }},
+  "totalPages": {{ paginate.pages }},
+  "totalProducts": {{ paginate.items }}
+}
 </script>
 {%- endpaginate -%}
 
