@@ -9,7 +9,67 @@
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
-        {%- if link.links != blank -%}
+        {%- liquid
+          assign is_industries = false
+          assign link_title_down = link.title | downcase
+          if link_title_down == 'industries'
+            assign is_industries = true
+          endif
+        -%}
+
+        {%- if is_industries -%}
+          {%- comment -%}
+            Industries dropdown — inject industry links pointing to the
+            Shop page with pre-applied filter (?collection=<handle>).
+            Uses the same <header-menu> / <details> pattern as native
+            mega-menu items so all keyboard & click-outside behaviour
+            is inherited automatically.
+          {%- endcomment -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <span>{{- link.title | escape -}}</span>
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <ul class="mega-menu__list page-width mega-menu__list--condensed" role="list">
+                  <li>
+                    <a href="/pages/shop?collection=workwear" class="mega-menu__link mega-menu__link--level-2 link">Workwear</a>
+                  </li>
+                  <li>
+                    <a href="/pages/shop?collection=manufacturing" class="mega-menu__link mega-menu__link--level-2 link">Manufacturing</a>
+                  </li>
+                  <li>
+                    <a href="/pages/shop?collection=welding" class="mega-menu__link mega-menu__link--level-2 link">Welding</a>
+                  </li>
+                  <li>
+                    <a href="/pages/shop?collection=chemical" class="mega-menu__link mega-menu__link--level-2 link">Chemical</a>
+                  </li>
+                  <li>
+                    <a href="/pages/shop?collection=oil-gas" class="mega-menu__link mega-menu__link--level-2 link">Oil &amp; Gas</a>
+                  </li>
+                  <li>
+                    <a href="/pages/shop?collection=construction" class="mega-menu__link mega-menu__link--level-2 link">Construction</a>
+                  </li>
+                  <li>
+                    <a href="/pages/shop?collection=railway" class="mega-menu__link mega-menu__link--level-2 link">Railway</a>
+                  </li>
+                  <li>
+                    <a href="/pages/shop?collection=electricians" class="mega-menu__link mega-menu__link--level-2 link">Electricians</a>
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+
+        {%- elsif link.links != blank -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
               <summary

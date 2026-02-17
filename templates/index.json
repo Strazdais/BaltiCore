@@ -174,14 +174,14 @@
         "heading_4EYyif": {
           "type": "heading",
           "settings": {
-            "heading": "Why Spars?",
+            "heading": "Why SPARS?",
             "heading_size": "h1"
           }
         },
         "text_JVkqgq": {
           "type": "text",
           "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br/>veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea <br/>commodo consequat. Duis aute irure dolor in reprehenderit in voluptate <br/>velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <br/>occaecat cupidatat non proident, sunt in culpa qui officia deserunt <br/>mollit anim id est laborum.</p>",
+            "text": "<p>SPARS was founded by two Latvian entrepreneurs who understand what real hard work looks like. Before building this brand, we spent more than six years working in logistics — where precision, reliability, and responsibility are non-negotiable.</p><p>We know what it means to work long hours in demanding conditions. We know the importance of durable clothing that performs in real environments — not just in catalogs. That experience shaped how we build SPARS.</p>",
             "text_style": "body"
           }
         }
@@ -246,24 +246,35 @@
         "heading_DaBrbr": {
           "type": "heading",
           "settings": {
-            "heading": "Customization",
+            "heading": "Custom Workwear, Made for Your Brand",
             "heading_size": "h1"
           }
         },
         "text_YMjPYb": {
           "type": "text",
           "settings": {
-            "text": "<p>We offer  customization it amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt <br/>ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud <br/>exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>",
+            "text": "<p>Equip your team with professional, branded workwear tailored to your company. We offer complete customization services for businesses of all sizes.</p><p><strong>Custom Sewing & Company Labels</strong><br/>We create and sew your company tags directly into garments for a premium, professional finish.</p><p><strong>Logo & Image Printing</strong><br/>High-quality logo and image printing on jackets, trousers, hats, and more.</p><p><strong>Branded Tag Creation</strong><br/>Need custom labels designed and produced? We handle the full process from creation to application.</p>",
             "text_style": "body"
+          }
+        },
+        "button_customization": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request Customization",
+            "button_link": "/pages/contact-us",
+            "button_style_secondary": false
           }
         }
       },
       "block_order": [
         "heading_DaBrbr",
-        "text_YMjPYb"
+        "text_YMjPYb",
+        "button_customization"
       ],
       "custom_css": [
-        "div {border-radius: 0px; border-color: white;}"
+        "div {border-radius: 0px; border-color: white;}",
+        ".image-with-text__text p {margin-bottom: 0.6em; line-height: 1.6;}",
+        ".image-with-text__text p strong {display: inline-block; margin-top: 0.5em; font-size: 1.05em; color: var(--color-foreground);}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -273,7 +284,7 @@
         "layout": "image_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
-        "desktop_content_position": "top",
+        "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-3",

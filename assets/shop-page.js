@@ -194,6 +194,7 @@
     'flame-resistant': { key: 'Protection', value: 'Flame Resistant' },
     'arc-flash':       { key: 'Protection', value: 'Arc Flash' },
     // Industry
+    'workwear':        { key: 'Industry',   value: 'Workwear' },
     'welding':         { key: 'Industry',   value: 'Welding' },
     'chemical':        { key: 'Industry',   value: 'Chemical' },
     'oil-gas':         { key: 'Industry',   value: 'Oil & Gas' },
@@ -220,6 +221,7 @@
     'hi-vis':          'Hi-Vis Collection',
     'flame-resistant': 'Flame Resistant',
     'arc-flash':       'Arc Flash Protection',
+    'workwear':        'Workwear',
     'welding':         'Welding Gear',
     'chemical':        'Chemical Protection',
     'oil-gas':         'Oil & Gas Workwear',
