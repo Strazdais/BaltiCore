@@ -1,0 +1,150 @@
+{{ 'custom-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #CustomHero-{{ section.id }} {
+    --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  }
+{%- endstyle -%}
+
+<section class="custom-hero" id="CustomHero-{{ section.id }}">
+  {%- comment -%} Background image {%- endcomment -%}
+  <div class="custom-hero__media">
+    {%- if section.settings.image != blank -%}
+      {%- assign img = section.settings.image -%}
+      {{
+        img
+        | image_url: width: 3840
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+          sizes: '100vw',
+          alt: section.settings.heading
+      }}
+    {%- else -%}
+      <div style="width:100%;height:100%;background:#5b674c;"></div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} Dark overlay {%- endcomment -%}
+  <div class="custom-hero__overlay"></div>
+
+  {%- comment -%} Content card {%- endcomment -%}
+  <div class="custom-hero__card{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="custom-hero__heading">{{ section.settings.heading | escape }}</h1>
+    {%- endif -%}
+
+    {%- if section.settings.subtext != blank -%}
+      <p class="custom-hero__subtext">{{ section.settings.subtext | escape }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.button_primary_label != blank or section.settings.button_secondary_label != blank -%}
+      <div class="custom-hero__buttons">
+        {%- if section.settings.button_primary_label != blank -%}
+          <a
+            href="{{ section.settings.button_primary_link }}"
+            class="custom-hero__btn custom-hero__btn--primary"
+          >
+            {{ section.settings.button_primary_label | escape }}
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.button_secondary_label != blank -%}
+          <a
+            href="{{ section.settings.button_secondary_link }}"
+            class="custom-hero__btn custom-hero__btn--secondary"
+          >
+            {{ section.settings.button_secondary_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.trust_line != blank -%}
+      <p class="custom-hero__trust">{{ section.settings.trust_line | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Hero",
+  "tag": "section",
+  "class": "custom-hero-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 45
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Workwear and Sportswear"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Durable workwear and high-performance sportswear built for professionals who demand comfort, safety, and style."
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "button_primary_label",
+      "label": "Primary Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_label",
+      "label": "Secondary Button Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Trust Line"
+    },
+    {
+      "type": "text",
+      "id": "trust_line",
+      "label": "Trust Line Text",
+      "default": "Trusted by 500+ professionals across Europe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Hero"
+    }
+  ]
+}
+{% endschema %}

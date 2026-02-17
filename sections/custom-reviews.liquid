@@ -1,0 +1,181 @@
+{{ 'custom-reviews.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="reviews-section section-{{ section.id }}" id="Reviews-{{ section.id }}">
+  <div class="reviews-section__inner">
+
+    {%- if section.settings.eyebrow != blank or section.settings.title != blank -%}
+      <div class="reviews-section__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="reviews-section__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="reviews-section__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="reviews-section__grid">
+      {%- for block in section.blocks -%}
+        <div
+          class="reviews-section__card{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {{ block.shopify_attributes }}
+          {% if settings.animations_reveal_on_scroll %}style="animation-delay: {{ forloop.index | times: 100 }}ms;"{% endif %}
+        >
+          {%- comment -%} Stars {%- endcomment -%}
+          <div class="reviews-section__stars">
+            {%- assign star_count = block.settings.stars | default: 5 -%}
+            {%- for i in (1..star_count) -%}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            {%- endfor -%}
+          </div>
+
+          {%- comment -%} Quote {%- endcomment -%}
+          <p class="reviews-section__quote">"{{ block.settings.quote | escape }}"</p>
+
+          {%- comment -%} Author {%- endcomment -%}
+          <div class="reviews-section__author">
+            <div class="reviews-section__avatar">
+              {{ block.settings.author_name | slice: 0 | upcase }}
+            </div>
+            <div class="reviews-section__author-info">
+              <span class="reviews-section__author-name">{{ block.settings.author_name | escape }}</span>
+              {%- if block.settings.author_role != blank -%}
+                <span class="reviews-section__author-role">{{ block.settings.author_role | escape }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer Reviews",
+  "tag": "section",
+  "class": "custom-reviews-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Label",
+      "default": "Testimonials"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review Text",
+          "default": "Great quality workwear. Exactly what our team needed."
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Customer"
+        },
+        {
+          "type": "text",
+          "id": "author_role",
+          "label": "Author Role / Company",
+          "default": "Site Manager"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Customer Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "Excellent workwear quality. Our construction crew has been wearing SPARS for months and the durability is outstanding.",
+            "author_name": "Andris K.",
+            "author_role": "Construction Manager"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "Fast delivery and great communication. The custom branding on our jackets looks very professional.",
+            "author_name": "Maria S.",
+            "author_role": "Operations Director"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "quote": "We switched to SPARS for our warehouse team. Great fit, comfortable, and holds up to daily wear and tear.",
+            "author_name": "Janis L.",
+            "author_role": "Warehouse Supervisor"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

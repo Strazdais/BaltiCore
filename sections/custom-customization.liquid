@@ -1,0 +1,232 @@
+{{ 'custom-customization.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="cust-section section-{{ section.id }}" id="Customization-{{ section.id }}">
+  <div class="cust-section__inner">
+    <div class="cust-section__grid">
+
+      {%- comment -%} MEDIA {%- endcomment -%}
+      <div class="cust-section__media{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              widths: '375, 550, 750, 1000, 1200',
+              sizes: '(min-width: 990px) 50vw, 100vw',
+              alt: section.settings.heading
+          }}
+        {%- else -%}
+          <div class="cust-section__placeholder">
+            {{ 'detailed-apparel' | placeholder_svg_tag }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} TEXT {%- endcomment -%}
+      <div class="cust-section__text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="cust-section__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="cust-section__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.intro != blank -%}
+          <p class="cust-section__intro">{{ section.settings.intro }}</p>
+        {%- endif -%}
+
+        {%- assign service_blocks = section.blocks | where: 'type', 'service' -%}
+        {%- if service_blocks.size > 0 -%}
+          <div class="cust-section__services">
+            {%- for block in service_blocks -%}
+              <div class="cust-section__service" {{ block.shopify_attributes }}>
+                <div class="cust-section__service-icon">
+                  {%- case block.settings.icon -%}
+                    {%- when 'tag' -%}
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                    {%- when 'printer' -%}
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    {%- when 'scissors' -%}
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+                    {%- else -%}
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  {%- endcase -%}
+                </div>
+                <div>
+                  <div class="cust-section__service-title">{{ block.settings.title | escape }}</div>
+                  {%- if block.settings.description != blank -%}
+                    <div class="cust-section__service-desc">{{ block.settings.description | escape }}</div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.cta_primary_label != blank or section.settings.cta_secondary_label != blank -%}
+          <div class="cust-section__cta">
+            {%- if section.settings.cta_primary_label != blank -%}
+              <a href="{{ section.settings.cta_primary_link }}" class="cust-section__btn cust-section__btn--primary">
+                {{ section.settings.cta_primary_label | escape }}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.cta_secondary_label != blank -%}
+              <a href="{{ section.settings.cta_secondary_link }}" class="cust-section__btn cust-section__btn--secondary">
+                {{ section.settings.cta_secondary_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customization",
+  "tag": "section",
+  "class": "custom-customization-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Label",
+      "default": "Services"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Custom Workwear, Made for Your Brand"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro Paragraph",
+      "default": "Equip your team with professional, branded workwear tailored to your company. We offer complete customization services for businesses of all sizes."
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_label",
+      "label": "Primary Button Label",
+      "default": "Request Customization"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_label",
+      "label": "Secondary Button Label"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "scissors", "label": "Scissors (Sewing)" },
+            { "value": "printer", "label": "Printer (Printing)" },
+            { "value": "tag", "label": "Tag (Labels)" },
+            { "value": "check", "label": "Checkmark" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Service name"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Customization",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": { "icon": "scissors", "title": "Custom Sewing & Labels", "description": "Company tags sewn directly into garments" }
+        },
+        {
+          "type": "service",
+          "settings": { "icon": "printer", "title": "Logo & Image Printing", "description": "High-quality printing on all garments" }
+        },
+        {
+          "type": "service",
+          "settings": { "icon": "tag", "title": "Branded Tag Creation", "description": "Full label design and production" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
