@@ -460,7 +460,7 @@
      ============================================================ */
 
   function formatPrice(amount) {
-    return '\u00a3' + amount.toFixed(2);
+    return '\u20ac' + amount.toFixed(2);
   }
 
   function escapeHTML(str) {
