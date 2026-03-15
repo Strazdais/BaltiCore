@@ -696,28 +696,27 @@
         .then(function (data) {
           btn.textContent = 'Added ✓';
           setTimeout(function () { btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1500);
-          // Update cart count in header
-          fetch('/cart.js')
+          // Refresh cart drawer with updated sections
+          fetch('/?sections=cart-drawer,cart-icon-bubble')
             .then(function (r) { return r.json(); })
-            .then(function (cart) {
-              var cartBtn = document.querySelector('header .cart-count-bubble, header [data-cart-count], .header__icon--cart .cart-count-bubble');
-              var headerCartBtn = document.querySelector('a[href="/cart"], button[name="cart"]');
-              if (headerCartBtn) {
-                var bubble = headerCartBtn.querySelector('.cart-count-bubble');
+            .then(function (sectionData) {
+              if (sectionData['cart-drawer']) {
+                var cartDrawer = document.querySelector('cart-drawer');
+                if (cartDrawer) {
+                  var tmp = document.createElement('div');
+                  tmp.innerHTML = sectionData['cart-drawer'];
+                  var newInner = tmp.querySelector('.drawer__inner');
+                  var oldInner = cartDrawer.querySelector('.drawer__inner');
+                  if (newInner && oldInner) oldInner.innerHTML = newInner.innerHTML;
+                }
+              }
+              if (sectionData['cart-icon-bubble']) {
+                var bubble = document.getElementById('cart-icon-bubble');
                 if (bubble) {
-                  bubble.textContent = cart.item_count;
-                } else {
-                  // Try to update via cart icon text
-                  var cartText = document.querySelector('#cart-icon-bubble');
-                  if (cartText) {
-                    var countEl = cartText.querySelector('.cart-count-bubble');
-                    if (!countEl) {
-                      countEl = document.createElement('div');
-                      countEl.className = 'cart-count-bubble';
-                      cartText.appendChild(countEl);
-                    }
-                    countEl.innerHTML = '<span aria-hidden="true">' + cart.item_count + '</span>';
-                  }
+                  var tmp2 = document.createElement('div');
+                  tmp2.innerHTML = sectionData['cart-icon-bubble'];
+                  var newBubble = tmp2.querySelector('#cart-icon-bubble');
+                  if (newBubble) bubble.innerHTML = newBubble.innerHTML;
                 }
               }
             });
