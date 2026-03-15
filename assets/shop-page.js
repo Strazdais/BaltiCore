@@ -696,7 +696,7 @@
         .then(function (data) {
           btn.textContent = 'Added ✓';
           setTimeout(function () { btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1500);
-          // Refresh cart drawer with updated sections
+          // Refresh entire cart drawer and icon
           fetch('/?sections=cart-drawer,cart-icon-bubble')
             .then(function (r) { return r.json(); })
             .then(function (sectionData) {
@@ -705,9 +705,10 @@
                 if (cartDrawer) {
                   var tmp = document.createElement('div');
                   tmp.innerHTML = sectionData['cart-drawer'];
-                  var newInner = tmp.querySelector('.drawer__inner');
-                  var oldInner = cartDrawer.querySelector('.drawer__inner');
-                  if (newInner && oldInner) oldInner.innerHTML = newInner.innerHTML;
+                  var newCartDrawer = tmp.querySelector('cart-drawer');
+                  if (newCartDrawer) {
+                    cartDrawer.innerHTML = newCartDrawer.innerHTML;
+                  }
                 }
               }
               if (sectionData['cart-icon-bubble']) {
