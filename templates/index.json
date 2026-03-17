@@ -312,7 +312,7 @@
         "cta_secondary_label": "Request Bulk Quote",
         "cta_secondary_link": "/pages/contact",
         "hint_line": "For companies: bulk pricing + custom branding available.",
-        "image": "shopify://shop_images/skilv-cup-team.jpg",
+        "image": "shopify://shop_images/why-spars-warehouse.jpg",
         "badge_text": "B2B Supplier"
       }
     },
@@ -420,7 +420,7 @@
         "svc_tags"
       ],
       "settings": {
-        "image": "shopify://shop_images/sewing-machine-needle-close-up.jpg",
+        "image": "shopify://shop_images/custom-workwear-branding.jpg",
         "eyebrow": "Services",
         "heading": "Custom Workwear, Made for Your Brand",
         "intro": "Equip your team with professional, branded workwear tailored to your company. We offer complete customization services for businesses of all sizes.",
