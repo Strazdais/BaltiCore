@@ -473,15 +473,9 @@
     fetch('/?sections=cart-drawer,cart-icon-bubble')
       .then(function (r) { return r.json(); })
       .then(function (sectionData) {
-        if (sectionData['cart-drawer']) {
-          var cartDrawer = document.querySelector('cart-drawer');
-          if (cartDrawer) {
-            var tmp = document.createElement('div');
-            tmp.innerHTML = sectionData['cart-drawer'];
-            var newCartDrawer = tmp.querySelector('cart-drawer');
-            if (newCartDrawer) cartDrawer.innerHTML = newCartDrawer.innerHTML;
-          }
-        }
+        var cartDrawer = document.querySelector('cart-drawer');
+
+        // Update cart icon bubble (item count)
         if (sectionData['cart-icon-bubble']) {
           var bubble = document.getElementById('cart-icon-bubble');
           if (bubble) {
@@ -490,6 +484,33 @@
             var newBubble = tmp2.querySelector('#cart-icon-bubble');
             if (newBubble) bubble.innerHTML = newBubble.innerHTML;
           }
+        }
+
+        // Update cart drawer contents and open it
+        if (sectionData['cart-drawer'] && cartDrawer) {
+          var tmp = document.createElement('div');
+          tmp.innerHTML = sectionData['cart-drawer'];
+          var newDrawerInner = tmp.querySelector('#CartDrawer');
+          var existingDrawer = document.getElementById('CartDrawer');
+          if (newDrawerInner && existingDrawer) {
+            existingDrawer.innerHTML = newDrawerInner.innerHTML;
+          } else {
+            // Fallback: replace entire cart-drawer element contents
+            var newCDE = tmp.querySelector('cart-drawer');
+            if (newCDE) cartDrawer.innerHTML = newCDE.innerHTML;
+          }
+          // Re-bind overlay close handler after innerHTML replacement
+          var overlay = cartDrawer.querySelector('#CartDrawer-Overlay');
+          if (overlay) {
+            overlay.addEventListener('click', function () { cartDrawer.close(); });
+          }
+          // Re-bind escape key on the drawer
+          cartDrawer.classList.remove('is-empty');
+          // Open the cart drawer to show the user what was added
+          setTimeout(function () {
+            cartDrawer.classList.add('animate', 'active');
+            document.body.classList.add('overflow-hidden');
+          }, 100);
         }
       });
   }
