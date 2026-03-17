@@ -206,8 +206,138 @@
     ]
   };
 
+  /* ============================================================
+     SPECIAL FILTERS: Size, Color, Price Range, Vendor
+     These are NOT tag-based — they use variant/product data directly.
+     Keys prefixed with '__' to avoid collision with tag categories.
+     ============================================================ */
+
+  var SPECIAL_FILTER_KEYS = ['__size', '__color', '__price', '__vendor'];
+
+  /** Preferred size ordering */
+  var SIZE_ORDER = ['XXS','XS','S','M','L','XL','XXL','3XL','4XL','5XL'];
+
+  function sortSizes(a, b) {
+    var ia = SIZE_ORDER.indexOf(a.toUpperCase());
+    var ib = SIZE_ORDER.indexOf(b.toUpperCase());
+    if (ia === -1 && ib === -1) return a.localeCompare(b);
+    if (ia === -1) return 1;
+    if (ib === -1) return -1;
+    return ia - ib;
+  }
+
+  /** Extract color from product title (after " — ") or variant option2 */
+  function extractColor(product) {
+    var colors = [];
+    // Try title: "Product Name — Grey/Black"
+    var dashIdx = product.name.indexOf(' \u2014 ');
+    if (dashIdx === -1) dashIdx = product.name.indexOf(' — ');
+    if (dashIdx === -1) dashIdx = product.name.indexOf(' - ');
+    if (dashIdx > 0) {
+      var colorPart = product.name.substring(dashIdx + 3).trim();
+      // Split on / for multi-colors
+      colorPart.split('/').forEach(function (c) {
+        var trimmed = c.trim();
+        if (trimmed && trimmed.length < 30) colors.push(trimmed);
+      });
+    }
+    return colors;
+  }
+
+  /** Price range definitions */
+  var PRICE_RANGES = [
+    { label: 'Under \u20ac10', min: 0, max: 10 },
+    { label: '\u20ac10 \u2014 \u20ac25', min: 10, max: 25 },
+    { label: '\u20ac25 \u2014 \u20ac50', min: 25, max: 50 },
+    { label: '\u20ac50 \u2014 \u20ac100', min: 50, max: 100 },
+    { label: 'Over \u20ac100', min: 100, max: Infinity }
+  ];
+
+  function getPriceRangeLabel(price) {
+    for (var i = 0; i < PRICE_RANGES.length; i++) {
+      var r = PRICE_RANGES[i];
+      if (price >= r.min && price < r.max) return r.label;
+      if (r.max === Infinity && price >= r.min) return r.label;
+    }
+    return null;
+  }
+
+  /** Check if a product matches a special (non-tag) filter */
+  function productMatchesSpecial(product, groupKey, selectedValues) {
+    if (groupKey === '__size') {
+      if (!product.variants || !product.variants.length) return false;
+      for (var i = 0; i < selectedValues.length; i++) {
+        for (var j = 0; j < product.variants.length; j++) {
+          if (product.variants[j].title === selectedValues[i]) return true;
+        }
+      }
+      return false;
+    }
+    if (groupKey === '__color') {
+      var pColors = extractColor(product);
+      for (var i = 0; i < selectedValues.length; i++) {
+        if (pColors.indexOf(selectedValues[i]) !== -1) return true;
+      }
+      return false;
+    }
+    if (groupKey === '__price') {
+      for (var i = 0; i < selectedValues.length; i++) {
+        for (var k = 0; k < PRICE_RANGES.length; k++) {
+          if (PRICE_RANGES[k].label === selectedValues[i]) {
+            if (product.price >= PRICE_RANGES[k].min && (PRICE_RANGES[k].max === Infinity ? true : product.price < PRICE_RANGES[k].max)) return true;
+          }
+        }
+      }
+      return false;
+    }
+    if (groupKey === '__vendor') {
+      return selectedValues.indexOf(product.vendor) !== -1;
+    }
+    return false;
+  }
+
+  /** Count for special filter value */
+  function countForSpecialValue(allProducts, currentFilters, groupKey, value) {
+    var otherFilters = {};
+    for (var k in currentFilters) {
+      if (k !== groupKey && currentFilters[k] && currentFilters[k].length) {
+        otherFilters[k] = currentFilters[k];
+      }
+    }
+    var baseFiltered = applyAllFilters(allProducts, otherFilters);
+    return baseFiltered.filter(function (p) {
+      return productMatchesSpecial(p, groupKey, [value]);
+    }).length;
+  }
+
   function buildFilterGroups(products) {
-    // Collect all category → unique values from all products
+    // ---- Special filter: Size (from variants) ----
+    var sizeMap = {};
+    products.forEach(function (p) {
+      if (p.variants) p.variants.forEach(function (v) {
+        if (v.title && v.title !== 'Default Title') sizeMap[v.title] = true;
+      });
+    });
+    var sizeValues = Object.keys(sizeMap).sort(sortSizes);
+
+    // ---- Special filter: Color (from title) ----
+    var colorMap = {};
+    products.forEach(function (p) {
+      extractColor(p).forEach(function (c) { colorMap[c] = true; });
+    });
+    var colorValues = Object.keys(colorMap).sort();
+
+    // ---- Special filter: Price Range ----
+    var priceValues = PRICE_RANGES.map(function (r) { return r.label; });
+
+    // ---- Special filter: Vendor/Brand ----
+    var vendorMap = {};
+    products.forEach(function (p) {
+      if (p.vendor) vendorMap[p.vendor] = true;
+    });
+    var vendorValues = Object.keys(vendorMap).sort();
+
+    // ---- Tag-based filters ----
     var categoryMap = {};
     products.forEach(function (product) {
       var tags = product.parsedTags;
@@ -228,8 +358,20 @@
       });
     }
 
-    // Build ordered list
+    // Build ordered list — special filters first
     var groups = [];
+
+    if (sizeValues.length > 0) {
+      groups.push({ key: '__size', label: 'Size', values: sizeValues, special: true });
+    }
+    if (colorValues.length > 0) {
+      groups.push({ key: '__color', label: 'Color', values: colorValues, special: true });
+    }
+    groups.push({ key: '__price', label: 'Price Range', values: priceValues, special: true });
+    if (vendorValues.length > 0) {
+      groups.push({ key: '__vendor', label: 'Brand', values: vendorValues, special: true });
+    }
+
     var used = {};
 
     PREFERRED_ORDER.forEach(function (cat) {
@@ -387,7 +529,7 @@
     document.body.appendChild(btn);
 
     var style = document.createElement('style');
-    style.textContent = '#shopBackToTop{position:fixed;bottom:24px;right:24px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid #ccc;background:rgba(255,255,255,0.95);color:#333;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);transition:opacity .2s,transform .2s;}#shopBackToTop:hover{background:#333;color:#fff;border-color:#333;}';
+    style.textContent = '#shopBackToTop{position:fixed;bottom:24px;right:24px;z-index:9999;width:48px;height:48px;border-radius:50%;border:1px solid #ccc;background:rgba(255,255,255,0.97);color:#333;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.15);transition:opacity .2s,transform .2s,background .2s;}#shopBackToTop:hover{background:#333;color:#fff;border-color:#333;transform:translateY(-2px);}';
     document.head.appendChild(style);
 
     window.addEventListener('scroll', function () {
@@ -405,20 +547,31 @@
   function injectExtraStyles() {
     var style = document.createElement('style');
     style.textContent = [
-      '.shop-card__wishlist{position:absolute;top:8px;right:8px;z-index:3;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.9);color:#999;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,0.1);}',
-      '.shop-card__wishlist:hover{color:#e53e3e;transform:scale(1.1);}',
-      '.shop-card__wishlist--active{color:#e53e3e;}',
+      /* Task 7: Wishlist heart — bigger tap target, white circle bg with shadow for visibility on dark images */
+      '.shop-card__wishlist{position:absolute;top:8px;right:8px;z-index:3;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,0.92);color:#888;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 1px 6px rgba(0,0,0,0.18);}',
+      '.shop-card__wishlist svg{filter:drop-shadow(0 1px 2px rgba(0,0,0,0.15));}',
+      '.shop-card__wishlist:hover{color:#e53e3e;transform:scale(1.1);background:rgba(255,255,255,1);}',
+      '.shop-card__wishlist--active{color:#e53e3e;background:rgba(255,255,255,1);}',
       '.shop-card__media{position:relative;}',
+      /* Task 6: Search bar with magnifying glass icon */
       '.shop-search{position:relative;flex:1;min-width:200px;max-width:400px;}',
-      '.shop-search__input{width:100%;padding:8px 36px 8px 12px;border:1px solid #ddd;border-radius:6px;font-size:14px;background:#fff;transition:border-color .2s;}',
+      '.shop-search__icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#999;pointer-events:none;line-height:1;}',
+      '.shop-search__input{width:100%;padding:8px 36px 8px 34px;border:1px solid #ddd;border-radius:6px;font-size:14px;background:#fff;transition:border-color .2s;}',
       '.shop-search__input:focus{outline:none;border-color:#333;}',
       '.shop-search__clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#999;padding:4px;display:none;line-height:1;}',
       '.shop-search__clear:hover{color:#333;}',
-      '.shop-toolbar{flex-wrap:wrap;gap:8px;}',
-      '.shop-wishlist-filter{display:flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:13px;color:#666;transition:all .2s;}',
+      /* Task 6: Unified toolbar feel */
+      '.shop-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #eee;margin-bottom:16px;}',
+      '.shop-wishlist-filter{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:13px;color:#666;transition:all .2s;height:38px;box-sizing:border-box;}',
       '.shop-wishlist-filter:hover{border-color:#333;color:#333;}',
       '.shop-wishlist-filter--active{background:#333;color:#fff;border-color:#333;}',
-      '.shop-wishlist-filter__count{font-weight:600;}'
+      '.shop-wishlist-filter__count{font-weight:600;}',
+      /* Task 8: Equal-height product cards */
+      '.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}',
+      '.shop-card{display:flex;flex-direction:column;height:100%;}',
+      '.shop-card__info{display:flex;flex-direction:column;flex:1;padding:10px 0 0;}',
+      '.shop-card__name{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;min-height:2.6em;line-height:1.3;margin:4px 0;}',
+      '.shop-card__price-row{margin-top:auto;padding-top:6px;}'
     ].join('');
     document.head.appendChild(style);
   }
@@ -440,8 +593,8 @@
     return false;
   }
 
-  /** Filter products: AND between groups, OR within group */
-  function filterProducts(products, filters) {
+  /** Filter products: AND between groups, OR within group. Handles both tag-based and special filters. */
+  function applyAllFilters(products, filters) {
     var activeKeys = [];
     for (var k in filters) {
       if (filters[k] && filters[k].length > 0) activeKeys.push(k);
@@ -450,9 +603,17 @@
 
     return products.filter(function (product) {
       return activeKeys.every(function (key) {
+        if (SPECIAL_FILTER_KEYS.indexOf(key) !== -1) {
+          return productMatchesSpecial(product, key, filters[key]);
+        }
         return productMatchesGroup(product, key, filters[key]);
       });
     });
+  }
+
+  // Keep backward compat alias
+  function filterProducts(products, filters) {
+    return applyAllFilters(products, filters);
   }
 
   /** Sort products */
@@ -481,13 +642,16 @@
 
   /** Count products matching a filter value, excluding current group from active filters */
   function countForValue(allProducts, currentFilters, groupKey, value) {
+    if (SPECIAL_FILTER_KEYS.indexOf(groupKey) !== -1) {
+      return countForSpecialValue(allProducts, currentFilters, groupKey, value);
+    }
     var otherFilters = {};
     for (var k in currentFilters) {
       if (k !== groupKey && currentFilters[k] && currentFilters[k].length) {
         otherFilters[k] = currentFilters[k];
       }
     }
-    var baseFiltered = filterProducts(allProducts, otherFilters);
+    var baseFiltered = applyAllFilters(allProducts, otherFilters);
     return baseFiltered.filter(function (p) {
       var vals = p.parsedTags[groupKey] || [];
       return vals.indexOf(value) !== -1;
@@ -516,7 +680,8 @@
 
     state.activeFilters = {};
     FILTER_GROUPS.forEach(function (group) {
-      var val = params.get(group.key);
+      var paramKey = group.key.replace(/^__/, 'f_'); // __size → f_size in URL
+      var val = params.get(paramKey) || params.get(group.key);
       if (val) {
         state.activeFilters[group.key] = val.split(',');
       }
@@ -539,7 +704,8 @@
 
     FILTER_GROUPS.forEach(function (group) {
       if (state.activeFilters[group.key] && state.activeFilters[group.key].length) {
-        params.set(group.key, state.activeFilters[group.key].join(','));
+        var paramKey = group.key.replace(/^__/, 'f_');
+        params.set(paramKey, state.activeFilters[group.key].join(','));
       }
     });
 
@@ -1100,7 +1266,8 @@
     
     var searchDiv = document.createElement('div');
     searchDiv.className = 'shop-search';
-    searchDiv.innerHTML = '<input type="text" class="shop-search__input" id="shopSearchInput" placeholder="Search products..." autocomplete="off">' +
+    searchDiv.innerHTML = '<span class="shop-search__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>' +
+      '<input type="text" class="shop-search__input" id="shopSearchInput" placeholder="Search products..." autocomplete="off">' +
       '<button class="shop-search__clear" id="shopSearchClear" type="button" aria-label="Clear search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>';
     
     toolbar.insertBefore(searchDiv, sortWrapper);
