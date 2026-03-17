@@ -145,7 +145,7 @@
   asynchronously via the Shopify Section Rendering API.
 {%- endcomment -%}
 
-{%- paginate collections.all.products by 250 -%}
+{%- paginate collections.all.products by 50 -%}
 <script type="application/json" id="shopify-product-data">
 [
   {%- for product in collections.all.products -%}

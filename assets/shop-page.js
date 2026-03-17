@@ -108,7 +108,7 @@
               var dataEl = doc.getElementById('shopify-product-data');
               if (dataEl) {
                 var raw = JSON.parse(dataEl.textContent);
-                products = mapProducts(raw, (pg - 1) * 250);
+                products = mapProducts(raw, (pg - 1) * 50);
               }
             } catch (e) {
               console.warn('Shop page: failed to parse page ' + pg, e);
@@ -328,8 +328,100 @@
     sort: 'featured',
     collection: null,
     highlightProduct: null,
-    currentPage: 1
+    currentPage: 1,
+    showSavedOnly: false
   };
+
+  /* ============================================================
+     WISHLIST (localStorage)
+     ============================================================ */
+
+  var savedProducts = JSON.parse(localStorage.getItem('shopWishlist') || '[]');
+
+  function toggleWishlist(productId) {
+    var idx = savedProducts.indexOf(productId);
+    if (idx === -1) {
+      savedProducts.push(productId);
+    } else {
+      savedProducts.splice(idx, 1);
+    }
+    localStorage.setItem('shopWishlist', JSON.stringify(savedProducts));
+    updateWishlistCount();
+  }
+
+  function updateWishlistCount() {
+    var el = document.getElementById('shopWishlistCount');
+    if (el) el.textContent = savedProducts.length > 0 ? savedProducts.length : '';
+  }
+
+  /* ============================================================
+     SEARCH STATE
+     ============================================================ */
+
+  var searchTerm = '';
+  var searchTimeout = null;
+
+  function searchProducts(products, term) {
+    if (!term) return products;
+    var lower = term.toLowerCase();
+    return products.filter(function (p) {
+      if (p.name.toLowerCase().indexOf(lower) !== -1) return true;
+      if (p.vendor.toLowerCase().indexOf(lower) !== -1) return true;
+      for (var i = 0; i < p.rawTags.length; i++) {
+        if (p.rawTags[i].toLowerCase().indexOf(lower) !== -1) return true;
+      }
+      return false;
+    });
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+     ============================================================ */
+
+  function injectBackToTop() {
+    var btn = document.createElement('button');
+    btn.id = 'shopBackToTop';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>';
+    document.body.appendChild(btn);
+
+    var style = document.createElement('style');
+    style.textContent = '#shopBackToTop{position:fixed;bottom:24px;right:24px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid #ccc;background:rgba(255,255,255,0.95);color:#333;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);transition:opacity .2s,transform .2s;}#shopBackToTop:hover{background:#333;color:#fff;border-color:#333;}';
+    document.head.appendChild(style);
+
+    window.addEventListener('scroll', function () {
+      btn.style.display = window.scrollY > 500 ? 'flex' : 'none';
+    });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ============================================================
+     WISHLIST + SEARCH STYLES
+     ============================================================ */
+
+  function injectExtraStyles() {
+    var style = document.createElement('style');
+    style.textContent = [
+      '.shop-card__wishlist{position:absolute;top:8px;right:8px;z-index:3;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.9);color:#999;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,0.1);}',
+      '.shop-card__wishlist:hover{color:#e53e3e;transform:scale(1.1);}',
+      '.shop-card__wishlist--active{color:#e53e3e;}',
+      '.shop-card__media{position:relative;}',
+      '.shop-search{position:relative;flex:1;min-width:200px;max-width:400px;}',
+      '.shop-search__input{width:100%;padding:8px 36px 8px 12px;border:1px solid #ddd;border-radius:6px;font-size:14px;background:#fff;transition:border-color .2s;}',
+      '.shop-search__input:focus{outline:none;border-color:#333;}',
+      '.shop-search__clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#999;padding:4px;display:none;line-height:1;}',
+      '.shop-search__clear:hover{color:#333;}',
+      '.shop-toolbar{flex-wrap:wrap;gap:8px;}',
+      '.shop-wishlist-filter{display:flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:13px;color:#666;transition:all .2s;}',
+      '.shop-wishlist-filter:hover{border-color:#333;color:#333;}',
+      '.shop-wishlist-filter--active{background:#333;color:#fff;border-color:#333;}',
+      '.shop-wishlist-filter__count{font-weight:600;}'
+    ].join('');
+    document.head.appendChild(style);
+  }
 
   /* ============================================================
      FILTER LOGIC
@@ -417,6 +509,7 @@
   function readURLParams() {
     var params = new URLSearchParams(window.location.search);
 
+    searchTerm = params.get('q') || '';
     state.collection = params.get('collection') || null;
     state.highlightProduct = params.get('product') || null;
     state.sort = params.get('sort') || 'featured';
@@ -450,6 +543,7 @@
       }
     });
 
+    if (searchTerm) params.set('q', searchTerm);
     var qs = params.toString();
     var newUrl = window.location.pathname + (qs ? '?' + qs : '');
     history.replaceState(null, '', newUrl);
@@ -674,11 +768,17 @@
 
     var isHighlighted = state.highlightProduct === product.id;
 
+    var isSaved = savedProducts.indexOf(product.id) !== -1;
+    var heartClass = isSaved ? 'shop-card__wishlist shop-card__wishlist--active' : 'shop-card__wishlist';
+
     return '<div class="shop-card" role="listitem" data-product-id="' + product.id + '"' + (isHighlighted ? ' data-highlighted="true"' : '') + '>' +
       '<div class="shop-card__media">' +
         '<img class="shop-card__img shop-card__img--primary" src="' + product.image + '" alt="' + escapeHTML(product.name) + '" loading="lazy" width="600" height="800">' +
         secondaryImgHTML +
         badgeHTML +
+        '<button class="' + heartClass + '" type="button" aria-label="Save ' + escapeHTML(product.name) + '" data-wishlist="' + product.id + '">' +
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="' + (isSaved ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>' +
+        '</button>' +
         '<button class="shop-card__quickview-trigger" type="button" aria-label="Quick view ' + escapeHTML(product.name) + '" data-quickview="' + product.id + '">' +
           '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>' +
         '</button>' +
@@ -691,8 +791,6 @@
           '<span class="' + priceClass + '">' + formatPrice(product.price) + '</span>' +
           comparePriceHTML +
         '</div>' +
-        renderCardSizeSelector(product) +
-        '<button class="shop-card__add-btn" type="button"' + (product.variants && product.variants.length > 1 ? '' : ' data-variant-id="' + (product.variants && product.variants[0] ? product.variants[0].id : product.id) + '"') + '>' + (product.variants && product.variants.length > 1 ? 'Select Size' : 'Add to Cart') + '</button>' +
       '</div>' +
     '</div>';
   }
@@ -736,67 +834,20 @@
       });
     });
 
-    // Bind card click �� quick view
+    // Bind card click to quick view
     grid.querySelectorAll('.shop-card').forEach(function (card) {
       card.addEventListener('click', function (e) {
-        if (e.target.closest('.shop-card__add-btn') || e.target.closest('.shop-card__quickview-trigger')) return;
+        if (e.target.closest('.shop-card__wishlist') || e.target.closest('.shop-card__quickview-trigger')) return;
         openQuickView(card.dataset.productId);
       });
     });
 
-    // Bind size buttons on cards
-    grid.querySelectorAll('.shop-card__sizes').forEach(function (container) {
-      container.querySelectorAll('.shop-card__size-btn').forEach(function (sizeBtn) {
-        sizeBtn.addEventListener('click', function (e) {
-          e.stopPropagation();
-          e.preventDefault();
-          container.querySelectorAll('.shop-card__size-btn').forEach(function (b) { b.classList.remove('shop-card__size-btn--active'); });
-          sizeBtn.classList.add('shop-card__size-btn--active');
-          var addBtn = container.closest('.shop-card__info').querySelector('.shop-card__add-btn');
-          if (addBtn) {
-            addBtn.dataset.variantId = sizeBtn.dataset.variantId;
-            addBtn.textContent = 'Add to Cart';
-          }
-          // Update price if variant has different price
-          var priceEl = container.closest('.shop-card__info').querySelector('.shop-card__price');
-          if (priceEl && sizeBtn.dataset.variantPrice) {
-            priceEl.textContent = formatPrice(parseFloat(sizeBtn.dataset.variantPrice));
-          }
-        });
-      });
-    });
-
-    // Bind Add to Cart buttons
-    grid.querySelectorAll('.shop-card__add-btn').forEach(function (btn) {
+    // Bind wishlist hearts
+    grid.querySelectorAll('[data-wishlist]').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
-        e.preventDefault();
-        var variantId = btn.dataset.variantId;
-        if (!variantId) {
-          btn.textContent = '⚠ Select Size';
-          setTimeout(function () { btn.textContent = 'Select Size'; }, 1500);
-          return;
-        }
-        
-        btn.textContent = 'Adding...';
-        btn.disabled = true;
-        
-        fetch('/cart/add.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ items: [{ id: parseInt(variantId, 10), quantity: 1 }] })
-        })
-        .then(function (response) { return response.json(); })
-        .then(function (data) {
-          btn.textContent = 'Added \u2713';
-          setTimeout(function () { btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1500);
-          refreshCartSections();
-        })
-        .catch(function (err) {
-          console.error('Add to cart failed:', err);
-          btn.textContent = 'Error';
-          setTimeout(function () { btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1500);
-        });
+        toggleWishlist(btn.dataset.wishlist);
+        update();
       });
     });
 
@@ -1017,6 +1068,10 @@
 
   function update() {
     var filtered = filterProducts(PRODUCTS, state.activeFilters);
+    filtered = searchProducts(filtered, searchTerm);
+    if (state.showSavedOnly) {
+      filtered = filtered.filter(function (p) { return savedProducts.indexOf(p.id) !== -1; });
+    }
     var sorted = sortProducts(filtered, state.sort);
 
     renderHeader(sorted.length);
@@ -1038,7 +1093,69 @@
      INIT
      ============================================================ */
 
-  function init() {
+  function injectSearchBar() {
+    var toolbar = document.querySelector('.shop-toolbar');
+    if (!toolbar) return;
+    var sortWrapper = toolbar.querySelector('.shop-toolbar__sort');
+    
+    var searchDiv = document.createElement('div');
+    searchDiv.className = 'shop-search';
+    searchDiv.innerHTML = '<input type="text" class="shop-search__input" id="shopSearchInput" placeholder="Search products..." autocomplete="off">' +
+      '<button class="shop-search__clear" id="shopSearchClear" type="button" aria-label="Clear search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>';
+    
+    toolbar.insertBefore(searchDiv, sortWrapper);
+
+    var input = document.getElementById('shopSearchInput');
+    var clearBtn = document.getElementById('shopSearchClear');
+
+    if (searchTerm) {
+      input.value = searchTerm;
+      clearBtn.style.display = 'block';
+    }
+
+    input.addEventListener('input', function () {
+      clearTimeout(searchTimeout);
+      var val = input.value.trim();
+      clearBtn.style.display = val ? 'block' : 'none';
+      searchTimeout = setTimeout(function () {
+        searchTerm = val;
+        state.currentPage = 1;
+        update();
+      }, 300);
+    });
+
+    clearBtn.addEventListener('click', function () {
+      input.value = '';
+      clearBtn.style.display = 'none';
+      searchTerm = '';
+      state.currentPage = 1;
+      update();
+      input.focus();
+    });
+  }
+
+  function injectWishlistFilter() {
+    var toolbar = document.querySelector('.shop-toolbar');
+    if (!toolbar) return;
+    var sortWrapper = toolbar.querySelector('.shop-toolbar__sort');
+
+    var btn = document.createElement('button');
+    btn.className = 'shop-wishlist-filter';
+    btn.id = 'shopWishlistFilter';
+    btn.type = 'button';
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Saved <span class="shop-wishlist-filter__count" id="shopWishlistCount"></span>';
+    
+    toolbar.insertBefore(btn, sortWrapper);
+
+    btn.addEventListener('click', function () {
+      state.showSavedOnly = !state.showSavedOnly;
+      btn.classList.toggle('shop-wishlist-filter--active', state.showSavedOnly);
+      state.currentPage = 1;
+      update();
+    });
+  }
+
+    function init() {
     // Load first page of products from Liquid JSON (max 250)
     PRODUCTS = loadShopifyProducts();
 
@@ -1068,6 +1185,13 @@
         }
       });
     }
+
+    // Inject extra UI
+    injectBackToTop();
+    injectExtraStyles();
+    injectSearchBar();
+    injectWishlistFilter();
+    updateWishlistCount();
 
     // Sort dropdown
     var sortSelect = document.getElementById('shopSortSelect');
