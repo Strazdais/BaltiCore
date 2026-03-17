@@ -139,6 +139,12 @@
         "settings": {
           "color_scheme": "scheme-3"
         }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "sticky_header_type": "always"
+        }
       }
     },
     "content_for_index": [],
