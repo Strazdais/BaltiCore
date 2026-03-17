@@ -53,7 +53,7 @@
     "custom_hero_main": {
       "type": "custom-hero",
       "settings": {
-        "image": "shopify://shop_images/side-of-a-building-with-silver-doors.jpg",
+        "image": "shopify://shop_images/hero-workwear-construction.jpg",
         "overlay_opacity": 45,
         "heading": "Workwear and Sportswear",
         "subtext": "Durable workwear and high-performance sportswear built for professionals who demand comfort, safety, and style on every job site and in every season.",
@@ -61,7 +61,7 @@
         "button_primary_link": "/pages/shop",
         "button_secondary_label": "Learn More",
         "button_secondary_link": "/pages/about-us",
-        "trust_line": "Trusted by 500+ professionals across Europe"
+        "trust_line": "Professional workwear meeting EU safety standards"
       }
     },
     "slideshow": {
@@ -204,12 +204,33 @@
           "settings": {
             "collection": "footwear"
           }
+        },
+        "col_gloves": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "gloves"
+          }
+        },
+        "col_headwear": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "headwear"
+          }
+        },
+        "col_vests": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "vests"
+          }
         }
       },
       "block_order": [
         "col_jackets",
         "col_trousers",
-        "col_footwear"
+        "col_footwear",
+        "col_gloves",
+        "col_headwear",
+        "col_vests"
       ],
       "settings": {
         "title": "Shop by Category",
@@ -341,7 +362,7 @@
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "bestsellers",
-        "products_to_show": 4,
+        "products_to_show": 8,
         "title": "Our Bestsellers",
         "heading_size": "h1",
         "description": "",
@@ -562,21 +583,29 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "trust_signals_main": {
+      "type": "custom-trust-signals",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
     "custom_hero_main",
+    "trust_signals_main",
+    "custom_collection_grid_main",
+    "featured_collection_jG6UwG",
+    "why_spars_main",
+    "custom_customization_main",
+    "custom_reviews_main",
     "image_banner_YkthUA",
     "slideshow",
     "featured-collection-0",
-    "custom_collection_grid_main",
     "collection_list_tPfFQD",
-    "why_spars_main",
     "rich_text_79xkXY",
-    "featured_collection_jG6UwG",
-    "custom_customization_main",
     "image_with_text_V3g6dQ",
-    "custom_reviews_main",
     "multicolumn_FjPYRE"
   ]
 }
