@@ -204,7 +204,8 @@
           "shadow": "#0e1b4d"
         }
       }
-    }
+    },
+    "favicon": "shopify://shop_images/spars_logo.png"
   },
   "presets": {
     "Refresh": {
