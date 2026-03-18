@@ -593,18 +593,6 @@
                                                                  "padding_bottom":  40
                                                              }
                                             },
-                     "compact_bestsellers_main":  {
-                                                      "type":  "compact-bestsellers",
-                                                      "settings":  {
-                                                                       "title":  "Popular Products",
-                                                                       "collection":  "bestsellers",
-                                                                       "products_to_show":  8,
-                                                                       "bg_color":  "#1a1a1a",
-                                                                       "title_color":  "#999999",
-                                                                       "padding_top":  20,
-                                                                       "padding_bottom":  20
-                                                                   }
-                                                  },
                      "compact_bestsellers_hero":  {
                                                       "custom_css":  [
                                                                          ".section-featured_collection_compact {padding-top: 24px !important; padding-bottom: 24px !important;}"
@@ -641,7 +629,6 @@
                   "custom_hero_main",
                   "compact_bestsellers_hero",
                   "trust_signals_main",
-                  "compact_bestsellers_main",
                   "custom_collection_grid_main",
                   "featured_collection_jG6UwG",
                   "why_spars_main",
