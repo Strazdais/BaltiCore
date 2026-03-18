@@ -11,6 +11,7 @@
   "current": {
     "logo": "shopify://shop_images/spars_logo.png",
     "logo_width": 200,
+    "favicon": "shopify://shop_images/spars_logo.png",
     "type_header_font": "archivo_n7",
     "heading_scale": 110,
     "type_body_font": "questrial_n4",
@@ -204,8 +205,7 @@
           "shadow": "#0e1b4d"
         }
       }
-    },
-    "favicon": "shopify://shop_images/spars_logo.png"
+    }
   },
   "presets": {
     "Refresh": {
