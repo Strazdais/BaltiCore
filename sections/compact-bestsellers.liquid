@@ -1,0 +1,102 @@
+{{ 'compact-bestsellers.css' | asset_url | stylesheet_tag }}
+
+{%- assign collection_handle = section.settings.collection | default: 'bestsellers' -%}
+{%- assign col = collections[collection_handle] -%}
+{%- assign limit = section.settings.products_to_show | default: 8 -%}
+
+{% if col != blank and col.products.size > 0 %}
+<div class="compact-bestsellers" style="
+  background: {{ section.settings.bg_color | default: '#1a1a1a' }};
+  padding: {{ section.settings.padding_top | default: 20 }}px 0 {{ section.settings.padding_bottom | default: 20 }}px;
+">
+  <div class="compact-bestsellers__inner page-width">
+    {% if section.settings.title != blank %}
+      <p class="compact-bestsellers__title" style="color: {{ section.settings.title_color | default: '#999' }};">
+        {{ section.settings.title }}
+      </p>
+    {% endif %}
+    <div class="compact-bestsellers__track">
+      {%- for product in col.products limit: limit -%}
+        <a href="{{ product.url }}" class="compact-bestsellers__card">
+          <div class="compact-bestsellers__img-wrap">
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 300 | image_tag: loading: 'lazy', width: 150, height: 150, class: 'compact-bestsellers__img' }}
+            {% else %}
+              <div class="compact-bestsellers__placeholder"></div>
+            {% endif %}
+          </div>
+          <span class="compact-bestsellers__name">{{ product.title }}</span>
+          <span class="compact-bestsellers__price">{{ product.price | money }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Compact Bestsellers",
+  "tag": "section",
+  "class": "compact-bestsellers-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Popular Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#999999"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "default": 20,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compact Bestsellers"
+    }
+  ]
+}
+{% endschema %}
