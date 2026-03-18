@@ -1,23 +1,109 @@
 <style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
+  .spars-404 {
+    text-align: center;
+    padding: 80px 20px;
+    max-width: 600px;
+    margin: 0 auto;
   }
-
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
-    }
+  .spars-404__code {
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(14, 27, 77, 0.1);
+    line-height: 1;
+    margin-bottom: 0;
+  }
+  .spars-404__title {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+    color: var(--color-foreground);
+  }
+  .spars-404__text {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .spars-404__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .spars-404__link {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .spars-404__link--primary {
+    background: #0e1b4d;
+    color: #fff;
+  }
+  .spars-404__link--primary:hover {
+    background: #1a2a6c;
+  }
+  .spars-404__link--secondary {
+    border: 2px solid #0e1b4d;
+    color: #0e1b4d;
+    background: transparent;
+  }
+  .spars-404__link--secondary:hover {
+    background: #0e1b4d;
+    color: #fff;
+  }
+  .spars-404__search {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .spars-404__search form {
+    display: flex;
+    gap: 8px;
+  }
+  .spars-404__search input[type="search"] {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 40px;
+    font-size: 1.4rem;
+    outline: none;
+  }
+  .spars-404__search input[type="search"]:focus {
+    border-color: #0e1b4d;
+  }
+  .spars-404__search button {
+    padding: 12px 24px;
+    background: #b77831;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .spars-404__search button:hover {
+    background: #9a6528;
   }
 </style>
 
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
-  </a>
+<div class="spars-404 page-width page-margin">
+  <p class="spars-404__code">404</p>
+  <h1 class="spars-404__title">Page Not Found</h1>
+  <p class="spars-404__text">Sorry, the page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+  
+  <div class="spars-404__links">
+    <a href="/" class="spars-404__link spars-404__link--primary">Back to Home</a>
+    <a href="/pages/shop" class="spars-404__link spars-404__link--secondary">Browse Shop</a>
+    <a href="/pages/contact" class="spars-404__link spars-404__link--secondary">Contact Us</a>
+  </div>
+
+  <div class="spars-404__search">
+    <form action="{{ routes.search_url }}" method="get" role="search">
+      <input type="search" name="q" placeholder="Search products..." aria-label="Search">
+      <button type="submit">Search</button>
+    </form>
+  </div>
 </div>
