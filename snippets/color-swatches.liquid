@@ -5,7 +5,47 @@
   <div class="color-swatches">
     <span class="color-swatches__label">Color:</span>
     {%- for sibling in siblings -%}
-      {%- assign sib_color_raw = sibling.metafields.custom.product_color.value | default: sibling.variants.first.option1 | default: sibling.title -%}
+      {%- comment -%}Try metafield first, then extract color from handle{%- endcomment -%}
+      {%- assign sib_color_raw = sibling.metafields.custom.product_color.value -%}
+      {%- if sib_color_raw == blank -%}
+        {%- comment -%}Extract color from handle: "apron-90-black" → get suffix after base handle{%- endcomment -%}
+        {%- assign _handle = sibling.handle -%}
+        {%- assign _parts = _handle | split: '-' -%}
+        {%- assign _base_parts = product.handle | split: '-' -%}
+        {%- comment -%}Find where handle diverges from current product's base handle pattern{%- endcomment -%}
+        {%- assign _color_parts = '' -%}
+        {%- assign _skip = _base_parts.size -%}
+        {%- comment -%}Use simple approach: color is everything after the shared prefix with canonical product{%- endcomment -%}
+        {%- assign _canonical_handle = siblings[0].handle -%}
+        {%- assign _all_handles = '' -%}
+        {%- for s in siblings -%}
+          {%- unless forloop.first -%}{%- assign _all_handles = _all_handles | append: '|' -%}{%- endunless -%}
+          {%- assign _all_handles = _all_handles | append: s.handle -%}
+        {%- endfor -%}
+        {%- comment -%}Find common prefix among first two handles{%- endcomment -%}
+        {%- assign _h1 = siblings[0].handle | split: '-' -%}
+        {%- assign _h2 = siblings[1].handle | split: '-' -%}
+        {%- assign _common = 0 -%}
+        {%- for _p in _h1 -%}
+          {%- if _h2[forloop.index0] == _p -%}
+            {%- assign _common = _common | plus: 1 -%}
+          {%- else -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign _color_slug = '' -%}
+        {%- assign _my_parts = sibling.handle | split: '-' -%}
+        {%- for _p in _my_parts -%}
+          {%- if forloop.index0 >= _common -%}
+            {%- if _color_slug != '' -%}{%- assign _color_slug = _color_slug | append: ' ' -%}{%- endif -%}
+            {%- assign _color_slug = _color_slug | append: _p -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign sib_color_raw = _color_slug | capitalize -%}
+      {%- endif -%}
+      {%- if sib_color_raw == blank -%}
+        {%- assign sib_color_raw = sibling.title -%}
+      {%- endif -%}
       {%- assign sib_color = sib_color_raw | downcase | strip -%}
       {%- assign is_current = false -%}
       {%- if sibling.id == product.id -%}{%- assign is_current = true -%}{%- endif -%}
