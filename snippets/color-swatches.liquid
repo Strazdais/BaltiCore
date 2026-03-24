@@ -1,36 +1,47 @@
-{%- comment -%}Color swatches from custom.color_siblings metafield{%- endcomment -%}
 {%- assign siblings = product.metafields.custom.color_siblings.value -%}
-
-<!-- DEBUG: siblings type={{ siblings | json }} size={{ siblings.size }} -->
-
 {%- if siblings and siblings.size > 1 -%}
   {{ 'color-swatches.css' | asset_url | stylesheet_tag }}
   <div class="color-swatches">
     <span class="color-swatches__label">Color:</span>
     {%- for sibling in siblings -%}
-      <!-- DEBUG SIBLING: id={{ sibling.id }} title={{ sibling.title }} handle={{ sibling.handle }} -->
-      {%- assign sib_color_meta = sibling.metafields.custom.product_color.value -%}
-      <!-- DEBUG COLOR META: {{ sib_color_meta }} -->
-      
-      {%- assign sib_color_raw = sib_color_meta -%}
+      {%- assign sib_color_raw = sibling.metafields.custom.product_color.value -%}
       {%- if sib_color_raw == blank -%}
-        {%- assign sib_color_raw = sibling.handle | split: '-' | last | capitalize -%}
+        {%- assign _h1 = siblings[0].handle | split: '-' -%}
+        {%- assign _h2 = siblings[1].handle | split: '-' -%}
+        {%- assign _common = 0 -%}
+        {%- for _p in _h1 -%}
+          {%- if _h2[forloop.index0] == _p -%}{%- assign _common = _common | plus: 1 -%}
+          {%- else -%}{%- break -%}{%- endif -%}
+        {%- endfor -%}
+        {%- assign _color_slug = '' -%}
+        {%- assign _my_parts = sibling.handle | split: '-' -%}
+        {%- for _p in _my_parts -%}
+          {%- if forloop.index0 >= _common -%}
+            {%- if _color_slug != '' -%}{%- assign _color_slug = _color_slug | append: ' ' -%}{%- endif -%}
+            {%- assign _color_slug = _color_slug | append: _p -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign sib_color_raw = _color_slug | capitalize -%}
       {%- endif -%}
-      {%- if sib_color_raw == blank -%}
-        {%- assign sib_color_raw = 'Unknown' -%}
-      {%- endif -%}
+      {%- if sib_color_raw == blank -%}{%- assign sib_color_raw = sibling.title -%}{%- endif -%}
       {%- assign sib_color = sib_color_raw | downcase | strip -%}
-      
       {%- assign is_current = false -%}
       {%- if sibling.id == product.id -%}{%- assign is_current = true -%}{%- endif -%}
 
       {%- assign swatch_hex = '' -%}
-      {%- if sib_color contains 'black' -%}{%- assign swatch_hex = '#000000' -%}
+      {%- assign swatch_hex2 = '' -%}
+      {%- assign is_compound = false -%}
+      {%- if sib_color contains '/' -%}{%- assign is_compound = true -%}{%- assign color_parts = sib_color | split: '/' -%}{%- endif -%}
+
+      {%- if sib_color contains 'hi-vis' and sib_color contains 'yellow' -%}{%- assign swatch_hex = '#CCFF00' -%}
+      {%- elsif sib_color contains 'hi-vis' and sib_color contains 'orange' -%}{%- assign swatch_hex = '#FF5F15' -%}
+      {%- elsif sib_color contains 'hi-vis' and sib_color contains 'red' -%}{%- assign swatch_hex = '#FF0000' -%}
+      {%- elsif sib_color contains 'black' -%}{%- assign swatch_hex = '#000000' -%}
       {%- elsif sib_color contains 'white' -%}{%- assign swatch_hex = '#FFFFFF' -%}
       {%- elsif sib_color contains 'navy' -%}{%- assign swatch_hex = '#000080' -%}
       {%- elsif sib_color contains 'blue' -%}{%- assign swatch_hex = '#0047AB' -%}
       {%- elsif sib_color contains 'burgundy' -%}{%- assign swatch_hex = '#800020' -%}
-      {%- elsif sib_color contains 'brown' -%}{%- assign swatch_hex = '#8B4513' -%}
+      {%- elsif sib_color contains 'brown' or sib_color contains 'earth' -%}{%- assign swatch_hex = '#8B4513' -%}
       {%- elsif sib_color contains 'charcoal' or sib_color contains 'carbon' -%}{%- assign swatch_hex = '#36454F' -%}
       {%- elsif sib_color contains 'grey' or sib_color contains 'gray' or sib_color contains 'melange' -%}{%- assign swatch_hex = '#808080' -%}
       {%- elsif sib_color contains 'green' or sib_color contains 'forest' -%}{%- assign swatch_hex = '#228B22' -%}
@@ -47,13 +58,36 @@
       {%- elsif sib_color contains 'pink' -%}{%- assign swatch_hex = '#FF69B4' -%}
       {%- elsif sib_color contains 'purple' -%}{%- assign swatch_hex = '#800080' -%}
       {%- elsif sib_color contains 'sand' -%}{%- assign swatch_hex = '#C2B280' -%}
+      {%- elsif sib_color contains 'pepita' -%}{%- assign swatch_hex = '#E8E8E8' -%}
       {%- endif -%}
 
+      {%- if is_compound and color_parts.size > 1 -%}
+        {%- assign _r2 = color_parts[1] | strip -%}
+        {%- if _r2 contains 'hi-vis' and _r2 contains 'yellow' -%}{%- assign swatch_hex2 = '#CCFF00' -%}
+        {%- elsif _r2 contains 'yellow' -%}{%- assign swatch_hex2 = '#FFD700' -%}
+        {%- elsif _r2 contains 'black' -%}{%- assign swatch_hex2 = '#000000' -%}
+        {%- elsif _r2 contains 'white' -%}{%- assign swatch_hex2 = '#FFFFFF' -%}
+        {%- elsif _r2 contains 'navy' -%}{%- assign swatch_hex2 = '#000080' -%}
+        {%- elsif _r2 contains 'blue' -%}{%- assign swatch_hex2 = '#0047AB' -%}
+        {%- elsif _r2 contains 'grey' or _r2 contains 'gray' -%}{%- assign swatch_hex2 = '#808080' -%}
+        {%- elsif _r2 contains 'brown' -%}{%- assign swatch_hex2 = '#8B4513' -%}
+        {%- elsif _r2 contains 'orange' or _r2 contains 'pomarancz' -%}{%- assign swatch_hex2 = '#FF6600' -%}
+        {%- elsif _r2 contains 'red' -%}{%- assign swatch_hex2 = '#C41E3A' -%}
+        {%- elsif _r2 contains 'green' -%}{%- assign swatch_hex2 = '#228B22' -%}
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- assign use_image_swatch = false -%}
+      {%- if swatch_hex == '' and sibling.featured_image -%}{%- assign use_image_swatch = true -%}{%- endif -%}
+
       <a href="{{ sibling.url }}" 
-         class="color-swatches__swatch{% if is_current %} color-swatches__swatch--active{% endif %}{% if sib_color contains 'white' or sib_color contains 'beige' or sib_color contains 'cream' or sib_color contains 'yellow' %} color-swatches__swatch--light{% endif %}"
+         class="color-swatches__swatch{% if is_current %} color-swatches__swatch--active{% endif %}{% if sib_color contains 'white' or sib_color contains 'beige' or sib_color contains 'cream' or sib_color contains 'yellow' or sib_color contains 'pepita' %} color-swatches__swatch--light{% endif %}"
          title="{{ sib_color_raw }}"
-         {% if swatch_hex != '' %}style="background-color: {{ swatch_hex }};"{% endif %}>
-        {%- if swatch_hex == '' -%}
+         {% if use_image_swatch %}style="background-image: url({{ sibling.featured_image | image_url: width: 60 }}); background-size: cover;"
+         {% elsif swatch_hex2 != '' %}style="background: linear-gradient(135deg, {{ swatch_hex }} 50%, {{ swatch_hex2 }} 50%);"
+         {% elsif swatch_hex != '' %}style="background-color: {{ swatch_hex }};"
+         {% endif %}>
+        {%- if swatch_hex == '' and use_image_swatch == false -%}
           <span class="color-swatches__unknown">{{ sib_color_raw | truncate: 3, '' }}</span>
         {%- endif -%}
       </a>
