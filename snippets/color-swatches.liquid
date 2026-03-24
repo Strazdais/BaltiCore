@@ -1,151 +1,59 @@
 {%- comment -%}Color swatches from custom.color_siblings metafield{%- endcomment -%}
 {%- assign siblings = product.metafields.custom.color_siblings.value -%}
+
+<!-- DEBUG: siblings type={{ siblings | json }} size={{ siblings.size }} -->
+
 {%- if siblings and siblings.size > 1 -%}
   {{ 'color-swatches.css' | asset_url | stylesheet_tag }}
   <div class="color-swatches">
     <span class="color-swatches__label">Color:</span>
     {%- for sibling in siblings -%}
-      {%- comment -%}Try metafield first, then extract color from handle{%- endcomment -%}
-      {%- assign sib_color_raw = sibling.metafields.custom.product_color.value -%}
+      <!-- DEBUG SIBLING: id={{ sibling.id }} title={{ sibling.title }} handle={{ sibling.handle }} -->
+      {%- assign sib_color_meta = sibling.metafields.custom.product_color.value -%}
+      <!-- DEBUG COLOR META: {{ sib_color_meta }} -->
+      
+      {%- assign sib_color_raw = sib_color_meta -%}
       {%- if sib_color_raw == blank -%}
-        {%- comment -%}Extract color from handle: "apron-90-black" → get suffix after base handle{%- endcomment -%}
-        {%- assign _handle = sibling.handle -%}
-        {%- assign _parts = _handle | split: '-' -%}
-        {%- assign _base_parts = product.handle | split: '-' -%}
-        {%- comment -%}Find where handle diverges from current product's base handle pattern{%- endcomment -%}
-        {%- assign _color_parts = '' -%}
-        {%- assign _skip = _base_parts.size -%}
-        {%- comment -%}Use simple approach: color is everything after the shared prefix with canonical product{%- endcomment -%}
-        {%- assign _canonical_handle = siblings[0].handle -%}
-        {%- assign _all_handles = '' -%}
-        {%- for s in siblings -%}
-          {%- unless forloop.first -%}{%- assign _all_handles = _all_handles | append: '|' -%}{%- endunless -%}
-          {%- assign _all_handles = _all_handles | append: s.handle -%}
-        {%- endfor -%}
-        {%- comment -%}Find common prefix among first two handles{%- endcomment -%}
-        {%- assign _h1 = siblings[0].handle | split: '-' -%}
-        {%- assign _h2 = siblings[1].handle | split: '-' -%}
-        {%- assign _common = 0 -%}
-        {%- for _p in _h1 -%}
-          {%- if _h2[forloop.index0] == _p -%}
-            {%- assign _common = _common | plus: 1 -%}
-          {%- else -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
-        {%- assign _color_slug = '' -%}
-        {%- assign _my_parts = sibling.handle | split: '-' -%}
-        {%- for _p in _my_parts -%}
-          {%- if forloop.index0 >= _common -%}
-            {%- if _color_slug != '' -%}{%- assign _color_slug = _color_slug | append: ' ' -%}{%- endif -%}
-            {%- assign _color_slug = _color_slug | append: _p -%}
-          {%- endif -%}
-        {%- endfor -%}
-        {%- assign sib_color_raw = _color_slug | capitalize -%}
+        {%- assign sib_color_raw = sibling.handle | split: '-' | last | capitalize -%}
       {%- endif -%}
       {%- if sib_color_raw == blank -%}
-        {%- assign sib_color_raw = sibling.title -%}
+        {%- assign sib_color_raw = 'Unknown' -%}
       {%- endif -%}
       {%- assign sib_color = sib_color_raw | downcase | strip -%}
+      
       {%- assign is_current = false -%}
       {%- if sibling.id == product.id -%}{%- assign is_current = true -%}{%- endif -%}
 
-      {%- comment -%}Determine swatch colors — support compound colors with gradient{%- endcomment -%}
       {%- assign swatch_hex = '' -%}
-      {%- assign swatch_hex2 = '' -%}
-
-      {%- comment -%}Check for compound colors (contains / or slash){%- endcomment -%}
-      {%- assign is_compound = false -%}
-      {%- if sib_color contains '/' -%}
-        {%- assign is_compound = true -%}
-        {%- assign color_parts = sib_color | split: '/' -%}
-      {%- elsif sib_color contains ' / ' -%}
-        {%- assign is_compound = true -%}
-        {%- assign color_parts = sib_color | split: ' / ' -%}
-      {%- endif -%}
-
-      {%- comment -%}Map a single color name to hex — used for both primary and secondary{%- endcomment -%}
-      {%- comment -%}We'll resolve the full sib_color first, then try primary word if no match{%- endcomment -%}
-
-      {%- assign _resolve = sib_color -%}
-      {%- for _pass in (1..2) -%}
-        {%- assign _hex = '' -%}
-        {%- if _resolve contains 'black' -%}{%- assign _hex = '#000000' -%}
-        {%- elsif _resolve == 'white' or _resolve contains 'white' -%}{%- assign _hex = '#FFFFFF' -%}
-        {%- elsif _resolve contains 'hi-vis' and _resolve contains 'yellow' -%}{%- assign _hex = '#CCFF00' -%}
-        {%- elsif _resolve contains 'hi-vis' and _resolve contains 'orange' -%}{%- assign _hex = '#FF5F15' -%}
-        {%- elsif _resolve contains 'hi-vis' and _resolve contains 'red' -%}{%- assign _hex = '#FF0000' -%}
-        {%- elsif _resolve contains 'navy' -%}{%- assign _hex = '#000080' -%}
-        {%- elsif _resolve contains 'blue' -%}{%- assign _hex = '#0047AB' -%}
-        {%- elsif _resolve contains 'burgundy' -%}{%- assign _hex = '#800020' -%}
-        {%- elsif _resolve contains 'brown' or _resolve contains 'earth' -%}{%- assign _hex = '#8B4513' -%}
-        {%- elsif _resolve contains 'charcoal' or _resolve contains 'carbon' -%}{%- assign _hex = '#36454F' -%}
-        {%- elsif _resolve contains 'grey' or _resolve contains 'gray' or _resolve contains 'melange' -%}{%- assign _hex = '#808080' -%}
-        {%- elsif _resolve contains 'green' or _resolve contains 'forest' -%}{%- assign _hex = '#228B22' -%}
-        {%- elsif _resolve contains 'red' -%}{%- assign _hex = '#C41E3A' -%}
-        {%- elsif _resolve contains 'orange' or _resolve contains 'pomarancz' -%}{%- assign _hex = '#FF6600' -%}
-        {%- elsif _resolve contains 'yellow' -%}{%- assign _hex = '#FFD700' -%}
-        {%- elsif _resolve contains 'aqua' -%}{%- assign _hex = '#00FFFF' -%}
-        {%- elsif _resolve contains 'beige' -%}{%- assign _hex = '#F5F5DC' -%}
-        {%- elsif _resolve contains 'pink' -%}{%- assign _hex = '#FF69B4' -%}
-        {%- elsif _resolve contains 'purple' -%}{%- assign _hex = '#800080' -%}
-        {%- elsif _resolve contains 'khaki' -%}{%- assign _hex = '#BDB76B' -%}
-        {%- elsif _resolve contains 'olive' -%}{%- assign _hex = '#808000' -%}
-        {%- elsif _resolve contains 'steel' or _resolve contains 'stal' -%}{%- assign _hex = '#71797E' -%}
-        {%- elsif _resolve contains 'stone' or _resolve contains 'silver' -%}{%- assign _hex = '#C0C0C0' -%}
-        {%- elsif _resolve contains 'sand' -%}{%- assign _hex = '#C2B280' -%}
-        {%- elsif _resolve contains 'pepita' -%}{%- assign _hex = '#E8E8E8' -%}
-        {%- elsif _resolve contains 'grafit' -%}{%- assign _hex = '#383838' -%}
-        {%- elsif _resolve contains 'pure' -%}{%- assign _hex = '#1a1a1a' -%}
-        {%- endif -%}
-
-        {%- if _hex != '' and _pass == 1 -%}
-          {%- assign swatch_hex = _hex -%}
-          {%- break -%}
-        {%- elsif _pass == 1 and is_compound -%}
-          {%- comment -%}Try first part of compound{%- endcomment -%}
-          {%- assign _resolve = color_parts[0] | strip -%}
-        {%- elsif _pass == 1 -%}
-          {%- break -%}
-        {%- elsif _pass == 2 -%}
-          {%- assign swatch_hex = _hex -%}
-        {%- endif -%}
-      {%- endfor -%}
-
-      {%- comment -%}For compound colors, resolve second color for gradient{%- endcomment -%}
-      {%- if is_compound and color_parts.size > 1 -%}
-        {%- assign _r2 = color_parts[1] | strip -%}
-        {%- if _r2 contains 'black' -%}{%- assign swatch_hex2 = '#000000' -%}
-        {%- elsif _r2 contains 'white' -%}{%- assign swatch_hex2 = '#FFFFFF' -%}
-        {%- elsif _r2 contains 'hi-vis' and _r2 contains 'yellow' -%}{%- assign swatch_hex2 = '#CCFF00' -%}
-        {%- elsif _r2 contains 'hi-vis' and _r2 contains 'orange' -%}{%- assign swatch_hex2 = '#FF5F15' -%}
-        {%- elsif _r2 contains 'yellow' -%}{%- assign swatch_hex2 = '#FFD700' -%}
-        {%- elsif _r2 contains 'navy' -%}{%- assign swatch_hex2 = '#000080' -%}
-        {%- elsif _r2 contains 'blue' -%}{%- assign swatch_hex2 = '#0047AB' -%}
-        {%- elsif _r2 contains 'grey' or _r2 contains 'gray' -%}{%- assign swatch_hex2 = '#808080' -%}
-        {%- elsif _r2 contains 'brown' -%}{%- assign swatch_hex2 = '#8B4513' -%}
-        {%- elsif _r2 contains 'orange' or _r2 contains 'pomarancz' -%}{%- assign swatch_hex2 = '#FF6600' -%}
-        {%- elsif _r2 contains 'red' -%}{%- assign swatch_hex2 = '#C41E3A' -%}
-        {%- elsif _r2 contains 'green' -%}{%- assign swatch_hex2 = '#228B22' -%}
-        {%- endif -%}
-      {%- endif -%}
-
-      {%- comment -%}Handle "Default" or totally unknown — use product image as swatch{%- endcomment -%}
-      {%- assign use_image_swatch = false -%}
-      {%- if swatch_hex == '' -%}
-        {%- if sibling.featured_image -%}
-          {%- assign use_image_swatch = true -%}
-        {%- endif -%}
+      {%- if sib_color contains 'black' -%}{%- assign swatch_hex = '#000000' -%}
+      {%- elsif sib_color contains 'white' -%}{%- assign swatch_hex = '#FFFFFF' -%}
+      {%- elsif sib_color contains 'navy' -%}{%- assign swatch_hex = '#000080' -%}
+      {%- elsif sib_color contains 'blue' -%}{%- assign swatch_hex = '#0047AB' -%}
+      {%- elsif sib_color contains 'burgundy' -%}{%- assign swatch_hex = '#800020' -%}
+      {%- elsif sib_color contains 'brown' -%}{%- assign swatch_hex = '#8B4513' -%}
+      {%- elsif sib_color contains 'charcoal' or sib_color contains 'carbon' -%}{%- assign swatch_hex = '#36454F' -%}
+      {%- elsif sib_color contains 'grey' or sib_color contains 'gray' or sib_color contains 'melange' -%}{%- assign swatch_hex = '#808080' -%}
+      {%- elsif sib_color contains 'green' or sib_color contains 'forest' -%}{%- assign swatch_hex = '#228B22' -%}
+      {%- elsif sib_color contains 'red' -%}{%- assign swatch_hex = '#C41E3A' -%}
+      {%- elsif sib_color contains 'orange' or sib_color contains 'pomarancz' -%}{%- assign swatch_hex = '#FF6600' -%}
+      {%- elsif sib_color contains 'yellow' -%}{%- assign swatch_hex = '#FFD700' -%}
+      {%- elsif sib_color contains 'aqua' -%}{%- assign swatch_hex = '#00FFFF' -%}
+      {%- elsif sib_color contains 'beige' -%}{%- assign swatch_hex = '#F5F5DC' -%}
+      {%- elsif sib_color contains 'steel' or sib_color contains 'stal' -%}{%- assign swatch_hex = '#71797E' -%}
+      {%- elsif sib_color contains 'silver' or sib_color contains 'stone' -%}{%- assign swatch_hex = '#C0C0C0' -%}
+      {%- elsif sib_color contains 'grafit' -%}{%- assign swatch_hex = '#383838' -%}
+      {%- elsif sib_color contains 'khaki' -%}{%- assign swatch_hex = '#BDB76B' -%}
+      {%- elsif sib_color contains 'olive' -%}{%- assign swatch_hex = '#808000' -%}
+      {%- elsif sib_color contains 'pink' -%}{%- assign swatch_hex = '#FF69B4' -%}
+      {%- elsif sib_color contains 'purple' -%}{%- assign swatch_hex = '#800080' -%}
+      {%- elsif sib_color contains 'sand' -%}{%- assign swatch_hex = '#C2B280' -%}
       {%- endif -%}
 
       <a href="{{ sibling.url }}" 
-         class="color-swatches__swatch{% if is_current %} color-swatches__swatch--active{% endif %}{% if sib_color contains 'white' or sib_color contains 'beige' or sib_color contains 'cream' or sib_color contains 'yellow' or sib_color contains 'pepita' %} color-swatches__swatch--light{% endif %}"
+         class="color-swatches__swatch{% if is_current %} color-swatches__swatch--active{% endif %}{% if sib_color contains 'white' or sib_color contains 'beige' or sib_color contains 'cream' or sib_color contains 'yellow' %} color-swatches__swatch--light{% endif %}"
          title="{{ sib_color_raw }}"
-         {% if use_image_swatch %}style="background-image: url({{ sibling.featured_image | image_url: width: 60 }}); background-size: cover;"
-         {% elsif swatch_hex2 != '' %}style="background: linear-gradient(135deg, {{ swatch_hex }} 50%, {{ swatch_hex2 }} 50%);"
-         {% elsif swatch_hex != '' %}style="background-color: {{ swatch_hex }};"
-         {% endif %}>
-        {%- if swatch_hex == '' and use_image_swatch == false -%}
+         {% if swatch_hex != '' %}style="background-color: {{ swatch_hex }};"{% endif %}>
+        {%- if swatch_hex == '' -%}
           <span class="color-swatches__unknown">{{ sib_color_raw | truncate: 3, '' }}</span>
         {%- endif -%}
       </a>
