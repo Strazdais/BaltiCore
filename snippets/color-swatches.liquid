@@ -1,0 +1,107 @@
+{%- comment -%}Color swatches from custom.color_siblings metafield{%- endcomment -%}
+{%- assign siblings = product.metafields.custom.color_siblings.value -%}
+{%- if siblings and siblings.size > 1 -%}
+  {{ 'color-swatches.css' | asset_url | stylesheet_tag }}
+  <div class="color-swatches">
+    <span class="color-swatches__label">Color:</span>
+    {%- for sibling in siblings -%}
+      {%- assign sib_color = sibling.variants.first.option1 | downcase | strip -%}
+      {%- assign is_current = false -%}
+      {%- if sibling.id == product.id -%}{%- assign is_current = true -%}{%- endif -%}
+      
+      {%- comment -%}Map color names to hex{%- endcomment -%}
+      {%- assign swatch_hex = '' -%}
+      {%- case sib_color -%}
+        {%- when 'black' -%}{%- assign swatch_hex = '#000000' -%}
+        {%- when 'white' -%}{%- assign swatch_hex = '#FFFFFF' -%}
+        {%- when 'red' -%}{%- assign swatch_hex = '#C41E3A' -%}
+        {%- when 'blue' -%}{%- assign swatch_hex = '#0047AB' -%}
+        {%- when 'navy' -%}{%- assign swatch_hex = '#000080' -%}
+        {%- when 'navy blue' -%}{%- assign swatch_hex = '#000080' -%}
+        {%- when 'green' -%}{%- assign swatch_hex = '#228B22' -%}
+        {%- when 'grey' -%}{%- assign swatch_hex = '#808080' -%}
+        {%- when 'gray' -%}{%- assign swatch_hex = '#808080' -%}
+        {%- when 'charcoal' -%}{%- assign swatch_hex = '#36454F' -%}
+        {%- when 'yellow' -%}{%- assign swatch_hex = '#FFD700' -%}
+        {%- when 'orange' -%}{%- assign swatch_hex = '#FF6600' -%}
+        {%- when 'brown' -%}{%- assign swatch_hex = '#8B4513' -%}
+        {%- when 'beige' -%}{%- assign swatch_hex = '#F5F5DC' -%}
+        {%- when 'aqua' -%}{%- assign swatch_hex = '#00FFFF' -%}
+        {%- when 'pink' -%}{%- assign swatch_hex = '#FF69B4' -%}
+        {%- when 'purple' -%}{%- assign swatch_hex = '#800080' -%}
+        {%- when 'khaki' -%}{%- assign swatch_hex = '#BDB76B' -%}
+        {%- when 'olive' -%}{%- assign swatch_hex = '#808000' -%}
+        {%- when 'royal blue' -%}{%- assign swatch_hex = '#4169E1' -%}
+        {%- when 'sky blue' -%}{%- assign swatch_hex = '#87CEEB' -%}
+        {%- when 'light blue' -%}{%- assign swatch_hex = '#ADD8E6' -%}
+        {%- when 'dark blue' -%}{%- assign swatch_hex = '#00008B' -%}
+        {%- when 'dark grey' -%}{%- assign swatch_hex = '#404040' -%}
+        {%- when 'dark gray' -%}{%- assign swatch_hex = '#404040' -%}
+        {%- when 'light grey' -%}{%- assign swatch_hex = '#C0C0C0' -%}
+        {%- when 'light gray' -%}{%- assign swatch_hex = '#C0C0C0' -%}
+        {%- when 'maroon' -%}{%- assign swatch_hex = '#800000' -%}
+        {%- when 'burgundy' -%}{%- assign swatch_hex = '#800020' -%}
+        {%- when 'teal' -%}{%- assign swatch_hex = '#008080' -%}
+        {%- when 'coral' -%}{%- assign swatch_hex = '#FF7F50' -%}
+        {%- when 'tan' -%}{%- assign swatch_hex = '#D2B48C' -%}
+        {%- when 'cream' -%}{%- assign swatch_hex = '#FFFDD0' -%}
+        {%- when 'ivory' -%}{%- assign swatch_hex = '#FFFFF0' -%}
+        {%- when 'silver' -%}{%- assign swatch_hex = '#C0C0C0' -%}
+        {%- when 'gold' -%}{%- assign swatch_hex = '#FFD700' -%}
+        {%- when 'sand' -%}{%- assign swatch_hex = '#C2B280' -%}
+        {%- when 'sage' -%}{%- assign swatch_hex = '#BCB88A' -%}
+        {%- when 'moss' -%}{%- assign swatch_hex = '#8A9A5B' -%}
+        {%- when 'wine' -%}{%- assign swatch_hex = '#722F37' -%}
+        {%- when 'indigo' -%}{%- assign swatch_hex = '#4B0082' -%}
+        {%- when 'lime' -%}{%- assign swatch_hex = '#32CD32' -%}
+        {%- when 'peach' -%}{%- assign swatch_hex = '#FFCBA4' -%}
+        {%- when 'lavender' -%}{%- assign swatch_hex = '#E6E6FA' -%}
+        {%- when 'mint' -%}{%- assign swatch_hex = '#98FF98' -%}
+        {%- when 'rust' -%}{%- assign swatch_hex = '#B7410E' -%}
+        {%- when 'slate' -%}{%- assign swatch_hex = '#708090' -%}
+        {%- when 'steel' -%}{%- assign swatch_hex = '#71797E' -%}
+        {%- when 'cyan' -%}{%- assign swatch_hex = '#00FFFF' -%}
+        {%- when 'magenta' -%}{%- assign swatch_hex = '#FF00FF' -%}
+        {%- when 'turquoise' -%}{%- assign swatch_hex = '#40E0D0' -%}
+        {%- when 'graphite' -%}{%- assign swatch_hex = '#383838' -%}
+        {%- when 'stone' -%}{%- assign swatch_hex = '#928E85' -%}
+        {%- when 'cobalt' -%}{%- assign swatch_hex = '#0047AB' -%}
+        {%- when 'ash' -%}{%- assign swatch_hex = '#B2BEB5' -%}
+        {%- when 'taupe' -%}{%- assign swatch_hex = '#483C32' -%}
+        {%- when 'rose' -%}{%- assign swatch_hex = '#FF007F' -%}
+        {%- when 'mauve' -%}{%- assign swatch_hex = '#E0B0FF' -%}
+        {%- when 'plum' -%}{%- assign swatch_hex = '#8E4585' -%}
+        {%- when 'fuchsia' -%}{%- assign swatch_hex = '#FF00FF' -%}
+        {%- when 'camel' -%}{%- assign swatch_hex = '#C19A6B' -%}
+        {%- when 'chocolate' -%}{%- assign swatch_hex = '#7B3F00' -%}
+        {%- when 'coffee' -%}{%- assign swatch_hex = '#6F4E37' -%}
+        {%- when 'espresso' -%}{%- assign swatch_hex = '#3C2005' -%}
+        {%- when 'clay' -%}{%- assign swatch_hex = '#B66A50' -%}
+        {%- when 'copper' -%}{%- assign swatch_hex = '#B87333' -%}
+        {%- when 'bronze' -%}{%- assign swatch_hex = '#CD7F32' -%}
+        {%- when 'pearl' -%}{%- assign swatch_hex = '#EAE0C8' -%}
+        {%- when 'oatmeal' -%}{%- assign swatch_hex = '#D3CAAB' -%}
+        {%- when 'fluo yellow' -%}{%- assign swatch_hex = '#CCFF00' -%}
+        {%- when 'fluo orange' -%}{%- assign swatch_hex = '#FF5F15' -%}
+        {%- when 'hi-vis yellow' -%}{%- assign swatch_hex = '#CCFF00' -%}
+        {%- when 'hi-vis orange' -%}{%- assign swatch_hex = '#FF5F15' -%}
+        {%- when 'fluorescent yellow' -%}{%- assign swatch_hex = '#CCFF00' -%}
+        {%- when 'fluorescent orange' -%}{%- assign swatch_hex = '#FF5F15' -%}
+        {%- when 'neon yellow' -%}{%- assign swatch_hex = '#CCFF00' -%}
+        {%- when 'neon orange' -%}{%- assign swatch_hex = '#FF5F15' -%}
+      {%- endcase -%}
+
+      <a href="{{ sibling.url }}" 
+         class="color-swatches__swatch{% if is_current %} color-swatches__swatch--active{% endif %}"
+         title="{{ sibling.variants.first.option1 | default: sibling.title }}"
+         {% if swatch_hex != '' %}style="background-color: {{ swatch_hex }};"{% endif %}>
+        {%- if swatch_hex == '' -%}
+          <span class="color-swatches__unknown">{{ sibling.variants.first.option1 | default: '?' | truncate: 3, '' }}</span>
+        {%- endif -%}
+        {%- if sib_color == 'white' or sib_color == 'beige' or sib_color == 'cream' or sib_color == 'ivory' or sib_color == 'pearl' or sib_color == 'oatmeal' or sib_color == 'yellow' or sib_color == 'fluo yellow' or sib_color == 'hi-vis yellow' or sib_color == 'fluorescent yellow' or sib_color == 'neon yellow' or sib_color == 'lavender' or sib_color == 'mint' or sib_color == 'light grey' or sib_color == 'light gray' or sib_color == 'silver' or sib_color == 'sand' or sib_color == 'peach' -%}
+          {%- comment -%}Light colors get a border{%- endcomment -%}
+        {%- endif -%}
+      </a>
+    {%- endfor -%}
+  </div>
+{%- endif -%}

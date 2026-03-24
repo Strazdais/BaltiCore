@@ -105,6 +105,7 @@
                     </h2>
                   </a>
                 </div>
+                {%- render 'color-swatches' -%}
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
