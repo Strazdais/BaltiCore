@@ -1974,7 +1974,133 @@
         "page_title": "Post-purchase",
         "title": "Post-purchase",
         "escape_confirmation": "You’ve paid for your order.",
-        "escape_action": "View order confirmation ›"
+        "escape_action": "View order confirmation ›",
+        "components": {
+          "close": "Aizvērt",
+          "expand": "View more",
+          "processing": "Processing…",
+          "submit": "Iesniegt"
+        }
+      },
+      "processing": {
+        "redirecting_page_title": "Redirecting…",
+        "redirecting_title": "Redirecting…",
+        "redirecting_notice": "Wait while we redirect you.",
+        "redirecting_to_bank": "Redirecting to {{bank}}",
+        "complete_your_purchase_title": "Complete your purchase",
+        "continue_to_payment_gateway_notice": "Turpināt to Maksājums to add your Maksājums Informācija.",
+        "continue_to_payment_gateway_button_label": "Turpināt to Maksājums",
+        "complete_your_purchase_title_error": "Correct your Maksājums Informācija",
+        "continue_to_payment_gateway_notice_error": "Your Maksājums Informācija couldn’t be verified.",
+        "continue_to_payment_gateway_button_label_error": "Update Maksājums Informācija",
+        "page_title": "Processing order",
+        "title": "Processing order",
+        "your_order_has_been_received_title": "Thanks for your order",
+        "you_will_receive_confirmation": "We’re getting a lot of orders right now. You should receive confirmation by E-pasts or text soon. If you don't receive it in the next hour, let us know.",
+        "you_will_not_be_charged": "You won't be charged yet",
+        "wait": {
+          "short": "Your order’s being processed.",
+          "medium": {
+            "one": "Your order’s being processed. Estimated wait time is %{count} minute.",
+            "other": "Your order’s being processed. Estimated wait time is %{count} minutes."
+          },
+          "long": "You’ll receive an E-pasts as soon as your order’s processed. There’s currently a high volume of orders.",
+          "no_auto_refresh_html": "If you’re not automatically redirected, %{link}.",
+          "refresh_this_page": "refresh this page"
+        },
+        "remote_shops_payments_processing": "Processing payments",
+        "action_required": "Action required",
+        "modal_notice": "We are contacting {{paymentMethod}}",
+        "remote_checkout_count": "%{current} of %{Kopā}"
+      },
+      "payment_challenge_modal": {
+        "instructions": "Complete your purchase using your {{paymentMethod}} code",
+        "timer_message": "You have {{timeLeft}} to pay",
+        "copy_text": "Copy {{paymentMethod}} code",
+        "open_app_text": "Open {{paymentMethod}} app",
+        "header": "Pay with {{paymentMethod}}",
+        "qr_code": {
+          "instructions": "Complete your purchase using your {{paymentMethod}} code"
+        },
+        "external": {
+          "instructions": "Confirm Maksājums on your app to complete this purchase"
+        },
+        "close": "Aizvērt the challenge"
+      },
+      "failed_payment": {
+        "page_title": "Maksājums couldn’t be processed",
+        "title": "Maksājums couldn’t be processed",
+        "payment_not_processed_title": "Your Maksājums couldn’t be processed",
+        "payment_not_processed_text": "You haven’t been charged. Return to your Grozs to complete your purchase.",
+        "return_to_cart_button_label": "Atgriezties uz grozu"
+      },
+      "payment_gateway": {
+        "credit_card_label": "Credit card",
+        "bank_deposit_label": "Bank Deposit",
+        "bank_account_label": "Bank account",
+        "cash_on_delivery_label": "Cash on Delivery (COD)",
+        "money_order_label": "Money Order",
+        "debit_card_label": "Debit card",
+        "credit_or_debit_card_label": "Credit/Debit",
+        "deferred_payment_label": "Choose Maksājums method later",
+        "fixed_payment_label": "Your Maksājums will be due on {{dueDate}}.",
+        "generic_payment_terms": "You’re on {{translatedName}} terms. Your Maksājums will be due on {{dueDate}}.",
+        "login_prompt": {
+          "no_access": {
+            "message": "{{logIn}} to an account with access to this location to add or use saved Maksājums methods.",
+            "link": "Pieslēgties"
+          }
+        },
+        "direct_payment_terms": "You’re on {{translatedName}} terms. Your card will be charged on {{dueDate}}.",
+        "fixed_direct_payment_terms": "Your card will be charged on {{dueDate}}.",
+        "order_due_on_fulfillment_choose_later": "Your Maksājums will be due once your order is fulfilled.",
+        "order_due_on_fulfillment_payment": "Your card will be charged once your order is fulfilled.",
+        "order_due_on_receipt_choose_later": "Your Maksājums will be due on receipt.",
+        "order_deposit_due_now": "{{depositAmount}} is due today. The balance is on {{translatedName}} terms un is due on {{dueDate}}.",
+        "order_deposit_due_on_fulfillment": "{{depositAmount}} is due today. The balance will be due once your order is fulfilled.",
+        "order_deposit_due_on_receipt": "{{depositAmount}} is due today. The balance will be due later.",
+        "order_deposit_due_on_fixed_date": "{{depositAmount}} is due today. The balance will be due on {{dueDate}}.",
+        "draft_order_payment_due_later_no_terms": "Your Maksājums will be due once Jūsu pasūtījums ir apstiprināts.",
+        "draft_order_payment_due_later_no_terms_payment_selected": "Your card will be charged once Jūsu pasūtījums ir apstiprināts.",
+        "draft_order_payment_due_later_terms": "You’ll be on {{translatedName}} terms once Jūsu pasūtījums ir apstiprināts.",
+        "draft_order_payment_due_on_fulfillment": "Your Maksājums will be due once your order has been confirmed un fulfilled.",
+        "draft_order_deposit_due_later": "{{depositAmount}} will be due when Jūsu pasūtījums ir apstiprināts. The balance will be on {{translatedName}} terms.",
+        "draft_order_deposit_due_on_fulfillment": "{{depositAmount}} will be due when Jūsu pasūtījums ir apstiprināts. The balance will be once your order is fulfilled."
+      },
+      "thank_you": {
+        "title": "Paldies par jūsu pirkumu!",
+        "confirmation_email_sent_text": "A confirmation E-pasts has been sent to %{E-pasts}",
+        "return_to_store_link_label": "Turpināt iepirkšanos",
+        "print_link_label": "Print receipt",
+        "payment_information_title": "Maksājums Informācija",
+        "shipping_information_title": "Piegādes informācija",
+        "page_title": "Thank you, %{display_name}!",
+        "page_title_no_name": "Paldies!",
+        "purchase_order_number_title": "PO number #%{purchase_order_number}",
+        "cancelled_page_title": "Order canceled",
+        "failed_pending_payment_page_title": "There’s a problem with your Maksājums",
+        "customer_information_title": "Pasūtījuma detaļas",
+        "contact_information_title": "Kontaktinformācija",
+        "billing_address_title": "Rēķina adrese",
+        "cashback_notice": "You'll receive your cashback after 30 days",
+        "company_location_title": "Location",
+        "shipping_address_title": "Piegādes adrese",
+        "shipping_address_map_title": "Google map displaying pin point of Piegāde Adrese: %{Adrese}",
+        "payment_method_title": "Maksājuma veids",
+        "payment_method_not_charged": "Not charged",
+        "shipping_method_title": "Piegādes veids",
+        "tracking_number": "Tracking number:",
+        "company_tracking_number": "%{Uzņēmums} tracking number:",
+        "estimated_arrival": "Estimated delivery date: ",
+        "estimated_delivery": "Current delivery estimate: ",
+        "re-order": "Re-order the same Preces",
+        "confirmed": "Confirmed",
+        "confirmed_items_count": "%{confirmed_count} of %{total_count} Preces are confirmed",
+        "items_fulfilled_by_store": {
+          "one": "Preces you've purchased will come from %{remote_shop_name}.",
+          "other": "Preces you've purchased will come from other stores."
+        },
+        "gift_card_confirmation_by_text": "If you didn’t receive it, resend the text or contact us."
       }
     }
   }
