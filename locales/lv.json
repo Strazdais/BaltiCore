@@ -3203,7 +3203,133 @@
       "policy_try_again": "Try again",
       "log_out_link": "Sign out",
       "logout_overlay_label": "Signing out...",
-      "nav_label_accessibility_label": "Main navigation"
+      "nav_label_accessibility_label": "Main navigation",
+      "navigation_accessibility_message": "You navigated to {{sectionName}}",
+      "open_menu_accessibility_label": "Open main navigation",
+      "shop_logo_accessibility_label": "{{shopName}} logo",
+      "settings_link": "Settings",
+      "country_switcher_toast_message": "Country switched to {{countryName}}",
+      "switch_country": "Switch country",
+      "no_countries_found": "No countries found",
+      "location_switcher_toast_message": "Location switched to {{locationName}}",
+      "switch_location": "Switch location",
+      "no_locations_found": "No locations found",
+      "try_new_search": "Try a new Meklēt",
+      "view_details": "View details",
+      "company_location": "Uzņēmums location",
+      "search": "Meklēt",
+      "skip_to_content": "Pāriet uz saturu"
+    },
+    "announcement_bar": {
+      "expand_label": "Expand announcement bar",
+      "collapse_label": "Collapse announcement bar",
+      "close_label": "Aizvērt announcement bar"
+    },
+    "account_information": {
+      "loading_accessibility_message": "Loading account Informācija",
+      "loading_finished_accessibility_message": "Account Informācija has loaded",
+      "profile_card": {
+        "cancel": "Atcelt",
+        "cancel_accessibility_label": "Atcelt editing profile",
+        "edit": "Edit",
+        "edit_accessibility_label": "Edit profile",
+        "email_help_text": "E-pasts can't be edited",
+        "editable_email_help_text": "This E-pasts is used for sign-in un order updates.",
+        "first_name": "Vārds",
+        "last_name": "Uzvārds",
+        "email": "E-pasts",
+        "no_name_provided_accessibility_label": "No name added",
+        "phone_number_help_text": "Tālrunis number can't be edited",
+        "save": "Saglabāt",
+        "save_accessibility_label": "Saglabāt profile",
+        "title": "Profile",
+        "errors": {
+          "name_too_long": "{{fieldName}} is too long (maximum is 255 characters)",
+          "name_cannot_contain_url": "{{fieldName}} cannot contain URL",
+          "name_cannot_contain_html_tags": "{{fieldName}} cannot contain HTML tags",
+          "email_cant_be_blank": "E-pasts can't be blank",
+          "invalid_email_format": "Enter a valid E-pasts"
+        }
+      },
+      "verify_new_email_modal": {
+        "title": "Verify E-pasts",
+        "description": "Enter the code sent to {{E-pasts}}",
+        "one_time_password_label": "6-digit code",
+        "email_resend_button": "Resend code",
+        "email_resend_button_accessibility_label": "Resend verification code",
+        "verify_button": "Verify",
+        "verify_button_accessibility_label": "Verify one time password",
+        "cancel_button": "Atcelt",
+        "cancel_button_accessibility_label": "Atcelt editing E-pasts",
+        "email_resend_button_success_toast_message": "Verification code sent",
+        "email_resend_button_failure_banner_message": "Couldn't send verification code"
+      },
+      "email_update_success_modal": {
+        "title": "Verify E-pasts",
+        "description": "E-pasts successfully updated. Redirecting to login."
+      },
+      "profile_update_confirmation_message": "Profile updated",
+      "email_update_confirmation_message": "E-pasts updated to {{E-pasts}}",
+      "title": "Profile",
+      "people": {
+        "pagination": {
+          "load_more": "Load more",
+          "load_more_accessibility_label": "Load more people",
+          "loading_accessibility_label": "Loading people"
+        }
+      },
+      "add_button": "Add"
+    },
+    "orders": {
+      "list_layout_accessibility_label": "Layout options",
+      "list_title": "Orders",
+      "list_title_with_pending_orders": "Orders:",
+      "list_title_confirmed_orders_accessibility_label": "Orders: confirmed",
+      "list_title_pending_orders_accessibility_label": "Orders: pending",
+      "switch_order_type_pending_orders_accessibility_label": "Switch order type, currently viewing pending orders",
+      "switch_order_type_confirmed_orders_accessibility_label": "Switch order type, currently viewing confirmed orders",
+      "order_list": {
+        "column_headers": {
+          "order": "Order",
+          "total": "Kopā",
+          "actions_accessibility_label": "Actions",
+          "products_accessibility_label": "Products"
+        },
+        "order_status_and_message": "{{orderStatus}} - {{message}}",
+        "delivered": "Delivered {{date}}",
+        "empty_state_order_source_description": "Only orders placed by {{E-pasts}} will show here.",
+        "empty_state_subtitle": "Go to store to place an order.",
+        "empty_state_title": "No orders yet",
+        "empty_state_with_location_title": "No orders for {{locationName}}",
+        "empty_state_title_for_pending_orders": "No pending orders",
+        "no_order_banner": "To test your extension on the Order status page, create an order.",
+        "estimated_shortform": "Est. {{date}}",
+        "estimated_delivery": "Expected {{date}}",
+        "one_images_accessibility_label": "Order includes {{lineItemName1}}",
+        "two_images_accessibility_label": "Order includes {{lineItemName1}}, {{lineItemName2}}",
+        "three_images_accessibility_label": "Order includes {{lineItemName1}}, {{lineItemName2}}, {{lineItemName3}}",
+        "four_images_accessibility_label": "Order includes {{lineItemName1}}, {{lineItemName2}}, {{lineItemName3}}, {{lineItemName4}}",
+        "more_than_three_products_accessibility_label": "Order includes {{lineItemName1}}, {{lineItemName2}}, un {{numberOfAdditionalProducts}} more products",
+        "more_than_four_products_accessibility_label": "Order includes {{lineItemName1}}, {{lineItemName2}}, {{lineItemName3}}, un {{numberOfAdditionalProducts}} more products",
+        "plus_more": "+{{numberOfAdditionalProducts}}",
+        "plus_more_products": "+{{numberOfAdditionalProducts}} products",
+        "carousel": {
+          "one_products_accessibility_label": "Order includes {{lineItemName1}} Daudzums {{lineItemQuantity1}}",
+          "two_products_accessibility_label": "Order includes {{lineItemName1}} Daudzums {{lineItemQuantity1}}, {{lineItemName2}} Daudzums {{lineItemQuantity2}}",
+          "three_products_accessibility_label": "Order includes {{lineItemName1}} Daudzums {{lineItemQuantity1}}, {{lineItemName2}} Daudzums {{lineItemQuantity2}}, {{lineItemName3}} Daudzums {{lineItemQuantity3}}",
+          "four_products_accessibility_label": "Order includes {{lineItemName1}} Daudzums {{lineItemQuantity1}}, {{lineItemName2}} Daudzums {{lineItemQuantity2}}, {{lineItemName3}} Daudzums {{lineItemQuantity3}}, {{lineItemName4}} Daudzums {{lineItemQuantity4}}",
+          "five_products_accessibility_label": "Order includes {{lineItemName1}} Daudzums {{lineItemQuantity1}}, {{lineItemName2}} Daudzums {{lineItemQuantity2}}, {{lineItemName3}} Daudzums {{lineItemQuantity3}}, {{lineItemName4}} Daudzums {{lineItemQuantity4}}, {{lineItemName5}} Daudzums {{lineItemQuantity5}}",
+          "six_products_accessibility_label": "Order includes {{lineItemName1}} Daudzums {{lineItemQuantity1}}, {{lineItemName2}} Daudzums {{lineItemQuantity2}}, {{lineItemName3}} Daudzums {{lineItemQuantity3}}, {{lineItemName4}} Daudzums {{lineItemQuantity4}}, {{lineItemName5}} Daudzums {{lineItemQuantity5}}, {{lineItemName6}} Daudzums {{lineItemQuantity6}}",
+          "six_and_more_products_accessibility_label": "Order includes {{lineItemName1}} Daudzums {{lineItemQuantity1}}, {{lineItemName2}} Daudzums {{lineItemQuantity2}}, {{lineItemName3}} Daudzums {{lineItemQuantity3}}, {{lineItemName4}} Daudzums {{lineItemQuantity4}}, {{lineItemName5}} Daudzums {{lineItemQuantity5}}, {{lineItemName6}} Daudzums {{lineItemQuantity6}} un more",
+          "view_order_details": "View Pasūtījuma detaļas",
+          "previous": "Previous",
+          "next": "Next"
+        },
+        "items": {
+          "one": "{{count}} item",
+          "other": "{{count}} Preces"
+        }
+      }
     }
   }
 }
