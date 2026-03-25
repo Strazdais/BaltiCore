@@ -1,59 +1,84 @@
-<div id="spars-lang-popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:99999;align-items:center;justify-content:center;">
-  <div style="background:#1a1a1a;border-radius:12px;padding:40px 32px;max-width:420px;width:90%;text-align:center;border:1px solid #333;">
-    {% if shop.metafields.global.logo %}
-      <img src="{{ 'spars-logo.png' | asset_url }}" alt="{{ shop.name }}" style="max-width:180px;margin-bottom:24px;" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-      <h1 style="display:none;color:#c8a951;font-size:28px;margin:0 0 24px;font-weight:700;">{{ shop.name }}</h1>
-    {% else %}
-      <h1 style="color:#c8a951;font-size:28px;margin:0 0 24px;font-weight:700;">{{ shop.name }}</h1>
-    {% endif %}
-    <p style="color:#fff;font-size:16px;margin:0 0 8px;">Choose your language</p>
-    <p style="color:#ccc;font-size:14px;margin:0 0 32px;">Izvēlieties valodu</p>
-    <div id="spars-lang-buttons" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <button onclick="sparsSelectLang('en')" id="spars-btn-en" style="flex:1;min-width:140px;padding:14px 24px;font-size:16px;font-weight:600;border:2px solid #555;border-radius:8px;background:#2a2a2a;color:#fff;cursor:pointer;transition:all 0.2s;">🇬🇧 English</button>
-      <button onclick="sparsSelectLang('lv')" id="spars-btn-lv" style="flex:1;min-width:140px;padding:14px 24px;font-size:16px;font-weight:600;border:2px solid #555;border-radius:8px;background:#2a2a2a;color:#fff;cursor:pointer;transition:all 0.2s;">🇱🇻 Latviešu</button>
+{% comment %}
+  Language selection popup - shows on first visit
+{% endcomment %}
+
+<div id="language-popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:99999; justify-content:center; align-items:center;">
+  <div style="background:#1a1a1a; border-radius:12px; padding:40px 48px; max-width:480px; width:90%; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+    <div style="margin-bottom:24px;">
+      <span style="font-size:28px; font-weight:700; color:#fff; letter-spacing:0.05em;">SPARS</span>
+    </div>
+    <h2 style="color:#fff; font-size:20px; font-weight:500; margin:0 0 8px 0;">Choose your language</h2>
+    <p style="color:#999; font-size:15px; margin:0 0 32px 0;">Izvēlieties valodu</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <button id="lang-en" onclick="selectLanguage('en')" style="flex:1; min-width:140px; padding:16px 24px; background:#2a2a2a; border:2px solid #444; border-radius:8px; color:#fff; font-size:16px; font-weight:500; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:10px;">
+        <span style="font-size:24px;">🇬🇧</span> English
+      </button>
+      <button id="lang-lv" onclick="selectLanguage('lv')" style="flex:1; min-width:140px; padding:16px 24px; background:#2a2a2a; border:2px solid #444; border-radius:8px; color:#fff; font-size:16px; font-weight:500; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:10px;">
+        <span style="font-size:24px;">🇱🇻</span> Latviešu
+      </button>
     </div>
   </div>
 </div>
+
 <style>
-  #spars-lang-popup button:hover { border-color: #c8a951 !important; background: #333 !important; }
-  #spars-lang-popup .spars-highlight { border-color: #c8a951 !important; box-shadow: 0 0 12px rgba(200,169,81,0.3); }
-  @media (max-width: 480px) {
-    #spars-lang-buttons { flex-direction: column !important; }
-    #spars-lang-buttons button { min-width: 100% !important; }
+  #language-popup-overlay button:hover {
+    border-color: #c8a951 !important;
+    background: #333 !important;
+  }
+  #language-popup-overlay .lang-highlight {
+    border-color: #c8a951 !important;
+    box-shadow: 0 0 12px rgba(200,169,81,0.3);
   }
 </style>
+
 <script>
 (function() {
+  // Check if already on a locale path or has preference
   var path = window.location.pathname;
-  // If already on /lv path, set preference silently
-  if (path.indexOf('/lv') === 0 && (path.length === 3 || path[3] === '/')) {
-    localStorage.setItem('spars_lang', 'lv');
+  var hasLangPref = localStorage.getItem('spars_lang');
+  
+  // If on /lv path, set preference silently
+  if (path.startsWith('/lv')) {
+    if (!hasLangPref) localStorage.setItem('spars_lang', 'lv');
     return;
   }
-  // If language already chosen, don't show
-  if (localStorage.getItem('spars_lang')) return;
+  
+  // If on /en path or root with preference, set and return
+  if (hasLangPref) return;
+  
   // Show popup
-  var popup = document.getElementById('spars-lang-popup');
-  popup.style.display = 'flex';
-  // Pre-highlight LV if browser is Latvian
-  if ((navigator.language || navigator.userLanguage || '').toLowerCase().indexOf('lv') === 0) {
-    document.getElementById('spars-btn-lv').classList.add('spars-highlight');
+  var overlay = document.getElementById('language-popup-overlay');
+  if (!overlay) return;
+  overlay.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  
+  // Pre-highlight Latvian if browser language is lv
+  var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (browserLang.startsWith('lv')) {
+    document.getElementById('lang-lv').classList.add('lang-highlight');
   }
+  
+  // Block escape and click-outside
+  overlay.addEventListener('click', function(e) { e.stopPropagation(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.style.display === 'flex') e.preventDefault();
+  });
 })();
-function sparsSelectLang(lang) {
+
+function selectLanguage(lang) {
   localStorage.setItem('spars_lang', lang);
+  var overlay = document.getElementById('language-popup-overlay');
+  if (overlay) overlay.style.display = 'none';
+  document.body.style.overflow = '';
+  
   var path = window.location.pathname;
+  // Remove any existing locale prefix
+  path = path.replace(/^\/(en|lv)(\/|$)/, '/');
+  
   if (lang === 'lv') {
-    if (path.indexOf('/lv') !== 0) {
-      window.location.href = '/lv' + path;
-    }
+    window.location.href = '/lv' + (path === '/' ? '' : path);
   } else {
-    // Remove /lv prefix if present
-    if (path.indexOf('/lv') === 0) {
-      window.location.href = path.substring(3) || '/';
-    } else {
-      window.location.reload();
-    }
+    window.location.href = path || '/';
   }
 }
 </script>
