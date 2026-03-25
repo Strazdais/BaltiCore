@@ -55,6 +55,7 @@
 
     try {
       var raw = JSON.parse(el.textContent);
+      raw = raw.filter(function(p) { return !(p.tags && p.tags.indexOf('_hide-from-shop') > -1); });
       return mapProducts(raw, 0);
     } catch (e) {
       console.error('Shop page: failed to parse product data', e);
@@ -108,6 +109,7 @@
               var dataEl = doc.getElementById('shopify-product-data');
               if (dataEl) {
                 var raw = JSON.parse(dataEl.textContent);
+                raw = raw.filter(function(p) { return !(p.tags && p.tags.indexOf('_hide-from-shop') > -1); });
                 products = mapProducts(raw, (pg - 1) * 50);
               }
             } catch (e) {
