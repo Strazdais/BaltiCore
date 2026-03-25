@@ -2351,6 +2351,186 @@
         "policy_label": "Policy",
         "policies_label": "Policies",
         "select_policy_label": "Select a policy"
+      },
+      "open_graph_meta_tag": {
+        "title_with_products": {
+          "one": "Purchase %{product_name} un %{count} other item",
+          "other": "Purchase %{product_name} un %{count} other Preces"
+        }
+      },
+      "subscriptions": {
+        "recurring_total_intervals": {
+          "day": {
+            "one": "day",
+            "other": "%{count} days"
+          },
+          "week": {
+            "one": "week",
+            "other": "%{count} weeks"
+          },
+          "month": {
+            "one": "month",
+            "other": "%{count} months"
+          },
+          "year": {
+            "one": "year",
+            "other": "%{count} years"
+          }
+        },
+        "recurring_totals": "%{total_price} every %{interval}",
+        "recurring_totals_with_initial_order_shipping_discount": "First Maksājums %{total_price_with_discount}, then %{recurring_total}",
+        "recurring_totals_with_policies": {
+          "first_cycles": {
+            "one": "First Maksājums %{total_price}",
+            "other": "First %{count} payments %{total_price} each"
+          },
+          "following_cycles": ", then %{total_price} every %{interval}"
+        },
+        "recurring_totals_with_initial_order_shipping_discount_with_policies": {
+          "first_cycles": {
+            "one": ", then %{count} Maksājums at %{total_price}",
+            "other": ", then %{count} payments at %{total_price} each"
+          }
+        }
+      },
+      "customer_payment_methods": {
+        "page_title": "Maksājums methods",
+        "title": "Maksājums methods",
+        "update_card_button_label": "Update card",
+        "delete_customer_mandate": {
+          "generic_error": "There was an issue processing your request.",
+          "success_message": "Your Maksājums method has been successfully deleted"
+        }
+      },
+      "throttle": {
+        "too_many_attempts": {
+          "message": "Too many attempts",
+          "description": "Try again in a few minutes"
+        },
+        "line_to_check_out": "You’re in line to check out",
+        "cart_summary_heading": "Your Grozs",
+        "merchandise": {
+          "available": "Available",
+          "sold_out": "Sold Out"
+        },
+        "inventory": {
+          "partial_inventory_banner": "Part of your Grozs is sold out un will not be available to purchase at Apmaksa.",
+          "sold_out": {
+            "heading": "Your Grozs is sold out",
+            "storefront_body": "Go Atpakaļ to the store to Turpināt shopping",
+            "no_storefront_body": "Unfortunately the item you want to purchase is no longer available.",
+            "link": "Atpakaļ to store"
+          }
+        },
+        "title": "Queue",
+        "time_to_checkout_title": "Time to check out - {{shopName}}",
+        "estimated_wait_time": {
+          "calculating": "Calculating estimated wait time",
+          "less_than_one": "Estimated wait time: Less than a minute",
+          "one": "Estimated wait time: {{count}} minute",
+          "other": "Estimated wait time: {{count}} minutes"
+        },
+        "last_checked": "(Last checked: {{time}})",
+        "footer": {
+          "heading": "Don’t refresh this page, it will update automatically.",
+          "body": "Preces in your Grozs are not reserved until you complete Apmaksa."
+        }
+      },
+      "cart_checkout_validation": {
+        "runtime_error": "There was an issue processing your request. Contact the store owner."
+      },
+      "no_address_location": {
+        "title": "Location with no Adrese",
+        "header": "You don’t have a Piegāde Adrese for this location",
+        "alt_header": "Missing Piegāde Adrese",
+        "message": "Contact us to add an Adrese for this location to complete Apmaksa.",
+        "email_us_button_label": "Send us an E-pasts"
+      },
+      "order_errors": {
+        "creation_failure": "There was an issue creating your order. Try again, or contact us for more details.",
+        "network_failure": "Your order couldn't be submitted because of a network Kļūda. Check your connection un try again.",
+        "inventory_reservation_failure": "Some Preces are no longer available."
+      },
+      "session_errors": {
+        "session_not_unique": "There was a problem processing your order. Refresh this page to return to the store.",
+        "session_already_finished": "This order has already been submitted. You can return to the store to start a new order."
+      },
+      "artifact_errors": {
+        "artifact_dissatisfaction_without_violation": "There was a problem processing your order. Try again in a few minutes."
+      },
+      "pickup_point": {
+        "location_is_currently_closed": "Closed",
+        "business_hours": "Opening hours",
+        "no_business_hours": "No opening hours available",
+        "open_twenty_four_hours": "Open 24/7",
+        "title": "Pickup point",
+        "or": "vai",
+        "search_button": "Meklēt",
+        "address_label": "Adrese",
+        "selector_tabs": "Pickup point selector",
+        "selector_tab_map": "Map",
+        "selector_tab_list": "List",
+        "could_not_resolve_address": "Your Adrese couldn't be located. Try again or use a different Adrese",
+        "no_pickup_points_near_you": "No pickup points found near the selected Adrese",
+        "no_pickup_points_near_location": "No pickup points found near your location",
+        "pickup_unavailable_banner_title": {
+          "one": "No pickup points available for your item",
+          "other": "No pickup points available for your Preces"
+        },
+        "no_pickup_points_found": "No pickup points found",
+        "paginator": {
+          "next_accessibility_label": "Next page",
+          "previous_accessibility_label": "Previous page",
+          "header": {
+            "one": "Showing %{first} - %{last} of %{count} point",
+            "other": "Showing %{first} - %{last} of %{count} points"
+          },
+          "selected_pickup_point_label": {
+            "one": "%{pickup_point_index} of %{count} point",
+            "other": "%{pickup_point_index} of %{count} points"
+          },
+          "selected_page": {
+            "one": "%{first} - %{last} of %{count} point",
+            "other": "%{first} - %{last} of %{count} points"
+          }
+        },
+        "number_of_pickup_points_near_location": {
+          "one": "%{count} pickup point near your location",
+          "other": "%{count} pickup points near your location"
+        },
+        "change": "Change location",
+        "waiting_on_pickup_point_location_notice": "Searching for pickup points...",
+        "geolocation": {
+          "shared_location_button": "Use my location",
+          "errors": {
+            "unsuported_by_browser": "Getting geolocation is not supported by your browser. Try again or use a different browser.",
+            "permission_not_allowed": "Allow sharing your location.",
+            "permission_denied": "Couldn't get your location. Try again."
+          }
+        }
+      },
+      "error_page": {
+        "terminal": {
+          "title": "There was a problem with our Apmaksa",
+          "message": "Refresh this page or try again in a few minutes",
+          "action": {
+            "cta": "Refresh Page"
+          },
+          "request_id": "Request ID: {{requestId}}"
+        },
+        "embed_errors": {
+          "storefront_password_required": "This shop is password protected",
+          "customer_account_required": "Customer account is required to complete Apmaksa",
+          "cart_completed": "This Apmaksa has already been completed",
+          "invalid_cart": "The Grozs is no longer valid",
+          "not_authorized": "Apmaksa authentication failed. Verify your application credentials",
+          "killswitch_enabled": "Apmaksa is temporarily unavailable",
+          "policy_violation": "Unable to complete Apmaksa due to policy configuration restrictions",
+          "unrecoverable_failure": "Unable to load Apmaksa. Try again"
+        }
+      },
+      "notice_banner": {
+        "return_to_cart_link_text": "Atgriezties uz grozu"
       }
     }
   }
