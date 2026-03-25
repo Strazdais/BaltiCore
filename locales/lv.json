@@ -2653,12 +2653,25 @@
       "shop_policies": {
         "policy_label": "Policy",
         "policies_label": "Policies",
-        "select_policy_label": "Select a policy"
+        "select_policy_label": "Select a policy",
+        "refund_policy": "Refund policy",
+        "privacy_policy": "Privacy policy",
+        "terms_of_service": "Terms of service",
+        "legal_notice": "Legal notice",
+        "shipping_policy": "Piegāde",
+        "terms_of_sale": "Terms of sale",
+        "subscription_policy": "Cancellations",
+        "purchase_options_policy": "Purchase options policy",
+        "contact_information": "Contact",
+        "purchase_options_cancellation_policy": "Cancellations",
+        "cookie_preferences": "Cookies",
+        "terms_and_policies": "Terms un policies"
       },
       "open_graph_meta_tag": {
         "title_with_products": {
           "one": "Purchase %{product_name} un %{count} other item",
-          "other": "Purchase %{product_name} un %{count} other Preces"
+          "other": "Purchase %{product_name} un %{count} other Preces",
+          "zero": "Purchase %{product_name}"
         }
       },
       "subscriptions": {
@@ -2833,7 +2846,55 @@
         }
       },
       "notice_banner": {
-        "return_to_cart_link_text": "Atgriezties uz grozu"
+        "return_to_cart_link_text": "Atgriezties uz grozu",
+        "return_to_cart_to_update_quantities": "%{return_to_cart_link_text} to Atjaunināt the quantities",
+        "subscription_changed": "One of your subscriptions has changed.",
+        "company_location_changed": "Your Grozs has been updated. Review your Pasūtījums before submitting it.",
+        "company_location_changed_product_removed": "Your Grozs has been updated because some products are not available at this location. Review your Pasūtījums before submitting it.",
+        "violations_title": "{{violation}} is missing or invalid",
+        "individual_violations_title": {
+          "DeliveryViolations": "Piegāde Adrese",
+          "PaymentViolations": "Billing Adrese",
+          "OtherViolations": "Pasūtījums Informācija",
+          "UnhandledViolations": "Pasūtījums Informācija"
+        },
+        "all_violations_content": "Call or {{emailLink}} us to Atjaunināt this Informācija un complete your Pasūtījums:",
+        "all_violations_email_link": "E-pasts",
+        "editable_shipping_address_violations_message_title": "Pievienot this Informācija to complete your Pasūtījums:",
+        "editable_shipping_address_violations_message_footer": "To permanently Atjaunināt the Adrese for this location, {{emailLink}}.",
+        "editable_shipping_address_violations_email_link": "Sazinieties ar mums",
+        "shipping_address_incomplete_title": "Piegāde Adrese is incomplete",
+        "calculating_shipping": "Piegāde is still being calculated. Try again in a few seconds. You haven’t been charged.",
+        "calculating_taxes": "Nodokļi are still being calculated. Try again in a few seconds. You haven't been charged.",
+        "generic_processing_error": {
+          "title": "There was a problem processing your Pasūtījums",
+          "body": "You haven't been charged. Try again or use different Maksājums method."
+        },
+        "payment_method_not_available_with_payment_terms": "The Maksājums method you selected is no longer available because Maksājums for this Pasūtījums is now on {{paymentTerms}} terms",
+        "payment_method_not_available_with_fulfillment_terms": "The Maksājums method you selected is no longer available because Maksājums for this Pasūtījums is now due on fulfillment",
+        "payment_method_not_available_with_fixed_terms": "The Maksājums method you selected is no longer available because Maksājums for this Pasūtījums is due later",
+        "payment_method_not_available_with_review_requirement": "The Maksājums method you selected is no longer available because Maksājums will be due once Jūsu pasūtījums ir apstiprināts.",
+        "contact_information": {
+          "title": "Kontaktinformācija is invalid",
+          "header": "To Atjaunināt your Informācija, {{emailLink}}.",
+          "email_link": "Sazinieties ar mums"
+        },
+        "validation_errors_banner": {
+          "heading": {
+            "one": "There is {{count}} Kļūda:",
+            "other": "There are {{count}} errors:"
+          },
+          "section_label": {
+            "delivery": "Delivery",
+            "contact": "Contact",
+            "payment": "Maksājums",
+            "billing": "Billing"
+          },
+          "errors_in_section": {
+            "one": "{{count}} Kļūda in {{section}}",
+            "other": "{{count}} errors in {{section}}"
+          }
+        }
       },
       "local_pickup": {
         "location_information": {
@@ -2909,7 +2970,9 @@
           "ship_items": "Ship your Preces",
           "search_elsewhere": "Meklēt elsewhere",
           "ship_items_or_search_elsewhere": "%{ship_items} or %{search_elsewhere}"
-        }
+        },
+        "title": "Location",
+        "location_address_search_label": "Adrese"
       },
       "split_delivery": {
         "pickup_all_items": "Pick up all Preces",
@@ -3178,6 +3241,86 @@
         },
         "empty_cart_action": "empty Grozs un return to store",
         "unavailable_line_item": "%{product_name} / %{variant_label}"
+      },
+      "remote_policies": {
+        "unavailable_policy": "No %{policy_name} has been provided for this store. For further Informācija, contact %{shop_name} directly."
+      },
+      "mor_policies": {
+        "terms_and_conditions": "Merchant of Record Terms un Conditions",
+        "privacy_policy": "Merchant of Record Privacy Policy"
+      },
+      "markets": {
+        "invalid_market_manager_error": "Review your Kontaktinformācija before completing Maksājums"
+      },
+      "notifications": {
+        "title": "Notifications"
+      },
+      "order_payment_collection": {
+        "custom_line_item_description": "Amount to pay for Pasūtījums %{order_name}",
+        "changes_summary": {
+          "added": {
+            "one": "Added",
+            "other": "Added %{count}"
+          },
+          "removed": "Removed",
+          "subtracted": "Removed %{count}",
+          "returned": "Returned %{count}",
+          "return_line_item_removed": "Removed %{count} from return"
+        },
+        "additional_payment_requested": "Maksājums of %{total_outstanding} is needed",
+        "checkout_review_and_pay": "Your Pasūtījums %{order_name} was updated. Review these changes, then pay to confirm your Pasūtījums.",
+        "order_updated_on": "Your Pasūtījums was updated on %{last_edited_at}.",
+        "order_review_and_pay": "Your Pasūtījums was updated. Review un pay to confirm your Pasūtījums.",
+        "pay_now": "Maksāt tagad"
+      },
+      "change_currency": {
+        "currency_button_label": "%{currency} (%{currency_symbol})",
+        "credit_card_will_be_charged_html": "Your credit card will be charged %{amount}",
+        "payment_total_label": "Maksājums Kopā",
+        "conversion_rate": "1 %{from_currency_code} = %{rate} %{to_currency_code}",
+        "change_currency_link": "Mainīt to %{currency_name}",
+        "card_provider_fx_charges_warning": "Your card provider may charge fees on %{currency_code} transactions.",
+        "currency_not_supported_by_shop": "The currency you selected is no longer available. All prices are now in %{currency_code}."
+      },
+      "change_country": {
+        "cart_updated_based_on_country": "Your Grozs has been updated based on your Piegāde country.",
+        "cart_and_currency_updated_based_on_country": "Your Grozs un currency has been updated based on your Piegāde country.",
+        "currency_updated_for_country": "Currency updated for %{country}"
+      },
+      "change_cart_localization": {
+        "verify_shipping_address": "Your Valsts/reģions has been updated. Enter your Piegāde Adrese to Turpināt Apmaksa."
+      },
+      "tips": {
+        "title": "Pievienot tip",
+        "description": "Rādīt your support for the team at %{shop_name}",
+        "presets_description": "Izvēlēties a tip percentage",
+        "custom_label": "Custom tip",
+        "add_tip": "Pievienot tip",
+        "update_tip": "Atjaunināt tip",
+        "message": "Thank you, we appreciate it.",
+        "preset_label": "%{tip_percent}%",
+        "no_tip_label": "None"
+      },
+      "review_address_modal": {
+        "title": "Review Adrese",
+        "subtitle": {
+          "one": "This Pasūtījums will be shipped to the Adrese provided by {{merchant}}.",
+          "other": "This Pasūtījums will be shipped to an Adrese provided by {{merchant}}. Izvēlēties a Piegāde Adrese."
+        },
+        "subtitle_no_match": "This Adrese doesn't match any of your saved addresses.",
+        "subtitle_must_use": "Your Pasūtījums will be shipped to this Adrese.",
+        "continue": "Turpināt with this Adrese",
+        "use_saved_address": "Use a different Adrese",
+        "return_to_cart": "Atgriezties uz grozu"
+      },
+      "marketplaces": {
+        "legal_notice": {
+          "legal_text": "Review",
+          "link_label": "{{partnerDisplayName}} Terms un Conditions"
+        }
+      },
+      "online_store_chat": {
+        "title": "Questions? Chat with us"
       }
     },
     "errors": {
