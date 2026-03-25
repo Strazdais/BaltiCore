@@ -16,7 +16,7 @@
       "login_form_password_placeholder": "Jūsu parole",
       "login_form_error": "Nepareiza parole!",
       "login_form_submit": "Ievadīt",
-      "admin_link_html": "Vai esat veikala īpašnieks? <a href=\"\/admin\" class=\"link underlined-link\">Piesakieties šeit<\/a>",
+      "admin_link_html": "Vai esat veikala īpašnieks? <a href=\"/admin\" class=\"link underlined-link\">Piesakieties šeit</a>",
       "powered_by_shopify_html": "Šo veikalu nodrošina {{ shopify }}"
     },
     "social": {
@@ -149,7 +149,7 @@
         "multiples_of": "Soli pa {{ quantity }}",
         "min_of": "Min {{ quantity }}",
         "max_of": "Maks {{ quantity }}",
-        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}<\/span> grozā",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> grozā",
         "in_cart_aria_label": "Daudzums ({{ quantity }} grozā)",
         "note": "Skatīt daudzuma noteikumus"
       },
@@ -157,15 +157,15 @@
         "title": "Vairumtirdzniecības cenas",
         "note": "Pieejamas vairumtirdzniecības cenas",
         "minimum": "{{ quantity }}+",
-        "price_at_each_html": "pa {{ price }}\/gab.",
+        "price_at_each_html": "pa {{ price }}/gab.",
         "price_range": "{{ minimum }} - {{ maximum }}"
       },
       "pickup_availability": {
         "view_store_info": "Skatīt veikala informāciju",
         "check_other_stores": "Pārbaudīt pieejamību citos veikalos",
         "pick_up_available": "Saņemšana pieejama",
-        "pick_up_available_at_html": "Saņemšana pieejama <span class=\"color-foreground\">{{ location_name }}<\/span>",
-        "pick_up_unavailable_at_html": "Saņemšana pašlaik nav pieejama <span class=\"color-foreground\">{{ location_name }}<\/span>",
+        "pick_up_available_at_html": "Saņemšana pieejama <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Saņemšana pašlaik nav pieejama <span class=\"color-foreground\">{{ location_name }}</span>",
         "unavailable": "Nevarēja ielādēt saņemšanas pieejamību",
         "refresh": "Atjaunināt"
       },
@@ -188,7 +188,7 @@
       "taxes_included": "Nodokļi iekļauti.",
       "duties_included": "Muitas nodokļi iekļauti.",
       "duties_and_taxes_included": "Muitas nodokļi un PVN iekļauti.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Piegāde<\/a> tiek aprēķināta pie apmaksas."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Piegāde</a> tiek aprēķināta pie apmaksas."
     },
     "modal": {
       "label": "Mediju galerija"
@@ -302,13 +302,13 @@
       "empty": "Jūsu grozs ir tukšs",
       "cart_error": "Atjauninot grozu radās kļūda. Lūdzu, mēģiniet vēlreiz.",
       "cart_quantity_error_html": "Jūs varat pievienot tikai {{ quantity }} no šīs preces grozam.",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Muitas nodokļi un PVN iekļauti. Atlaides un <a href=\"{{ link }}\">piegāde<\/a> tiek aprēķināta pie apmaksas.",
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Muitas nodokļi un PVN iekļauti. Atlaides un <a href=\"{{ link }}\">piegāde</a> tiek aprēķināta pie apmaksas.",
       "duties_and_taxes_included_shipping_at_checkout_without_policy": "Muitas nodokļi un PVN iekļauti. Atlaides un piegāde tiek aprēķināta pie apmaksas.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "PVN iekļauts. Atlaides un <a href=\"{{ link }}\">piegāde<\/a> tiek aprēķināta pie apmaksas.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "PVN iekļauts. Atlaides un <a href=\"{{ link }}\">piegāde</a> tiek aprēķināta pie apmaksas.",
       "taxes_included_shipping_at_checkout_without_policy": "PVN iekļauts. Atlaides un piegāde tiek aprēķināta pie apmaksas.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Muitas nodokļi iekļauti. PVN, atlaides un <a href=\"{{ link }}\">piegāde<\/a> tiek aprēķināta pie apmaksas.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Muitas nodokļi iekļauti. PVN, atlaides un <a href=\"{{ link }}\">piegāde</a> tiek aprēķināta pie apmaksas.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Muitas nodokļi iekļauti. PVN, atlaides un piegāde tiek aprēķināta pie apmaksas.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "PVN, atlaides un <a href=\"{{ link }}\">piegāde<\/a> tiek aprēķināta pie apmaksas.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "PVN, atlaides un <a href=\"{{ link }}\">piegāde</a> tiek aprēķināta pie apmaksas.",
       "taxes_at_checkout_shipping_at_checkout_without_policy": "PVN, atlaides un piegāde tiek aprēķināta pie apmaksas.",
       "headings": {
         "product": "Produkts",
@@ -320,7 +320,7 @@
       "update": "Atjaunināt",
       "login": {
         "title": "Vai jums ir konts?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Piesakieties<\/a>, lai ātrāk noformētu pasūtījumu."
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Piesakieties</a>, lai ātrāk noformētu pasūtījumu."
       }
     },
     "footer": {
@@ -341,7 +341,7 @@
     "collection_template": {
       "empty": "Produkti nav atrasti",
       "title": "Kolekcija",
-      "use_fewer_filters_html": "Izmantojiet mazāk filtru vai <a class=\"{{ class }}\" href=\"{{ link }}\">noņemiet visus<\/a>"
+      "use_fewer_filters_html": "Izmantojiet mazāk filtru vai <a class=\"{{ class }}\" href=\"{{ link }}\">noņemiet visus</a>"
     },
     "video": {
       "load_video": "Ielādēt video: {{ description }}"
@@ -361,7 +361,7 @@
     "quick_order_list": {
       "product_total": "Produkta starpsumma",
       "view_cart": "Skatīt grozu",
-      "each": "{{ money }}\/gab.",
+      "each": "{{ money }}/gab.",
       "product": "Produkts",
       "variant": "Variants",
       "variant_total": "Varianta kopsumma",
@@ -385,13 +385,13 @@
     }
   },
   "localization": {
-    "country_label": "Valsts\/reģions",
+    "country_label": "Valsts/reģions",
     "language_label": "Valoda",
     "update_language": "Atjaunināt valodu",
-    "update_country": "Atjaunināt valsti\/reģionu",
+    "update_country": "Atjaunināt valsti/reģionu",
     "search": "Meklēt",
-    "popular_countries_regions": "Populāras valstis\/reģioni",
-    "country_results_count": "Atrastas {{ count }} valstis\/reģioni"
+    "popular_countries_regions": "Populāras valstis/reģioni",
+    "country_results_count": "Atrastas {{ count }} valstis/reģioni"
   },
   "customer": {
     "account": {
@@ -420,7 +420,7 @@
       "address1": "Adrese 1",
       "address2": "Adrese 2",
       "city": "Pilsēta",
-      "country": "Valsts\/reģions",
+      "country": "Valsts/reģions",
       "province": "Novads",
       "zip": "Pasta indekss",
       "phone": "Tālrunis",
@@ -534,6 +534,194 @@
       "max_characters": "Maksimums {{ max_chars }} rakstzīmes",
       "send_on": "GGGG-MM-DD",
       "send_on_label": "Nosūtīt (neobligāts)"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "errors": {
+          "merchandise": {
+            "gift_card_quantity_mismatch": "When specifying Dāvanu karte codes, the line item Daudzums un the number of Dāvanu karte codes must match.",
+            "gift_card_not_supported": "Gift cards are not supported on this Apmaksa.",
+            "gift_card_not_unique": "Dāvanu karte with code {{code}} occurs more than once in this Apmaksa. Codes are formatted before comparison.",
+            "gift_card_used": "Dāvanu karte code {{code}} is already assigned to a Dāvanu karte. Codes are formatted before comparison.",
+            "gift_card_invalid": "Dāvanu karte code {{code}} is invalid.",
+            "gift_card_code_changed": "Dāvanu karte code {{proposed_code}} was changed to {{formatted_code}} to conform to formatting rules.",
+            "gift_card_with_attributes_not_supported": "Gift cards with custom attributes are not supported on this Apmaksa.",
+            "gift_card_with_components_not_supported": "Gift cards with components are not supported on this Apmaksa.",
+            "selling_plan_mismatch": "The subscription has been updated.",
+            "selling_plan_not_supported": "Subscriptions are not supported.",
+            "selling_plan_not_supported_b2b": "Subscriptions are not supported for B2B Apmaksa.",
+            "price_mismatch": "The previously proposed Cena for this merchandise was invalid un has been updated.",
+            "inventory_not_found": "No inventory found for this merchandise.",
+            "product_not_published": "Produkts is not published.",
+            "product_not_published_in_buyer_location": "Produkts is not published in buyer location.",
+            "duplicated_stable_id": "This merchandise line has the same stable-ID as another line.",
+            "minimum_quantity_not_met": "The Daudzums of some Preces doesn’t meet the minimum required.",
+            "maximum_quantity_exceeded": "The Daudzums of some Preces exceeds the maximum allowed.",
+            "quantity_increment_not_met": "The Daudzums of some Preces doesn't meet the order limits.",
+            "quantity_rules_not_met": "The Daudzums of some Preces doesn't meet the order limits.",
+            "bundle_requires_components": "This bundle merchandise has no components.",
+            "title_too_long": "Merchandise title is too long.",
+            "title_empty": "Merchandise title is empty."
+          },
+          "buyer_identity": {
+            "business_customer_does_not_match_company": "Uzņēmums contact does not have access to Uzņēmums.",
+            "customer_account_required": "You must sign in to Turpināt.",
+            "company_location_required": "Customer must choose a Uzņēmums location to Turpināt.",
+            "company_purchase_permission_required": "Customer does not have permission to place Uzņēmums orders.",
+            "personal_order_not_allowed": "Personal orders are not allowed for this shop.",
+            "lost_access_to_company": "Customer lost access to any Uzņēmums.",
+            "contact_info_does_not_match_customer_account": "Contact info must match the account you're signed in to.",
+            "phone_number_does_not_match_expected_pattern": "The specified Tālrunis number does not match the expected pattern.",
+            "email_required": "An E-pasts is required when the merchandise is purchased using a subscription.",
+            "email_domain_is_invalid": "This specified domain cannot be resolved.",
+            "missing_contact_method": "Missing a valid contact method.",
+            "checkout_completion_target_is_missing": "Apmaksa completion target is missing.",
+            "invalid_customer_profile": "An invalid customer profile was provided.",
+            "customer_profile_access_restricted": "Apmaksa does not have permission to access the customer profile.",
+            "checkout_completion_target_is_invalid_proc": "Invalid Apmaksa completion target.",
+            "buyer_identity_presentment_currency_does_not_match": "There was a problem processing your order. Try again in a few minutes."
+          },
+          "delivery": {
+            "only_one_delivery_line_allowed": "Grozs must have only one delivery line.",
+            "wrong_number_of_delivery_lines": "A delivery line must be specified for each group of merchandise.",
+            "external_delivery_promise_error": "An external delivery promise fetch Kļūda.",
+            "options_instructions_invalid": "The specified instructions does not match the expected pattern.",
+            "destination_address_required": "A destination Adrese is required in order to Turpināt.",
+            "pickup_points_unavailable": "Pickup points are currently unavailable.",
+            "local_pickup_delivery_line_detail_changed": "The current local pickup delivery strategy must be changed in order to Turpināt.",
+            "selected_pickup_option_no_longer_available": "The previously selected pickup option is no longer available.",
+            "local_pickup_no_delivery_strategy_available": "No available local pickup delivery strategy found.",
+            "origin_location_id_required": "An origin location ID is required when the RETAIL delivery method is requested.",
+            "invalid_origin_location_id": "Could not find a Location matching the origin location ID.",
+            "origin_location_id_not_allowed": "The requested delivery methods don't support an origin location ID.",
+            "auto_fulfill_not_allowed": "This session is not authorized to override fulfillment behavior.",
+            "auto_fulfill_required": "Auto fulfill is required when the RETAIL delivery method is requested.",
+            "prefetch_shipping_rates_used": "Prefetched Piegāde rates should never return rates.",
+            "fulfillment_constraints_not_satisfied": "One or more fulfillment constraints were not satisfied.",
+            "must_fulfill_from_constraint_not_satisfied": "Fulfillment constraints are not satisfied because Preces cannot be fulfilled from required locations.",
+            "must_fulfill_from_same_location_constraint_not_satisfied": "Fulfillment constraints are not satisfied because Preces cannot be fulfilled from the same location.",
+            "delivery_strategy_conditions_not_satisfied": "Delivery strategies are available for this location, but their conditions are not satisfied.",
+            "out_of_stock_at_origin_location": "No stock at the origin location.",
+            "invalid_signature": "Invalid Atlaide signature."
+          },
+          "discount": {
+            "discounts_not_allowed_for_b2b": "Discounts are not allowed in B2B stores.",
+            "custom_discount_not_honoured": "The supplied custom Atlaide was not honoured.",
+            "unsupported_expectation": "The supplied Atlaide line contained an expectation that the policy could not interpret.",
+            "additional_requested_discount_code_discarded": "{{code}} is valid but not applicable. Check Atlaide terms.",
+            "additional_requested_discount_discarded": "Your Atlaide is valid but not applicable. Check Atlaide terms.",
+            "allocations_mismatch": "Your Atlaide code has changed. Pārskatīt your Grozs un try again.",
+            "discount_code_not_honoured": "%{discount_rejection_message}",
+            "discount_title_too_long": "Atlaide title cannot be longer than 255 characters."
+          },
+          "tax": {
+            "new_tax_must_be_accepted": "Nodokļi associated to your order have changed. Pārskatīt un try again.",
+            "unresolvable_tax_terms": "The proposed terms are unresolvable given the current negotiation context.",
+            "delivery_price_is_abstract": "The related delivery Cena is abstract.",
+            "tax_inclusivity_mismatch": "Renegotiate with concrete totalTaxAndDutyAmount or totalAmountIncludedInTarget value.",
+            "tax_exemption_not_supported": "Nodoklis exemptions are not supported for the current negotiation session.",
+            "delivery_tax_exemption_not_supported": "Nodoklis exemptions for delivery lines are not currently supported.",
+            "proposed_allocations_required": "Missing 'proposed allocations' field.",
+            "merchandise_terms_must_be_defined": "Merchandise terms must be defined.",
+            "delivery_terms_must_be_defined": "Delivery terms must be defined.",
+            "merchandise_discount_terms_must_be_defined": "Merchandise Atlaide terms must be defined.",
+            "delivery_discount_terms_must_be_defined": "Delivery Atlaide terms must be defined.",
+            "allocated_required": "Missing 'allocated' field.",
+            "value_required": "Missing 'value' field.",
+            "line_splits_not_supported": "'merchandise lines' field must be split in such that each have a single line component in the seller proposal."
+          },
+          "payment": {
+            "manual_payments_not_allowed_for_b2b": "Manual payments are not allowed in B2B stores.",
+            "positive_amount_expected": "Amount to pay must be greater than 0.",
+            "total_amount_mismatch": "Kopā to pay does not match the sum of the payments amount.",
+            "subscription_terms_not_accepted": "Subscription terms not accepted.",
+            "missing_session_id": "Missing credit card session Informācija.",
+            "gateway_not_supported": "Maksājums gateway does not support storing the Maksājums method.",
+            "credit_card_last_name_required": "'Uzvārds' cannot be nil.",
+            "credit_card_update_failed": "Credit card update failed.",
+            "invalid_address_type": "The provided Adrese type is invalid for this Maksājums method.",
+            "missing_retail_attributions": "Retail attributions are required for manually-entered credit card payments.",
+            "unexpected_retail_attributions": "Retail attributions unexpectedly provided for credit card Maksājums.",
+            "invalid_card_source": "This session does not have permission to use this card source.",
+            "wallet_content_missing": "Wallet content is missing.",
+            "payment_instrument_not_found": "Could not find Maksājums method",
+            "unauthorized_capture_method": "Configuring the Maksājums capture method is not allowed.",
+            "saved_payment_methods_not_allowed": "Saved Maksājums methods is not allowed.",
+            "saved_payment_methods_not_enabled": "Saved Maksājums methods is not enabled for this shop.",
+            "saved_payment_methods_cvv_verification_disabled": "The selected Maksājums method requires CVV verification which is not enabled for this shop. Select a different Maksājums method.",
+            "store_credit_not_enabled": "Store credit is not enabled for this shop.",
+            "store_credit_account_not_found": "Store credit account not found.",
+            "store_credit_account_mismatch": "Store credit account does not match the buyer identity.",
+            "store_credit_mismatched_currency": "The store credit account's currency does not match the Apmaksa currency.",
+            "store_credit_insufficient_funds": "There are insufficient funds in the store credit account.",
+            "store_credit_buying_gift_card": "You can't use store credit to buy a Dāvanu karte.",
+            "gift_cards_not_allowed_for_b2b": "Gift cards are not allowed in B2B stores.",
+            "method_required": "A Maksājums method must be proposed.",
+            "paypal_express_address_invalid": "PayPal returned an invalid Adrese."
+          },
+          "tip": {
+            "not_accepted_by_shop": "Shop does not accept tips.",
+            "only_one_tip_line_allowed": "Multiple tips lines are not supported.",
+            "tips_not_allowed_for_b2b": "Tips are not allowed in B2B stores.",
+            "currency_change_reset": "Tip has been reset due to currency change.",
+            "tips_not_allowed_for_deferred_purchase_options": "Tips are not yet supported for deffered purchase options."
+          },
+          "sale_attribution": {
+            "draft_order_not_exist": "This draft order doesn't exist in the current shop.",
+            "staff_member_not_exist": "This staff doesn't exist in the current shop.",
+            "location_not_exist": "This location doesn't exist in the current shop.",
+            "point_of_sale_device_not_exist": "This point of sale device doesn't exist in the current shop.",
+            "unresolvable_target_merchandise_lines": "The proposed sale attributions are unresolvable given the current negotiation context."
+          },
+          "non_negotiable": {
+            "missing_non_negotiable_terms": "Your buyer's proposal should contain non-negotiable_terms.",
+            "invalid_signature": "The signature for {{target_terms}} is invalid."
+          },
+          "inventory": {
+            "missing_quantity_value": "Daudzums field is missing in the buyer's inventory lines.",
+            "changing_behavior_not_allowed": "This client does not have permission to change inventory behavior.",
+            "only_one_inventory_behavior_allowed": "Currently only one inventory behavior is allowed per Apmaksa."
+          },
+          "optional_duties": {
+            "optional_duties_not_permitted": "Refusing duties is not allowed for this Apmaksa."
+          },
+          "attribution": {
+            "retail_attribution_not_allowed": "Retail attribution is not allowed for this Apmaksa.",
+            "retail_attribution_required": "Retail attribution is required for this Apmaksa."
+          },
+          "captcha": {
+            "metadata_missing": "Completing a captcha is required for this Apmaksa.",
+            "metadata_mismatch": "Provided captcha provider un type does not match the expected values.",
+            "token_missing": "A captcha token must be provided to complete this Apmaksa.",
+            "job_enqueue_failed": "The captcha validation job failed to be enqueued.",
+            "job_already_queued": "Captcha validation has already been queued for this captcha token.",
+            "token_expired": "The provided captcha token has expired. Complete a new captcha to Turpināt Apmaksa.",
+            "token_invalid": "The provided captcha token was invalid. Complete a new captcha to Turpināt Apmaksa.",
+            "token_not_valid_for_session": "The provided captcha cannot be used with this Apmaksa."
+          },
+          "fx_reconciliation_override": {
+            "shop_currency_mismatch": "The amount received must be in the store currency."
+          },
+          "checkout_source": {
+            "revoked": "This Apmaksa is no longer available."
+          }
+        },
+        "full_price": "Full Cena:",
+        "title": "Apmaksa - {{shopName}}",
+        "full_title": "{{pageTitle}} - {{shopName}} - Apmaksa",
+        "loading": "Loading…",
+        "loading_title": "Apmaksa - {{shopName}}",
+        "display_name": "{{firstName}} {{lastName}}",
+        "google_map_title": "Google Map",
+        "confirm_order_button_label": "Confirm order",
+        "submit_order_button_label": "Iesniegt order",
+        "submit_for_review_button_label": "Iesniegt for Pārskatīt",
+        "submit_for_review_notice_label": "Maksājums won't be due until your order is reviewed",
+        "continue_to_payment_plans_button_label": "Turpināt to Maksājums plans",
+        "back_button_label": "Return"
+      }
     }
   }
 }
