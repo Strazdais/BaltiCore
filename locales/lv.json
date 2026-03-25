@@ -1095,6 +1095,222 @@
         "confirmation_number_label": "Confirmation #%{confirmation_number}",
         "higher_value_discount_applied": "<strong style=\"text-transform:uppercase\">%{code}</strong> couldn't be used with your existing discounts.",
         "percent_off_shipping": "%{percent}% off Piegāde"
+      },
+      "shipping": {
+        "shipping_method_one_time_purchase_group_title": "One-time purchase",
+        "shipping_method_first_shipment_group_title": {
+          "one": "First shipment",
+          "other": "First shipments"
+        },
+        "shipping_method_subscription_group_title": "Subscription",
+        "shipping_method_recurring_shipments_group_title": {
+          "one": "Recurring shipment",
+          "other": "Recurring shipments"
+        },
+        "subscription_shipping": "Subscription Piegāde",
+        "subscription_local_delivery": "Subscription local delivery",
+        "subscription_pickup": "Subscription pickup",
+        "waiting_on_rate_notice": "Getting available Piegāde rates…",
+        "waiting_on_pickup_location_notice": "Getting available pick up locations…",
+        "no_rates_for_cart_or_destination_notice": "There are no Piegāde methods available for your Grozs or Adrese",
+        "no_pickup_location_notice": "At least one of your products is not available for pick up",
+        "no_rates_for_country_notice": "No Piegāde rates found for this Adrese.",
+        "no_rates_contact_notice": "Contact us for more Informācija",
+        "free_rate_label": "Bezmaksas",
+        "cheapest_rate_label": "Cheapest",
+        "estimated_delivery_date": {
+          "one": "%{count} business day",
+          "other": "%{count} business days"
+        },
+        "estimated_delivery_date_range": "%{minimum} to %{maximum} business days",
+        "delivery_date_range": "%{min_time}–%{max_time}",
+        "estimated_delivery_time": "Estimated delivery %{time}",
+        "estimated_delivery_time_range": "Estimated delivery %{min_time}–%{max_time}",
+        "delivery_today": "Same-day delivery %{time}",
+        "delivery_tomorrow": "Next-day delivery %{time}",
+        "two_day_delivery": "2-day delivery %{time}",
+        "delivery": "Delivery %{time}",
+        "delivery_to": "Delivery to",
+        "arrives_time": "Arrives %{time}",
+        "arrives_time_range": "Arrives %{min_time}–%{max_time}",
+        "estimated_time": "Estimated %{time}",
+        "estimated_time_range": "Estimated %{min_time}–%{max_time}",
+        "default_description": "Ships in 1 business day",
+        "unbranded_default_description": "Ready to ship",
+        "unbranded_description_same_day": "Ships same business day",
+        "unbranded_description_with_fulfillment_days": {
+          "one": "Ships next business day",
+          "other": "Ships in %{count} business days"
+        },
+        "unbranded_description_with_fulfillment_weeks": {
+          "one": "Ships in %{count} week",
+          "other": "Ships in %{count} weeks"
+        },
+        "shipping_line_phone_label": "Mobile Tālrunis number (required)",
+        "shipping_line_phone": "Your courier may use this number to contact you.",
+        "shipping_line_delivery_phone_label": "Mobile Tālrunis number",
+        "shipping_line_delivery_phone": "You may be contacted with updates on your delivery.",
+        "optional_shipping_line_delivery_instructions_label": "Delivery instructions (Neobligāts)",
+        "shipping_line_delivery_instructions": "Enter necessary Informācija like door codes or drop-off instructions.",
+        "other_method": {
+          "zero": "No other methods available",
+          "one": "%{count} other method available at",
+          "other": "%{count} other methods available starting at"
+        },
+        "shipping_rate_discounted_amount": "Was: %{original_amount}. Now: %{amount}",
+        "local_delivery": "Local delivery",
+        "prime_not_available": {
+          "default": "Prime delivery isn't available for your order. Your Piegāde options have been updated."
+        },
+        "subscription_delivery_description": {
+          "free_shipping_cycles": {
+            "one": "Bezmaksas Piegāde for %{count} more delivery",
+            "other": "Bezmaksas Piegāde for %{count} more deliveries"
+          },
+          "free_shipping_cycles_delivery_not_included": {
+            "one": "Bezmaksas Piegāde for %{count} delivery",
+            "other": "Bezmaksas Piegāde for %{count} deliveries"
+          },
+          "first_n_order_free_with_cycle": {
+            "one": "Bezmaksas Piegāde for %{count} more delivery, then %{recurring_order_shipping_price}",
+            "other": "Bezmaksas Piegāde for %{count} more deliveries, then %{recurring_order_shipping_price}"
+          },
+          "first_n_order_free_with_cycle_delivery_not_included": {
+            "one": "Bezmaksas Piegāde for %{count} delivery, then %{recurring_order_shipping_price}",
+            "other": "Bezmaksas Piegāde for %{count} deliveries, then %{recurring_order_shipping_price}"
+          },
+          "max_cycles_base_shipping": {
+            "one": "%{count} more delivery for %{shipping_price}",
+            "other": "%{count} more deliveries for %{shipping_price} each"
+          },
+          "max_cycles_base_shipping_delivery_not_included": {
+            "one": "%{count} delivery for %{shipping_price}",
+            "other": "%{count} more deliveries for %{shipping_price} each"
+          },
+          "prepaid_free_shipping_with_cycles": {
+            "one": "Bezmaksas Piegāde for the first %{cycle}, followed by %{recurring_order_shipping_price}",
+            "other": "Bezmaksas Piegāde for the first %{cycle}, followed by %{recurring_order_shipping_price}"
+          },
+          "prepaid_order_one_cycle": {
+            "one": "%{shipping_price} for %{count} more delivery",
+            "other": "%{shipping_price} for %{count} more deliveries (%{per_delivery_cost})"
+          },
+          "prepaid_order_one_cycle_delivery_not_included": {
+            "one": "%{shipping_price} for %{count} delivery",
+            "other": "%{shipping_price} for %{count} deliveries (%{per_delivery_cost})"
+          },
+          "prepaid_order_no_cycle": {
+            "one": "%{shipping_price} for %{count} more delivery, followed by %{recurring_order_shipping_price}",
+            "other": "%{shipping_price} for %{count} more deliveries (%{per_delivery_cost}), followed by %{recurring_order_shipping_price}"
+          },
+          "prepaid_order_no_cycle_delivery_not_included": {
+            "one": "%{shipping_price} for %{count} delivery, followed by %{recurring_order_shipping_price}",
+            "other": "%{shipping_price} for %{count} deliveries (%{per_delivery_cost}), followed by %{recurring_order_shipping_price}"
+          },
+          "subscription_free_with_frequency_label": "Bezmaksas Piegāde %{delivery_frequency}",
+          "prepaid_delivery_frequency": {
+            "one": "for %{count} delivery",
+            "other": "for %{count} deliveries"
+          },
+          "subscription_delivery_frequency": {
+            "day": {
+              "one": "every day",
+              "other": "every %{count} days"
+            },
+            "week": {
+              "one": "every week",
+              "other": "every %{count} weeks"
+            },
+            "month": {
+              "one": "every month",
+              "other": "every %{count} months"
+            },
+            "year": {
+              "one": "every year",
+              "other": "every %{count} years"
+            }
+          },
+          "multiple_subscriptions_shipping_price_label": "%{shipping_price} per delivery",
+          "prepaid_shipping_price_label": "%{shipping_price} per delivery x %{delivery_interval_count}",
+          "initial_order_discounted": "First Piegāde cost %{discounted_shipping_cost}, then %{frequency_description}",
+          "prepaid_initial_order_discounted": "First Piegāde cost %{discounted_shipping_price} %{prepaid_delivery_frequency}",
+          "prepaid_initial_order_discounted_with_per_delivery_price": "First Piegāde cost %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery})",
+          "prepaid_initial_order_discounted_with_renewal": "First Piegāde cost %{discounted_shipping_price} %{prepaid_delivery_frequency}, then %{shipping_price} %{billing_cycle}",
+          "prepaid_initial_order_discounted_with_per_delivery_price_and_renewal": "First Piegāde cost %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery}), then %{shipping_price} %{billing_cycle}",
+          "shipping_price_included": "Included",
+          "recurring_order_shipping_price": "followed by %{recurring_order_shipping_price}",
+          "first_order_shipping_price_included": "First order included, followed by %{recurring_order_shipping_price}",
+          "first_order_different_shipping_price": "%{first_order_shipping_price} (%{per_delivery_price} per delivery), followed by %{recurring_order_shipping_price}",
+          "first_n_order_free": {
+            "one": "First order Bezmaksas",
+            "other": "First %{count} orders Bezmaksas"
+          },
+          "free_for_first_n_order": {
+            "one": "For first order",
+            "other": "For first %{count} orders"
+          }
+        },
+        "one_time_purchase_shipping": "One-time Piegāde",
+        "duties_and_taxes_title": "Duties un Nodokļi",
+        "shipping_information_required_notice": "Piegāde Informācija is required. {{link}}.",
+        "shipping_information_redirect_link": "Enter your Informācija here",
+        "loading_progressive_rates": "Searching for more rates…",
+        "no_other_methods_available": "No other methods available",
+        "duties_and_taxes_options": {
+          "ddu_title": "Pay on delivery",
+          "ddu_caption": "Additional fees may Lietot",
+          "ddp_title": "Maksāt tagad",
+          "ddp_caption": "No additional fees on delivery"
+        },
+        "shipping_method_combinations": {
+          "without_separator": "%{firstMethod}, %{secondMethod}",
+          "with_separator": "%{rest}, %{current},",
+          "combination": "%{rest} un %{current}"
+        },
+        "shipping_used_as_billing_notice": "This will also be used as your billing Adrese for this order.",
+        "address_update": "Update Adrese",
+        "shipping_address_title": "Ship to",
+        "shipping_address_rollup_accessibility_label": "Ship to Adrese options",
+        "third_party_address_timeout": "Unable to load addresses. Retry or use a different Adrese.",
+        "third_party_address_error": "An Kļūda occurred while loading Adrese selection. Enter your Adrese manually below.",
+        "third_party_payment_timeout": "Unable to load Maksājums methods. Retry or use a different Maksājums method.",
+        "third_party_payment_error": "An Kļūda occurred while loading Maksājums selection. Use a different Maksājums method.",
+        "add_address": "Use a different Adrese",
+        "add_delivery_instructions": "Add delivery instructions",
+        "edit": "Edit",
+        "delete": "Delete",
+        "back": "Atpakaļ",
+        "address_more": "More actions for this Adrese",
+        "address_edit": "Edit Adrese",
+        "address_delete": "Delete Adrese",
+        "address_confirm": "Are you sure you want to delete this Adrese from your account?",
+        "address_default": "Set as default",
+        "address_form": {
+          "add_address": "Add Adrese",
+          "save": "Saglabāt",
+          "cancel": "Atcelt",
+          "edit": "Edit Adrese",
+          "update": "Saglabāt changes",
+          "generic_error": "There was a problem saving your Adrese. Try again.",
+          "one_time_address_subtitle": "Use a one-time Adrese for this order"
+        },
+        "different_shipping_method_summary": "Enter a different Piegāde Adrese to view available Piegāde methods",
+        "invalid_shipping_method_summary": "Enter a valid Piegāde Adrese to view available Piegāde methods",
+        "invalid_shipping_method_summary_selected": "Select a different Piegāde Adrese to view available Piegāde methods",
+        "method_summary": {
+          "incomplete_address_entered": "Enter a complete Piegāde Adrese to view available Piegāde methods",
+          "incomplete_address_selected": "Select a complete Piegāde Adrese to view available Piegāde methods"
+        },
+        "local_pickup": {
+          "search_address": "Meklēt for Adrese",
+          "rollup_title": "Pickup location",
+          "rollup_accessibility_label": "Pickup location options"
+        },
+        "missing_shipping_address": "Piegāde Adrese is missing",
+        "split_shipping_merchandise_quantity_label_standard": "%{Daudzums} Preces",
+        "split_shipping_merchandise_quantity_label_additional": "+%{Daudzums} more",
+        "split_shipping_merchandise_shipment_number": "Shipment %{number} of %{Kopā}",
+        "pre_order_ships_now": "Ships now"
       }
     }
   }
