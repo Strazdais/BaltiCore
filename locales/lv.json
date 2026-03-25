@@ -4502,6 +4502,82 @@
           }
         }
       }
+    },
+    "errors": {
+      "not_found": {
+        "description": "Check the URL or try again in a few minutes.",
+        "title": "There's a problem Ielādē this page"
+      },
+      "order_not_found": {
+        "description": "This Pasūtījums doesn't exist or you don't have permission to view it.",
+        "title": "Pasūtījums not found"
+      },
+      "profile_update_error": {
+        "description": "There was a problem updating your profile. Try refreshing this page or check your internet connection."
+      },
+      "profile_name_update_error": {
+        "description": "There was a problem updating your name. Try refreshing this page or check your internet connection."
+      },
+      "retry_action_label": "Retry",
+      "resend_link": {
+        "too_many_requests": "Too many requests. Try again later.",
+        "generic": "Failed request"
+      },
+      "load_extension_error": {
+        "title": "Kļūda",
+        "description": "Refresh this page or try again in a few minutes.",
+        "refresh_button": "Refresh page"
+      },
+      "already_upgraded": "Customer accounts are already upgraded.",
+      "failed_to_upgrade": "Failed to upgrade customer account settings.",
+      "not_upgraded": "Customer accounts are not upgraded.",
+      "failed_to_revert": "Failed to revert customer account settings.",
+      "revert_window_expired": "The revert window has expired."
+    },
+    "throttle": {
+      "too_many_attempts": {
+        "message": "Too many attempts",
+        "description": "Please try again in a few minutes"
+      }
+    },
+    "payment_methods": {
+      "replacement_payment_method_title": "Replacement Maksājums method",
+      "title": "Maksājums methods",
+      "add_payment_method_button": "Pievienot Maksājums method",
+      "add_payment_method_dropdown": {
+        "bank_account_consent": "By adding a Maksājums method, you authorize your card to be charged or bank account to be debited for future purchases you approve, until you Atcelt."
+      },
+      "bank_account": {
+        "loading_accessibility_message": "Bank account button is Ielādē",
+        "iframe_title_accessibility_label": "Bank account setup",
+        "display_name": "Bank account",
+        "generic_error": "Couldn't Pievienot bank account. Try again later."
+      },
+      "add_payment_method_banner": "Pievienot Maksājums method for faster Apmaksa or pre-authorized services",
+      "no_payment_methods_banner": "No Maksājums methods added",
+      "edit_payment_method_button_accessibility_label": "Rediģēt {{paymentMethodName}} ending in {{lastDigits}}",
+      "edit_payment_method_brand_button_accessibility_label": "Rediģēt {{paymentMethodName}}",
+      "delete_payment_method_button": "Dzēst",
+      "delete_payment_method_button_accessibility_label": "Dzēst {{paymentMethodName}}",
+      "back_button": "Atpakaļ",
+      "back_button_accessibility_label": "Atpakaļ to {{paymentMethodStepTitle}}",
+      "default": "Default",
+      "generic_card": "Card",
+      "expiration_warning_button_accessibility_label": "Rādīt expiration warning for {{paymentMethodName}} ending in {{lastDigits}}",
+      "expires_soon": "This card is expiring soon",
+      "expired": "This card is expired",
+      "expired_badge_label": "Expired",
+      "card_update_consent": "This Maksājums method will be saved for future purchases.",
+      "card_update_consent_subscriptions": "This Maksājums method will be saved for future purchases un may be used for any recurring or deferred purchase.",
+      "digital_wallet_title": "Digital wallet",
+      "credit_or_debit_card_title": "Credit or debit card",
+      "credit_card_title": "Credit card",
+      "additional_payment_methods": "Additional Maksājums methods",
+      "or": "OR",
+      "google_pay": {
+        "iframe_title_accessibility_label": "Pievienot Google Pay Maksājums method",
+        "loading_accessibility_message": "Ielādē Google Pay"
+      }
     }
   }
 }
