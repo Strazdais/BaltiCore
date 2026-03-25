@@ -37,7 +37,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify:\/\/shop_images\/side-of-a-building-with-silver-doors.jpg",
+        "image": "shopify://shop_images/side-of-a-building-with-silver-doors.jpg",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "image_behavior": "none",
@@ -53,15 +53,16 @@
     "custom_hero_main": {
       "type": "custom-hero",
       "settings": {
-        "image": "shopify:\/\/shop_images\/hero-workwear-construction.jpg",
+        "image": "shopify://shop_images/hero-workwear-construction.jpg",
         "overlay_opacity": 45,
         "heading": "Workwear and Sportswear",
         "subtext": "Durable workwear and high-performance sportswear built for professionals who demand comfort, safety, and style on every job site and in every season.",
         "button_primary_label": "Shop Now",
-        "button_primary_link": "\/pages\/shop",
+        "button_primary_link": "/pages/shop",
         "button_secondary_label": "Learn More",
-        "button_secondary_link": "\/pages\/about-us",
-        "trust_line": "Professional workwear meeting EU safety standards"
+        "button_secondary_link": "/pages/about-us",
+        "trust_line": "Professional workwear meeting EU safety standards",
+        "hide_overlay": true
       }
     },
     "slideshow": {
@@ -70,13 +71,13 @@
         "slide-0": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/sunlight-illuminates-rich-fall-colors.jpg",
+            "image": "shopify://shop_images/sunlight-illuminates-rich-fall-colors.jpg",
             "image_overlay_opacity": 20,
             "heading": "Workwear and sportswear",
             "heading_size": "h1",
             "subheading": "Durable workwear and high-performance sportswear built for professionals who demand comfort, safety, and style.",
             "button_label": "Shop all",
-            "link": "shopify:\/\/collections\/all",
+            "link": "shopify://collections/all",
             "button_style_secondary": false,
             "show_text_box": true,
             "box_align": "middle-left",
@@ -308,11 +309,11 @@
         "heading": "Why SPARS?",
         "intro": "Founded by logistics professionals, SPARS delivers reliable workwear and sportswear built for real-world conditions - backed by structured supply, quality focus, and direct B2B partnerships.",
         "cta_primary_label": "Shop Collection",
-        "cta_primary_link": "\/pages\/shop",
+        "cta_primary_link": "/pages/shop",
         "cta_secondary_label": "Request Bulk Quote",
-        "cta_secondary_link": "\/pages\/contact",
+        "cta_secondary_link": "/pages/contact",
         "hint_line": "For companies: bulk pricing + custom branding available.",
-        "image": "shopify:\/\/shop_images\/skilv-cup-team.jpg",
+        "image": "shopify://shop_images/skilv-cup-team.jpg",
         "badge_text": "B2B Supplier"
       }
     },
@@ -330,7 +331,7 @@
         "text_JVkqgq": {
           "type": "text",
           "settings": {
-            "text": "<p>SPARS was founded by two Latvian entrepreneurs who understand what real hard work looks like. Before building this brand, we spent more than six years working in logistics - where precision, reliability, and responsibility are non-negotiable.<\/p><p>We know what it means to work long hours in demanding conditions. We know the importance of durable clothing that performs in real environments - not just in catalogs. That experience shaped how we build SPARS.<\/p>",
+            "text": "<p>SPARS was founded by two Latvian entrepreneurs who understand what real hard work looks like. Before building this brand, we spent more than six years working in logistics - where precision, reliability, and responsibility are non-negotiable.</p><p>We know what it means to work long hours in demanding conditions. We know the importance of durable clothing that performs in real environments - not just in catalogs. That experience shaped how we build SPARS.</p>",
             "text_style": "body"
           }
         }
@@ -341,7 +342,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify:\/\/shop_images\/skilv-cup-team.jpg",
+        "image": "shopify://shop_images/skilv-cup-team.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -420,12 +421,12 @@
         "svc_tags"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/custom-workwear-branding.jpg",
+        "image": "shopify://shop_images/custom-workwear-branding.jpg",
         "eyebrow": "Services",
         "heading": "Custom Workwear, Made for Your Brand",
         "intro": "Equip your team with professional, branded workwear tailored to your company. We offer complete customization services for businesses of all sizes.",
         "cta_primary_label": "Request Customization",
-        "cta_primary_link": "\/pages\/contact",
+        "cta_primary_link": "/pages/contact",
         "cta_secondary_label": "",
         "cta_secondary_link": "",
         "padding_top": 80,
@@ -446,7 +447,7 @@
         "text_YMjPYb": {
           "type": "text",
           "settings": {
-            "text": "<p>Equip your team with professional, branded workwear tailored to your company. We offer complete customization services for businesses of all sizes.<\/p><p><strong>Custom Sewing & Company Labels<\/strong><br\/>We create and sew your company tags directly into garments for a premium, professional finish.<\/p><p><strong>Logo & Image Printing<\/strong><br\/>High-quality logo and image printing on jackets, trousers, hats, and more.<\/p><p><strong>Branded Tag Creation<\/strong><br\/>Need custom labels designed and produced? We handle the full process from creation to application.<\/p>",
+            "text": "<p>Equip your team with professional, branded workwear tailored to your company. We offer complete customization services for businesses of all sizes.</p><p><strong>Custom Sewing & Company Labels</strong><br/>We create and sew your company tags directly into garments for a premium, professional finish.</p><p><strong>Logo & Image Printing</strong><br/>High-quality logo and image printing on jackets, trousers, hats, and more.</p><p><strong>Branded Tag Creation</strong><br/>Need custom labels designed and produced? We handle the full process from creation to application.</p>",
             "text_style": "body"
           }
         },
@@ -454,7 +455,7 @@
           "type": "button",
           "settings": {
             "button_label": "Request Customization",
-            "button_link": "\/pages\/contact",
+            "button_link": "/pages/contact",
             "button_style_secondary": false
           }
         }
@@ -471,7 +472,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify:\/\/shop_images\/sewing-machine-needle-close-up.jpg",
+        "image": "shopify://shop_images/sewing-machine-needle-close-up.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -537,7 +538,7 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
             "link": ""
           }
@@ -546,7 +547,7 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
             "link": ""
           }
@@ -555,7 +556,7 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
             "link": ""
           }
@@ -620,11 +621,21 @@
         "padding_top": 20,
         "columns_mobile": "2",
         "enable_desktop_slider": false
+      },
+      "disabled": true
+    },
+    "homepage_twocol_main": {
+      "type": "homepage-twocol",
+      "settings": {
+        "bg_color": "#1a1a1a",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "custom_hero_main",
+    "homepage_twocol_main",
     "compact_bestsellers_hero",
     "trust_signals_main",
     "custom_collection_grid_main",

@@ -27,9 +27,10 @@
   </div>
 
   {%- comment -%} Dark overlay {%- endcomment -%}
-  <div class="custom-hero__overlay"></div>
+  {%- unless section.settings.hide_overlay -%}<div class="custom-hero__overlay"></div>{%- endunless -%}
 
   {%- comment -%} Content card {%- endcomment -%}
+  {%- unless section.settings.hide_overlay -%}
   <div class="custom-hero__card{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {%- if section.settings.heading != blank -%}
       <h1 class="custom-hero__heading">{{ section.settings.heading | escape }}</h1>
@@ -65,6 +66,7 @@
       <p class="custom-hero__trust">{{ section.settings.trust_line | escape }}</p>
     {%- endif -%}
   </div>
+  {%- endunless -%}
 </section>
 
 {% schema %}
@@ -73,6 +75,12 @@
   "tag": "section",
   "class": "custom-hero-section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "hide_overlay",
+      "label": "Hide text overlay (full-bleed image only)",
+      "default": false
+    },
     {
       "type": "image_picker",
       "id": "image",
