@@ -724,7 +724,18 @@
         "list_formatter": {
           "narrow": {
             "lastWordConnector": "{{previousWords}}, {{lastWord}}",
-            "twoWordConnector": "{{firstWord}}, {{secondWord}}"
+            "twoWordConnector": "{{firstWord}}, {{secondWord}}",
+            "wordConnector": "{{previousWords}}, {{anotherWord}}"
+          },
+          "and": {
+            "wordConnector": "{{previousWords}}, {{anotherWord}}",
+            "lastWordConnector": "{{previousWords}}, un {{lastWord}}",
+            "twoWordConnector": "{{firstWord}} un {{secondWord}}"
+          },
+          "or": {
+            "wordConnector": "{{previousWords}}, {{anotherWord}}",
+            "lastWordConnector": "{{previousWords}}, or {{lastWord}}",
+            "twoWordConnector": "{{firstWord}} or {{secondWord}}"
           }
         },
         "map": {
@@ -740,6 +751,61 @@
           "add_file": "Add file",
           "invalid_file_type": "File type not supported",
           "dragged_over": "Drop file to upload"
+        },
+        "choose_delivery_strategy": "Choose a delivery method",
+        "autocomplete_zero_item": "No Preces available",
+        "autocomplete_powered_by_google": "Powered by {{brandName}}",
+        "submit": "Iesniegt",
+        "processing": "Processing…",
+        "stepper": {
+          "increase": "Increase {{type}}",
+          "decrease": "Decrease {{type}}",
+          "minimum_reached": "Minimum of {{value}} reached",
+          "maximum_reached": "Maximum of {{value}} reached"
+        },
+        "remove_chip": "Noņemt item",
+        "remove_item": "Noņemt %{label}",
+        "remove_tag": "Noņemt tag",
+        "dates": {
+          "weekdays": {
+            "monday": "Monday",
+            "tuesday": "Tuesday",
+            "wednesday": "Wednesday",
+            "thursday": "Thursday",
+            "friday": "Friday",
+            "saturday": "Saturday",
+            "sunday": "Sunday"
+          },
+          "weekdays_abbreviation": {
+            "monday": "Mo",
+            "tuesday": "Tu",
+            "wednesday": "We",
+            "thursday": "Th",
+            "friday": "Fr",
+            "saturday": "Sa",
+            "sunday": "Su"
+          },
+          "months": {
+            "january": "January",
+            "february": "February",
+            "march": "March",
+            "april": "April",
+            "may": "May",
+            "june": "June",
+            "july": "July",
+            "august": "August",
+            "september": "September",
+            "october": "October",
+            "november": "November",
+            "december": "December"
+          }
+        },
+        "datepicker": {
+          "show_previous_month": "Rādīt Iepriekšējais month, {{month}} {{year}}",
+          "show_next_month": "Rādīt Nākamais month, {{month}} {{year}}",
+          "range_start": "Range start",
+          "in_range": "In range",
+          "range_end": "Range end"
         }
       },
       "embed": {
@@ -909,8 +975,58 @@
         "empty_cart_label": "Your Grozs is empty",
         "quantity_update": {
           "page_title": "Daudzums update",
-          "title": "Daudzums update"
-        }
+          "title": "Daudzums update",
+          "description": "Available quantities for these Preces have changed un are updated in your Grozs."
+        },
+        "unpurchasable_product": {
+          "title": "Unpurchasable Produkts",
+          "header": "Some Preces were removed from your Grozs",
+          "message": "These Preces are not available for B2B orders.",
+          "status_column_header": "Not available"
+        },
+        "unpurchasable_product_generic": {
+          "title": "Unpurchasable Produkts",
+          "header": "Some Preces were removed from your Grozs",
+          "message": "These Preces are not available.",
+          "status_column_header": "Not available"
+        },
+        "unfulfillable_product": {
+          "title": "Delivery not available",
+          "message": {
+            "one": "%{delivery_method} is no longer available for this item.",
+            "other": "%{delivery_method} is no longer available for these Preces."
+          },
+          "default_message": {
+            "one": "The chosen delivery method is no longer available for this item.",
+            "other": "The chosen delivery method is no longer available for these Preces."
+          }
+        },
+        "unshippable_product": {
+          "title": "No delivery available",
+          "header": {
+            "one": "No delivery available for %{count} item",
+            "other": "No delivery available for %{count} Preces"
+          },
+          "message": {
+            "one": "This item will be removed from your Grozs because there are no delivery methods available for your Adrese.",
+            "other": "These Preces will be removed from your Grozs because there are no delivery methods available for your Adrese."
+          },
+          "status_column_header": "No delivery"
+        },
+        "price_update": {
+          "title": "Cena Atjaunināt",
+          "description": "Prices for these Preces have changed un are updated in your Grozs.",
+          "updated_price": "Updated Cena"
+        },
+        "price_and_quantity_update": {
+          "title": "Cena un Daudzums Atjaunināt",
+          "description": "Prices un available quantities for these Preces have changed un are updated in your Grozs."
+        },
+        "out_of_stock": {
+          "description": "These Preces are no longer available un have been removed from your Grozs.",
+          "items_unavailable": "Some Preces are no longer available un have been removed from your Grozs."
+        },
+        "out_of_stock_in_context_label": "This Produkts is not available in your Valsts/reģions."
       },
       "deliverability": {
         "not_deliverable": {
@@ -918,7 +1034,11 @@
             "one": "This item will be removed from your Grozs because there are no delivery methods available for your Adrese.",
             "other": "These Preces will be removed from your Grozs because there are no delivery methods available for your Adrese."
           },
-          "label": "No delivery"
+          "label": "No delivery",
+          "title": {
+            "one": "No delivery available for %{count} item",
+            "other": "No delivery available for %{count} Preces"
+          }
         }
       },
       "order_summary": {
@@ -2841,6 +2961,40 @@
             }
           }
         }
+      },
+      "contextual_availability": {
+        "title": {
+          "one": "Unavailable Produkts",
+          "other": "Unavailable products"
+        },
+        "products_not_available": {
+          "one": "This Produkts will be removed from your Grozs because it's not available in your Valsts/reģions.",
+          "other": "These products will be removed from your Grozs because they're not available in your Valsts/reģions."
+        },
+        "all_products_in_cart_unavailable": {
+          "one": "This Produkts is not available in your Valsts/reģions.",
+          "other": "These products are not available in your Valsts/reģions."
+        },
+        "unavailable_label": "Unavailable"
+      },
+      "merchandise_unavailable_in_buyer_location": {
+        "banner_title": {
+          "some_products_one": "This Produkts is not available for delivery to %{location_name}.",
+          "some_products_other": "These products are not available for delivery to %{location_name}.",
+          "all_products_one": "The Produkts in your Grozs is not available for delivery to %{location_name}.",
+          "all_products_other": "The products in your Grozs are not available for delivery to %{location_name}."
+        },
+        "missing_country_fallback": "your country",
+        "indeterminate_location_fallback": "your location",
+        "cart_updated": "Your Grozs has been updated.",
+        "change_address_only": "Mainīt delivery Adrese to Turpināt.",
+        "change_address_or_remove": "Mainīt delivery Adrese or %{remove_action}.",
+        "remove_items_action": {
+          "one": "Noņemt unavailable item",
+          "other": "Noņemt unavailable Preces"
+        },
+        "empty_cart_action": "empty Grozs un return to store",
+        "unavailable_line_item": "%{product_name} / %{variant_label}"
       }
     },
     "errors": {
