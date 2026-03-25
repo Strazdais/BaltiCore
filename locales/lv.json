@@ -3328,7 +3328,155 @@
         "items": {
           "one": "{{count}} item",
           "other": "{{count}} Preces"
-        }
+        },
+        "no_filtered_results_description": "Noņemt or adjust filters to see your orders",
+        "no_filtered_results_title": "No filtered results",
+        "order_link": "View order {{name}}",
+        "order_number": "Order {{name}}",
+        "orders_title": "Confirmed",
+        "pagination": {
+          "nav_accessibility_label": "Orders navigation buttons",
+          "next": "Next",
+          "next_accessibility_label": "Next orders",
+          "previous": "Prev",
+          "previous_accessibility_label": "Previous orders",
+          "load_more": "Load more",
+          "load_more_accessibility_label": "Load more orders"
+        },
+        "order_status_message": {
+          "list_view": {
+            "view_order_for_details": "View order for details",
+            "estimated_delivery": "Expected {{date}}",
+            "last_updated": "Last updated {{date}}"
+          },
+          "table_view": {
+            "estimated_delivery": "Est. delivery {{date}}",
+            "last_updated": "{{date}}"
+          }
+        },
+        "payment_status": {
+          "gallery_view": {
+            "overdue": "Maksājums overdue",
+            "due": "Maksājums due {{date}}",
+            "due_today": "Maksājums due today",
+            "due_without_date": "Maksājums due",
+            "due_on_fulfillment": "Maksājums due on fulfillment",
+            "pay_to_confirm": "Pay to confirm",
+            "payment_not_due": "Maksājums not yet due"
+          },
+          "list_view": {
+            "overdue": "Overdue",
+            "due": "Due {{date}}",
+            "due_today": "Due today",
+            "paid": "Paid",
+            "due_without_date": "Due",
+            "due_on_fulfillment": "Due on fulfillment",
+            "pay_to_confirm": "Pay to confirm",
+            "payment_not_due": "Not yet due"
+          }
+        },
+        "sort_by": "Sort by: {{option}}",
+        "sort_hide_options_accessibility_label": "Hide sort options for confirmed orders.",
+        "sort_show_options_accessibility_label": "Show sort options for confirmed orders.",
+        "sort_currently_sorted_by_accessibility_label": "Currently sorted by: {{option}}",
+        "sort_title": "Sort",
+        "sort": {
+          "date": {
+            "newest": "Newest to oldest",
+            "oldest": "Oldest to newest"
+          },
+          "location": {
+            "ascending": "Location (A-Z)",
+            "descending": "Location (Z-A)"
+          },
+          "order_number": {
+            "ascending": "Pasūtījuma numurs (low to high)",
+            "descending": "Pasūtījuma numurs (high to low)"
+          },
+          "order_total": {
+            "ascending": "Order Kopā (low to high)",
+            "descending": "Order Kopā (high to low)"
+          }
+        },
+        "location_filter_picker": {
+          "all_location": "All locations",
+          "current_location": "Current location",
+          "switch_view": "Switch view"
+        },
+        "filter_title": "Filter",
+        "filter": {
+          "clear_section": "Clear section",
+          "clear_all": "Clear all",
+          "apply": "Lietot",
+          "date": {
+            "start_date": "Start date",
+            "end_date": "End date",
+            "title": "Order date",
+            "today": "Today",
+            "last_7_days": "Last 7 days",
+            "last_30_days": "Last 30 days",
+            "last_90_days": "Last 90 days",
+            "last_365_days": "Last 12 months",
+            "custom": "Custom"
+          }
+        },
+        "show_order_actions_accessibility_label": "Show order actions for order {{name}}",
+        "view_order": "View order",
+        "view_order_accessibility_label": "View order {{orderName}}"
+      },
+      "order_status": {
+        "attempted_delivery_label": "Attempted delivery",
+        "attempted_to_deliver_label": "Attempted to deliver",
+        "preparing_for_shipping_label": "Preparing for Piegāde",
+        "ready_for_pickup_label": "Ready for pickup",
+        "ready_for_pickup_description": "These Preces are ready for pickup. Please bring your order confirmation when you pick up your order.",
+        "ready_for_pickup_location": "Your order is ready for pickup at location",
+        "picked_up_label": "Picked up",
+        "canceled_label": "Canceled",
+        "canceled_title": "Your order has been canceled",
+        "come_back": "Come Atpakaļ to this page for updates on your shipment status.",
+        "company_tracking_number": "{{Uzņēmums}} tracking number:",
+        "confirmed_label": "Confirmed",
+        "confirmed_title": "Jūsu pasūtījums ir apstiprināts",
+        "confirmed_description_pickup": "You'll receive an E-pasts when your order is ready for pickup.",
+        "confirmed_description_digital": "You'll receive an E-pasts when your order is ready.",
+        "confirmed_description_gift_card_text": "You'll receive a text when your order is ready.",
+        "complete_label": "Complete",
+        "delivered_label": "Delivered",
+        "delivered_description_gift_card": {
+          "one": "Dāvanu karte was sent by E-pasts.",
+          "other": "Gift cards were sent by E-pasts."
+        },
+        "delivered_description_gift_card_text": {
+          "one": "Dāvanu karte was sent by text.",
+          "other": "Gift cards were sent by text."
+        },
+        "gift_card_label": {
+          "one": "Dāvanu karte",
+          "other": "Gift cards"
+        },
+        "gift_card_resend_button": {
+          "one": "Resend Dāvanu karte",
+          "other": "Resend gift cards"
+        },
+        "gift_resend_success": {
+          "one": "Dāvanu karte resent",
+          "other": "Gift cards resent"
+        },
+        "gift_resend_failure": {
+          "one": "There was a problem resending your Dāvanu karte. Try again or contact us.",
+          "other": "There was a problem resending your gift cards. Try again or contact us."
+        },
+        "confirmed_gift_card_additional_description": {
+          "one": "Dāvanu karte will be sent in a separate E-pasts.",
+          "other": "Each Dāvanu karte will be sent in a separate E-pasts."
+        },
+        "confirmed_gift_card_additional_description_text": {
+          "one": "Dāvanu karte will be sent in a separate text.",
+          "other": "Each Dāvanu karte will be sent in a separate text."
+        },
+        "status_timestamp": "Updated {{date}}",
+        "estimated_delivery": "Expected {{date}}"
       }
     }
   }
