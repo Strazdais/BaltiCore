@@ -720,7 +720,197 @@
         "submit_for_review_button_label": "Iesniegt for Pārskatīt",
         "submit_for_review_notice_label": "Maksājums won't be due until your order is reviewed",
         "continue_to_payment_plans_button_label": "Turpināt to Maksājums plans",
-        "back_button_label": "Return"
+        "back_button_label": "Return",
+        "list_formatter": {
+          "narrow": {
+            "lastWordConnector": "{{previousWords}}, {{lastWord}}",
+            "twoWordConnector": "{{firstWord}}, {{secondWord}}"
+          }
+        },
+        "map": {
+          "cluster_title": {
+            "one": "Cluster of {{number}} marker",
+            "other": "Cluster of {{number}} markers"
+          }
+        },
+        "sheet": {
+          "expand": "Expand"
+        },
+        "dropzone": {
+          "add_file": "Add file",
+          "invalid_file_type": "File type not supported",
+          "dragged_over": "Drop file to upload"
+        }
+      },
+      "embed": {
+        "header": {
+          "review_order": "Pārskatīt your order"
+        },
+        "shipping": {
+          "shipping_options": "See all Piegāde options"
+        },
+        "payment": {
+          "payment_options": "See all Maksājums options"
+        }
+      },
+      "payment_collection": {
+        "cancelled": "This Maksājums is no longer required. Visit the order page for details.",
+        "paid": "This Maksājums has already been submitted. Visit the order page for details."
+      },
+      "contact": {
+        "title": "Informācija",
+        "address_title": "Adrese",
+        "shipping_used_as_billing_notice": "This will also be used as your billing Adrese for this order.",
+        "delivery_option_title": "Delivery method",
+        "contact_method_title": "Contact",
+        "email_label": "E-pasts",
+        "email_rollup_accessibility_label": "E-pasts options",
+        "email_placeholder": "E-pasts",
+        "email_or_phone_label": "E-pasts or mobile Tālrunis number",
+        "email_or_phone_placeholder": "E-pasts or mobile Tālrunis number",
+        "stored_addresses_label": "Saved addresses",
+        "available_addresses_label": "Available addresses",
+        "new_address_label": "Use a new Adrese",
+        "first_name_label": "Vārds",
+        "optional_first_name_label": "Vārds (Neobligāts)",
+        "last_name_label": "Uzvārds",
+        "company_label": "Uzņēmums",
+        "storefront_link": "merchant's website",
+        "company_attention_label": "Uzņēmums/Attention",
+        "optional_company_attention_label": "Uzņēmums/Attention (Neobligāts)",
+        "optional_company_label": "Uzņēmums (Neobligāts)",
+        "address1_label": "Adrese",
+        "address2_label": "Dzīvoklis, biroja nr. utt.",
+        "optional_address2_label": "Apartment, suite, etc. (Neobligāts)",
+        "city_label": "Pilsēta",
+        "suburb_label": "Suburb",
+        "country_label": "Valsts/reģions",
+        "country_code": "Valsts/reģions code",
+        "province_label": "Novads",
+        "province_placeholder": "Novads",
+        "county_label": "County",
+        "county_placeholder": "County",
+        "state_label": "Novads",
+        "state_placeholder": "Novads",
+        "region_label": "Region",
+        "region_placeholder": "Region",
+        "region_none": "None selected",
+        "prefecture_label": "Prefecture",
+        "prefecture_placeholder": "Prefecture",
+        "governorate_label": "Governorate",
+        "governorate_placeholder": "Governorate",
+        "emirate_label": "Emirate",
+        "emirate_placeholder": "Emirate",
+        "state_and_territory_label": "Novads/territory",
+        "state_and_territory_placeholder": "Novads/territory",
+        "phone_label": "Tālrunis",
+        "phone_rollup_accessibility_label": "Tālrunis options",
+        "phone_country_code_label": "Tālrunis number country code",
+        "optional_phone_label": "Tālrunis (Neobligāts)",
+        "phone_placeholder": "Tālrunis",
+        "phone_tooltip": "In case we need to contact you about your order",
+        "zip_code_label": "Pasta indekss",
+        "optional_zip_code_label": "Pasta indekss (Neobligāts)",
+        "zip_code_placeholder": "Pasta indekss",
+        "postal_code_label": "Pasta indekss",
+        "optional_postal_code_label": "Pasta indekss (Neobligāts)",
+        "postal_code_placeholder": "Pasta indekss",
+        "postcode_label": "Postcode",
+        "optional_postcode_label": "Postcode (Neobligāts)",
+        "postcode_placeholder": "Postcode",
+        "pincode_label": "PIN code",
+        "optional_pincode_label": "PIN code (Neobligāts)",
+        "pincode_placeholder": "PIN code",
+        "civic_number_warning": "Add a house number if you have one",
+        "optional_last_name_label": "Uzvārds (Neobligāts)",
+        "company_contact_info": "{{companyName}} · {{contact}}",
+        "different_shipping_address_label": "Ship to a different Adrese",
+        "different_shipping_address_text": "Use a one-time Adrese for this order",
+        "change_company_location_link_label": "Change Uzņēmums location",
+        "change_location_link_label": "Change location",
+        "ship_to_company": "Ship to {{companyName}}"
+      },
+      "delivery_options": {
+        "free_total_label": "Bezmaksas",
+        "ship": "Ship",
+        "ship_to_address": "Ship to Adrese",
+        "shipping_address": "Piegādes adrese",
+        "pick_up": "Pick up",
+        "pick_up_from_store": "Pickup in store",
+        "pick_up_locations": "Pickup locations",
+        "pickup_point_map_title": "Pickup point map",
+        "pick_up_in_one_hour": "Usually ready in 1 hour",
+        "pick_up_in_two_hours": "Usually ready in 2 hours",
+        "pick_up_in_four_hours": "Usually ready in 4 hours",
+        "pick_up_in_twenty_four_hours": "Usually ready in 24 hours",
+        "pick_up_in_two_to_four_days": "Usually ready in 2-4 days",
+        "pick_up_in_five_or_more_days": "Usually ready in 5+ days",
+        "pick_up_in_zero_to_two_hours": "Ready for pickup in 2 hours",
+        "pick_up_in_two_to_four_hours": "Ready for pickup in 4 hours",
+        "pick_up_immediately": "Ready for pickup now",
+        "pick_up_next_day": "Ready for pickup next day",
+        "pickup_point_method_definition": "Ship to pickup point",
+        "retail_method_definition": "Retail Piegāde",
+        "company_location_no_address_banner": "Orders Piegāde to locations with no Adrese will be submitted for Pārskatīt.",
+        "none_method_definition": "No Piegāde",
+        "subscription_pickup_information": "This delivery method will Lietot to all Preces in this order un to all future orders for this subscription."
+      },
+      "customer_account": {
+        "not_user_label": "Not %{first_name}?",
+        "have_an_account_label": "Have an account?",
+        "sign_in_link_label": "Sign in",
+        "sign_out_link_label": "Sign out",
+        "save_my_information_label": "Saglabāt this Informācija for next time",
+        "invalid_address": "Selected Adrese is invalid. %{update_address_link} or select a different Adrese.",
+        "incomplete_address": "Selected Adrese is incomplete. %{update_address_link} or select a different Adrese.",
+        "rollup_label": "Account",
+        "rollup_accessibility_label": "Account options",
+        "invalid_shipping_method_summary": "Select a valid Piegāde Adrese to view available Piegāde methods",
+        "saved_address_option_description": {
+          "one": "You have {{count}} saved Adrese.",
+          "other": "You have {{count}} saved addresses."
+        },
+        "saved_address_option_link": "Use a saved Adrese",
+        "saved_address_modal_title": "Use my saved Adrese"
+      },
+      "remote_merchandise_only": {
+        "title": "Complete your purchase",
+        "remote_only_notice": "These Preces are sold un shipped by other stores. Check out with each store to complete your purchase.",
+        "return_to_store_label": "Return to store",
+        "detail_item_label": {
+          "one": "{{count}} item",
+          "other": "{{count}} Preces"
+        },
+        "checkout_on_shop_label": "Check out on %{shop_name}",
+        "single_shop_transition": "Redirecting you to %{advertiser} to complete your purchase."
+      },
+      "stock": {
+        "page_title": "Inventory issues",
+        "title": "Out of stock",
+        "items_unavailable_notice": "Some Preces are no longer available.",
+        "product_column_header": "Products",
+        "quantity_column_header": "Daudzums",
+        "price_column_header": "Cena",
+        "status_column_header": "Status",
+        "removed_from_cart_notice": "Removed from Grozs",
+        "sold_out_label": "Sold out",
+        "reduced_label": "Reduced",
+        "reduced_with_quantity_label": "Only %{quantity_available} left",
+        "remove_from_cart_button_label": "Noņemt from Grozs",
+        "continue_shopping_button_label": "Turpināt",
+        "go_back_to_cart_button_label": "Go Atpakaļ to my Grozs",
+        "remove": "Noņemt",
+        "return_to_store_label": "Return to store",
+        "continue_cta_label": "Turpināt Apmaksa",
+        "item_label": {
+          "one": "{{count}} item",
+          "other": "{{count}} Preces"
+        },
+        "empty_cart_label": "Your Grozs is empty",
+        "quantity_update": {
+          "page_title": "Daudzums update",
+          "title": "Daudzums update"
+        }
       }
     }
   }
