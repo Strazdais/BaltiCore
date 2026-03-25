@@ -3467,7 +3467,9 @@
             "shopify_support_link_text": "Shopify support"
           }
         }
-      }
+      },
+      "empty": "can't be empty",
+      "invalid_email": "must be a valid E-pasts Adrese"
     },
     "notices": {
       "customer": {
@@ -4022,7 +4024,73 @@
           "other": "Each Dāvanu karte will be sent in a separate text."
         },
         "status_timestamp": "Updated {{date}}",
-        "estimated_delivery": "Expected {{date}}"
+        "estimated_delivery": "Expected {{date}}",
+        "expected_by": "Expected by {{Datums}}",
+        "was_expected_by": "Was expected by {{Datums}}",
+        "delivered": "Arrived {{Datums}}",
+        "buy_with_prime_logo_accessibility_label": "Amazon Buy with Prime logo",
+        "in_review_label": "In review",
+        "in_review_title": "Your Pasūtījums is being reviewed",
+        "last_updated": "Last updated {{Datums}}",
+        "multiple_shipments_label": "Multiple shipments",
+        "multiple_statuses_label": "Multiple Pasūtījums statuses",
+        "no_tracking_number": "There is no tracking number for this shipment.",
+        "tracking_number": {
+          "one": "Tracking number",
+          "other": "Tracking numbers"
+        },
+        "on_its_way_label": "On its way",
+        "out_for_delivery_label": "Out for delivery",
+        "resume_tracking": "Resume tracking",
+        "submitted_label": "Submitted",
+        "submitted_description": "Review Pasūtījums un Maksājums details.",
+        "there_was_a_problem_label": "There was a problem",
+        "track_shipment": "Track shipment",
+        "request_return": "Request return",
+        "view_order_for_details": "View Pasūtījums for details",
+        "external_promise_manage_button_label": {
+          "buy_with_prime": "Manage on Amazon"
+        },
+        "amazon_buy_with_prime": {
+          "order_tracking_link": {
+            "text": "Manage with Amazon",
+            "new_window_disclaimer": "(opens a new window)"
+          }
+        },
+        "delivery_promise_v2": {
+          "promise_line": {
+            "shop_promise_brand_label": "Delivery guaranteed by",
+            "external_promise_brand_label": "Delivery by",
+            "not_delivered_by_label": "Delivered after {{Datums}}",
+            "delivery_guarantee_expired_label": "Delivery guarantee expired",
+            "modal_accessibility_button_label": "Delivery promise details",
+            "download_shop_app_button_label": "Download Shop to track",
+            "track_with_shop_button_label": "Track with Shop",
+            "claim_shop_cash_button_label": "Claim Shop Cash"
+          },
+          "details_modal": {
+            "title": "Delivery guarantee",
+            "active_delivery_guarantee_label": "Delivery by {{Datums}}",
+            "expired_delivery_guarantee_description": "This Pasūtījums’s 30-day Shop Promise guarantee has expired.",
+            "expired_badge_label": "Expired",
+            "order_includes_guarantees_label": "Your Pasūtījums includes {{deliveryAgreementsCount}} guarantees",
+            "order_includes_guarantees_description": "Shop Promise guarantees fast, reliable delivery. Claim Shop Cash if your Pasūtījums arrives after {{Datums}}.",
+            "delivered_after_label": "Delivered after {{Datums}}",
+            "delivered_after_description": "Because your Pasūtījums arrived late, you’re eligible to claim {{amount}} Shop Cash.",
+            "claimed_shop_cash_description": "Because this Pasūtījums arrived late, you claimed {{amount}} Shop Cash.",
+            "eligible_to_claim_shop_cash_description": "Because your Pasūtījums arrived late, you’re eligible to claim {{amount}} Shop Cash.",
+            "learn_more_button_label": "Learn Vairāk",
+            "claim_shop_cash_button_label": "Claim Shop Cash",
+            "view_balance_in_shop_button_label": "View balance in Shop",
+            "scan_to_claim_shop_cash_label": "Scan to claim {{amount}} Shop Cash"
+          }
+        },
+        "delivery_promise": {
+          "promise_line": {
+            "single_brand_label": "Delivery backed by",
+            "mixed_brands_label": "Delivery guaranteed"
+          }
+        }
       }
     }
   }
