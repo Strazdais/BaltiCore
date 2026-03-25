@@ -932,7 +932,7 @@
 
     var secondaryImgHTML = '';
     if (product.imageAlt && product.imageAlt !== product.image) {
-      secondaryImgHTML = '<img class="shop-card__img shop-card__img--secondary" src="' + product.imageAlt + '" alt="' + escapeHTML(product.name) + ' alternate view" loading="lazy" >';
+      secondaryImgHTML = '<img class="shop-card__img shop-card__img--secondary" style="object-fit:contain;width:100%;height:100%;background:#fff;position:absolute;top:0;left:0;" src="' + product.imageAlt + '" alt="' + escapeHTML(product.name) + ' alternate view" loading="lazy" >';
     }
 
     var isHighlighted = state.highlightProduct === product.id;
@@ -942,7 +942,7 @@
 
     return '<div class="shop-card" role="listitem" data-product-id="' + product.id + '"' + (isHighlighted ? ' data-highlighted="true"' : '') + '>' +
       '<div class="shop-card__media">' +
-        '<img class="shop-card__img shop-card__img--primary" src="' + product.image + '" alt="' + escapeHTML(product.name) + '" loading="lazy" >' +
+        '<img class="shop-card__img shop-card__img--primary" style="object-fit:contain;width:100%;height:100%;background:#fff;" src="' + product.image + '" alt="' + escapeHTML(product.name) + '" loading="lazy" >' +
         secondaryImgHTML +
         badgeHTML +
         '<button class="' + heartClass + '" type="button" aria-label="Save ' + escapeHTML(product.name) + '" data-wishlist="' + product.id + '">' +
