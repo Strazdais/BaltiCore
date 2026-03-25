@@ -552,7 +552,8 @@
       '.shop-card__wishlist svg{filter:drop-shadow(0 1px 2px rgba(0,0,0,0.15));}',
       '.shop-card__wishlist:hover{color:#e53e3e;transform:scale(1.1);background:rgba(255,255,255,1);}',
       '.shop-card__wishlist--active{color:#e53e3e;background:rgba(255,255,255,1);}',
-      '.shop-card__media{position:relative;}',
+      '.shop-card__media{position:relative;aspect-ratio:3/4;background:#fff;overflow:hidden;border-radius:4px;}',
+      '.shop-card__img{width:100%;height:100%;object-fit:contain;background:#fff;}',
       /* Task 6: Search bar with magnifying glass icon */
       '.shop-search{position:relative;flex:1;min-width:200px;max-width:400px;}',
       '.shop-search__icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#999;pointer-events:none;line-height:1;}',
