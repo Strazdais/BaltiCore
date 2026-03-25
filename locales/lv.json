@@ -4423,6 +4423,82 @@
               "other": "You have {{count}} Gaida orders"
             },
             "more_than_pagination_length": "You have Vairāk than {{count}} Gaida orders"
+          },
+          "pending_orders_count_more_than_pagination_length": "{{count}}+",
+          "pagination": {
+            "nav_accessibility_label": "Orders in review navigation buttons"
+          }
+        },
+        "order_list_column_headers_location": "Location",
+        "order_list_column_headers_contact": "Contact",
+        "order_list_column_headers_status": "Statuss",
+        "removed_company_contact_tooltip": "Removed from Uzņēmums"
+      },
+      "draft_order_details": {
+        "draft_order_subtitle": "Apstiprināts {{Datums}} from Pasūtījums {{draftOrderName}}",
+        "loading": "Ielādē Pasūtījums details",
+        "loading_finished_accessibility_message": "Pasūtījums details have been loaded",
+        "payment_status": {
+          "pending": {
+            "banner_overdue": {
+              "one": "Your Maksājums is {{count}} day overdue",
+              "other": "Your Maksājums is {{count}} days overdue"
+            },
+            "banner_due": {
+              "one": "Your Maksājums is due in {{count}} day",
+              "other": "Your Maksājums is due in {{count}} days"
+            },
+            "banner_due_today": "Your Maksājums is due today",
+            "banner_due_today_for_single_fulfillment": "{{amount}} Maksājums is due today. {{link}}",
+            "banner_due_today_for_multiple_fulfillments": "Maksājums due today for {{count}} fulfillments",
+            "banner_overdue_for_single_fulfillment": {
+              "one": "{{amount}} Maksājums is {{count}} day overdue. {{link}}",
+              "other": "{{amount}} Maksājums is {{count}} days overdue. {{link}}"
+            },
+            "banner_overdue_for_multiple_fulfillments": "Maksājums due for {{count}} fulfillments",
+            "title": "Maksājums due",
+            "title_with_date": "Maksājums due {{Datums}}",
+            "title_due_on_receipt": "Maksājums not due yet",
+            "title_due_on_fulfillment": "Maksājums due on fulfillment",
+            "description_overdue": "Your Maksājums is late.",
+            "description_partially_paid": "This Pasūtījums was partially Apmaksāts. You have a remaining balance.",
+            "description_authorized": "Your Maksājums method will be charged on the due Datums, or you can Maksāt tagad.",
+            "description_waiting_for_manual_payment": "This Pasūtījums has a Gaida Maksājums. The balance will be updated when Maksājums is received.",
+            "description_due_on_receipt": "You'll receive an invoice when Maksājums is due.",
+            "description_due_on_receipt_partially_paid": "This Pasūtījums was partially Apmaksāts. You have a remaining balance. You'll receive an invoice when Maksājums is due.",
+            "description_due_on_fulfillment": "Maksājums is due once all Preces in this Pasūtījums are Izpildīts.",
+            "description_due_on_fulfillment_partially_paid": "This Pasūtījums was partially Apmaksāts. You have a remaining balance. Maksājums is due once all Preces in this Pasūtījums are Izpildīts.",
+            "description_due_on_fulfillment_partially_paid_next": "This Pasūtījums was partially Apmaksāts. You have a remaining balance."
+          },
+          "draft": {
+            "description": "Maksājums details are decided when the Pasūtījums is Apstiprināts.",
+            "title": "Maksājums not yet due",
+            "in_review": {
+              "description": "Maksājums details are decided when the Pasūtījums is Apstiprināts.",
+              "title": "Maksājums not yet due"
+            },
+            "submitted": {
+              "description": "Iesniegt Maksājums to confirm this Pasūtījums.",
+              "title": "Pay to confirm",
+              "deposit": {
+                "title": "Maksājums is due",
+                "due_later": "The balance is on {{translatedName}} terms un is due on {{dueDate}}.",
+                "due_on_fulfillment": "The balance is due once all Preces in this Pasūtījums are Izpildīts.",
+                "due_on_receipt": "You'll receive an invoice for the remaining balance.",
+                "due_on_date": "The balance is due on {{dueDate}}."
+              }
+            },
+            "deposit": {
+              "due_later": "{{depositAmount}} will be due when Jūsu pasūtījums ir apstiprināts. The balance will be on {{translatedName}} terms.",
+              "due_on_fulfillment": "{{depositAmount}} will be due when Jūsu pasūtījums ir apstiprināts. The balance will be due when the Pasūtījums is Izpildīts.",
+              "due_on_receipt": "{{depositAmount}} will be due when Jūsu pasūtījums ir apstiprināts. The balance will be due later.",
+              "due_on_date": "{{depositAmount}} will be due when Jūsu pasūtījums ir apstiprināts. The balance will be due on {{dueDate}}."
+            }
+          },
+          "paid": {
+            "title": "Apmaksāts",
+            "title_with_date": "Apmaksāts {{Datums}}",
+            "description": "Your Pasūtījums is fully Apmaksāts."
           }
         }
       }
