@@ -83,13 +83,25 @@
 
   .header__inline-menu .list-menu__item--link,
   .header__inline-menu summary.list-menu__item {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
     font-weight: 500;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    padding: 1rem 1.4rem;
+    padding: 1rem 1.4rem !important;
     white-space: nowrap;
     transition: opacity 0.2s ease;
+    text-decoration: none !important;
+    text-underline-offset: unset !important;
+  }
+
+  /* Override active underline */
+  .header__inline-menu .list-menu__item--active {
+    text-decoration: none !important;
+  }
+
+  /* Fix Industries summary having extra padding */
+  .header__inline-menu summary.list-menu__item {
+    padding-right: 2.4rem !important;
   }
 
   .header__inline-menu .list-menu__item--link:hover,
