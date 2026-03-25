@@ -2531,6 +2531,178 @@
       },
       "notice_banner": {
         "return_to_cart_link_text": "Atgriezties uz grozu"
+      },
+      "local_pickup": {
+        "location_information": {
+          "one": "There is %{count} location with stock Aizvērt to you",
+          "other": "There are %{count} locations with stock Aizvērt to you"
+        },
+        "location_information_far_away": {
+          "one": "There is %{count} location with your item",
+          "other": "There are %{count} locations with your item"
+        },
+        "location_nearby": {
+          "one": "There is %{count} nearby location with your item",
+          "other": "There are %{count} nearby locations with your item"
+        },
+        "location_nearby_short": {
+          "one": "%{count} nearby location with your item",
+          "other": "%{count} nearby locations with your item"
+        },
+        "location_far_away": {
+          "one": "%{count} location with your item",
+          "other": "%{count} locations with your item"
+        },
+        "toggle_location": "Change location",
+        "toggle_more_locations": {
+          "one": "%{count} more location",
+          "other": "%{count} more locations"
+        },
+        "toggle_multiple_locations": "%{count}+ more locations",
+        "or": "OR",
+        "cancel": "Atcelt",
+        "your_location": "your location",
+        "search_button": "Find stores",
+        "no_stores_found": "No stores found",
+        "all_stores_far_away": {
+          "title": "The closest locations are more than %{distance} away",
+          "title_with_item": {
+            "one": "The closest location with your item is more than %{distance} from %{location}",
+            "other": "The closest location with your Preces is more than %{distance} from %{location}"
+          },
+          "title_with_specific_location": "The closest location with your item is more than %{distance} away from %{location}",
+          "description": "Select a location or %{ship_to_address_link}",
+          "ship_to_address_link": "ship to Adrese",
+          "change_location_link": "Change your location"
+        },
+        "selected_pickup_option_no_longer_available": {
+          "title": "Your previously selected location is no longer available",
+          "description": "Select a new location or %{ship_to_address_link}",
+          "ship_to_address_link": "ship to Adrese"
+        },
+        "could_not_resolve_address": "Your Adrese couldn't be located. Try again or use a different Adrese",
+        "paginator": {
+          "accessibility_label": "Local pickup pagination",
+          "previous": "Previous page",
+          "next": "Next page",
+          "label": {
+            "one": "%{first} - %{last} of %{count} store",
+            "other": "%{first} - %{last} of %{count} stores"
+          }
+        },
+        "reveal_more_label": {
+          "one": "Show %{count} more location",
+          "other": "Show %{count} more locations"
+        },
+        "pickup_unavailable_banner_title": {
+          "one": "No locations with your item",
+          "other": "No locations with your Preces"
+        },
+        "pickup_unavailable_banner_title_with_country": {
+          "one": "No locations in %{country} with your item",
+          "other": "No locations in %{country} with your Preces"
+        },
+        "pickup_unavailable_banner_body": {
+          "ship_items": "Ship your Preces",
+          "search_elsewhere": "Meklēt elsewhere",
+          "ship_items_or_search_elsewhere": "%{ship_items} or %{search_elsewhere}"
+        }
+      },
+      "split_delivery": {
+        "pickup_all_items": "Pick up all Preces",
+        "items_for_pickup": "Preces for pickup",
+        "items_for_shipping": "Preces for Piegāde",
+        "delivery_method": "Split delivery method",
+        "delivery_method_menu": "Split delivery method menu",
+        "inventory_issue_banner": {
+          "heading": {
+            "cannot_be_picked_up": {
+              "one": "%{count} item can't be picked up",
+              "other": "%{count} Preces can't be picked up"
+            },
+            "cannot_be_shipped": {
+              "one": "%{count} item can't be shipped",
+              "other": "%{count} Preces can't be shipped"
+            }
+          },
+          "remove_item": {
+            "one": "Noņemt item",
+            "other": "Noņemt Preces"
+          },
+          "ship_separately": {
+            "one": "ship it separately",
+            "other": "ship them separately"
+          },
+          "pick_them_up_in_store": {
+            "one": "pick it up in store",
+            "other": "pick them up in store"
+          },
+          "remove_items_or_ship": "%{remove_items_link} or %{ship_separately_link}",
+          "remove_items_or_pickup": "%{remove_items_link} or %{pickup_in_store_link}"
+        }
+      },
+      "captcha": {
+        "title": "Complete the CAPTCHA to Turpināt",
+        "errors": {
+          "not_solved": "Complete the CAPTCHA to Turpināt"
+        }
+      },
+      "clipboard": {
+        "copied": "Copied",
+        "failed_to_copy": "Failed to copy"
+      },
+      "discount_errors": {
+        "generic_error": "Your order couldn't be processed because your Atlaide code is no longer available. Pārskatīt your order Kopā un try again."
+      },
+      "b2b_errors": {
+        "lost_b2b_purchasing_permissions": "You no longer have permission to place B2B orders. %{logout_url} to place a personal order instead.",
+        "log_out_link_text": "Sign out",
+        "lost_permissions_subtitle": "You no longer have permission to place B2B orders. Sign out to place a personal order.",
+        "lost_permissions_title": "No location permissions"
+      },
+      "shop_pay_external": {
+        "title": "Shop Pay Apmaksa",
+        "errors": {
+          "problem_loading": "There's a problem loading Shop Pay",
+          "try_again_later": "Check your connection or Aizvērt this window un try again in a few moments.",
+          "checkout_has_expired": "Your Apmaksa has expired. Aizvērt this window un try checking out again from {{shopName}}."
+        },
+        "return_to_store": "Return to {{shopName}}",
+        "return_to_store_simple": "Return to store"
+      },
+      "wallets": {
+        "return_to_store": "Return to store",
+        "return_to_checkout": "Return to Apmaksa",
+        "redirect_hint": "You will be asked to sign in with {{walletName}}.",
+        "logged_in": "Connected to {{E-pasts}}",
+        "shipping_line_label": "Piegāde",
+        "connect_shipping_methods": "{{method1}} un {{method2}}",
+        "payment_in_progress_title": "Maksājums in progress",
+        "payment_in_progress_body": "Your Maksājums is being processed. Your order will be completed soon.",
+        "call_to_action": "Pay with {{walletName}}",
+        "place_order": "Place order",
+        "redirection_notice": "You'll be redirected to {{walletName}} to complete your purchase",
+        "recovery_notice": "There's an issue with your Pasūtījuma detaļas. Update your Informācija to finish paying.",
+        "errors": {
+          "unavailable": {
+            "title": "{{walletName}} not available",
+            "description": "{{walletName}} wasn’t available. Use a different Maksājums method or try again later.",
+            "instructions": "There was an issue with {{walletName}}. Return to store to try again or check out a different way.",
+            "unavailable_for_country": "{{walletName}} is not available in {{countryName}}. Select a different Maksājums method to complete your purchase"
+          },
+          "unavailable_terminal": {
+            "instructions": "{{walletName}} is currently unavailable for your order. To Turpināt your purchase, choose another Apmaksa method."
+          },
+          "generic": "There was an issue with {{walletName}}. Try again or use a different Maksājums method.",
+          "discount_code": "Unable to Lietot this Atlaide code. Pārskatīt your code un try again.",
+          "terminal": "There was an issue with {{walletName}}. Use a different Maksājums method.",
+          "detour": {
+            "stock_problems": "Some Preces are no longer available. Aizvērt {{walletName}} un try again.",
+            "price_change": "Some item prices have changed. Aizvērt {{walletName}} to Pārskatīt your order un try again.",
+            "queue": "You have been placed in a queue to Apmaksa. Aizvērt {{walletName}} to Turpināt.",
+            "currency_change": "You can't use a different Adrese with {{walletName}}. Use the original Adrese, or try a different Maksājums method."
+          }
+        }
       }
     }
   }
