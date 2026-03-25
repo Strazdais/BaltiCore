@@ -911,6 +911,190 @@
           "page_title": "Daudzums update",
           "title": "Daudzums update"
         }
+      },
+      "deliverability": {
+        "not_deliverable": {
+          "message": {
+            "one": "This item will be removed from your Grozs because there are no delivery methods available for your Adrese.",
+            "other": "These Preces will be removed from your Grozs because there are no delivery methods available for your Adrese."
+          },
+          "label": "No delivery"
+        }
+      },
+      "order_summary": {
+        "title": "Pasūtījuma kopsavilkums",
+        "group_title_label": "Part of \"%{group_title}\"",
+        "for_add_on": "For: %{group_title}",
+        "from_shop_heading": "From %{shop_name}",
+        "from_other_stores_heading": "From other stores",
+        "from_multiple_stores_heading": "From multiple stores",
+        "number_items": {
+          "one": "%{count} item",
+          "other": "%{count} Preces"
+        },
+        "view_all_items": {
+          "one": "View %{count} item",
+          "other": "View all %{count} Preces"
+        },
+        "more_items_modal": {
+          "search_item": "Meklēt",
+          "clear_search": "Clear Meklēt",
+          "empty_results": "No results found for \"%{searchText}\". Check the spelling or use a different word or phrase.",
+          "number_items_shown": "%{shownNumber} of %{totalNumber} Preces"
+        },
+        "order_name_label": "Order %{name}",
+        "shopping_cart_label": "Shopping Grozs",
+        "discount_title": "Atlaide",
+        "discount_title_stacking": {
+          "one": "Atlaide",
+          "other": "Discounts"
+        },
+        "discount_order_stacking": {
+          "one": "Order Atlaide",
+          "other": "Order discounts"
+        },
+        "discount_label": "Atlaides kods",
+        "discount_not_found": "Unable to find a valid Atlaide matching the code entered",
+        "discount_placeholder": "Atlaides kods",
+        "discount_code_applied": "Atlaide code applied",
+        "discount_code_applied_with_code": "Atlaide code %{code} has been applied",
+        "discount_code_removed": "Atlaide code %{code} has been removed",
+        "discount_code_replaced": "Atlaide code %{old_code} removed un %{code} has been applied",
+        "discount_code_replaced_multiple": "Multiple Atlaide codes removed un %{code} has been applied",
+        "discount_code_allocations_mismatch": "Your <strong style=\"text-transform:uppercase\">%{code}</strong> Atlaide code has changed. Pārskatīt your Grozs un try again.",
+        "order_discounts_apply_to_local_shop": "Order discounts only Lietot to Preces from %{shop_name}",
+        "gift_card_applied": "Dāvanu karte applied",
+        "enter_shipping_address": "Enter Piegāde Adrese",
+        "gift_card_title": "Dāvanu karte",
+        "gift_card_label": "Dāvanu karte",
+        "gift_card_placeholder": "Dāvanu karte",
+        "gift_card_and_discount_title": "Atlaide code or Dāvanu karte",
+        "gift_card_and_discount_label": "Atlaide code or Dāvanu karte",
+        "gift_card_and_discount_placeholder": "Atlaide code or Dāvanu karte",
+        "gift_cards_apply_to_local_shop": "Gift cards only Lietot to Preces from %{shop_name}",
+        "add_discount_or_gift_card": "Add a Atlaide code or Dāvanu karte",
+        "remove_gift_card_label": "Clear Dāvanu karte",
+        "remove_discount_label": "Noņemt Atlaide",
+        "return_restocking_fee_label": "Restocking fee",
+        "return_shipping_fee_label": "Return Piegāde",
+        "free_shipping_discount_label": "Bezmaksas Piegāde",
+        "applied_free_shipping_discount_label": "Applied",
+        "apply_discount_button_label": "Lietot",
+        "applied_discount_message": "%{amount} off Kopā order Cena",
+        "discount_has_been_applied": "Atlaide has been applied",
+        "discount_has_been_removed": "Atlaide has been removed",
+        "gift_card_has_been_applied": "Dāvanu karte has been applied",
+        "gift_card_has_been_removed": "Dāvanu karte has been removed",
+        "gift_card_subscriptions_notice": "Gift cards will only Lietot to your first Maksājums",
+        "discount_already_applied": "A Atlaide has been applied to this order. You can’t add another Atlaide.",
+        "cart_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}</strong> Atlaide code isn’t valid for the Preces in your Grozs",
+        "discount_requires_customer_notice": "Enter your Piegāde Informācija to Lietot the <strong style=\"text-transform:uppercase\">%{code}</strong> Atlaide code",
+        "customer_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}</strong> Atlaide code isn’t available to you right now",
+        "eligible_customer_missing_notice": "<strong style=\"text-transform:uppercase\">%{code}</strong> Atlaide code requires eligible customer",
+        "shipping_information_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}</strong> Atlaide code isn’t available for your Piegāde Adrese",
+        "customer_already_used_once_per_customer_discount_notice": "The <strong style=\"text-transform:uppercase\">%{code}</strong> Atlaide code has already been used",
+        "subtotal_label": "Starpsumma",
+        "subtotal_label_with_quantity": {
+          "one": "Starpsumma · %{count} item",
+          "other": "Starpsumma · %{count} Preces"
+        },
+        "shipping_label": "Piegāde",
+        "pickup_label": "Pickup in store",
+        "no_pickup_location": "There are no pickup locations available.",
+        "pickup_unavailable_banner_title": {
+          "one": "No stores available with your item",
+          "other": "No stores available with your Preces"
+        },
+        "pickup_unavailable_banner_title_with_country": {
+          "one": "No stores available in %{country} with your item",
+          "other": "No stores available in %{country} with your Preces"
+        },
+        "pickup_unavailable_banner_body": {
+          "ship_to_address": "Ship to Adrese",
+          "ship_to_address_instead_html": "%{link} instead"
+        },
+        "tip_label": "Tip",
+        "unconfirmed_label": "Unconfirmed",
+        "calculating_shipping": "Calculating…",
+        "calculating": "Calculating…",
+        "shipping_default_value": "Calculated at next step",
+        "shipping_discount_title": "Piegāde Atlaide",
+        "shipping_pending_value": "—",
+        "shipping_pending_message": "Not yet available",
+        "shipping_policy_link": "Piegāde costs",
+        "taxes_label": "Nodokļi",
+        "estimated_taxes_label": "Estimated Nodokļi",
+        "estimated_taxes_label_short": "Estimated",
+        "information_estimated_taxes_label": "Nodokļi (estimated)",
+        "estimated_taxes_finalization_tooltip_content": "The final Nodoklis un Kopā will be confirmed by E-pasts or text after you place your order.",
+        "estimated_taxes_finalization_tooltip_content_short": "Nodoklis finalized after Maksājums",
+        "order_total_label": "Order Kopā",
+        "price_before_discount_aria_text": "Original Cena",
+        "price_after_discount_aria_text": "Discounted Cena",
+        "discount_code_aria_text": "Atlaides kods",
+        "total_savings": "Kopā savings",
+        "total_label": "Kopā",
+        "total_due_label": "Kopā due",
+        "total_paid_label": "Kopā paid",
+        "total_price_label": "Kopā Cena",
+        "total_outstanding_label": "Amount to pay",
+        "deposit_label": "Deposit",
+        "total_due_today_label": "Kopā due today",
+        "total_due_later_label": "Kopā due later",
+        "partial_total_label": "Kopā",
+        "free_total_label": "Bezmaksas",
+        "free_shipping_total_label": "Bezmaksas",
+        "paid_label": "Paid",
+        "payment_due_label": "Maksājums due",
+        "vat_label_html": "Including %{amount} in Nodokļi",
+        "duties_included_label": "Kopā includes Nodokļi un duties. No extra charges on delivery.",
+        "discount_and_gift_card_savings_notice": "After %{discount_amount} in discounts un %{gift_card_amount} in gift cards",
+        "discount_savings_notice": "After %{discount_amount} in discounts",
+        "gift_card_savings_notice": "After %{gift_card_amount} in gift cards",
+        "cost_table_title": "Cost summary",
+        "cost_table_item_column_header": "Item",
+        "cost_table_value_column_header": "Value",
+        "description_label": "Description",
+        "price_label": "Cena",
+        "price_per_item": {
+          "accessibility_label": "%{Cena} per item",
+          "label": "%{Cena}/ea"
+        },
+        "quantity_label": "Daudzums",
+        "product_change_label": "Change",
+        "product_image_label": "Produkts image",
+        "product_image_quantity_label": "Daudzums",
+        "scroll_order_summary": "Scroll for more Preces",
+        "expand_order_summary_short": "Show",
+        "collapse_order_summary_short": "Hide",
+        "original_price": "Original Cena",
+        "sale_price": "Sale Cena",
+        "compare_at_sale": "Sale (%{sale_amount})",
+        "total_updated_label": "Updated Kopā Cena:",
+        "order_total_updated_label": "Updated Kopā",
+        "total_already_paid_label": "Paid",
+        "unit_price": {
+          "accessible_separator": "per",
+          "content_html": "%{Cena}%{accessible_separator}%{per_unit}",
+          "per_item": {
+            "single": "%{Cena} each",
+            "one": "%{Cena} per %{count} item",
+            "other": "%{Cena} per %{count} Preces"
+          },
+          "per_unit": {
+            "single": "%{Cena}/%{unit}",
+            "plural": "%{Cena}/%{count}%{unit}"
+          }
+        },
+        "gift_card_ending": "Dāvanu karte ending with %{last_characters}",
+        "estimated_tax_label": "Estimated Nodoklis",
+        "multiple_shipping_lines_label": "Piegāde Kopā",
+        "recurring_subtotal_label": "Recurring Starpsumma",
+        "recurring_total_label": "Recurring Kopā",
+        "recurring_total_tooltip": "Does not include Piegāde, Nodoklis, duties, or any applicable discounts.",
+        "confirmation_number_label": "Confirmation #%{confirmation_number}",
+        "higher_value_discount_applied": "<strong style=\"text-transform:uppercase\">%{code}</strong> couldn't be used with your existing discounts.",
+        "percent_off_shipping": "%{percent}% off Piegāde"
       }
     }
   }
