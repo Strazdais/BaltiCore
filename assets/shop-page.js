@@ -555,7 +555,7 @@
       '.shop-card__wishlist:hover{color:#e53e3e;transform:scale(1.1);background:rgba(255,255,255,1);}',
       '.shop-card__wishlist--active{color:#e53e3e;background:rgba(255,255,255,1);}',
       '.shop-card__media{position:relative;aspect-ratio:3/4;background:#fff;overflow:hidden;border-radius:4px;}',
-      '.shop-card__img{width:100%;height:100%;object-fit:contain;background:#fff;}',
+      '.shop-card__img{width:100%!important;height:100%!important;object-fit:contain!important;background:#fff;}',
       /* Task 6: Search bar with magnifying glass icon */
       '.shop-search{position:relative;flex:1;min-width:200px;max-width:400px;}',
       '.shop-search__icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#999;pointer-events:none;line-height:1;}',
@@ -932,7 +932,7 @@
 
     var secondaryImgHTML = '';
     if (product.imageAlt && product.imageAlt !== product.image) {
-      secondaryImgHTML = '<img class="shop-card__img shop-card__img--secondary" src="' + product.imageAlt + '" alt="' + escapeHTML(product.name) + ' alternate view" loading="lazy" width="600" height="800">';
+      secondaryImgHTML = '<img class="shop-card__img shop-card__img--secondary" src="' + product.imageAlt + '" alt="' + escapeHTML(product.name) + ' alternate view" loading="lazy" >';
     }
 
     var isHighlighted = state.highlightProduct === product.id;
@@ -942,7 +942,7 @@
 
     return '<div class="shop-card" role="listitem" data-product-id="' + product.id + '"' + (isHighlighted ? ' data-highlighted="true"' : '') + '>' +
       '<div class="shop-card__media">' +
-        '<img class="shop-card__img shop-card__img--primary" src="' + product.image + '" alt="' + escapeHTML(product.name) + '" loading="lazy" width="600" height="800">' +
+        '<img class="shop-card__img shop-card__img--primary" src="' + product.image + '" alt="' + escapeHTML(product.name) + '" loading="lazy" >' +
         secondaryImgHTML +
         badgeHTML +
         '<button class="' + heartClass + '" type="button" aria-label="Save ' + escapeHTML(product.name) + '" data-wishlist="' + product.id + '">' +
