@@ -2972,7 +2972,9 @@
           "ship_items_or_search_elsewhere": "%{ship_items} or %{search_elsewhere}"
         },
         "title": "Location",
-        "location_address_search_label": "Adrese"
+        "location_address_search_label": "Adrese",
+        "location_address_search_placeholder": "%{postal_code_label} or Adrese",
+        "location_closest": "Closest location with your item"
       },
       "split_delivery": {
         "pickup_all_items": "Pick up all Preces",
@@ -3067,7 +3069,63 @@
             "price_change": "Some item prices have changed. Aizvērt {{walletName}} to Pārskatīt your order un try again.",
             "queue": "You have been placed in a queue to Apmaksa. Aizvērt {{walletName}} to Turpināt.",
             "currency_change": "You can't use a different Adrese with {{walletName}}. Use the original Adrese, or try a different Maksājums method."
-          }
+          },
+          "unsupported": {
+            "address": "The merchant can’t deliver to this Adrese",
+            "wallet_is_unavailable": "{{walletName}} cannot be used with this Adrese. Izvēlēties a different Adrese or Aizvērt {{walletName}} to complete your purchase",
+            "postal_code": "This location isn't supported"
+          },
+          "outdated": {
+            "shipping_method": "The Piegāde options have changed for your Pasūtījums. Review your selection.",
+            "payment_terms": "The Maksājums terms have changed. Review your Pasūtījums"
+          },
+          "invalid": {
+            "shipping_address": "Enter a valid Piegāde Adrese",
+            "billing_address": "Enter a valid billing Adrese",
+            "shipping_option": "Choose a valid Piegāde option",
+            "email": "Enter a valid E-pasts",
+            "zone": "Enter a valid state / Novads",
+            "billing_zone": "Enter a valid billing Adrese state / Novads",
+            "emirate": "Enter a valid emirate",
+            "postal_code": "Enter a valid ZIP / Pasta indekss",
+            "phone": "Enter a valid Tālrunis number",
+            "billing_phone": "Enter a valid billing Adrese Tālrunis number",
+            "reduction_code": "Enter a valid Atlaide code or Dāvanu karte",
+            "billing_must_match_shipping": "Must match Piegāde Adrese",
+            "billing_zip": "Enter a valid billing Adrese ZIP / Pasta indekss"
+          },
+          "missing": {
+            "first_name": "Enter a Vārds",
+            "billing_first_name": "Enter a billing Adrese Vārds",
+            "last_name": "Enter a Uzvārds",
+            "address1": "Enter an Adrese",
+            "billing_address1": "Enter a billing Adrese",
+            "address2": "Enter an apartment, suite, etc.",
+            "billing_address2": "Enter a billing Adrese apartment, suite, etc.",
+            "city": "Enter a Pilsēta",
+            "billing_city": "Enter a billing Adrese Pilsēta",
+            "province": "Izvēlēties a state / Novads",
+            "billing_province": "Izvēlēties a billing Adrese state / Novads",
+            "country": "Izvēlēties a Valsts/reģions",
+            "zip": "Enter a ZIP / Pasta indekss",
+            "billing_zip": "Enter a billing Adrese ZIP / Pasta indekss",
+            "phone": "Enter a Tālrunis number",
+            "contact_info": "Enter Kontaktinformācija"
+          },
+          "formatting": {
+            "name_contains_emojis": "Dzēst emoji from your name",
+            "postal_code_contains_emoji": "Dzēst emoji from your Pasta indekss",
+            "first_name_too_long": "Vārds contains too many letters",
+            "last_name_too_long": "Uzvārds contains too many letters",
+            "address_too_long": "Adrese line is too long"
+          },
+          "select_different_shipping_address_to_resolve_errors": "Your Piegāde Adrese is invalid. Izvēlēties a different Adrese or use a new one.",
+          "processing_error_checkout_as_guest": "There was an issue processing your Maksājums. Try again or {{checkout_as_guest_link}}."
+        },
+        "scrim": {
+          "continue_purchase_in_window": "Turpināt your purchase in the {{walletName}} window",
+          "and_return_to_checkout": "un return to Apmaksa",
+          "cancel": "Atcelt"
         }
       },
       "one": {
@@ -3321,6 +3379,14 @@
       },
       "online_store_chat": {
         "title": "Questions? Chat with us"
+      },
+      "note": {
+        "length_exceeds_maximum": "Reduce the size of the note to 5000 or fewer characters."
+      },
+      "offsite_payment_failed": {
+        "title": "Offsite Maksājums failed",
+        "payment_not_processed_title": "Maksājums failed",
+        "payment_not_processed_text": "Try scanning the QR code again. If it still doesn't Darba, let our staff know un try a different Maksājums method."
       }
     },
     "errors": {
