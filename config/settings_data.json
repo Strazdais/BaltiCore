@@ -144,7 +144,8 @@
       "header": {
         "type": "header",
         "settings": {
-          "sticky_header_type": "always"
+          "sticky_header_type": "always",
+          "enable_language_selector": true
         }
       }
     },

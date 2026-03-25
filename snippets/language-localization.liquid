@@ -1,5 +1,5 @@
 {%- comment -%}
-  Renders the language picker for the localization form
+  Renders the language picker for the localization form with country flags
 
   Accepts:
     - localPosition: pass in the position in which the form is coming up to create specific IDs
@@ -13,7 +13,10 @@
     aria-controls="{{ localPosition }}List"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>{{ localization.language.endonym_name | capitalize }}</span>
+    <span>
+      {%- if localization.language.iso_code == 'lv' -%}🇱🇻{%- else -%}🇬🇧{%- endif -%}
+      {{ localization.language.endonym_name | capitalize }}
+    </span>
     {{ 'icon-caret.svg' | inline_asset_content }}
   </button>
   <div class="disclosure__list-wrapper language-selector" hidden>
@@ -38,6 +41,7 @@
               {{- 'icon-checkmark.svg' | inline_asset_content -}}
             </span>
             <span>
+              {%- if language.iso_code == 'lv' -%}🇱🇻{%- elsif language.iso_code == 'en' -%}🇬🇧{%- endif -%}
               {{ language.endonym_name | capitalize }}
             </span>
           </a>
