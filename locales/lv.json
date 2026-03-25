@@ -4092,6 +4092,78 @@
           }
         }
       }
+    },
+    "order_details": {
+      "discount_order_stacking": {
+        "one": "Pasūtījums Atlaide",
+        "other": "Pasūtījums discounts"
+      },
+      "price_before_discount_accessibility_label": "Original Cena",
+      "price_after_discount_accessibility_label": "Discounted Cena",
+      "compare_at_sale": "Sale ({{saleAmount}})",
+      "hide_items": "Slēpt Preces",
+      "loading": "Ielādē Pasūtījums details",
+      "loading_finished_accessibility_message": "Pasūtījums details have been loaded",
+      "location": "Location",
+      "image_gallery": {
+        "product_name_and_quantity": "{{productName}} Daudzums {{Daudzums}}",
+        "next": "Rādīt Nākamais Preces",
+        "previous": "Rādīt Iepriekšējais Preces",
+        "load_more_items": {
+          "one": "Load {{count}} Vairāk Preces",
+          "other": "Load {{count}} Vairāk Preces"
+        }
+      },
+      "mobile_summary_toggle_button": {
+        "open": "Rādīt Pasūtījuma kopsavilkums",
+        "closed": "Slēpt Pasūtījuma kopsavilkums"
+      },
+      "no_data": "None",
+      "no_data_provided": "-",
+      "no_data_provided_accessibility_label": "{{fieldName}} is empty",
+      "not_applicable": "N/A",
+      "paid_amount": "Apmaksāts",
+      "partially_refunded_label": "PARTIALLY Atmaksāts",
+      "payment_confirmation": {
+        "payment_received": "Thank you! Your {{amount}} Maksājums was received.",
+        "full_payment_received": "Thank you! Your {{amount}} Maksājums was received, un this Pasūtījums is now fully Apmaksāts.",
+        "payment_authorized": "Thank you! The balance will be updated when Maksājums is received.",
+        "dismiss_label": "Dismiss Maksājums Apstiprinājums"
+      },
+      "payment": {
+        "status_in_review": "Maksājums due after review",
+        "status_unpaid": "Maksājums due on {{Datums}}",
+        "title": "Maksājums",
+        "card_payment_short_details": "{{paymentTypeLabel}} •••• {{lastDigits}}",
+        "bank_payment_short_details": "{{paymentTypeLabel}} •••• {{lastDigits}}",
+        "payment_type": {
+          "gift_card": "Dāvanu karte",
+          "store_credit": "Store credit",
+          "money_order": "Money Pasūtījums",
+          "cash_on_delivery": "Cash on Delivery (COD)",
+          "bank_deposit": "Bank Deposit",
+          "manual": "Manual"
+        },
+        "card_payment_details": "ending with {{lastDigits}} - {{formattedTransactionAmount}}",
+        "gift_card_payment_details": "ending with {{lastDigits}} - {{formattedTransactionAmount}}",
+        "store_credit_payment_details": "Store credit - {{formattedTransactionAmount}}",
+        "shop_pay_installments": {
+          "paid_in_installments": "Apmaksāts with Shop Pay installments",
+          "view_schedule": "View schedule"
+        },
+        "manual_payment_methods": {
+          "money_order": "Money Pasūtījums - {{formattedTransactionAmount}}",
+          "cash_on_delivery": "Cash on Delivery (COD) - {{formattedTransactionAmount}}",
+          "bank_deposit": "Bank Deposit - {{formattedTransactionAmount}}",
+          "manual": "Manual - {{formattedTransactionAmount}}"
+        },
+        "transactions": {
+          "show_all": "Rādīt all",
+          "show_less": "Rādīt Mazāk",
+          "details": "Details",
+          "payment_details": "Maksājums Details"
+        }
+      }
     }
   }
 }
