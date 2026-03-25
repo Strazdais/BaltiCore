@@ -1214,7 +1214,66 @@
         "recurring_total_tooltip": "Does not include Piegāde, Nodoklis, duties, or any applicable discounts.",
         "confirmation_number_label": "Confirmation #%{confirmation_number}",
         "higher_value_discount_applied": "<strong style=\"text-transform:uppercase\">%{code}</strong> couldn't be used with your existing discounts.",
-        "percent_off_shipping": "%{percent}% off Piegāde"
+        "percent_off_shipping": "%{percent}% off Piegāde",
+        "amount_off_shipping": "%{amount} off Piegāde",
+        "deferred_payment_info": {
+          "title": "Maksājums of %{amount_due} is due on %{due_at}",
+          "description_html": "For questions about your Pasūtījums, %{contact_us}.",
+          "paid_today": "Kopā Apmaksāts today",
+          "paid_today_next": "Apmaksāts today",
+          "due_on_fulfillment_title": "Maksājums of %{amount_due} is due on fulfillment",
+          "due_on_receipt_title": "Maksājums of %{amount_due} is due on receipt"
+        },
+        "deferred_balance_info": {
+          "title": "Balance of {{amount_due}} is due on {{due_at}}",
+          "due_on_fulfillment_title": "Balance of {{amount_due}} is due on fulfillment"
+        },
+        "payment_terms_totals": {
+          "due_today": "Kopā due today",
+          "due_today_next": "Due today",
+          "due_later": "Kopā due %{due_at}",
+          "due_on_fulfillment": "Kopā due on fulfillment",
+          "due_on_fulfillment_next": "Due on fulfillment",
+          "due_on_receipt": "Kopā due on receipt",
+          "due_later_checkout_to_draft": "Kopā due later",
+          "total_paid": "Kopā Apmaksāts"
+        },
+        "maximum_discount_code_limit_reached": "You've reached the maximum number of Atlaide codes. Noņemt an existing code to use <strong style=\"text-transform:uppercase\">%{code}</strong>.",
+        "discount_code_application_failed": "<strong style=\"text-transform:uppercase\">%{code}</strong> isn't working right now. Sazinieties ar mums for help.",
+        "due_on_fulfillment": "Due on fulfillment",
+        "gift_card_masked": "•••• %{last_characters}",
+        "subscriptions": "Subscriptions",
+        "duties_label": "Duties",
+        "duties_and_taxes_label": "Duties un Nodokļi",
+        "error_duties_tooltip": "This Pasūtījums is being shipped from another country, so duties un Nodokļi may be charged on delivery.",
+        "may_be_charged_on_delivery": "May be charged on delivery",
+        "total_updated_label_with_price": "Updated Kopā Cena: %{totalPrice}",
+        "updated_shipping_method": "Updated Piegādes veids: %{shipping_method}",
+        "recurring_payments": "Recurring Payments",
+        "recurring_total_multiple_label": "This Pasūtījums has a recurring charge for multiple Preces.",
+        "deferred_total_due_date_label": "Kopā due {{Datums}}",
+        "deferred_total_due_date_label_next": "Due %{Datums}",
+        "full_price": "Full Cena: %{Cena}",
+        "custom_discount": "Custom Atlaide",
+        "expand_component_information": {
+          "one": "Rādīt %{count} item",
+          "other": "Rādīt %{count} Preces"
+        },
+        "collapse_component_information": {
+          "one": "Slēpt %{count} item",
+          "other": "Slēpt %{count} Preces"
+        },
+        "component_quantity_title": "%{Daudzums} × %{product_title}",
+        "discount_discovery": {
+          "add_code": "Pievienot Atlaide",
+          "merchandise_quantity_label": {
+            "one": "%{count} item",
+            "other": "%{count} Preces"
+          }
+        },
+        "alternative_payment_currency_total": "Charged as %{amount_due}",
+        "pay_merchant_label": "Pay %{merchant_name}",
+        "discount_applies_to_subscription_items_only": "This Atlaide only applies to subscription Preces"
       },
       "shipping": {
         "shipping_method_one_time_purchase_group_title": "One-time purchase",
@@ -1452,7 +1511,11 @@
         "split_shipping_option_custom": "Custom",
         "add_shipping_address": "Add Piegāde Adrese",
         "add_new_delivery_address": "Add a new delivery Adrese",
-        "choose_new_address": "Choose a new Adrese"
+        "choose_new_address": "Choose a new Adrese",
+        "title": "Piegāde",
+        "delivery_title": "Delivery",
+        "shipping_method_title": "Piegādes veids",
+        "shipping_method_rollup_accessibility_label": "Piegādes veids options"
       },
       "localized_fields": {
         "additional_information": {
