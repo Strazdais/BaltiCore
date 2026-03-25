@@ -2200,7 +2200,157 @@
         "attempted_delivery_local_title": "Missed delivery",
         "attempted_delivery_local_description_html": "We weren’t able to deliver your order. To schedule another delivery, %{contact_us}.",
         "delivered": "Delivered",
-        "delivered_title": "Your order has been delivered"
+        "delivered_title": "Your order has been delivered",
+        "qr_code": {
+          "title": "Track on your Tālrunis"
+        },
+        "shop_qr_with_sms_upsell": {
+          "qr_code": {
+            "title": "Scan with your Tālrunis"
+          },
+          "sms": {
+            "title": "Or send a link to your Tālrunis"
+          }
+        },
+        "view_business_customer_account": "View account",
+        "breadcrumbs_submitted": "Submitted",
+        "breadcrumbs_in_review": "In Pārskatīt",
+        "breadcrumbs_confirmed": "Confirmed",
+        "missing_shipping_address_banner": {
+          "title": "Order doesn’t have a Piegāde Adrese",
+          "text_html": "%{contact_us} to add your Adrese",
+          "contact_us": "Contact us"
+        },
+        "first_payment_complete": "First Maksājums complete",
+        "in_store_purchase": "In-store purchase",
+        "company_location_section_title": "Uzņēmums un location",
+        "thank_you_ready_for_picked_up": "Your order was picked up at %{Adrese}.",
+        "ready_for_delivery": "Ready for delivery",
+        "order_updates_subscribe_to_email_notifications_failed": "We can not store this E-pasts for updates. Try again or use another E-pasts.",
+        "order_updates_subscribe_to_email_notifications_email_already_exists": "The E-pasts you entered already exists.",
+        "subscriptions_management": {
+          "title": "Subscription",
+          "description": "Turpināt to your account to view un manage your subscriptions.",
+          "button_label": "Manage your subscription"
+        },
+        "manage_order_label": "Manage your order",
+        "gift_card_confirmation_by_text_typ": {
+          "one": "You’ll receive a text with your Dāvanu karte in a few minutes.",
+          "other": "You’ll receive a text with your gift cards in a few minutes."
+        },
+        "gift_card_confirmation_by_email_typ": {
+          "one": "You’ll receive an E-pasts with your Dāvanu karte in a few minutes.",
+          "other": "You’ll receive an E-pasts with your gift cards in a few minutes."
+        },
+        "gift_card_email_title": {
+          "one": "Dāvanu karte was sent by E-pasts",
+          "other": "Gift cards were sent by E-pasts"
+        },
+        "gift_card_text_title": {
+          "one": "Dāvanu karte was sent by text message",
+          "other": "Gift cards were sent by text message"
+        },
+        "resend_gift_cards_by_email": "Resend E-pasts",
+        "resend_gift_cards_by_text": "Resend text message",
+        "gift_card_resent_confirmation": {
+          "one": "Dāvanu karte was resent.",
+          "other": "Gift cards were resent."
+        },
+        "gift_card_resend_failure": {
+          "one": "There was a problem resending your Dāvanu karte. Try again or contact us.",
+          "other": "There was a problem resending your gift cards. Try again or contact us."
+        },
+        "vat_invoices": {
+          "title": "VAT invoices"
+        },
+        "verify_shop_account_title": "Verify your Shop account",
+        "verify_shop_account_message": "Your Informācija was saved with Shop, verify your account to automatically use it on millions of stores.",
+        "verify_shop_account_cta": "Verify your account",
+        "verify_shop_account_confirmation": "Apmaksa details saved",
+        "announcement": {
+          "close": "Aizvērt",
+          "expand": "Expand",
+          "collapse": "Collapse"
+        }
+      },
+      "vaulted": {
+        "change_button": "Change"
+      },
+      "review": {
+        "title": "Pārskatīt",
+        "review_title": "Complete your order",
+        "review_and_confirm_title": "Pārskatīt un confirm",
+        "checkout_as_guest": "Check out as guest",
+        "account_more_actions": "More actions for this account",
+        "checkout_a_different_way": "Check out a different way",
+        "blocks": {
+          "contact_method_title": "Contact",
+          "billing_address_title": "Billing",
+          "shipping_address_title": "Ship to",
+          "shipping_method_title": "Piegādes veids",
+          "payment_method_title": "Maksājuma veids",
+          "change_link_label": "Change",
+          "change_contact_method_link_label": "Change Kontaktinformācija",
+          "change_billing_address_link_label": "Change billing Adrese",
+          "change_company_location_link_label": "Change Uzņēmums location",
+          "change_shipping_address_link_label": "Change Piegāde Adrese",
+          "change_shipping_method_link_label": "Change Piegādes veids",
+          "change_payment_method_link_label": "Change Maksājums method",
+          "pick_up_in_store_shipping_method_html": "Pickup in store · %{location_name}",
+          "purchase_order_number_title": "PO number",
+          "change_purchase_order_number_label": "Change PO number",
+          "change_delivery_method_link_label": "Change delivery method",
+          "no_address": "(No Adrese)",
+          "no_purchase_order_number": "(No PO number)",
+          "due_after_order_reviewed_html": "Due after order is reviewed",
+          "review_title_free_order": "Pārskatīt un complete your order",
+          "payment_method_saved_company_location": "Saglabāt card for this location",
+          "company_location": "Uzņēmums location",
+          "pickup_items_at": {
+            "one": "Pickup %{count} item at",
+            "other": "Pickup %{count} Preces at"
+          },
+          "ship_items_to": {
+            "one": "Ship %{count} item to",
+            "other": "Ship %{count} Preces to"
+          }
+        },
+        "block_title": "Pārskatīt your Informācija",
+        "item_header": {
+          "change_value": "Change value",
+          "section": "Section",
+          "value": "Value"
+        }
+      },
+      "marketing": {
+        "accept_marketing_checkbox_label": "E-pasts me with news un offers",
+        "post_accept_marketing_checkbox_label": "You are subscribed to receive E-pasts news un offers",
+        "pending_accept_marketing_checkbox_label": "Check your E-pasts to confirm your subscription to news un offers",
+        "accept_sms_checkbox_label": "Text me with news un offers",
+        "disclaimer": {
+          "privacy_policy": "Privacy Policy",
+          "terms_of_service": "Terms of Service"
+        },
+        "sms": {
+          "disclaimer": {
+            "privacy_policy": "Privacy Policy",
+            "terms_of_service": "Terms of Service",
+            "description_html": "By signing up via text, you agree to receive recurring automated marketing messages, including Grozs reminders, at the Tālrunis number provided. Consent is not a condition of purchase. Reply STOP to unsubscribe. Reply HELP for help. Message frequency varies. Msg & data rates may Lietot. View our %{privacy_policy_link} un %{terms_of_service_link}.",
+            "description_transactional_html": "You may receive text messages related to order confirmation un Piegāde updates. Reply STOP to unsubscribe. Reply HELP for help. Message frequency varies. Msg & data rates may Lietot. View our %{privacy_policy_modal_link} un %{terms_of_service_modal_link}."
+          },
+          "mobile_phone_number": "Mobile Tālrunis number",
+          "get_offers_by_text": "Get offers by text"
+        },
+        "unsubscribe": {
+          "title": "You’ve unsubscribed",
+          "description": "You won’t receive any more Grozs reminders from us."
+        },
+        "accept_shop_pay_marketing_checkbox_label": "Sign me up for news un offers from this store"
+      },
+      "shop_policies": {
+        "policy_label": "Policy",
+        "policies_label": "Policies",
+        "select_policy_label": "Select a policy"
       }
     }
   }
