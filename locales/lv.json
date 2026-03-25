@@ -2385,7 +2385,8 @@
         "delivered": "Delivered",
         "delivered_title": "Your order has been delivered",
         "qr_code": {
-          "title": "Track on your Tālrunis"
+          "title": "Track on your Tālrunis",
+          "send_link_to_phone": "Or send a link to your Tālrunis"
         },
         "shop_qr_with_sms_upsell": {
           "qr_code": {
@@ -2454,7 +2455,126 @@
           "close": "Aizvērt",
           "expand": "Expand",
           "collapse": "Collapse"
-        }
+        },
+        "gift_card_confirmation_by_email": "If you didn’t receive it, resend the E-pasts or Sazinieties ar mums.",
+        "gift_card_title": "Gift cards",
+        "resend_gift_cards": "Resend gift cards",
+        "thank_you_title": "Jūsu pasūtījums ir apstiprināts",
+        "thank_you_title_payment": "Your Maksājums is Apstiprināts",
+        "thank_you_title_review": "Your Pasūtījums has been submitted for review",
+        "thank_you_title_payments_app_pending_default": "Your Maksājums is being processed",
+        "thank_you_title_payments_app_pending_buyer_action_required": "Your Pasūtījums was received",
+        "thank_you_title_payments_app_failed_pending_payment": "Your Maksājums couldn’t be processed",
+        "thank_you_confirmed_with_email_description": {
+          "single_store": "You’ll receive a Apstiprinājums E-pasts soon",
+          "multi_store": "You’ll receive separate Apstiprinājums emails from each store soon"
+        },
+        "thank_you_confirmed_with_phone_description": {
+          "single_store": "You’ll receive a Apstiprinājums text soon",
+          "multi_store": "You’ll receive separate Apstiprinājums texts from each store soon"
+        },
+        "thank_you_confirmed_with_email_and_phone_description": {
+          "single_store": "You’ll receive a Apstiprinājums E-pasts soon",
+          "multi_store": "You’ll receive separate Apstiprinājums emails from each store soon"
+        },
+        "thank_you_confirmed_order_with_email": "You’ll receive a Apstiprinājums E-pasts with your Pasūtījums number shortly.",
+        "thank_you_confirmed_order_with_phone": "You’ll receive a Apstiprinājums text with your Pasūtījums number shortly.",
+        "thank_you_confirmed_order_with_email_and_phone": "You’ll receive a Apstiprinājums E-pasts with your Pasūtījums number shortly.",
+        "thank_you_confirmed_orders_with_email": "You'll get separate Apstiprinājums emails with your Pasūtījums numbers soon",
+        "thank_you_confirmed_orders_with_phone": "You'll get separate Apstiprinājums texts with your Pasūtījums numbers soon",
+        "thank_you_confirmed_orders_with_email_and_phone": "You'll get separate Apstiprinājums emails with your Pasūtījums numbers soon",
+        "thank_you_confirmed_order_with_email_payment": "You made a Maksājums on your Pasūtījums %{Datums}.",
+        "thank_you_confirmed_order_with_phone_payment": "You made a Maksājums on your Pasūtījums %{Datums}.",
+        "thank_you_confirmed_order_with_email_and_phone_payment": "You made a Maksājums on your Pasūtījums %{Datums}.",
+        "thank_you_confirmed_order_with_email_pick_up": "You’ll receive an E-pasts when your Pasūtījums is ready for pickup.",
+        "thank_you_confirmed_order_with_phone_pick_up": "You’ll receive a text when your Pasūtījums is ready for pickup.",
+        "thank_you_confirmed_order_with_email_and_phone_pick_up": "You’ll receive an E-pasts when your Pasūtījums is ready for pickup.",
+        "thank_you_confirmed_order_with_missing": "Sazinieties ar mums by E-pasts or Tālrunis to receive an Pasūtījums Apstiprinājums.",
+        "thank_you_confirmed_order_with_missing_payment": "Sazinieties ar mums by E-pasts or Tālrunis to receive an Pasūtījums Apstiprinājums.",
+        "thank_you_confirmed_order_with_missing_pick_up": "Sazinieties ar mums by E-pasts or Tālrunis to receive an Pasūtījums Apstiprinājums.",
+        "thank_you_confirmed_order_with_draft": "We’ll let you know if we need Vairāk Informācija or when Jūsu pasūtījums ir apstiprināts.",
+        "thank_you_confirmed_order_with_draft_payment": "We’ll let you know if we need Vairāk Informācija or when Jūsu pasūtījums ir apstiprināts.",
+        "thank_you_confirmed_order_with_draft_pick_up": "We’ll let you know if we need Vairāk Informācija or when Jūsu pasūtījums ir apstiprināts.",
+        "thank_you_unconfirmed_items_heading": {
+          "one": "1 item is not Apstiprināts",
+          "other": "Some Preces are not Apstiprināts"
+        },
+        "thank_you_unconfirmed_items_description": {
+          "one": "You haven't been charged for this",
+          "other": "You haven't been charged for these"
+        },
+        "thank_you_item_label": {
+          "one": "%{count} item",
+          "other": "%{count} Preces"
+        },
+        "thank_you_from_shop": "From %{shop_name}",
+        "thank_you_from_other_store": "From another store",
+        "thank_you_payments_app_failed_pending_payment": "You weren’t charged for your Pasūtījums. Return to your Grozs to review your Pasūtījums un pay again.",
+        "thank_you_payments_app_failed_pending_payment_payment": "You weren’t charged for your Pasūtījums. Return to your Grozs to review your Pasūtījums un pay again.",
+        "thank_you_payments_app_failed_pending_payment_pick_up": "You weren’t charged for your Pasūtījums. Return to your Grozs to review your Pasūtījums un pay again.",
+        "thank_you_payments_app_pending_payment_description_default_with_missing": "Sazinieties ar mums by E-pasts or Tālrunis to receive an Pasūtījums Apstiprinājums.",
+        "thank_you_payments_app_pending_payment_description_default_with_missing_payment": "Sazinieties ar mums by E-pasts or Tālrunis to receive an Pasūtījums Apstiprinājums.",
+        "thank_you_payments_app_pending_payment_description_default_with_missing_pick_up": "Sazinieties ar mums by E-pasts or Tālrunis to receive an Pasūtījums Apstiprinājums.",
+        "thank_you_payments_app_pending_payment_description_default_with_email_and_phone": "You’ll receive a Apstiprinājums E-pasts with your Pasūtījums number shortly.",
+        "thank_you_payments_app_pending_payment_description_default_with_email_and_phone_payment": "You’ll receive a Apstiprinājums E-pasts with your Pasūtījums number shortly.",
+        "thank_you_payments_app_pending_payment_description_default_with_email_and_phone_pick_up": "You’ll receive a Apstiprinājums E-pasts with your Pasūtījums number shortly.",
+        "delivered_description_html": "Your Pasūtījums has been delivered to the Adrese you provided. If you haven’t received it, or if you have any other problems, %{contact_us}.",
+        "delivered_local_title": "Your Pasūtījums has been delivered",
+        "delivered_local_description_html": "Haven’t received your Pasūtījums? %{let_us_know}.",
+        "choose_payment_method_later": "Choose Maksājums method later",
+        "picked_up_title": "Your Pasūtījums has been picked up",
+        "picked_up_description_html": "Your Pasūtījums was picked up at %{location_name} on %{Datums}.",
+        "contact_us": "Sazinieties ar mums",
+        "contact_us_lowercase": "Sazinieties ar mums",
+        "contact_us_html": "Need help? %{contact_us}",
+        "updated_time": "Updated %{time_ago} ago",
+        "failure": "Not delivered",
+        "failed_title": "Your Pasūtījums couldn’t be delivered",
+        "failed_contact_merchant": "Contact %{Uzņēmums} to arrange delivery.",
+        "failed_contact_merchant_no_company": "Sazinieties ar mums to arrange delivery.",
+        "non_shippable_title": "Your Pasūtījums is complete",
+        "let_us_know": "Let us know",
+        "login_title": "Sign in to view all Pasūtījums details",
+        "login_description": "You can find your Pasūtījums number in the receipt you received via E-pasts.",
+        "login_description_phone": "You can find your Pasūtījums number in the receipt you received via text message.",
+        "login_not_customer_html": "Not %{name}? You can %{link}",
+        "login_reorder_link_text": {
+          "one": "buy this Produkts too",
+          "other": "buy these products too"
+        },
+        "customer_information_hidden_fields_message": "Sign in to view all customer Informācija.",
+        "cancelled_title": "Your Pasūtījums has been canceled",
+        "cancelled_description": "Your Pasūtījums was canceled on %{Datums}. Sazinieties ar mums if you have any questions.",
+        "order_number_label": "Pasūtījums number",
+        "customer_validation_error": "Enter a valid E-pasts or Pasūtījums number.",
+        "customer_validation_error_phone": "Enter a valid Tālrunis or Pasūtījums number.",
+        "login": "Sign in",
+        "unfulfilled_items_title": "Preparing for Piegāde",
+        "unfulfilled_items_description": "We are currently preparing these Preces for Piegāde.",
+        "marker": {
+          "current": "Current shipment location",
+          "shipping": "Piegāde Adrese"
+        },
+        "pick_up_in_store_marker": {
+          "current": "Current shipment location",
+          "shipping": "Pickup location"
+        },
+        "fulfillment": {
+          "fulfilled_table_title": "Preces in this shipment",
+          "unfulfilled_table_title": "Preces preparing for Piegāde",
+          "product_image_label": "Produkts image",
+          "description_label": "Description",
+          "quantity_label": "Daudzums"
+        },
+        "order_updates_description_missing": "You are not receiving Piegāde updates.",
+        "order_updates_subscribe_to_email_notifications": "Get Piegāde updates by E-pasts",
+        "order_updates_subscribe_to_email_or_phone_notifications": "Get Piegāde updates by E-pasts or text",
+        "order_updates_subscribe_to_phone_notifications": "Get Piegāde updates by text",
+        "order_updates_submit_subscription": "Iesniegt",
+        "track_shipment": "Track shipment",
+        "other_options": "Other options",
+        "delivery_information_label": "Delivery Informācija:",
+        "gift_card_sent_confirmation": "Gift cards sent"
       },
       "vaulted": {
         "change_button": "Change"
