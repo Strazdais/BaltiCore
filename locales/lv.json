@@ -4162,8 +4162,138 @@
           "show_less": "Rādīt Mazāk",
           "details": "Details",
           "payment_details": "Maksājums Details"
+        },
+        "emv_details": {
+          "auth": "AUTH:",
+          "aid": "AID:",
+          "source": "SOURCE:"
         }
-      }
+      },
+      "paid_with_shop_pay_installments_card": {
+        "paid_with_shop_pay_installments": "Apmaksāts with Shop Pay Installments",
+        "description": "Stay on top of your Maksājums schedule with reminders in the Shop app.",
+        "payment_reminders_button": "Get Maksājums reminders",
+        "desktop_qr_code_content": {
+          "title": "Scan for reminders",
+          "description": "Get reminders of your installments with Shop."
+        }
+      },
+      "refunded_amount": "Atmaksāts",
+      "request_return_failed": "There was an issue processing your request. Please try again.",
+      "login_card": {
+        "resend_link_and_login": "To view your Pasūtījums details, sign in or send a new link to the E-pasts or Tālrunis number used at Apmaksa.",
+        "resend_link_only": "To view your Pasūtījums details, send a new link to the E-pasts or Tālrunis number used at Apmaksa.",
+        "log_in": "Sign in",
+        "resend_link": "Send new link",
+        "link_expired": "Link expired"
+      },
+      "remaining_amount": "Remaining",
+      "marketing_section_title": "News un offers",
+      "marketing_description": "You'll receive marketing emails. You can unsubscribe at any time.",
+      "marketing_checkbox_label": "E-pasts me with news un offers",
+      "marketing_checkmark_label": "You are subscribed to receive E-pasts news un offers",
+      "marketing_pending_confirmation": "Click the link in your E-pasts to confirm.",
+      "marketing_resend_email": "Resend E-pasts",
+      "marketing_resend_email_success": "Link sent",
+      "returns": {
+        "expand_events_label": "Rādīt details",
+        "hide_events_label": "Slēpt details",
+        "ineligible_return_message": "No Preces in this Pasūtījums are eligible for return.",
+        "ineligible_return_message_when_returned": "No additional Preces in this Pasūtījums are eligible for return.",
+        "print_shipping_label": "Print Piegāde label",
+        "return_and_refund_modal_header": "Refund policy",
+        "tracking_number": "Tracking number:",
+        "exchange_header": "Exchange Preces",
+        "exchange_subheader": "Exchange Preces will be added to the Pasūtījums once the return is completed."
+      },
+      "shipping": {
+        "address": "Piegāde Adrese",
+        "address_map_marker": "Piegāde Adrese",
+        "method": "Piegādes veids",
+        "summary": "Piegāde",
+        "free": "Bezmaksas",
+        "free_shipping_discount": "Bezmaksas Piegāde",
+        "one_time": "One-time Piegāde",
+        "subscription": "Subscription Piegāde"
+      },
+      "pickup": {
+        "pickup": "Pickup",
+        "pickup_location": "Pickup location",
+        "pickup_point": "Pickup point"
+      },
+      "show_items": "Rādīt Preces",
+      "total_savings": "Kopā savings",
+      "show_order_summary": "Rādīt Pasūtījuma kopsavilkums",
+      "hide_order_summary": "Slēpt Pasūtījuma kopsavilkums",
+      "subtitle": "Apstiprināts {{Datums}}",
+      "subtotal": "Starpsumma",
+      "subtotal_label_with_quantity": {
+        "one": "Starpsumma",
+        "other": "Starpsumma · {{count}} Preces"
+      },
+      "summary_list_title_accessibility_label": "Pasūtījums Preces",
+      "summary_title": "Pasūtījuma kopsavilkums",
+      "summary_totals_title_accessibility_label": "Pasūtījums totals",
+      "shop_order_tracking": {
+        "download_shop_to_track": "Download Shop to track package",
+        "track_order_with_shop": "Track Pasūtījums with Shop",
+        "title_header": "Scan with your Tālrunis",
+        "real_time_delivery_updates": "Shop will send you real-time delivery updates once your Pasūtījums is shipped."
+      },
+      "edit_summary": {
+        "added": "Added",
+        "added_with_quantity": "Added {{Daudzums}}",
+        "removed": "Removed",
+        "removed_with_quantity": "Removed {{Daudzums}}",
+        "updated_at": "Your Pasūtījums was updated on {{Datums}}",
+        "returned": "Returned",
+        "returned_with_quantities": "Returned {{delta}} of {{Kopā}}",
+        "removed_with_quantities": "Removed {{delta}} of {{Kopā}}",
+        "return_line_item_removed": "Removed from return",
+        "return_line_item_removed_with_quantities": "Removed {{delta}} from return"
+      },
+      "shop_pay": {
+        "order_completed_with": "Pasūtījums completed with",
+        "learn_more": "Learn Vairāk"
+      },
+      "taxes": "Nodokļi",
+      "taxes_included": "Including {{amount}} in Nodokļi",
+      "duties_and_taxes_included": "Kopā includes duties un Nodokļi. No extra charges on delivery.",
+      "duties": "Duties",
+      "ok_duties_tooltip": "This Pasūtījums is being shipped from another country, so duties have been added to your Pasūtījums Kopā.",
+      "error_duties_tooltip": "This Pasūtījums is being shipped from another country, so duties un Nodokļi may be charged on delivery.",
+      "zero_duties_tooltip": "This Pasūtījums is being shipped from another country. Duties aren't charged on orders of this value.",
+      "tip": "Tip",
+      "title": "Pasūtījums {{name}}",
+      "total": "Kopā",
+      "unit_price": "{{Cena}}/ea",
+      "pagination": {
+        "load_more": "Load Vairāk",
+        "load_more_accessibility_label": "Load Vairāk Preces",
+        "loading_accessibility_label": "Ielādē Preces"
+      },
+      "login_to_view_all_order_details": "Sign in to view all Pasūtījums details.",
+      "log_in": "Sign in",
+      "logged_in_account_no_permission_to_order": "You're signed in as {{E-pasts}}. This account does not have permission to manage this Pasūtījums.",
+      "log_in_to_a_different_account": "Sign in to a different account",
+      "fees": {
+        "restocking_fee": "Restocking fee",
+        "return_shipping_fee": "Return Piegāde"
+      },
+      "vat_invoices": {
+        "title": "VAT invoices"
+      },
+      "link_sent": "Link sent",
+      "cash_rounding": "Cash rounding",
+      "adjusted_payment": "Adjusted Maksājums",
+      "adjusted_total": "Adjusted Kopā",
+      "due_on_date": "Due {{Datums}}",
+      "due_on_fulfillment": "Due on fulfillment",
+      "due_on_receipt": "Due on receipt"
+    },
+    "addresses": {
+      "add_button": "Pievienot Adrese",
+      "add_button_text": "Pievienot"
     }
   }
 }
