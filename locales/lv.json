@@ -2842,6 +2842,146 @@
           }
         }
       }
+    },
+    "errors": {
+      "discount_disabled": "This Atlaide has been disabled",
+      "discount_expired": "This Atlaide is not valid anymore",
+      "discount_limit_reached": "This Atlaide has reached its usage limit",
+      "discount_not_found": "Unable to find a valid Atlaide matching the code entered",
+      "customer_already_used_once_per_customer_discount_notice": "This Atlaide has reached its usage limit",
+      "gift_card_already_applied": "Code has already been applied to your Apmaksa",
+      "gift_card_code_invalid": "Code is invalid",
+      "gift_card_currency_mismatch": "Your Dāvanu karte is in %{gift_card_currency}. Contact us to have it reissued in %{checkout_currency}.",
+      "gift_card_depleted": "There are no funds left on this Dāvanu karte",
+      "gift_card_disabled": "Dāvanu karte is disabled",
+      "gift_card_expired": "Dāvanu karte is expired",
+      "invalid": "is invalid",
+      "bad_domain": "contains an invalid domain name",
+      "taken": "has already been taken",
+      "contains_html_tags": "cannot contain HTML tags",
+      "too_short": "is too short (minimum is %{count} characters)",
+      "too_long": "is too long (maximum is %{count} characters)",
+      "password_mismatch": "must match the provided password",
+      "contains_spaces": "starts or ends with spaces.",
+      "invalid_for_country": "is not valid for %{country}",
+      "invalid_for_country_and_province": "is not valid for %{Novads} un %{country}",
+      "invalid_province_in_country": "is not a valid Novads in %{country}",
+      "invalid_state_in_country": "is not a valid Novads in %{country}",
+      "invalid_region_in_country": "is not a valid region in %{country}",
+      "less_than_or_equal_to": "must be less than or equal to %{count}",
+      "not_supported": "is not supported",
+      "full_name_required": "Enter a Vārds un Uzvārds",
+      "invalid_for_card_type": "is not valid",
+      "invalid_type": "sorry, we do not accept cards of this type",
+      "invalid_format": "format is not valid",
+      "expired": "has expired",
+      "invalid_start_date_or_issue_number_for_debit": "a valid start date or issue number is required",
+      "invalid_expiry_year": "is not a valid expiration year",
+      "reset_password_html": "This E-pasts Adrese is already associated with an account. If this account is yours, you can <a href=\"/account/login#recover\">reset your password</a>",
+      "verify_email": "We have sent an E-pasts to %{customer_email}, please click the link included to verify your E-pasts Adrese.",
+      "product_not_available": "Produkts is not published for this customer.",
+      "shop_404": {
+        "title": "Create an Ecommerce Website un Sell Online! Ecommerce Software by Shopify",
+        "heros": {
+          "store_unavailable": "Sorry, this store is currently unavailable.",
+          "store_not_exist": "This store does not exist.",
+          "no_storefront": "This store doesn't have a website yet."
+        },
+        "links": {
+          "explore_other_stores": "Explore other stores",
+          "start_free_trial": "Start a Bezmaksas trial"
+        },
+        "owner_ctas": {
+          "header": "Are you the store owner?",
+          "fix_domain": "Finish setting up your new web Adrese, go to %{domain_settings_link}. Click “Connect domain” un enter: %{domain}.<br>If you're having trouble getting into your store, try the %{forgot_your_store_link} page.",
+          "fix_domain_link_text": "your domain settings",
+          "forgot_your_store_link_text": "forgot your store",
+          "add_storefront": "You can set up your website by adding the Online Store channel in your %{admin_link}. If you're having trouble getting into your store, try the %{forgot_your_store_link} page.",
+          "admin_link_text": "admin"
+        },
+        "ctas": {
+          "sell_in_person": {
+            "header": "Sell in person",
+            "caption": "Get the features you need to run your retail store whether you're starting out or scaling up.",
+            "link_text": "Start Bezmaksas trial"
+          },
+          "open_a_store": {
+            "header": "Open a new Shopify store",
+            "caption": "Start a 3-day Bezmaksas trial, then Turpināt for $1/month for the next 3 months.",
+            "link_text": "Sign up now"
+          },
+          "editions": {
+            "header": "Check out Shopify Editions",
+            "caption": "With 100+ Produkts updates, you can be more productive un creative, un powerful in commerce than you ever imagined.",
+            "link_text": "Explore latest Editions"
+          },
+          "store_owner": {
+            "header": "Are you the store owner?",
+            "caption": "Are you having trouble getting into your store? Try the %{forgot_your_store_link} feature. If you would like to reactivate your store contact %{shopify_support_link}.",
+            "shopify_support_link_text": "Shopify support"
+          }
+        }
+      }
+    },
+    "notices": {
+      "customer": {
+        "password_reset_error": "Password reset Kļūda",
+        "subscribe_error": "Subscribe Kļūda",
+        "unsubscribe_error": "Unsubscribe Kļūda",
+        "no_account_found": "No account found with that E-pasts.",
+        "invalid_credentials": "Incorrect E-pasts or password.",
+        "denylisted_reset_password": "Your account couldn't be accessed because the current password is not secure. You will receive an E-pasts to update your password.",
+        "signup_disabled": "Customer account creation has been disabled."
+      },
+      "address": {
+        "updated": "Successfully updated Adrese.",
+        "error_updating": "Kļūda updating Adrese",
+        "created": "Successfully created Adrese",
+        "error_creating": "Kļūda creating Adrese.",
+        "deleted": "Successfully deleted Adrese",
+        "error_deleting": "Kļūda deleting Adrese."
+      },
+      "line_item": {
+        "item_status": {
+          "add_variant": "Added %{delta}",
+          "increment_item": "Added %{delta}",
+          "decrement_item": "Removed %{delta} of %{Kopā}",
+          "decrement_fulfilled_line_item": "Returned %{delta} of %{Kopā}",
+          "decrement_return_line_item": "Removed %{delta} from return"
+        }
+      },
+      "order": {
+        "not_available": "This order is not available",
+        "financial_status": {
+          "authorized": "Authorized",
+          "pending": "Pending",
+          "paid": "Paid",
+          "unpaid": "Unpaid",
+          "voided": "Voided",
+          "partially_paid": "Partially paid",
+          "partially_refunded": "Partially refunded",
+          "refunded": "Refunded",
+          "expired": "Expired"
+        },
+        "fulfillment_status": {
+          "fulfilled": "Fulfilled",
+          "complete": "Complete",
+          "partial": "Partial",
+          "unfulfilled": "Unfulfilled",
+          "restocked": "Restocked"
+        },
+        "transaction_status": {
+          "success": "Success",
+          "pending": "Pending",
+          "failure": "Failure",
+          "error": "Kļūda"
+        },
+        "cancel_reason": {
+          "declined": "Maksājums declined",
+          "inventory": "Preces unavailable",
+          "fraud": "Fraudulent order"
+        }
+      }
     }
   }
 }
