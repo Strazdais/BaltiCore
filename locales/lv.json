@@ -4578,6 +4578,29 @@
         "iframe_title_accessibility_label": "Pievienot Google Pay Maksājums method",
         "loading_accessibility_message": "Ielādē Google Pay"
       }
+    },
+    "sign_in": {
+      "step_one": {
+        "subheading_with_sign_in_options": "Sign in or create an account",
+        "input_field_label": "E-pasts",
+        "button": "Turpināt",
+        "or": "or",
+        "consent_agreement": "By continuing, you agree to the %{terms}"
+      },
+      "step_two": {
+        "page_title": "Enter code - %{shop_name}",
+        "heading": "Enter code",
+        "subheading": "Sent to %{E-pasts}",
+        "restart_link": "Sign in with a different E-pasts",
+        "input_field_label": "6-digit code",
+        "button": "Iesniegt"
+      },
+      "error": {
+        "invalid": {
+          "invalid_email": "Enter a valid E-pasts Adrese",
+          "invalid_code": "Enter the correct 6-digit code"
+        }
+      }
     }
   }
 }
