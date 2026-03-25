@@ -828,7 +828,7 @@
         "address_title": "Adrese",
         "shipping_used_as_billing_notice": "This will also be used as your billing Adrese for this order.",
         "delivery_option_title": "Delivery method",
-        "contact_method_title": "Contact",
+        "contact_method_title": "Kontakti",
         "email_label": "E-pasts",
         "email_rollup_accessibility_label": "E-pasts options",
         "email_placeholder": "E-pasts",
@@ -1901,7 +1901,7 @@
         },
         "markets_pro_disclaimer_label": "By placing your order you agree to purchase from Global-e as the merchant of record, subject to Global-e’s %{markets_pro_terms} un %{privacy_policy}, un share your Informācija with %{shop_name}.",
         "markets_pro_disclaimer_terms_and_conditions": "Terms un Conditions",
-        "markets_pro_disclaimer_privacy_policy": "Privacy Policy",
+        "markets_pro_disclaimer_privacy_policy": "Privātuma politika",
         "markets_pro_disclaimer_terms_and_conditions_title": "Merchant of Record Terms un Conditions",
         "markets_pro_disclaimer_privacy_policy_title": "Merchant of Record Privacy Policy",
         "purchase_order_number": {
@@ -2587,7 +2587,7 @@
         "account_more_actions": "More actions for this account",
         "checkout_a_different_way": "Check out a different way",
         "blocks": {
-          "contact_method_title": "Contact",
+          "contact_method_title": "Kontakti",
           "billing_address_title": "Billing",
           "shipping_address_title": "Ship to",
           "shipping_method_title": "Piegādes veids",
@@ -2631,13 +2631,13 @@
         "pending_accept_marketing_checkbox_label": "Check your E-pasts to confirm your subscription to news un offers",
         "accept_sms_checkbox_label": "Text me with news un offers",
         "disclaimer": {
-          "privacy_policy": "Privacy Policy",
-          "terms_of_service": "Terms of Service"
+          "privacy_policy": "Privātuma politika",
+          "terms_of_service": "Pakalpojumu noteikumi"
         },
         "sms": {
           "disclaimer": {
-            "privacy_policy": "Privacy Policy",
-            "terms_of_service": "Terms of Service",
+            "privacy_policy": "Privātuma politika",
+            "terms_of_service": "Pakalpojumu noteikumi",
             "description_html": "By signing up via text, you agree to receive recurring automated marketing messages, including Grozs reminders, at the Tālrunis number provided. Consent is not a condition of purchase. Reply STOP to unsubscribe. Reply HELP for help. Message frequency varies. Msg & data rates may Lietot. View our %{privacy_policy_link} un %{terms_of_service_link}.",
             "description_transactional_html": "You may receive text messages related to order confirmation un Piegāde updates. Reply STOP to unsubscribe. Reply HELP for help. Message frequency varies. Msg & data rates may Lietot. View our %{privacy_policy_modal_link} un %{terms_of_service_modal_link}."
           },
@@ -2662,7 +2662,7 @@
         "terms_of_sale": "Terms of sale",
         "subscription_policy": "Cancellations",
         "purchase_options_policy": "Purchase options policy",
-        "contact_information": "Contact",
+        "contact_information": "Kontakti",
         "purchase_options_cancellation_policy": "Cancellations",
         "cookie_preferences": "Cookies",
         "terms_and_policies": "Terms un policies"
@@ -2886,7 +2886,7 @@
           },
           "section_label": {
             "delivery": "Delivery",
-            "contact": "Contact",
+            "contact": "Kontakti",
             "payment": "Maksājums",
             "billing": "Billing"
           },
@@ -4289,7 +4289,8 @@
       "adjusted_total": "Adjusted Kopā",
       "due_on_date": "Due {{Datums}}",
       "due_on_fulfillment": "Due on fulfillment",
-      "due_on_receipt": "Due on receipt"
+      "due_on_receipt": "Due on receipt",
+      "contact": "Kontakti"
     },
     "addresses": {
       "add_button": "Pievienot Adrese",
@@ -4430,7 +4431,7 @@
           }
         },
         "order_list_column_headers_location": "Location",
-        "order_list_column_headers_contact": "Contact",
+        "order_list_column_headers_contact": "Kontakti",
         "order_list_column_headers_status": "Statuss",
         "removed_company_contact_tooltip": "Removed from Uzņēmums"
       },
