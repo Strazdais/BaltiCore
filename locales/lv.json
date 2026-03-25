@@ -1675,8 +1675,136 @@
         "order_edit_banner_title": "Maksājums of {{amount_owed}} is needed",
         "order_edit_banner_subtitle": "Your order {{order_number}} was updated. Pārskatīt these changes, then pay to confirm your order.",
         "order_edit_banner_items_added": {
-          "one": "Added"
+          "one": "Added",
+          "other": "Added %{count}"
+        },
+        "order_edit_banner_items_removed": {
+          "in_full": "Removed",
+          "with_quantities": "Removed {{delta}} of {{Daudzums}}"
+        },
+        "order_edit_banner_items_returned": {
+          "in_full": "Returned {{Daudzums}}",
+          "with_quantities": "Returned {{delta}} of {{Daudzums}}"
+        },
+        "order_edit_banner_items_return_line_item_removed": {
+          "in_full": "Removed from return",
+          "with_quantities": "Removed {{delta}} from return"
+        },
+        "order_edit_banner_single_item_added": "Added",
+        "order_edit_banner_multiple_items_added": "Added {{amount}}",
+        "order_edit_banner_single_item_removed": "Removed",
+        "order_edit_banner_multiple_items_removed": "Removed {{amount}}",
+        "order_edit_banner_single_item_returned": "Returned",
+        "order_edit_banner_multiple_items_returned": "Returned {{amount}}",
+        "order_edit_banner_single_item_return_line_item_removed": "Removed from return",
+        "order_edit_banner_multiple_items_return_line_item_removed": "Removed {{amount}} from return",
+        "order_edit_banner_updated_order_label": "Updated order",
+        "gift_card_wrapper": {
+          "heading": "Dāvanu karte",
+          "apply_gift_card_label": "Lietot a Dāvanu karte",
+          "apply_another_gift_card_label": "Lietot another Dāvanu karte",
+          "gift_card_label": "Dāvanu karte %{identifier}",
+          "payment_tag": "Dāvanu karte",
+          "add_label": "Add a Dāvanu karte",
+          "manage_label": "Manage gift cards"
+        },
+        "gift_card_store_credit": {
+          "add_label": "Add a Dāvanu karte or store credit",
+          "manage_label": "Manage gift cards or store credit"
+        },
+        "gift_card_checkbox_label": "Lietot Dāvanu karte",
+        "custom_onsite_payment_method_modal": {
+          "title": "Custom Onsite Maksājums Confirmation"
+        },
+        "markets_pro_disclaimer_label": "By placing your order you agree to purchase from Global-e as the merchant of record, subject to Global-e’s %{markets_pro_terms} un %{privacy_policy}, un share your Informācija with %{shop_name}.",
+        "markets_pro_disclaimer_terms_and_conditions": "Terms un Conditions",
+        "markets_pro_disclaimer_privacy_policy": "Privacy Policy",
+        "markets_pro_disclaimer_terms_and_conditions_title": "Merchant of Record Terms un Conditions",
+        "markets_pro_disclaimer_privacy_policy_title": "Merchant of Record Privacy Policy",
+        "purchase_order_number": {
+          "title": "PO number",
+          "label": "PO number (Neobligāts)"
+        },
+        "alternative_payment_currency_total_notice": "Note: you will be charged %{amount_due}.",
+        "alternative_payment_currency_total_manual_payment_notice": "Note: converted Kopā is %{amount_due}.",
+        "waiting_on_taxes_message": "If your Nodokļi don't calculate within the next few seconds, refresh the page.",
+        "waiting_on_taxes_notice": "Calculating Nodokļi",
+        "payment_method": "Maksājuma veids",
+        "payment_method_rollup_accessibility_label": "Maksājums method options",
+        "expired_payment_method": "Selected Maksājums method has expired",
+        "payment_method_update_failed": "Maksājums method update failed.",
+        "payment_method_incompatible_with_payment_terms": "Maksājums method is incompatible with Maksājums terms.",
+        "proposed_gateway_unavailable": "The proposed Maksājums gateway is unavailable",
+        "pay_in_installments_split_pay_short": "4 payments of %{amount}",
+        "gift_cards_unavailable": "Your Dāvanu karte can no longer be applied to this order un has been removed",
+        "payment_flexibility_terms_id_mismatch": "Maksājums flexibility terms ID mismatch",
+        "payment_option": {
+          "accessibility_label": "Choose a Maksājums option"
+        },
+        "bank_account_type": {
+          "checking": "Checking",
+          "savings": "Savings"
+        },
+        "new_bank_account_disclaimer": "By completing your order, you authorize %{shop_name} to debit the account below via ACH for the amount, un at the time, shown.",
+        "bank_account_disclaimer": "ACH payments can take up to 4 business days to process.",
+        "bank_account_choose": "Choose an account to securely complete your purchase",
+        "bank_account_connect_another": "Connect another bank account",
+        "bank_account_connect": "Connect bank account",
+        "bank_account_missing": "Bank account must be connected",
+        "bank_account_generic_error": "Couldn't add bank account. Try again later.",
+        "separate_payments_label": "Your Preces are from more than one store. You’ll be charged in %{separate_payments_link}.",
+        "separate_payments_text": "separate payments",
+        "payments": "Payments",
+        "add_payment_method": "Add Maksājums method",
+        "add_new_payment_method": "Add a new Maksājums method",
+        "choose_new_payment_method": "Choose a new Maksājums method"
+      },
+      "billing": {
+        "billing_address_title": "Bill to",
+        "billing_address_rollup_accessibility_label": "Bill to options",
+        "same_as_shipping": "Tāda pati kā piegādes adrese",
+        "add_address": "Use a different Adrese",
+        "edit": "Edit",
+        "delete": "Delete",
+        "address_more": "More actions for this Adrese",
+        "address_edit": "Edit Adrese",
+        "address_delete": "Delete Adrese",
+        "address_confirm": "Are you sure you want to delete this Adrese from your account?",
+        "address_form": {
+          "add_address": "Add Adrese",
+          "save": "Saglabāt",
+          "cancel": "Atcelt"
         }
+      },
+      "company_location": {
+        "location_title": "Uzņēmums location",
+        "location_rollup_accessibility_label": "Uzņēmums location options"
+      },
+      "payment_summary": {
+        "gift_card_current_balance_notice": "Current balance %{amount}",
+        "credit_card_expires_on_notice": "Expires on %{month}/%{year}",
+        "express_payment_gateway_label": "Express",
+        "manual_payment_gateway_label": "Manual",
+        "billing_address_title": "Rēķina adrese",
+        "free_label": "Bezmaksas"
+      },
+      "field_errors": {
+        "handle_phone_invalid": "Enter a valid Tālrunis number",
+        "handle_email_invalid": "Enter a valid E-pasts",
+        "email_invalid": "Enter a valid E-pasts",
+        "email_or_phone_blank": "Enter an E-pasts or Tālrunis number",
+        "email_or_phone_invalid": "Enter a valid E-pasts or a mobile Tālrunis number",
+        "address_first_name_blank": "Enter a Vārds",
+        "address_first_name_too_long": "Vārds is too long (maximum is 255 characters)",
+        "address_first_name_contains_emojis": "Vārds cannot contain emojis",
+        "address_first_name_contains_html_tags": "Vārds cannot contain HTML tags.",
+        "address_first_name_contains_url": "Vārds cannot contain a URL",
+        "address_first_name_contains_mathematical_symbols": "Vārds cannot contain mathematical symbols",
+        "address_last_name_blank": "Enter a Uzvārds",
+        "address_last_name_too_long": "Uzvārds is too long (maximum is 255 characters)",
+        "address_last_name_contains_emojis": "Uzvārds cannot contain emojis",
+        "address_last_name_contains_html_tags": "Uzvārds cannot contain HTML tags.",
+        "address_last_name_contains_url": "Uzvārds cannot contain a URL"
       }
     }
   }
