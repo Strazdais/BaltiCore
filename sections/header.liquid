@@ -76,23 +76,27 @@
   }
 
   /* Enhanced nav link styling */
-  .header__inline-menu .list-menu__item--link,
-  .header__inline-menu summary.list-menu__item {
-    font-size: 1.8rem;
-    font-weight: 500;
-    letter-spacing: 0.025em;
-    padding: 1.2rem 1.6rem;
+  .header__inline-menu .list-menu--inline {
+    gap: 0;
+    align-items: center;
   }
 
-  @media screen and (min-width: 990px) {
-    .header__inline-menu .list-menu__item--link,
-    .header__inline-menu summary.list-menu__item {
-      font-size: 1.8rem;
-      font-weight: 500;
-      letter-spacing: 0.025em;
-      padding: 1.2rem 1.6rem;
-    }
+  .header__inline-menu .list-menu__item--link,
+  .header__inline-menu summary.list-menu__item {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 1rem 1.4rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
   }
+
+  .header__inline-menu .list-menu__item--link:hover,
+  .header__inline-menu summary.list-menu__item:hover {
+    opacity: 0.75;
+  }
+
 </style>
 
 {%- style -%}
