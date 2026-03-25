@@ -81,32 +81,34 @@
     align-items: center;
   }
 
+  .header__inline-menu a,
+  .header__inline-menu summary,
+  .header__inline-menu .list-menu__item,
   .header__inline-menu .list-menu__item--link,
-  .header__inline-menu summary.list-menu__item {
+  .header__inline-menu .header__menu-item,
+  .header__inline-menu summary.list-menu__item,
+  nav.header__inline-menu a.list-menu__item {
     font-size: 1.5rem !important;
-    font-weight: 500;
-    letter-spacing: 0.03em;
+    font-weight: 500 !important;
+    letter-spacing: 0.03em !important;
     text-transform: uppercase !important;
     padding: 1rem 1.4rem !important;
     white-space: nowrap;
     transition: opacity 0.2s ease;
     text-decoration: none !important;
-    text-underline-offset: unset !important;
   }
 
-  /* Override active underline */
-  .header__inline-menu .list-menu__item--active {
-    text-decoration: none !important;
-  }
-
-  /* Fix Industries summary having extra padding */
   .header__inline-menu summary.list-menu__item {
     padding-right: 2.4rem !important;
   }
 
-  .header__inline-menu .list-menu__item--link:hover,
-  .header__inline-menu summary.list-menu__item:hover {
+  .header__inline-menu a:hover,
+  .header__inline-menu summary:hover {
     opacity: 0.75;
+  }
+
+  .header__inline-menu .list-menu__item--active {
+    text-decoration: none !important;
   }
 
 </style>
