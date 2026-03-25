@@ -58,3 +58,5 @@
 .header__inline-menu .header__active-menu-item {
   text-decoration: none !important;
 }
+
+#HeaderDrawer-home { display: none !important; }
