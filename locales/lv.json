@@ -2979,9 +2979,231 @@
         "cancel_reason": {
           "declined": "Maksājums declined",
           "inventory": "Preces unavailable",
-          "fraud": "Fraudulent order"
+          "fraud": "Fraudulent order",
+          "customer": "Customer changed/cancelled order",
+          "staff": "Staff Kļūda",
+          "other": "Other"
+        },
+        "cash_on_delivery": "Cash on Delivery (COD)"
+      },
+      "cart": {
+        "not_found": "Grozs not found",
+        "only_n_items_available": "You can only add %{count} %{name} to the Grozs.",
+        "too_many_items_in_cart": "You can't add more %{name} to the Grozs.",
+        "only_one_added_to_cart": "Only 1 item was added to your Grozs due to availability.",
+        "only_n_added_to_cart": "Only %{Daudzums} Preces were added to your Grozs due to availability.",
+        "maximum_available_quantity_reached": "The maximum Daudzums of this item is already in your Grozs.",
+        "less_than_minimum": "This item has a minimum of %{min}.",
+        "more_than_maximum": "This item has a maximum of %{max}.",
+        "not_respect_step": "You can only add this item in increments of %{step}.",
+        "all_items_in_cart": "All %{count} %{name} are in your Grozs.",
+        "empty_update": "cannot update empty Grozs",
+        "missing_parameters": "no valid id or line parameter",
+        "generic_error": "Grozs Kļūda",
+        "invalid_input": "%{parameter} parameter is invalid.",
+        "product_not_available": "Produkts is not available",
+        "too_many_line_items_error": "Your Grozs can't contain more than %{max} Preces.",
+        "link_expired": "Link expired",
+        "link_no_longer_exists": "Link no longer exists.",
+        "stock_problems_html": "One or more Preces are no longer available. We've provided an <a href='%{link}'>updated Grozs</a>.",
+        "changed": "Grozs changed",
+        "items_changed": "One or more Preces have changed.",
+        "product_sold_out": "The Produkts '%{name}' is already sold out.",
+        "variant_not_found": "Cannot find variant",
+        "variant_requires_selling_plan": "Variant can only be purchased with a selling plan.",
+        "selling_plan_not_available_for_company_locations": "Only one-time purchase is available for B2B orders",
+        "digital_product_not_available_for_company_locations": "This item can't be added to a B2B order",
+        "buyer_cannot_purchase_for_company_locations": "You can't purchase for this location",
+        "selling_plan_not_applicable": "Cannot Lietot selling plan to variant",
+        "shipping_address_not_required": "This Grozs does not require Piegāde",
+        "shipping_address_invalid": "There was a problem calculating your Piegāde rates. Turpināt to Apmaksa to choose a Piegāde rate before you complete your order.",
+        "bundle_requires_components": "The bundle Produkts '%{name}' cannot be added to the Grozs.",
+        "gift_card_with_components_not_supported": "The bundle Produkts '%{name}' cannot be added to the Grozs.",
+        "gift_card_price_must_be_greater_than_zero": "The bundle Produkts '%{name}' cannot be added to the Grozs.",
+        "gift_card_recipient_validation_error": "The specified Dāvanu karte recipient is invalid",
+        "view_lines_limit_reached": "Lines must be less than or equal to %{limit}",
+        "cart_too_large": "Grozs is too large.",
+        "cart_attributes_error": "Grozs attributes contain invalid data.",
+        "merchandise_line_transformers": {
+          "run_error": "An Kļūda occurred in your Grozs."
+        },
+        "merchandise_not_applicable": "Item cannot be purchased as configured."
+      },
+      "storefront": {
+        "invalid_password": "Password incorrect, please try again."
+      },
+      "tags": {
+        "add_articles": "Narrow Meklēt to articles also having tag %{tag}",
+        "add_products": "Narrow selection to products matching tag %{tag}",
+        "remove_articles": "Widen Meklēt to articles that aren't tagged %{tag}",
+        "remove_products": "Noņemt tag %{tag}"
+      }
+    },
+    "email_marketing": {
+      "subscribed": {
+        "confirmation": "Thank you for subscribing to our mailing list.",
+        "disclaimer": "You can unsubscribe at any time.",
+        "unsubscribe": "Unsubscribe"
+      },
+      "unsubscribed": {
+        "confirmation": "You’ve unsubscribed from our mailing list.",
+        "disclaimer": "You won’t receive any more marketing updates from us. You can subscribe again at any time.",
+        "preview": "You're previewing what customers will see when they unsubscribe."
+      },
+      "sms_unsubscribe_confirm": {
+        "message": "Are you sure you want to unsubscribe from SMS marketing?",
+        "button": "Unsubscribe"
+      },
+      "open_tracking": {
+        "opt_in": {
+          "opted_in_html": "<b>You’ve opted in to E-pasts open tracking.</b>",
+          "visibility": "E-pasts open rates will be reported anonymously. We will only see if you’ve opened an E-pasts as part of an aggregated E-pasts open rate.",
+          "opt_out_html": "You can <a style='text-decoration:underline;' href='%{link}'>opt out</a> of E-pasts open tracking if you do not want to share this Informācija.",
+          "preview_bar": "You're previewing what customers will see when they opt in to E-pasts open tracking."
+        },
+        "opt_out": {
+          "opted_out_html": "<b>You’ve opted out of E-pasts open tracking.</b>",
+          "visibility": "We will not see if you’ve opened our emails.",
+          "opt_in_html": "<a style='text-decoration:underline;' href='%{link}'>Opt in</a> to E-pasts open tracking.",
+          "preview_bar": "You're previewing what customers will see when they opt out of E-pasts open tracking."
+        },
+        "no_longer_track": {
+          "status_html": "<b>We no longer track any E-pasts opens.</b>",
+          "privacy_policy": "After this E-pasts was sent, we updated our privacy policy un we no longer track opens."
+        },
+        "track": {
+          "status_html": "<b>E-pasts open tracking is reported.</b>",
+          "visibility": "We will only see if you’ve opened the E-pasts, as part of the Kopā E-pasts open rate."
+        },
+        "updated_policy": {
+          "status_html": "<b>E-pasts open tracking is reported.</b>",
+          "visibility": "We have updated our policy, un now track emails opens. E-pasts open rates will be reported anonymously. We will only see if you’ve opened an E-pasts as part of the Kopā E-pasts open rate.",
+          "opt_out_html": "If you do not want to share this Informācija, you can <a style='text-decoration:underline;' href='%{link}'>unsubscribe.</a>"
         }
       }
+    },
+    "filters": {
+      "availability": {
+        "value": {
+          "in_stock": "In stock",
+          "out_of_stock": "Out of stock"
+        }
+      },
+      "boolean": {
+        "true_label": "Yes",
+        "false_label": "No"
+      }
+    },
+    "search": {
+      "error": "There was a problem loading your Meklēt results. Please refresh the page or try again later.",
+      "sorting": {
+        "relevance": "Relevance",
+        "price_ascending": "Cena, low to high",
+        "price_descending": "Cena, high to low"
+      }
+    },
+    "page_titles": {
+      "blog_or_article_with_error": "Kļūda - %{title}",
+      "products": "Products",
+      "shopping_cart": "Your Shopping Grozs",
+      "account": "Account",
+      "create_account": "Izveidot kontu",
+      "reset_account": "Reset Account",
+      "addresses": "Addresses",
+      "order": "Order %{name}",
+      "search": "Meklēt",
+      "search_results": {
+        "one": "Meklēt: %{count} result found for \"%{terms}\"",
+        "other": "Meklēt: %{count} results found for \"%{terms}\""
+      },
+      "collections": "Collections",
+      "not_found": "404 Not Found",
+      "challenge": "Challenge",
+      "checkpoint": "Checkpoint"
+    },
+    "cart": {
+      "discounts_with_count": "%{count} discounts have been applied"
+    },
+    "challenge": {
+      "message": "To Turpināt, let us know you're not a robot.",
+      "error": "Your answer wasn't correct, please try again.",
+      "submit_button_text": "Iesniegt"
+    },
+    "checkpoint": {
+      "message": "Solve Captcha to Turpināt",
+      "error": "Captcha validation failed",
+      "submit_button_text": "Iesniegt"
+    },
+    "store_availability": {
+      "pick_up_time": {
+        "one_hour": "Usually ready in 1 hour",
+        "two_hours": "Usually ready in 2 hours",
+        "four_hours": "Usually ready in 4 hours",
+        "twenty_four_hours": "Usually ready in 24 hours",
+        "two_to_four_days": "Usually ready in 2-4 days",
+        "five_or_more_days": "Usually ready in 5+ days",
+        "zero_to_two_hours": "Usually ready in 2 hours",
+        "two_to_four_hours": "Usually ready in 4 hours",
+        "immediately": "Ready for pickup now",
+        "next_day": "Ready for pickup next day"
+      }
+    },
+    "subscriptions": {
+      "buyer_consent_product": "This item is a recurring or deferred purchase. By continuing, I agree to the %{cancellationPolicyLink} un authorize you to charge my Maksājums method at the prices, frequency un dates listed on this page until my order is fulfilled or I Atcelt, if permitted.",
+      "buyer_consent_cart": "One or more of the Preces in your Grozs is a recurring or deferred purchase. By continuing, I agree to the %{cancellationPolicyLink} un authorize you to charge my Maksājums method at the prices, frequency un dates listed on this page until my order is fulfilled or I Atcelt, if permitted.",
+      "cancellation_policy": "cancellation policy"
+    }
+  },
+  "customer_accounts": {
+    "callback": {
+      "try_again": "Try again"
+    },
+    "date": {
+      "range": "{{startDate}}–{{endDate}}",
+      "humanize": {
+        "lessThanOneYearAgo": "{{date}} at {{time}}",
+        "lessThanOneHourAgo": {
+          "one": "{{count}} minute ago",
+          "other": "{{count}} minutes ago"
+        },
+        "lessThanOneMinuteAgo": "Just now",
+        "lessThanOneWeekAgo": "{{weekday}} at {{time}}",
+        "yesterday": "Yesterday at {{time}}",
+        "today": "Today at {{time}}",
+        "tomorrow": "Tomorrow at {{time}}",
+        "lessThanOneWeekAway": "{{weekday}} at {{time}}",
+        "lessThanOneYearAway": "{{date}} at {{time}}"
+      }
+    },
+    "enable_javascript": "To view your account, enable JavaScript in your browser settings or sign in with another browser.",
+    "navigation_and_structure": {
+      "account_menu": {
+        "hide_accessibility_label": "Hide Account menu",
+        "show_accessibility_label": "Show Account menu",
+        "nav_accessibility_label": "Account navigation",
+        "open_menu_accessibility_label": "Open Account navigation",
+        "close_menu_accessibility_label": "Aizvērt Account navigation",
+        "loading_message": "Loading Account navigation"
+      },
+      "action_menu_accessibility_label": "More actions",
+      "close_menu_accessibility_label": "Aizvērt main navigation",
+      "contact_email_subject": "Contact from {{shopName}} online store",
+      "contact_link": "Kontaktinformācija",
+      "delete_confirmation": {
+        "cancel": "Atcelt",
+        "delete": "Delete"
+      },
+      "dismiss_toast": "Dismiss",
+      "document_title": "{{sectionName}} - {{shopName}} - Account",
+      "generic_accessibility_label": "{{label}}: {{value}}",
+      "loading_message": "Loading",
+      "loading_policy_content_accessibility_label": "Loading policy content",
+      "loading_section_accessibility_label": "Loading {{section}}",
+      "policy_load_error": "Couldn't load {{policyName}}",
+      "policy_try_again": "Try again",
+      "log_out_link": "Sign out",
+      "logout_overlay_label": "Signing out...",
+      "nav_label_accessibility_label": "Main navigation"
     }
   }
 }
