@@ -1484,7 +1484,199 @@
           "one": "Your order is covered by your Dāvanu karte.",
           "other": "Your order is covered by your gift cards."
         },
-        "offsite_gateway_redirect_hint": "You'll be redirected to %{gateway_label} to complete your purchase."
+        "offsite_gateway_redirect_hint": "You'll be redirected to %{gateway_label} to complete your purchase.",
+        "offsite_gateway_review_page_redirect_hint": "After you Pārskatīt your order, you'll be redirected to %{gateway_label} to complete your purchase.",
+        "offsite_gateway_redirect_hint_multi_currency_html": "%{gateway_label} Kopā %{total_shop_price}",
+        "offsite_gateway_redirect_hint_no_button_label": "You'll be redirected to %{gateway_label} to complete your purchase.",
+        "receiver_payment_experience_hint": "After placing your order, you will receive Maksājums details. Make the Maksājums at Multibanco or online within %{due_days} days.",
+        "billing_address_title": "Rēķina adrese",
+        "billing_address_rollup_accessibility_label": "Billing Adrese options",
+        "billing_address_description": "Select the Adrese that matches your card or Maksājums method.",
+        "billing_address_description_no_shipping_address": "Enter the Adrese that matches your card or Maksājums method.",
+        "no_js_credit_card_fields_redirect_hint": "You will be redirected to add your Maksājums Informācija.",
+        "card_fields_container_prefix": "Field container for:",
+        "card_fields_unavailable_html": {
+          "one": "Credit un debit card payments aren’t available right now.<br><a href=\"%{current_url}\">Refresh this page</a> or try again later.",
+          "other": "Credit un debit card payments aren’t available right now.<br><a href=\"%{current_url}\">Refresh this page</a> or try a different Maksājums method."
+        },
+        "card_fields_processing_error": "There was a problem processing the Maksājums. Try refreshing this page or check your internet connection.",
+        "technical_error": "Payments can’t be processed right now because of a technical issue. Try again in a few minutes.",
+        "no_method_error": "This store can’t accept payments right now.",
+        "not_configured_error": "This store can’t accept payments right now.",
+        "missing_credit_card_error": "Enter your card details to complete the Maksājums",
+        "shop_pay_ideal_unavailable_error": "iDEAL | Wero is not available for this order. Choose another Maksājums method.",
+        "payment_method_not_available_for_shipping_address_error": "Maksājums method not available for selected Piegāde Adrese. Choose another Maksājums method.",
+        "billing_address_not_supported_for_payment_method_error": "This Maksājums method isn't available for your billing Adrese un currency. Try a different Maksājums method.",
+        "generic_incorrect_card_info": "Your Maksājums details couldn’t be verified. Check your card details un try again.",
+        "sofort_label": "Sofort bank transfer",
+        "paypal_label": "PayPal",
+        "paypal_wallet_label": "PayPal Wallet",
+        "shop_pay_installments_label": "Shop Pay Installments",
+        "default": "Default",
+        "continue_to_guest_checkout": "Turpināt to guest Apmaksa",
+        "paypal_modal": {
+          "order_contains_subscriptions": "Subscription",
+          "order_contains_fixed_selling_plans": "Kopā may not include Nodokļi, Piegāde, deferred charges, un some discounts. Turpināt to Apmaksa for the amount due today."
+        },
+        "klarna_label": "Klarna",
+        "klarna_pay_later_label": "Pay later with Klarna",
+        "klarna_pay_now_label": "Maksāt tagad with Klarna",
+        "bancontact_label": "Bancontact",
+        "giropay_label": "Giropay",
+        "multibanco_label": "Multibanco",
+        "eps_label": "eps-Überweisung",
+        "klarna_slice_it_label": "Finance with Klarna",
+        "ideal_label": "iDEAL | Wero",
+        "bank_picker_label": "Bank",
+        "afterpay_label": "Afterpay",
+        "cashapppay_label": "Cash App Pay",
+        "przelewy24_label": "Przelewy24",
+        "blik_label": "Blik",
+        "twint_label": "TWINT",
+        "mobilepay_label": "MobilePay",
+        "swish_label": "Swish",
+        "vipps_label": "Vipps",
+        "grabpay_label": "GrabPay",
+        "kcp_creditcard_label": "KCP Credit Card",
+        "usdc_label": "USDC",
+        "usdc_cashback_title": "%{incentive_percentage}% cashback",
+        "usdc_cashback_additional_info": "Get %{incentive_percentage}% Atpakaļ in USDC on Base in 30 days, up to 100 USDC.",
+        "usdc_cashback_terms": "Terms Lietot",
+        "purchase_options_card_update_agreement_label_html": "By updating your Maksājums method, you authorize payments for any recurring or deferred purchase according to this store's <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{cancellation_policy}\" href=\"%{policy_href}\">cancellation policy</a>.",
+        "subscription_card_update_agreement_label": "Changing the Maksājums method will update your subscription un future recurring payments.",
+        "subscription_agreement_label": "One or more Preces in your Grozs is a deferred or subscription purchase. By continuing with your Maksājums, you agree that your Maksājums method will automatically be charged at the Cena un frequency listed on this page until it ends or you Atcelt. All cancellations are subject to the %{cancelled}.",
+        "subscription_agreement_cancelled": "cancellation policy",
+        "subscription_heading": "Subscription agreement",
+        "subscription_agreement_label_html": "I understand that I'm agreeing to a subscription. It will renew at the Cena un frequency listed until it ends or is\n<a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{subscription_policy}\" href=\"%{policy_href}\">cancelled</a>.\n",
+        "purchase_options_agreement_label": "One or more Preces in your Grozs is a deferred, subscription, or recurring purchase. By continuing with your Maksājums, you agree that your Maksājums method will automatically be charged at the Cena un frequency listed on this page until it ends or you Atcelt. All cancellations are subject to the  %{cancellation_policy_label}.",
+        "purchase_options_agreement_label_html": "I understand that one or more Preces in my Grozs is a deferred, subscription, or recurring purchase. By continuing, I agree to the\n<a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{subscription_policy}\" href=\"%{policy_href}\">cancellation policy</a>\nun authorize you to charge my Maksājums method at the prices, frequency un dates listed on this page until my\norder is fulfilled or I Atcelt, if permitted.\n",
+        "purchase_options_agreement_label_wallets": "By continuing with your Maksājums, you agree to the future charges listed on this page un the cancellation policy.",
+        "change_currency_section_description": "Select a currency option",
+        "no_real_orders_dev_store": "This store can't accept real orders or real payments.",
+        "waiting_on_payment_methods": "Getting available Maksājums methods...",
+        "apple_pay_payment_error": "Your Maksājums couldn't be completed. Try again or use a different Maksājums method.",
+        "taxes_not_included": "Nodokļi not included",
+        "no_taxes_banner_content": "Nodokļi won’t be charged on this order. Once you’ve collected Maksājums, Nodokļi can no longer be added.",
+        "paypal": {
+          "connect": "Click to connect your PayPal account"
+        },
+        "apple": {
+          "connect": "Click to connect your Apple Pay account",
+          "not_available": "Apple Pay is not available in this browser. To connect your Apple Pay account you'll need to use Safari on an Apple device."
+        },
+        "google": {
+          "connect": "Click to connect with your Google Pay account",
+          "error_authorizing": "Kļūda authorizing Maksājums"
+        },
+        "account_connected": "Account connected.",
+        "mor_disclaimer_html": "By clicking below un completing your order, you agree to purchase your item(s) from Global-e as merchant of record\nfor this transaction, on Global-e's <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{mor_terms}\" href=\"%{terms_href}\">Terms un Conditions</a>\nun <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{privacy_policy}\" href=\"%{policy_href}\">Privacy Policy</a>. Global-e is an international\nfulfilment service provider to %{shop_name}\n",
+        "pending_payment": {
+          "due_notice": "Your Maksājums of %{amount_due} is due on %{due_date}.",
+          "multibanco": {
+            "buyer_action_info": "Your Maksājums of %{amount_due} is due.",
+            "instruction_html": "Make your Maksājums at Multibanco or online using the details below. For questions or to update Maksājums details, %{contact_us}.",
+            "entity": "Entity",
+            "reference": "Reference",
+            "amount": "Amount",
+            "find_nearest_atm": "Find Nearest ATM"
+          }
+        },
+        "update_payment_method": "Update Maksājums method",
+        "order_covered_by_store_credit_notice": "Your order is covered by your store credit.",
+        "order_covered_by_redeemables_notice": "Your order is covered.",
+        "store_credit": {
+          "label": "Store credit",
+          "apply_label": "Lietot store credit",
+          "add_label": "Add store credit",
+          "manage_label": "Manage store credit",
+          "buying_gift_card": "You can’t use store credit to buy a Dāvanu karte",
+          "no_fixed_selling_plans": "You can’t use store credit with deferred purchase options"
+        },
+        "clear": "Clear",
+        "billing_must_match_shipping_notice": "Your Maksājums method’s billing Adrese must match the Piegāde Adrese.",
+        "same_billing_address_checkbox_label": "Use Piegāde Adrese as billing Adrese",
+        "location_billing_address_label": "Location billing Adrese",
+        "fact_billing_address_label": "Rēķina adrese",
+        "location_shipping_address_label": "Location Piegāde Adrese",
+        "use_order_billing_address_label": "Use order billing Adrese",
+        "use_location_billing_address_label": "Use location billing Adrese",
+        "use_location_shipping_address_label": "Use location Piegāde Adrese",
+        "no_working_method_error": "This store can’t accept payments right now. Refresh this page or come Atpakaļ later.",
+        "brand_not_available": "This store doesn't accept {{brand}}. Use a different card to pay.",
+        "shipping_rate_updated": "Available Piegāde methods have been updated. Confirm your choice before checking out.",
+        "billing_address_invalid_phone": "Update the Tālrunis number in your billing Adrese for {{label}} {{last_digits}} to Turpināt.",
+        "billing_address_invalid_phone_no_card": "Update the Tālrunis number in your billing Adrese to Turpināt.",
+        "preview_not_available": {
+          "title": "Preview not available",
+          "content": "Don’t worry, this express Apmaksa works for your customers.",
+          "button": "Ok"
+        },
+        "card_fields": {
+          "errors": {
+            "required": {
+              "issue_date": "Enter a valid issue date",
+              "issue_number": "Enter a valid issue number"
+            },
+            "invalid": {
+              "verification_value": "Enter a valid CVV or security code"
+            }
+          }
+        },
+        "simulated_checkout": "Preview coming soon",
+        "simulated_express_checkout": "Wallets are unavailable in the editor preview due to your region or browser",
+        "vaulting_agreement_label": "Saglabāt my Maksājums Informācija with %{Uzņēmums} for a faster Apmaksa.",
+        "business_customer_vaulting_payment_label": "Saglabāt this Maksājums method at Apmaksa un authorize %{Uzņēmums} to charge it for future purchases for this location. All contacts assigned to this location can use the Maksājums method.",
+        "business_customer_with_bank_account_vaulting_payment_label": "Saglabāt this Maksājums method at Apmaksa un authorize %{Uzņēmums} to debit your account for future purchases you approve for this location, until you Atcelt. All contacts assigned to this location can use the Maksājums method.",
+        "purchase_options_and_vaulting_agreement_label": "One or more Preces in your Grozs is a deferred or subscription purchase. By continuing with your Maksājums, you agree that your Maksājums method will automatically be charged at the Cena un frequency listed on this page until it ends or you Atcelt. All cancellations are subject to the %{cancellation_policy_label}.",
+        "purchase_options_cancellation_policy_label": "cancellation policy",
+        "use_different_credit_card_label": "Use a different card",
+        "saved_credit_card": "Your saved credit card",
+        "saved_credit_card_info": "Last four digits",
+        "saved_credit_card_cvv_verification": "For verification purposes, enter your card's security code.",
+        "saved_credit_card_actions": {
+          "edit": "Edit",
+          "delete": "Delete"
+        },
+        "saved_credit_cards_modal": {
+          "view_all_label": "View all saved cards",
+          "done": "Done",
+          "cancel": "Atcelt"
+        },
+        "add_credit_card_modal": {
+          "title": "Add card",
+          "save": "Saglabāt",
+          "cancel": "Atcelt"
+        },
+        "delete_credit_card_modal": {
+          "title": "Delete card",
+          "confirmation": "Are you sure you want to delete the {{brandName}} ending in {{lastDigits}}?",
+          "cancel": "Atcelt",
+          "delete": "Delete"
+        },
+        "edit_credit_card_modal": {
+          "title": "Edit card",
+          "done": "Done",
+          "cancel": "Atcelt",
+          "description": "You can only modify the billing Adrese of your card.",
+          "fields": {
+            "default": "Set as default",
+            "card_number": "Card number",
+            "expiry": "Expiration date",
+            "security_code": "Security code",
+            "name": "Name on card",
+            "billing": "Bill to"
+          }
+        },
+        "expired_cards_info": {
+          "one": "There is %{count} expired card, which you can view un edit in your account.",
+          "other": "There are %{count} expired cards, which you can view un edit in your account."
+        },
+        "local_payment_method_receiver_notice": "After placing your order, you will receive Maksājums details. Make the Maksājums at an ATM or online within {{dueDays}} days.",
+        "order_edit_banner_title": "Maksājums of {{amount_owed}} is needed",
+        "order_edit_banner_subtitle": "Your order {{order_number}} was updated. Pārskatīt these changes, then pay to confirm your order.",
+        "order_edit_banner_items_added": {
+          "one": "Added"
+        }
       }
     }
   }
