@@ -4294,6 +4294,138 @@
     "addresses": {
       "add_button": "Pievienot Adrese",
       "add_button_text": "Pievienot"
+    },
+    "address_form": {
+      "save": "Saglabāt",
+      "save_accessibility_label": "Saglabāt Adrese {{Adrese}}",
+      "section_title_accessibility_label": "Pievienot Adrese",
+      "update_success_notification": "Adrese updated"
+    },
+    "account_menu": {
+      "signed_out_state": {
+        "sheet_title": "Sign in or Izveidot kontu",
+        "section_divider": "Vairāk ways to sign in",
+        "alternate_divider": "OR",
+        "use_email_button": "Use E-pasts instead",
+        "email_field_label": "E-pasts",
+        "orders_button": "Orders",
+        "profile_button": "Profile",
+        "shop_login_button": "Sign in with Shop",
+        "continue_with_google": "Turpināt with Google",
+        "continue_with_facebook": "Turpināt with Facebook"
+      },
+      "signed_in_state": {
+        "greeting_with_name": "Hi, {{first_name}}",
+        "greeting_without_name": "Account",
+        "orders_button": "Orders",
+        "profile_button": "Profile"
+      },
+      "location_picker": {
+        "sheet_title": "Locations",
+        "search_field_placeholder": "Meklēt"
+      },
+      "aria_labels": {
+        "close_menu": "Aizvērt menu",
+        "back_to_main_menu": "Atpakaļ to main menu from {{title}}",
+        "open_submenu": "{{title}}, opens submenu",
+        "loading_menu": "Ielādē menu",
+        "account": "Account",
+        "sign_in_with_email": "Sign in with E-pasts",
+        "sign_in": "Sign in"
+      }
+    },
+    "B2B": {
+      "account_information": {
+        "company_card_name_label": "Uzņēmums name",
+        "company_card_section_accessibility_label": "Uzņēmums"
+      },
+      "locations": {
+        "contact_email": "E-pasts",
+        "contact_list_title": "People",
+        "contact_name": "Name",
+        "contact_permissions": "Permissions",
+        "contact_phone_number": "Tālrunis number",
+        "location_picker_label": "Location name",
+        "location_picker_accessibility_label": "Location name: {{locationName}}",
+        "net_payment_terms_description": "{{name}}: payments due within {{numberOfDays}} days",
+        "deposit_percentage": "{{percentage}} deposit",
+        "own_role_contact_name": "You",
+        "pagination": {
+          "load_more": "Load Vairāk",
+          "load_more_accessibility_label": "Load Vairāk locations"
+        },
+        "payment_details_title": "Maksājums details",
+        "payment_terms": "Maksājums terms",
+        "permissions_label": "Your permissions",
+        "permissions_title": "Permissions",
+        "section_title": "Location",
+        "shipping_address_required": "Pievienot a Piegāde Adrese to this location to start placing orders.",
+        "staff_and_permissions_title": "Staff un permissions",
+        "tax_details_title": "Nodoklis details",
+        "tax_id": "Nodoklis ID",
+        "tax_exemptions": "Nodoklis exemptions",
+        "multiple_tax_exemptions": "{{taxExemptionsCount}} Vairāk",
+        "multiple_tax_exemptions_and": "un",
+        "tax_exemptions_modal_close": "Aizvērt",
+        "taxes_none": "None",
+        "tax_exemption_not_applicable": "N/A",
+        "tax_exemptions_modal_button_accessibility_label": "View all Nodoklis exemptions"
+      },
+      "location_selection": {
+        "continue_to_store": "Turpināt to store",
+        "description": "If you already have Preces in your Grozs, changing locations might affect Grozs prices un quantities.",
+        "description_switch_later": "You can always switch later",
+        "list_accessibility_label": "Locations list",
+        "list_item_accessibility_label": "{{name}}: {{Adrese}}",
+        "list_item_without_address_accessibility_label": "{{name}}: No Adrese",
+        "list_loading_accessibility_message": "Ielādē list of locations",
+        "list_loading_address_accessibility_message": "Ielādē Adrese for {{locationName}}",
+        "list_loading_finished_accessibility_message": "List of locations has loaded",
+        "loading_store_accessibility_message": "Going to store",
+        "no_location_title": "Personal orders only",
+        "no_location_description": "You no longer have permission to place orders for {{Uzņēmums}}. You can still place personal orders.",
+        "no_locations_found": "No locations found",
+        "search": "Meklēt locations",
+        "search_location_title": "Izvēlēties a location",
+        "selection_cancel_button": "Atcelt",
+        "selection_confirmation_button": "Choose location",
+        "selection_continue_button": "Turpināt",
+        "title": "Which location are you buying for?",
+        "title_choose_location": "Choose a location",
+        "clear_search": "Clear Meklēt",
+        "try_new_search": "Try a new Meklēt"
+      },
+      "addresses": {
+        "add_billing_address_button": "Pievienot billing Adrese",
+        "add_billing_address_section_accessibility_label": "Pievienot billing Adrese",
+        "add_shipping_address_button": "Pievienot Piegāde Adrese",
+        "add_shipping_address_section_accessibility_label": "Pievienot Piegāde Adrese",
+        "billing_address_card_title": "Billing Adrese",
+        "cancel_adding_billing_address_accessibility_label": "Atcelt adding billing Adrese",
+        "cancel_adding_shipping_address_accessibility_label": "Atcelt adding Piegāde Adrese",
+        "save_new_billing_address_accessibility_label": "Saglabāt billing Adrese",
+        "save_new_shipping_address_accessibility_label": "Saglabāt Piegāde Adrese",
+        "shipping_address_card_title": "Piegāde Adrese"
+      },
+      "orders": {
+        "draft_order_list": {
+          "hide_all": "Slēpt all",
+          "show_all": "Rādīt all",
+          "hide_all_accessibility_label": "Slēpt all orders in review",
+          "show_all_accessibility_label": "Rādīt all orders in review",
+          "show_all_orders_in_review": "Rādīt all orders in review",
+          "show_less_orders_in_review": "Rādīt Mazāk orders in review",
+          "title": "Gaida",
+          "pending_tab_accessibility_label": {
+            "no_pending_orders": "You have no Gaida orders",
+            "pending_orders": {
+              "one": "You have {{count}} Gaida Pasūtījums",
+              "other": "You have {{count}} Gaida orders"
+            },
+            "more_than_pagination_length": "You have Vairāk than {{count}} Gaida orders"
+          }
+        }
+      }
     }
   }
 }
