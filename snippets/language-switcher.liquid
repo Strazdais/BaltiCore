@@ -1,0 +1,71 @@
+{% comment %}
+  Header language switcher dropdown
+{% endcomment %}
+
+{%- assign current_locale = request.locale.iso_code -%}
+{%- assign current_flag = '🇬🇧' -%}
+{%- assign current_label = 'EN' -%}
+{%- if current_locale == 'lv' -%}
+  {%- assign current_flag = '🇱🇻' -%}
+  {%- assign current_label = 'LV' -%}
+{%- endif -%}
+
+<div class="spars-lang-switcher" style="position:relative;display:flex;align-items:center;">
+  <button id="langSwitcherBtn" type="button" aria-label="Change language" style="
+    display:flex;align-items:center;gap:4px;
+    background:none;border:none;color:rgb(var(--color-foreground));
+    cursor:pointer;font-size:13px;font-weight:500;
+    padding:8px;letter-spacing:0.03em;
+    transition:opacity 0.2s;
+  " onclick="document.getElementById('langDropdown').classList.toggle('spars-lang-open')">
+    <span style="font-size:16px;">{{ current_flag }}</span>
+    <span>{{ current_label }}</span>
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+  </button>
+
+  <div id="langDropdown" class="spars-lang-dropdown" style="
+    position:absolute;top:100%;right:0;
+    background:#1a1a1a;border:1px solid rgba(255,255,255,0.12);
+    border-radius:8px;padding:4px;min-width:140px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.3);
+    display:none;z-index:100;
+  ">
+    <a href="{{ request.origin }}/{{ 'en' | replace: request.locale.iso_code, '' }}{{ request.path }}" 
+       onclick="document.cookie='spars_lang=en;path=/;max-age=31536000;SameSite=Lax'"
+       style="
+         display:flex;align-items:center;gap:8px;padding:10px 12px;
+         text-decoration:none;color:#fff;border-radius:6px;font-size:14px;
+         transition:background 0.15s;
+         {% if current_locale == 'en' %}background:rgba(200,168,78,0.15);{% endif %}
+       " onmouseover="this.style.background='rgba(255,255,255,0.08)'" 
+          onmouseout="this.style.background='{% if current_locale == 'en' %}rgba(200,168,78,0.15){% else %}transparent{% endif %}'">
+      <span style="font-size:18px;">🇬🇧</span> English
+    </a>
+    <a href="{{ request.origin }}/lv{{ request.path }}"
+       onclick="document.cookie='spars_lang=lv;path=/;max-age=31536000;SameSite=Lax'"
+       style="
+         display:flex;align-items:center;gap:8px;padding:10px 12px;
+         text-decoration:none;color:#fff;border-radius:6px;font-size:14px;
+         transition:background 0.15s;
+         {% if current_locale == 'lv' %}background:rgba(200,168,78,0.15);{% endif %}
+       " onmouseover="this.style.background='rgba(255,255,255,0.08)'"
+          onmouseout="this.style.background='{% if current_locale == 'lv' %}rgba(200,168,78,0.15){% else %}transparent{% endif %}'">
+      <span style="font-size:18px;">🇱🇻</span> Latviešu
+    </a>
+  </div>
+</div>
+
+<style>
+  .spars-lang-open { display: block !important; }
+</style>
+
+<script>
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  var dd = document.getElementById('langDropdown');
+  var btn = document.getElementById('langSwitcherBtn');
+  if (dd && btn && !btn.contains(e.target) && !dd.contains(e.target)) {
+    dd.classList.remove('spars-lang-open');
+  }
+});
+</script>

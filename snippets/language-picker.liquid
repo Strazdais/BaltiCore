@@ -1,0 +1,112 @@
+{% comment %}
+  Language picker popup + header switcher
+  Uses Shopify's built-in locale system
+{% endcomment %}
+
+{%- assign current_locale = request.locale.iso_code -%}
+{%- assign available_locales = request.locale.iso_code | append: ',' -%}
+
+<!-- Language Selection Popup (first visit only) -->
+<div id="spars-lang-overlay" style="
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:10000;
+  background:rgba(0,0,0,0.6);display:none;
+  align-items:center;justify-content:center;
+">
+  <div style="
+    background:#1a1a1a;border-radius:12px;padding:40px 48px;
+    max-width:420px;width:90%;text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    border:1px solid rgba(255,255,255,0.08);
+  ">
+    <!-- Logo -->
+    <div style="margin-bottom:24px;">
+      {%- if settings.logo -%}
+        <img src="{{ settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" style="max-width:160px;height:auto;">
+      {%- else -%}
+        <span style="font-size:28px;font-weight:700;color:#c8a84e;letter-spacing:0.05em;">SPARS</span>
+      {%- endif -%}
+    </div>
+
+    <h2 style="
+      color:#fff;font-size:18px;font-weight:500;margin:0 0 8px;
+      letter-spacing:0.02em;
+    ">Choose your language</h2>
+    <p style="
+      color:rgba(255,255,255,0.5);font-size:14px;margin:0 0 28px;
+    ">Izvēlieties valodu</p>
+
+    <div style="display:flex;gap:16px;justify-content:center;">
+      <button onclick="sparsSelectLang('en')" style="
+        flex:1;padding:16px 20px;border-radius:8px;border:2px solid rgba(255,255,255,0.15);
+        background:rgba(255,255,255,0.05);color:#fff;cursor:pointer;
+        font-size:16px;font-weight:500;transition:all 0.2s;
+        display:flex;align-items:center;justify-content:center;gap:10px;
+      " onmouseover="this.style.borderColor='#c8a84e';this.style.background='rgba(200,168,78,0.1)'"
+         onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.05)'">
+        <span style="font-size:24px;">🇬🇧</span> English
+      </button>
+      <button onclick="sparsSelectLang('lv')" style="
+        flex:1;padding:16px 20px;border-radius:8px;border:2px solid rgba(255,255,255,0.15);
+        background:rgba(255,255,255,0.05);color:#fff;cursor:pointer;
+        font-size:16px;font-weight:500;transition:all 0.2s;
+        display:flex;align-items:center;justify-content:center;gap:10px;
+      " onmouseover="this.style.borderColor='#c8a84e';this.style.background='rgba(200,168,78,0.1)'"
+         onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.05)'">
+        <span style="font-size:24px;">🇱🇻</span> Latviešu
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var COOKIE_NAME = 'spars_lang';
+  var overlay = document.getElementById('spars-lang-overlay');
+
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  }
+
+  function setCookie(name, value, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+  }
+
+  // Show popup if no language preference stored
+  if (!getCookie(COOKIE_NAME) && overlay) {
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    // Pre-highlight Latvian if browser language is lv
+    if (navigator.language && navigator.language.startsWith('lv')) {
+      var lvBtn = overlay.querySelectorAll('button')[1];
+      if (lvBtn) {
+        lvBtn.style.borderColor = '#c8a84e';
+        lvBtn.style.background = 'rgba(200,168,78,0.1)';
+      }
+    }
+  }
+
+  window.sparsSelectLang = function(locale) {
+    setCookie(COOKIE_NAME, locale, 365);
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+
+    // Redirect to correct locale
+    var currentPath = window.location.pathname;
+    var currentLocale = '{{ current_locale }}';
+
+    // Remove current locale prefix if present
+    var cleanPath = currentPath.replace(/^/(en|lv)(/|$)/, '/');
+
+    // Add new locale prefix (skip for primary/en)
+    var newPath = locale === 'en' ? cleanPath : '/' + locale + cleanPath;
+
+    if (window.location.pathname !== newPath) {
+      window.location.href = newPath + window.location.search;
+    }
+  };
+})();
+</script>
