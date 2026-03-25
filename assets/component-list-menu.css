@@ -28,3 +28,33 @@
   width: 10rem;
   padding: 0.5rem;
 }
+
+
+/* SPARS nav overrides */
+.header__inline-menu a,
+.header__inline-menu a.link,
+.header__inline-menu a.link--text,
+.header__inline-menu a.list-menu__item,
+.header__inline-menu summary,
+.header__inline-menu summary.list-menu__item {
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  padding: 1rem 1.4rem !important;
+  text-decoration: none !important;
+}
+
+.header__inline-menu summary.list-menu__item {
+  padding-right: 2.4rem !important;
+}
+
+.header__inline-menu a:hover,
+.header__inline-menu summary:hover {
+  opacity: 0.75;
+}
+
+.header__inline-menu .list-menu__item--active,
+.header__inline-menu .header__active-menu-item {
+  text-decoration: none !important;
+}
