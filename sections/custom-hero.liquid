@@ -1,157 +1,73 @@
 {{ 'custom-hero.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  #CustomHero-{{ section.id }} {
-    --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
-  }
-{%- endstyle -%}
-
-<section class="custom-hero" id="CustomHero-{{ section.id }}">
-  {%- comment -%} Background image {%- endcomment -%}
-  <div class="custom-hero__media">
-    {%- if section.settings.image != blank -%}
+<section class="custom-hero" id="hero-{{ section.id }}">
+  {%- if section.settings.image -%}
+    <div class="custom-hero__media">
       {%- assign img = section.settings.image -%}
-      {{
-        img
-        | image_url: width: 3840
-        | image_tag:
-          loading: 'eager',
-          fetchpriority: 'high',
-          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
-          sizes: '100vw',
-          alt: section.settings.heading
-      }}
-    {%- else -%}
-      <div style="width:100%;height:100%;background:#5b674c;"></div>
-    {%- endif -%}
+      <img
+        srcset="{{ img | image_url: width: 750 }} 750w,
+               {{ img | image_url: width: 1100 }} 1100w,
+               {{ img | image_url: width: 1500 }} 1500w,
+               {{ img | image_url: width: 1920 }} 1920w,
+               {{ img | image_url: width: 2560 }} 2560w"
+        sizes="100vw"
+        src="{{ img | image_url: width: 1920 }}"
+        alt="{{ img.alt | default: section.settings.heading }}"
+        loading="eager"
+        fetchpriority="high"
+        width="{{ img.width }}"
+        height="{{ img.height }}"
+      >
+    </div>
+  {%- endif -%}
+
+  <div class="custom-hero__cta-wrap">
+    <a href="{{ section.settings.button_link | default: '/pages/shop' }}" class="custom-hero__cta">
+      {%- if request.locale.iso_code == 'lv' -%}
+        Iepirkties
+      {%- else -%}
+        {{ section.settings.button_label | default: 'Shop Now' }}
+      {%- endif -%}
+    </a>
   </div>
-
-  {%- comment -%} Dark overlay {%- endcomment -%}
-  {%- unless section.settings.hide_overlay -%}<div class="custom-hero__overlay"></div>{%- endunless -%}
-
-  {%- comment -%} Content card {%- endcomment -%}
-  {%- unless section.settings.hide_overlay -%}
-  <div class="custom-hero__card{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    {%- if section.settings.heading != blank -%}
-      <h1 class="custom-hero__heading">{{ section.settings.heading | escape }}</h1>
-    {%- endif -%}
-
-    {%- if section.settings.subtext != blank -%}
-      <p class="custom-hero__subtext">{{ section.settings.subtext | escape }}</p>
-    {%- endif -%}
-
-    {%- if section.settings.button_primary_label != blank or section.settings.button_secondary_label != blank -%}
-      <div class="custom-hero__buttons">
-        {%- if section.settings.button_primary_label != blank -%}
-          <a
-            href="{{ section.settings.button_primary_link }}"
-            class="custom-hero__btn custom-hero__btn--primary"
-          >
-            {{ section.settings.button_primary_label | escape }}
-          </a>
-        {%- endif -%}
-
-        {%- if section.settings.button_secondary_label != blank -%}
-          <a
-            href="{{ section.settings.button_secondary_link }}"
-            class="custom-hero__btn custom-hero__btn--secondary"
-          >
-            {{ section.settings.button_secondary_label | escape }}
-          </a>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-
-    {%- if section.settings.trust_line != blank -%}
-      <p class="custom-hero__trust">{{ section.settings.trust_line | escape }}</p>
-    {%- endif -%}
-  </div>
-  {%- endunless -%}
 </section>
 
 {% schema %}
 {
-  "name": "Custom Hero",
-  "tag": "section",
-  "class": "custom-hero-section",
+  "name": "Hero Banner",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "hide_overlay",
-      "label": "Hide text overlay (full-bleed image only)",
-      "default": false
-    },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Background Image"
-    },
-    {
-      "type": "range",
-      "id": "overlay_opacity",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Overlay Opacity",
-      "default": 45
-    },
-    {
-      "type": "header",
-      "content": "Content"
+      "label": "Hero image"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading",
+      "label": "Heading (SEO only)",
       "default": "Workwear and Sportswear"
     },
     {
-      "type": "textarea",
-      "id": "subtext",
-      "label": "Subtext",
-      "default": "Durable workwear and high-performance sportswear built for professionals who demand comfort, safety, and style."
-    },
-    {
-      "type": "header",
-      "content": "Buttons"
-    },
-    {
       "type": "text",
-      "id": "button_primary_label",
-      "label": "Primary Button Label",
+      "id": "button_label",
+      "label": "Button label",
       "default": "Shop Now"
     },
     {
       "type": "url",
-      "id": "button_primary_link",
-      "label": "Primary Button Link"
+      "id": "button_link",
+      "label": "Button link"
     },
     {
-      "type": "text",
-      "id": "button_secondary_label",
-      "label": "Secondary Button Label",
-      "default": "Learn More"
-    },
-    {
-      "type": "url",
-      "id": "button_secondary_link",
-      "label": "Secondary Button Link"
-    },
-    {
-      "type": "header",
-      "content": "Trust Line"
-    },
-    {
-      "type": "text",
-      "id": "trust_line",
-      "label": "Trust Line Text",
-      "default": "Trusted by 500+ professionals across Europe"
+      "type": "checkbox",
+      "id": "hide_overlay",
+      "label": "Hide text overlay",
+      "default": true
     }
   ],
   "presets": [
     {
-      "name": "Custom Hero"
+      "name": "Hero Banner"
     }
   ]
 }
