@@ -1,446 +1,532 @@
-{% comment %}
-  Homepage Two-Column Section: Customization pitch + Recommended products carousel
+<section class="hp-twocol" style="background:{{ section.settings.bg_color | default: '#1a1a1a' }};padding:{{ section.settings.padding_top | default: 48 }}px 0 {{ section.settings.padding_bottom | default: 48 }}px;">
 
-  HOW TO UPDATE RECOMMENDED PRODUCTS:
-  Go to Shopify Admin → Products → Collections → "Homepage Recommended"
-  Add or remove products from that collection. They appear here automatically.
-  Products display in the manual sort order set in the collection.
-{% endcomment %}
+  <div class="hp-twocol__grid">
+    <!-- LEFT: Collections Carousel -->
+    <div class="hp-twocol__left">
+      <span class="hp-twocol__label">
+        {%- if request.locale.iso_code == 'lv' -%}Kolekcijas{%- else -%}Collections{%- endif -%}
+      </span>
 
-{%- style -%}
-  .homepage-twocol {
-    background: {{ section.settings.bg_color }} !important; color: #fff;
-    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
-  }
-  .homepage-twocol__inner {
-    max-width: var(--page-width, 1200px);
-    margin: 0 auto;
-    padding: 0 2rem;
+      <div class="hp-carousel" data-carousel>
+        <div class="hp-carousel__track" data-track>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'collection_slide' -%}
+              {%- assign col = block.settings.collection -%}
+              {%- if col != blank -%}
+                {%- assign col_obj = collections[col] -%}
+                {%- if col_obj -%}
+                  <div class="hp-carousel__slide" data-slide="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+                    <div class="hp-carousel__img-wrap">
+                      {%- if col_obj.image -%}
+                        <img src="{{ col_obj.image | image_url: width: 800 }}" alt="{{ col_obj.title }}" loading="lazy">
+                      {%- elsif col_obj.products.first.featured_image -%}
+                        <img src="{{ col_obj.products.first.featured_image | image_url: width: 800 }}" alt="{{ col_obj.title }}" loading="lazy">
+                      {%- else -%}
+                        <div class="hp-carousel__placeholder"></div>
+                      {%- endif -%}
+                    </div>
+                    <div class="hp-carousel__overlay">
+                      <h3 class="hp-carousel__title">{{ col_obj.title }}</h3>
+                      <a href="{{ col_obj.url }}" class="hp-carousel__btn">
+                        {%- if request.locale.iso_code == 'lv' -%}Skatīt Kolekciju{%- else -%}Shop Collection{%- endif -%}
+                      </a>
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <!-- Navigation arrows -->
+        <button class="hp-carousel__arrow hp-carousel__arrow--prev" data-prev aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="hp-carousel__arrow hp-carousel__arrow--next" data-next aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+
+        <!-- Dots -->
+        <div class="hp-carousel__dots" data-dots></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Custom Print & Embroidery -->
+    <div class="hp-twocol__right">
+      {%- if section.settings.right_bg_image -%}
+        <div class="hp-twocol__right-bg">
+          <img src="{{ section.settings.right_bg_image | image_url: width: 900 }}" alt="" loading="lazy">
+        </div>
+      {%- endif -%}
+
+      <div class="hp-twocol__right-content">
+        <span class="hp-twocol__label hp-twocol__label--gold">
+          {%- if request.locale.iso_code == 'lv' -%}Individuāla Apdruka un Izšūšana{%- else -%}Custom Print &amp; Embroidery{%- endif -%}
+        </span>
+
+        <h2 class="hp-twocol__heading">
+          {%- if request.locale.iso_code == 'lv' -%}Personalizē savu ekipējumu.{%- else -%}Personalise your gear.{%- endif -%}
+        </h2>
+
+        <p class="hp-twocol__body">
+          {%- if request.locale.iso_code == 'lv' -%}
+            Izveido savu unikālo identitāti ar profesionālu zīmolvedību. Mēs piedāvājam augstākās kvalitātes izšūšanas un izturīgas apdruka risinājumus visiem darba apģērbiem.
+          {%- else -%}
+            Create your unique identity with professional branding. We offer premium embroidery and durable print solutions for all workwear.
+          {%- endif -%}
+        </p>
+
+        <div class="hp-twocol__features">
+          <div class="hp-twocol__feature">
+            <span class="hp-twocol__feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L12 22"/>
+                <path d="M5 9c0-3 3-5 7-5s7 2 7 5"/>
+                <path d="M5 15c0 3 3 5 7 5s7-2 7-5"/>
+                <path d="M3 12h4M17 12h4"/>
+              </svg>
+            </span>
+            <span class="hp-twocol__feature-label">
+              {%- if request.locale.iso_code == 'lv' -%}Izšūšana{%- else -%}Embroidery{%- endif -%}
+            </span>
+          </div>
+          <div class="hp-twocol__feature">
+            <span class="hp-twocol__feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="3" width="12" height="18" rx="1"/>
+                <line x1="6" y1="7" x2="18" y2="7"/>
+                <line x1="6" y1="15" x2="18" y2="15"/>
+                <line x1="10" y1="15" x2="10" y2="21"/>
+              </svg>
+            </span>
+            <span class="hp-twocol__feature-label">
+              {%- if request.locale.iso_code == 'lv' -%}Apdruka{%- else -%}Print{%- endif -%}
+            </span>
+          </div>
+        </div>
+
+        <a href="/pages/customization" class="hp-twocol__cta">
+          {%- if request.locale.iso_code == 'lv' -%}Pieprasīt Pielāgošanu{%- else -%}Request Customisation{%- endif -%}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hp-twocol__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-  .homepage-twocol__heading {
-    font-family: var(--font-heading-family, sans-serif);
-    font-size: 2.8rem;
-    font-weight: 700;
-    font-style: italic;
-    color: #c8a951;
-    margin: 0 0 20px;
-    line-height: 1.2;
-  }
-  .homepage-twocol__body {
-    font-size: 1.5rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.75);
-    margin: 0 0 36px;
-  }
-  .homepage-twocol__features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-bottom: 36px;
-  }
-  .homepage-twocol__feature-icon {
-    width: 48px;
-    height: 48px;
-    color: #c8a951;
-    margin-bottom: 12px;
-  }
-  .homepage-twocol__feature-icon svg {
-    width: 100%;
-    height: 100%;
-  }
-  .homepage-twocol__feature-label {
-    font-family: var(--font-heading-family, sans-serif);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .homepage-twocol__feature-text {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.6);
+    gap: 0;
+    max-width: 100%;
     margin: 0;
   }
-  .homepage-twocol__cta {
+
+  .hp-twocol__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c8a951;
+    margin-bottom: 20px;
+    padding: 0 32px;
+  }
+
+  .hp-twocol__label--gold {
+    color: #c8a951;
+  }
+
+  /* ===== LEFT: CAROUSEL ===== */
+  .hp-twocol__left {
+    position: relative;
+    padding-top: 8px;
+  }
+
+  .hp-carousel {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .hp-carousel__track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+
+  .hp-carousel__slide {
+    min-width: 100%;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .hp-carousel__img-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .hp-carousel__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hp-carousel__placeholder {
+    width: 100%;
+    height: 100%;
+    background: #2a2a2a;
+  }
+
+  .hp-carousel__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  }
+
+  .hp-carousel__title {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .hp-carousel__btn {
     display: inline-block;
     background: #c8a951;
     color: #1a1a1a;
-    font-family: var(--font-heading-family, sans-serif);
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding: 14px 32px;
-    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    letter-spacing: 0.02em;
-  }
-  .homepage-twocol__cta:hover {
-    background: #d4b85c;
-    transform: translateY(-1px);
+    padding: 10px 28px;
+    border-radius: 50px;
+    transition: background 0.25s ease;
   }
 
-  /* Right column - products */
-  .homepage-twocol__products-heading {
-    font-family: var(--font-heading-family, sans-serif);
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 24px;
-    line-height: 1.2;
-  }
-  .homepage-twocol__carousel {
-    position: relative;
-    overflow: hidden;
-  }
-  .homepage-twocol__track {
-    display: flex;
-    transition: transform 0.4s ease;
-    gap: 16px;
-  }
-  .homepage-twocol__card {
-    flex: 0 0 calc(33.333% - 11px);
-    min-width: 0;
-    background: #2a2a2a;
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none;
-    display: block;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .homepage-twocol__card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  }
-  .homepage-twocol__card-img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: contain;
-    background: #f5f5f5;
-    display: block;
-  }
-  .homepage-twocol__card-info {
-    padding: 12px 14px 16px;
-  }
-  .homepage-twocol__card-title {
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: #ffffff;
-    margin: 0 0 6px;
-    line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .homepage-twocol__card-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #c8a951;
-    margin: 0;
+  .hp-carousel__btn:hover {
+    background: #d4b85e;
   }
 
-  /* Carousel arrows */
-  .homepage-twocol__arrow {
+  /* Arrows */
+  .hp-carousel__arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-80%);
-    width: 36px;
-    height: 36px;
+    transform: translateY(-50%);
+    background: rgba(26, 26, 26, 0.7);
+    border: 1px solid rgba(200, 169, 81, 0.3);
     border-radius: 50%;
-    background: rgba(200,169,81,0.9);
-    border: none;
-    cursor: pointer;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1a1a1a;
-    z-index: 2;
+    cursor: pointer;
+    z-index: 5;
     transition: background 0.2s;
-    padding: 0;
-  }
-  .homepage-twocol__arrow:hover {
-    background: #d4b85c;
-  }
-  .homepage-twocol__arrow--prev { left: -4px; }
-  .homepage-twocol__arrow--next { right: -4px; }
-  .homepage-twocol__arrow svg {
-    width: 18px;
-    height: 18px;
   }
 
+  .hp-carousel__arrow:hover {
+    background: rgba(26, 26, 26, 0.9);
+  }
+
+  .hp-carousel__arrow--prev { left: 12px; }
+  .hp-carousel__arrow--next { right: 12px; }
+
   /* Dots */
-  .homepage-twocol__dots {
+  .hp-carousel__dots {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 16px;
+    padding: 16px 0;
   }
-  .homepage-twocol__dot {
+
+  .hp-carousel__dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: rgba(255,255,255,0.3);
     border: none;
-    padding: 0;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.3s;
+    padding: 0;
   }
-  .homepage-twocol__dot.active {
+
+  .hp-carousel__dot.active {
     background: #c8a951;
   }
 
-  /* Mobile */
-  @media screen and (max-width: 989px) {
-    .homepage-twocol__inner {
+  /* ===== RIGHT: CUSTOMISATION ===== */
+  .hp-twocol__right {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 48px 40px;
+  }
+
+  .hp-twocol__right-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hp-twocol__right-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+  }
+
+  .hp-twocol__right-content {
+    position: relative;
+    z-index: 1;
+    max-width: 460px;
+  }
+
+  .hp-twocol__heading {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 16px;
+  }
+
+  .hp-twocol__body {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 28px;
+  }
+
+  .hp-twocol__features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .hp-twocol__feature {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hp-twocol__feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(200, 169, 81, 0.3);
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .hp-twocol__feature-label {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .hp-twocol__cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #c8a951;
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    transition: background 0.25s ease;
+    box-sizing: border-box;
+  }
+
+  .hp-twocol__cta:hover {
+    background: #d4b85e;
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 767px) {
+    .hp-twocol__grid {
       grid-template-columns: 1fr;
-      gap: 48px;
     }
-    .homepage-twocol__heading,
-    .homepage-twocol__products-heading {
-      font-size: 2.4rem;
+
+    .hp-twocol__left {
+      padding-top: 8px;
+    }
+
+    .hp-twocol__right {
+      padding: 36px 24px;
+    }
+
+    .hp-twocol__heading {
+      font-size: 1.6rem;
+    }
+
+    .hp-twocol__right-bg {
+      width: 100%;
+      opacity: 0.15;
+    }
+
+    .hp-carousel__img-wrap {
+      aspect-ratio: 16 / 10;
+    }
+
+    .hp-carousel__title {
+      font-size: 1.1rem;
     }
   }
-  @media screen and (max-width: 749px) {
-    .homepage-twocol {
-      padding: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px 0 {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
-    }
-    .homepage-twocol__features {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    .homepage-twocol__card {
-      flex: 0 0 calc(100% - 0px);
-    }
-    .homepage-twocol__heading,
-    .homepage-twocol__products-heading {
-      font-size: 2rem;
-    }
-  }
-{%- endstyle -%}
+</style>
 
-<section class="homepage-twocol" id="HomepageTwocol-{{ section.id }}">
-  <div class="homepage-twocol__inner">
-    {%- comment -%} LEFT COLUMN — Customization pitch {%- endcomment -%}
-    <div class="homepage-twocol__left">
-      <h2 class="homepage-twocol__heading">
-        {%- if request.locale.iso_code == 'lv' -%}Personalizēts Jums{%- else -%}Personalised for You{%- endif -%}
-      </h2>
-      <p class="homepage-twocol__body">
-        {%- if request.locale.iso_code == 'lv' -%}
-          Jūsu logo, jūsu krāsas, jūsu zīmols — uz katra apģērba. Mēs piedāvājam profesionālus izšūšanas un apdruku risinājumus darba apģērbam visās nozarēs. Neatkarīgi no tā, vai tas ir krūšu logo vai pilns individuāls dizains, mēs parūpēsimies, lai jūsu komanda izskatās profesionāli.
-        {%- else -%}
-          Your logo, your colours, your brand — on every garment. We offer professional embroidery and print solutions for workwear across all industries. Whether it's a chest logo or a full custom design, we make sure your team looks the part.
-        {%- endif -%}
-      </p>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+      var track = carousel.querySelector('[data-track]');
+      var slides = carousel.querySelectorAll('[data-slide]');
+      var dotsWrap = carousel.querySelector('[data-dots]');
+      var prevBtn = carousel.querySelector('[data-prev]');
+      var nextBtn = carousel.querySelector('[data-next]');
+      var current = 0;
+      var total = slides.length;
+      var autoInterval = null;
+      var paused = false;
 
-      <div class="homepage-twocol__features">
-        <div class="homepage-twocol__feature">
-          <div class="homepage-twocol__feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              <path d="M2 17l10 5 10-5"/>
-              <path d="M2 12l10 5 10-5"/>
-              <line x1="12" y1="22" x2="12" y2="17"/>
-              <path d="M20 7v.5c0 .6-.4 1.1-.9 1.4L12 12"/>
-            </svg>
-          </div>
-          <h3 class="homepage-twocol__feature-label">
-            {%- if request.locale.iso_code == 'lv' -%}Izšūšana{%- else -%}Embroidery{%- endif -%}
-          </h3>
-          <p class="homepage-twocol__feature-text">
-            {%- if request.locale.iso_code == 'lv' -%}
-              Veidojiet savu unikālo identitāti ar precīzi izšūtiem logo un brendingu uz jūsu darba apģērba.
-            {%- else -%}
-              Create your unique identity with precision embroidered logos and branding on your workwear.
-            {%- endif -%}
-          </p>
-        </div>
-        <div class="homepage-twocol__feature">
-          <div class="homepage-twocol__feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="3" width="12" height="18" rx="1"/>
-              <path d="M6 8h12"/>
-              <path d="M6 16h12"/>
-              <path d="M10 3v5"/>
-              <path d="M14 3v5"/>
-              <path d="M10 16v5"/>
-              <path d="M14 16v5"/>
-            </svg>
-          </div>
-          <h3 class="homepage-twocol__feature-label">
-            {%- if request.locale.iso_code == 'lv' -%}Apdruka{%- else -%}Print{%- endif -%}
-          </h3>
-          <p class="homepage-twocol__feature-text">
-            {%- if request.locale.iso_code == 'lv' -%}
-              Augstas kvalitātes apdruka jūsu unikālai zīmola identitātei uz jebkura apģērba.
-            {%- else -%}
-              High-quality print application for your unique brand identity on any garment.
-            {%- endif -%}
-          </p>
-        </div>
-      </div>
+      if (total < 1) return;
 
-      <a href="/pages/customization" class="homepage-twocol__cta">
-        {%- if request.locale.iso_code == 'lv' -%}Apskatīt pielāgošanu →{%- else -%}Explore customisation →{%- endif -%}
-      </a>
-    </div>
+      // Build dots
+      for (var i = 0; i < total; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'hp-carousel__dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('data-index', i);
+        dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+        dotsWrap.appendChild(dot);
+      }
 
-    {%- comment -%} RIGHT COLUMN — Recommended products carousel {%- endcomment -%}
-    <div class="homepage-twocol__right">
-      <h2 class="homepage-twocol__products-heading">
-        {%- if request.locale.iso_code == 'lv' -%}Ieteiktie produkti{%- else -%}Recommended Products{%- endif -%}
-      </h2>
+      function goTo(idx) {
+        if (idx < 0) idx = total - 1;
+        if (idx >= total) idx = 0;
+        current = idx;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        var dots = dotsWrap.querySelectorAll('.hp-carousel__dot');
+        dots.forEach(function (d, j) {
+          d.classList.toggle('active', j === current);
+        });
+      }
 
-      {%- assign rec_collection = collections['homepage-recommended'] -%}
-      {%- if rec_collection and rec_collection.products.size > 0 -%}
-        <div class="homepage-twocol__carousel" id="twocol-carousel-{{ section.id }}">
-          <div class="homepage-twocol__track" id="twocol-track-{{ section.id }}">
-            {%- for product in rec_collection.products limit: 12 -%}
-              <a href="{{ product.url }}" class="homepage-twocol__card">
-                {%- if product.featured_image -%}
-                  <img
-                    src="{{ product.featured_image | image_url: width: 400 }}"
-                    alt="{{ product.featured_image.alt | default: product.title | escape }}"
-                    class="homepage-twocol__card-img"
-                    width="400"
-                    height="400"
-                    loading="lazy"
-                  >
-                {%- else -%}
-                  <div class="homepage-twocol__card-img" style="background:#ddd;display:flex;align-items:center;justify-content:center;color:#999;font-size:1.2rem;">No image</div>
-                {%- endif -%}
-                <div class="homepage-twocol__card-info">
-                  <p class="homepage-twocol__card-title">{{ product.title }}</p>
-                  <p class="homepage-twocol__card-price">{{ product.price | money }}</p>
-                </div>
-              </a>
-            {%- endfor -%}
-          </div>
+      function startAuto() {
+        stopAuto();
+        autoInterval = setInterval(function () {
+          if (!paused) goTo(current + 1);
+        }, 4000);
+      }
 
-          <button class="homepage-twocol__arrow homepage-twocol__arrow--prev" aria-label="Previous" id="twocol-prev-{{ section.id }}">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="homepage-twocol__arrow homepage-twocol__arrow--next" aria-label="Next" id="twocol-next-{{ section.id }}">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-          </button>
+      function stopAuto() {
+        if (autoInterval) clearInterval(autoInterval);
+      }
 
-          <div class="homepage-twocol__dots" id="twocol-dots-{{ section.id }}"></div>
-        </div>
+      prevBtn.addEventListener('click', function () { goTo(current - 1); startAuto(); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); startAuto(); });
 
-        <script>
-          (function() {
-            var sectionId = '{{ section.id }}';
-            var track = document.getElementById('twocol-track-' + sectionId);
-            var prev = document.getElementById('twocol-prev-' + sectionId);
-            var next = document.getElementById('twocol-next-' + sectionId);
-            var dotsContainer = document.getElementById('twocol-dots-' + sectionId);
-            if (!track) return;
+      dotsWrap.addEventListener('click', function (e) {
+        var idx = e.target.getAttribute('data-index');
+        if (idx !== null) { goTo(parseInt(idx)); startAuto(); }
+      });
 
-            var cards = track.querySelectorAll('.homepage-twocol__card');
-            var total = cards.length;
-            var current = 0;
-            var perView = window.innerWidth <= 749 ? 1 : 3;
-            var maxIndex = Math.max(0, total - perView);
-            var autoTimer;
+      carousel.addEventListener('mouseenter', function () { paused = true; });
+      carousel.addEventListener('mouseleave', function () { paused = false; });
 
-            function getPerView() {
-              return window.innerWidth <= 749 ? 1 : 3;
-            }
+      // Touch swipe
+      var touchStartX = 0;
+      var touchEndX = 0;
+      carousel.addEventListener('touchstart', function (e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      carousel.addEventListener('touchend', function (e) {
+        touchEndX = e.changedTouches[0].screenX;
+        var diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          goTo(diff > 0 ? current + 1 : current - 1);
+          startAuto();
+        }
+      }, { passive: true });
 
-            function buildDots() {
-              dotsContainer.innerHTML = '';
-              var pages = maxIndex + 1;
-              for (var i = 0; i < pages; i++) {
-                var dot = document.createElement('button');
-                dot.className = 'homepage-twocol__dot' + (i === current ? ' active' : '');
-                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-                dot.dataset.index = i;
-                dot.addEventListener('click', function() {
-                  goTo(parseInt(this.dataset.index));
-                  resetAuto();
-                });
-                dotsContainer.appendChild(dot);
-              }
-            }
-
-            function goTo(index) {
-              current = Math.max(0, Math.min(index, maxIndex));
-              var cardWidth = cards[0].offsetWidth + 16; // gap
-              track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
-              var dots = dotsContainer.querySelectorAll('.homepage-twocol__dot');
-              dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
-            }
-
-            function nextSlide() { goTo(current >= maxIndex ? 0 : current + 1); }
-            function prevSlide() { goTo(current <= 0 ? maxIndex : current - 1); }
-
-            function startAuto() { autoTimer = setInterval(nextSlide, 5000); }
-            function resetAuto() { clearInterval(autoTimer); startAuto(); }
-
-            prev.addEventListener('click', function() { prevSlide(); resetAuto(); });
-            next.addEventListener('click', function() { nextSlide(); resetAuto(); });
-
-            window.addEventListener('resize', function() {
-              perView = getPerView();
-              maxIndex = Math.max(0, total - perView);
-              if (current > maxIndex) current = maxIndex;
-              buildDots();
-              goTo(current);
-            });
-
-            buildDots();
-            startAuto();
-          })();
-        </script>
-      {%- else -%}
-        <p style="color:rgba(255,255,255,0.5);font-size:1.4rem;">
-          No recommended products yet. Add products to the "Homepage Recommended" collection.
-        </p>
-      {%- endif -%}
-    </div>
-  </div>
-</section>
+      startAuto();
+    });
+  });
+</script>
 
 {% schema %}
 {
-  "name": "Homepage Two-Column",
-  "tag": "section",
-  "class": "homepage-twocol-wrapper",
+  "name": "Homepage Two Column",
   "settings": [
     {
       "type": "color",
       "id": "bg_color",
-      "label": "Background Color",
+      "label": "Background color",
       "default": "#1a1a1a"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_bg_image",
+      "label": "Right column background image"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "min": 20,
+      "label": "Padding top",
+      "min": 0,
       "max": 120,
       "step": 4,
-      "unit": "px",
-      "label": "Padding Top",
-      "default": 80
+      "default": 48,
+      "unit": "px"
     },
     {
       "type": "range",
       "id": "padding_bottom",
-      "min": 20,
+      "label": "Padding bottom",
+      "min": 0,
       "max": 120,
       "step": 4,
-      "unit": "px",
-      "label": "Padding Bottom",
-      "default": 80
+      "default": 48,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_slide",
+      "name": "Collection Slide",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Homepage Two-Column"
+      "name": "Homepage Two Column",
+      "blocks": []
     }
   ]
 }

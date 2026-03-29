@@ -11,7 +11,6 @@
   "sections": {
     "image_banner_YkthUA": {
       "type": "image-banner",
-      "disabled": true,
       "blocks": {
         "heading_4xzcaN": {
           "type": "heading",
@@ -32,6 +31,7 @@
         "heading_4xzcaN",
         "text_NM6xEJ"
       ],
+      "disabled": true,
       "custom_css": [
         "div {border-radius: 0px; border-width: 12px; border-color: black;}"
       ],
@@ -53,16 +53,9 @@
     "custom_hero_main": {
       "type": "custom-hero",
       "settings": {
+        "hide_overlay": true,
         "image": "shopify://shop_images/hero-workwear-construction.jpg",
-        "overlay_opacity": 45,
-        "heading": "Workwear and Sportswear",
-        "subtext": "Durable workwear and high-performance sportswear built for professionals who demand comfort, safety, and style on every job site and in every season.",
-        "button_primary_label": "Shop Now",
-        "button_primary_link": "/pages/shop",
-        "button_secondary_label": "Learn More",
-        "button_secondary_link": "/pages/about-us",
-        "trust_line": "Professional workwear meeting EU safety standards",
-        "hide_overlay": true
+        "heading": "Workwear and Sportswear"
       }
     },
     "slideshow": {
@@ -133,7 +126,6 @@
     },
     "collection_list_tPfFQD": {
       "type": "collection-list",
-      "disabled": true,
       "blocks": {
         "featured_collection_XhNtYx": {
           "type": "featured_collection",
@@ -166,6 +158,7 @@
         "featured_collection_WLfJzX",
         "featured_collection_rwhx8t"
       ],
+      "disabled": true,
       "custom_css": [
         "div {border-radius: 0px; border-width: 0px;}",
         ".collection-list-wrapper .collection-list__title {text-align: center !important;}",
@@ -233,6 +226,7 @@
         "col_headwear",
         "col_vests"
       ],
+      "disabled": true,
       "settings": {
         "title": "Shop by Category",
         "heading_size": "h1",
@@ -240,8 +234,7 @@
         "bg_color": "#f7f7f7",
         "padding_top": 80,
         "padding_bottom": 80
-      },
-      "disabled": true
+      }
     },
     "why_spars_main": {
       "type": "why-spars",
@@ -320,7 +313,6 @@
     },
     "rich_text_79xkXY": {
       "type": "image-with-text",
-      "disabled": true,
       "blocks": {
         "heading_4EYyif": {
           "type": "heading",
@@ -341,6 +333,7 @@
         "heading_4EYyif",
         "text_JVkqgq"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/skilv-cup-team.jpg",
@@ -436,7 +429,6 @@
     },
     "image_with_text_V3g6dQ": {
       "type": "image-with-text",
-      "disabled": true,
       "blocks": {
         "heading_DaBrbr": {
           "type": "heading",
@@ -466,6 +458,7 @@
         "text_YMjPYb",
         "button_customization"
       ],
+      "disabled": true,
       "custom_css": [
         "div {border-radius: 0px; border-color: white;}",
         ".image-with-text__text p {margin-bottom: 0.6em; line-height: 1.6;}",
@@ -524,17 +517,16 @@
         "review_2",
         "review_3"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "Testimonials",
         "title": "What Our Customers Say",
         "padding_top": 80,
         "padding_bottom": 80
-      },
-      "disabled": true
+      }
     },
     "multicolumn_FjPYRE": {
       "type": "multicolumn",
-      "disabled": true,
       "blocks": {
         "column_eaFYX8": {
           "type": "column",
@@ -569,6 +561,7 @@
         "column_kjtBcw",
         "column_CKLxXb"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "Customer reviews",
@@ -595,39 +588,85 @@
       }
     },
     "compact_bestsellers_hero": {
+      "type": "featured-collection",
+      "disabled": true,
       "custom_css": [
         ".section-featured_collection_compact {padding-top: 24px !important; padding-bottom: 24px !important;}"
       ],
-      "type": "featured-collection",
       "settings": {
-        "show_rating": false,
+        "collection": "bestsellers",
+        "products_to_show": 4,
+        "title": "Bestsellers",
         "heading_size": "h2",
         "description": "",
-        "collection": "bestsellers",
         "show_description": false,
-        "products_to_show": 4,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
         "view_all_style": "link",
         "color_scheme": "",
-        "show_secondary_image": false,
-        "quick_add": "none",
-        "columns_desktop": 4,
-        "description_style": "body",
-        "title": "Bestsellers",
-        "padding_bottom": 20,
-        "show_vendor": false,
         "image_ratio": "square",
         "image_shape": "default",
-        "show_view_all": true,
-        "swipe_on_mobile": true,
-        "full_width": false,
-        "padding_top": 20,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
         "columns_mobile": "2",
-        "enable_desktop_slider": false
-      },
-      "disabled": true
+        "swipe_on_mobile": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
     },
     "homepage_twocol_main": {
       "type": "homepage-twocol",
+      "blocks": {
+        "col_jackets": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "jackets"
+          }
+        },
+        "col_trousers": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "trousers"
+          }
+        },
+        "col_footwear": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "footwear"
+          }
+        },
+        "col_gloves": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "gloves"
+          }
+        },
+        "col_headwear": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "headwear"
+          }
+        },
+        "col_vests": {
+          "type": "collection_slide",
+          "settings": {
+            "collection": "vests"
+          }
+        }
+      },
+      "block_order": [
+        "col_jackets",
+        "col_trousers",
+        "col_footwear",
+        "col_gloves",
+        "col_headwear",
+        "col_vests"
+      ],
       "settings": {
         "bg_color": "#1a1a1a",
         "padding_top": 48,
