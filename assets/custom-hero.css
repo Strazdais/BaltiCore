@@ -3,6 +3,24 @@
   width: 100%;
   overflow: hidden;
   min-height: 40vh;
+  margin-bottom: 0 !important;
+}
+
+/* Kill any gap Shopify injects between sections */
+.section-custom-hero + .section-homepage-twocol,
+#shopify-section-custom_hero_main + #shopify-section-homepage_twocol_main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#shopify-section-custom_hero_main {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#shopify-section-homepage_twocol_main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .custom-hero__media {
