@@ -397,7 +397,8 @@
         "cta_secondary_link": "",
         "padding_top": 80,
         "padding_bottom": 80
-      }
+      },
+      "disabled": true
     },
     "image_with_text_V3g6dQ": {
       "type": "image-with-text",
