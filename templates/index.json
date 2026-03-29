@@ -240,8 +240,7 @@
         "bg_color": "#f7f7f7",
         "padding_top": 80,
         "padding_bottom": 80
-      },
-      "disabled": true
+      }
     },
     "why_spars_main": {
       "type": "why-spars",
@@ -316,8 +315,7 @@
         "hint_line": "For companies: bulk pricing + custom branding available.",
         "image": "shopify://shop_images/skilv-cup-team.jpg",
         "badge_text": "B2B Supplier"
-      },
-      "disabled": true
+      }
     },
     "rich_text_79xkXY": {
       "type": "image-with-text",
@@ -387,8 +385,7 @@
         "swipe_on_mobile": false,
         "padding_top": 80,
         "padding_bottom": 80
-      },
-      "disabled": true
+      }
     },
     "custom_customization_main": {
       "type": "custom-customization",
@@ -434,8 +431,7 @@
         "cta_secondary_link": "",
         "padding_top": 80,
         "padding_bottom": 80
-      },
-      "disabled": true
+      }
     },
     "image_with_text_V3g6dQ": {
       "type": "image-with-text",
@@ -532,8 +528,7 @@
         "title": "What Our Customers Say",
         "padding_top": 80,
         "padding_bottom": 80
-      },
-      "disabled": true
+      }
     },
     "multicolumn_FjPYRE": {
       "type": "multicolumn",
@@ -641,13 +636,13 @@
   "order": [
     "custom_hero_main",
     "homepage_twocol_main",
-    "compact_bestsellers_hero",
     "trust_signals_main",
     "custom_collection_grid_main",
     "featured_collection_jG6UwG",
     "why_spars_main",
     "custom_customization_main",
     "custom_reviews_main",
+    "compact_bestsellers_hero",
     "image_banner_YkthUA",
     "slideshow",
     "featured-collection-0",
