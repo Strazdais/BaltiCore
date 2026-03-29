@@ -240,7 +240,8 @@
         "bg_color": "#f7f7f7",
         "padding_top": 80,
         "padding_bottom": 80
-      }
+      },
+      "disabled": true
     },
     "why_spars_main": {
       "type": "why-spars",
@@ -528,7 +529,8 @@
         "title": "What Our Customers Say",
         "padding_top": 80,
         "padding_bottom": 80
-      }
+      },
+      "disabled": true
     },
     "multicolumn_FjPYRE": {
       "type": "multicolumn",
