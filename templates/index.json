@@ -53,10 +53,11 @@
     "custom_hero_main": {
       "type": "custom-hero",
       "settings": {
-        "hide_overlay": true,
         "image": "shopify://shop_images/hero-workwear-construction.jpg",
         "heading": "Workwear and Sportswear",
-        "button_link": "/pages/shop"
+        "button_label": "Shop Now",
+        "button_link": "/pages/shop",
+        "hide_overlay": true
       }
     },
     "slideshow": {

@@ -1,11 +1,8 @@
-<section class="hp-twocol" style="background:{{ section.settings.bg_color | default: '#1a1a1a' }};padding:{{ section.settings.padding_top | default: 48 }}px 0 {{ section.settings.padding_bottom | default: 48 }}px;">
+<section class="hp-twocol" style="background:{{ section.settings.bg_color | default: '#1a1a1a' }};">
 
   <div class="hp-twocol__grid">
     <!-- LEFT: Collections Carousel -->
     <div class="hp-twocol__left">
-      <span class="hp-twocol__label">
-        {%- if request.locale.iso_code == 'lv' -%}Kolekcijas{%- else -%}Collections{%- endif -%}
-      </span>
 
       <div class="hp-carousel" data-carousel>
         <div class="hp-carousel__track" data-track>
@@ -26,6 +23,9 @@
                       {%- endif -%}
                     </div>
                     <div class="hp-carousel__overlay">
+                      <span class="hp-carousel__label">
+                        {%- if request.locale.iso_code == 'lv' -%}Kolekcijas{%- else -%}Collections{%- endif -%}
+                      </span>
                       <h3 class="hp-carousel__title">{{ col_obj.title }}</h3>
                       <a href="{{ col_obj.url }}" class="hp-carousel__btn">
                         {%- if request.locale.iso_code == 'lv' -%}Skatīt Kolekciju{%- else -%}Shop Collection{%- endif -%}
@@ -46,7 +46,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a951" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
         </button>
 
-        <!-- Dots -->
+        <!-- Dots (inside carousel, absolute positioned) -->
         <div class="hp-carousel__dots" data-dots></div>
       </div>
     </div>
@@ -114,56 +114,47 @@
 </section>
 
 <style>
+  .hp-twocol {
+    margin-top: 12px;
+  }
+
   .hp-twocol__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
+    gap: 12px;
     max-width: 100%;
     margin: 0;
-  }
-
-  .hp-twocol__label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #c8a951;
-    margin-bottom: 20px;
-    padding: 0 32px;
-  }
-
-  .hp-twocol__label--gold {
-    color: #c8a951;
+    padding: 0 0;
   }
 
   /* ===== LEFT: CAROUSEL ===== */
   .hp-twocol__left {
     position: relative;
-    padding-top: 8px;
   }
 
   .hp-carousel {
     position: relative;
     overflow: hidden;
-    margin: 0;
+    height: 100%;
   }
 
   .hp-carousel__track {
     display: flex;
     transition: transform 0.5s ease;
     will-change: transform;
+    height: 100%;
   }
 
   .hp-carousel__slide {
     min-width: 100%;
     position: relative;
     flex-shrink: 0;
+    height: 320px;
   }
 
   .hp-carousel__img-wrap {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     overflow: hidden;
   }
 
@@ -182,38 +173,58 @@
 
   .hp-carousel__overlay {
     position: absolute;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 32px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    padding: 20px 24px;
+    background: linear-gradient(170deg, rgba(0,0,0,0.35) 0%, transparent 40%, transparent 50%, rgba(0,0,0,0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hp-carousel__label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+
+  .hp-carousel__bottom {
+    display: flex;
+    flex-direction: column;
   }
 
   .hp-carousel__title {
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    margin: 0 0 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    margin: 0 0 10px;
+    letter-spacing: 0.02em;
   }
 
   .hp-carousel__btn {
     display: inline-block;
-    background: #c8a951;
-    color: #1a1a1a;
-    font-weight: 700;
-    font-size: 0.8rem;
+    width: fit-content;
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.75rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 10px 28px;
-    border-radius: 50px;
-    transition: background 0.25s ease;
+    padding: 8px 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: all 0.25s ease;
   }
 
   .hp-carousel__btn:hover {
-    background: #d4b85e;
+    background: #c8a951;
+    color: #1a1a1a;
+    border-color: #c8a951;
   }
 
   /* Arrows */
@@ -221,39 +232,47 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(26, 26, 26, 0.7);
-    border: 1px solid rgba(200, 169, 81, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 5;
     transition: background 0.2s;
+    opacity: 0;
+  }
+
+  .hp-carousel:hover .hp-carousel__arrow {
+    opacity: 1;
   }
 
   .hp-carousel__arrow:hover {
-    background: rgba(26, 26, 26, 0.9);
+    background: rgba(0, 0, 0, 0.7);
   }
 
-  .hp-carousel__arrow--prev { left: 12px; }
-  .hp-carousel__arrow--next { right: 12px; }
+  .hp-carousel__arrow--prev { left: 10px; }
+  .hp-carousel__arrow--next { right: 10px; }
 
   /* Dots */
   .hp-carousel__dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 16px 0;
+    gap: 6px;
+    z-index: 5;
   }
 
   .hp-carousel__dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.35);
     border: none;
     cursor: pointer;
     transition: background 0.3s;
@@ -261,7 +280,7 @@
   }
 
   .hp-carousel__dot.active {
-    background: #c8a951;
+    background: #fff;
   }
 
   /* ===== RIGHT: CUSTOMISATION ===== */
@@ -269,15 +288,16 @@
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    padding: 48px 40px;
+    padding: 24px 32px;
+    height: 320px;
+    box-sizing: border-box;
   }
 
   .hp-twocol__right-bg {
     position: absolute;
     top: 0;
     right: 0;
-    width: 55%;
+    width: 45%;
     height: 100%;
     z-index: 0;
   }
@@ -286,61 +306,80 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
-    mask-image: linear-gradient(to right, transparent 0%, black 40%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    opacity: 0.5;
+    mask-image: linear-gradient(to right, transparent 0%, black 50%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%);
   }
 
   .hp-twocol__right-content {
     position: relative;
     z-index: 1;
-    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 380px;
+  }
+
+  .hp-twocol__label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c8a951;
+    margin-bottom: 8px;
+    font-style: italic;
   }
 
   .hp-twocol__heading {
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.2;
-    margin: 0 0 16px;
+    margin: 0 0 10px;
   }
 
   .hp-twocol__body {
-    color: rgba(255,255,255,0.7);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin: 0 0 28px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin: 0 0 18px;
   }
 
   .hp-twocol__features {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 10px;
+    margin-bottom: 20px;
   }
 
   .hp-twocol__feature {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
   }
 
   .hp-twocol__feature-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    border: 1px solid rgba(200, 169, 81, 0.3);
-    border-radius: 10px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(200, 169, 81, 0.25);
+    border-radius: 8px;
     flex-shrink: 0;
+  }
+
+  .hp-twocol__feature-icon svg {
+    width: 22px;
+    height: 22px;
   }
 
   .hp-twocol__feature-label {
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
   }
 
   .hp-twocol__cta {
@@ -350,12 +389,12 @@
     background: #c8a951;
     color: #1a1a1a;
     font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.06em;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 16px 32px;
-    border-radius: 50px;
+    padding: 13px 24px;
+    border-radius: 4px;
     transition: background 0.25s ease;
     box-sizing: border-box;
   }
@@ -368,18 +407,20 @@
   @media (max-width: 767px) {
     .hp-twocol__grid {
       grid-template-columns: 1fr;
+      gap: 8px;
     }
 
-    .hp-twocol__left {
-      padding-top: 8px;
+    .hp-carousel__slide {
+      height: 240px;
     }
 
     .hp-twocol__right {
-      padding: 36px 24px;
+      height: auto;
+      padding: 28px 20px;
     }
 
     .hp-twocol__heading {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
     }
 
     .hp-twocol__right-bg {
@@ -387,12 +428,8 @@
       opacity: 0.15;
     }
 
-    .hp-carousel__img-wrap {
-      aspect-ratio: 16 / 10;
-    }
-
     .hp-carousel__title {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
   }
 </style>
