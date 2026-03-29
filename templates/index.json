@@ -555,8 +555,8 @@
     "trust_signals_main": {
       "type": "custom-trust-signals",
       "settings": {
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "homepage_twocol_main": {
