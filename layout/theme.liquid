@@ -298,7 +298,10 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-  </head>
+    <link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
+  <link rel="shortcut icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
+  <link rel="apple-touch-icon" href="{{ 'favicon.png' | asset_url }}">
+</head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
